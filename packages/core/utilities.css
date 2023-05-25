@@ -1,0 +1,22 @@
+/* Utilities */
+
+.strong {
+  font-weight: 700;
+}
+
+.background-primary {
+  background-color: var(--nyc-sys-color-primary);
+  color: var(--nyc-sys-color-on-primary);
+}
+
+.background-base {
+  background-color: var(--nyc-sys-color-background);
+}
+
+.background-primary-light {
+  background-color: var(--nyc-sys-color-primary-light);
+}
+
+.background-gradient-primary-light {
+  background: var(--nyc-sys-gradient-primary-light);
+}

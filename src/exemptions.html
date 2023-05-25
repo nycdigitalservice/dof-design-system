@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <main class="u-reset bg-blue-weak">
+      <header class="o-header background-primary">
+        <div class="center">
+          <div class="region flow">
+            <h1>Tax Exemptions and abatements</h1>
+            <p>These benefits can help you pay less property tax by reducing your property’s assessed value or providing tax credits.</p>
+          </div>
+        </div>
+      </header>
+      <div class="background-base">
+        <div class="center">
+          <div class="region" data-region-space="s-m">
+            <div class="center flex flex-wrap items-center gap-6">
+              <label class="strong shrink-0">What best describes you?</label>
+              <div class="select">
+                <select>
+                  <option>Select an option</option>
+                  <option value="homeowner">Homeowner</option>
+                  <option value="landlord">Landlord</option>
+                  <option value="commercial-property-owner">Commercial property owner</option>
+                  <option value="commercial-tenant">Commercial tenant</option>
+                  <option value="government-property-owner">Government property owner</option>
+                  <option value="non-profit-property-owner">Non-profit property owner</option>
+                  <option value="builder-developer">Builder/Developer</option>
+                  <option value="other">Other</option>
+                </select>
+                <i class="i-ri:arrow-down-s-line"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="center">
+        <div class="region" data-region-space="md">
+          <div class="grid" id="exemptions" data-gap="m"></div>
+        </div>
+        <div class="region flow">
+          <h4 class="text-base">Looking for construction and development benefits?</h4>
+          <div class="flex justify-between">
+            <p class="grow-1">The Department of Housing Preservation and Development (HPD) manages property tax incentives for certain new construction projects, renovations, and the purchase of foreclosed properties. Explore these benefits on the HPD website.</p>
+            <a href="#" class="button" data-variant="outline">
+              <span>Go to HPD site</span>
+              <i class="i-ri:external-link-line"></i>
+            </a>
+          </div>
+          <h2>Need help?</h2>
+          <p>Contact the Department of Finance for assistance.</p>
+          <div class="flow">
+            <div>
+              <a href="#" class="button" data-variant="outline">
+                <i class="i-ri:at-line me-3"></i>
+                <span class="grow-1">Online -
+                  <span class="font-medium">Send us an email</span>
+                </span>
+                <i class="i-ri:arrow-right-line"></i>
+              </a>
+            </div>
+            <div>
+              <a href="#" class="button" data-variant="outline">
+                <i class="i-ri:calendar-event-line me-3"></i>
+                <span class="grow-1">In person -
+                  <span class="font-medium">Schedule an appointment</span>
+                </span>
+                <i class="i-ri:arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
