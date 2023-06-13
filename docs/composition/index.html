@@ -1,0 +1,172 @@
+<!-- Generated from 2ad4703 on 2023-06-13 @ 02:59 with Emacs 29.0.91 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="/assets/dof-2023-styles.css"/><link rel="stylesheet" href="http://localhost:8080/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="http://localhost:8080/css/code.css"/><link rel="stylesheet" href="http://localhost:8080/css/site.css"/><title> - NYC</title></head><body class="u-reset"><header class="site-header region flow background-primary"><div class="container"><div class="site-title"><img class="logo" width="150" src="/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> </nav></div></div></header><div class="container"><div class="site-post flow region"><h1 class="site-post-title"></h1><p class="site-post-meta"></p><div id="content" class="flow"><h2><a id="composition" class="anchor" href="#composition">¶</a>Composition</h2><h3><a id="container" class="anchor" href="#container">¶</a>Container</h3><div class="outline-text-3" id="text-orgc84bb8b">
+<p>
+The `container` class <b>contains</b> elements to a <b>maximum size</b> and is <b>centered</b> by default
+</p>
+
+<pre><span class="org-css-selector">.container</span> {
+    <span class="org-css-property">margin-inline</span>: auto;
+    <span class="org-css-property">max-inline-size</span>: calc(var(<span class="org-variable-name">--nyc-sys-dimension-page-max-width</span>) + var(<span class="org-variable-name">--nyc-sys-dimension-gutter</span>) * 2);
+    <span class="org-css-property">padding-inline-start</span>: var(<span class="org-variable-name">--nyc-sys-dimension-gutter</span>);
+    <span class="org-css-property">padding-inline-end</span>: var(<span class="org-variable-name">--nyc-sys-dimension-gutter</span>);
+}</pre>
+</div>
+
+<h3><a id="region" class="anchor" href="#region">¶</a>Region</h3><div class="outline-text-3" id="text-org75fafa6">
+<p>
+Regions supply consistent vertical padding to sections of content
+</p>
+
+<pre><span class="org-css-selector">.region</span> {
+  <span class="org-css-property">padding-block-start</span>: var(<span class="org-variable-name">--nyc-sys-dimension-region-space</span>, var(<span class="org-variable-name">--space-l-xl</span>));
+  <span class="org-css-property">padding-block-end</span>: var(<span class="org-variable-name">--nyc-sys-dimension-region-space</span>, var(<span class="org-variable-name">--space-l-xl</span>));
+}
+<span class="org-css-selector">.region[data-region-space=</span><span class="org-string">"s"</span><span class="org-css-selector">]</span> {
+    <span class="org-variable-name">--nyc-sys-dimension-region-space</span>: var(<span class="org-variable-name">--space-s</span>);
+}
+
+<span class="org-css-selector">.region[data-region-space=</span><span class="org-string">"m"</span><span class="org-css-selector">]</span> {
+    <span class="org-variable-name">--nyc-sys-dimension-region-space</span>: var(<span class="org-variable-name">--space-m</span>);
+}
+
+<span class="org-css-selector">.region[data-region-space=</span><span class="org-string">"l"</span><span class="org-css-selector">]</span> {
+    <span class="org-variable-name">--nyc-sys-dimension-region-space</span>: var(<span class="org-variable-name">--space-l</span>);
+}
+
+<span class="org-css-selector">.region[data-region-space=</span><span class="org-string">"xl"</span><span class="org-css-selector">]</span> {
+    <span class="org-variable-name">--nyc-sys-dimension-region-space</span>: var(<span class="org-variable-name">--space-xl</span>);
+}
+
+<span class="org-css-selector">.region[data-region-space=</span><span class="org-string">"s-m"</span><span class="org-css-selector">]</span> {
+    <span class="org-variable-name">--nyc-sys-dimension-region-space</span>: var(<span class="org-variable-name">--space-s-m</span>);
+}
+
+<span class="org-css-selector">.region[data-region-space=</span><span class="org-string">"xs-s"</span><span class="org-css-selector">]</span> {
+    <span class="org-variable-name">--nyc-sys-dimension-region-space</span>: var(<span class="org-variable-name">--space-xs-s</span>);
+}</pre>
+</div>
+
+<h3><a id="grid" class="anchor" href="#grid">¶</a>Grid</h3><div class="outline-text-3" id="text-orga329ef2">
+<pre><span class="org-css-selector">.grid</span> {
+    <span class="org-variable-name">--gutter</span>: var(<span class="org-variable-name">--nyc-sys-dimension-gutter</span>);
+    <span class="org-css-property">display</span>: grid;
+    <span class="org-css-property">gap</span>: var(<span class="org-variable-name">--gutter</span>, var(<span class="org-variable-name">--space-s-l</span>));
+    <span class="org-css-property">grid-auto-rows</span>: 1fr
+  }
+
+  <span class="org-builtin">@supports</span> (width: min(250px, 100%)) {
+    <span class="org-css-selector">.grid</span> {
+      <span class="org-comment-delimiter">/* </span><span class="org-comment">grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));</span><span class="org-comment-delimiter"> */</span>
+      <span class="org-css-property">grid-template-columns</span>: repeat(
+        var(<span class="org-variable-name">--grid-placement</span>, auto-fill),
+        minmax(var(<span class="org-variable-name">--grid-min-item-size</span>, 16rem), var(<span class="org-variable-name">--grid-max-item-size</span>, 1fr))
+      );
+    }
+  }
+
+<span class="org-css-selector">.grid &gt; *</span> {
+  <span class="org-comment-delimiter">/* </span><span class="org-comment">container: grid-item / inline-size;</span><span class="org-comment-delimiter"> */</span>
+}
+
+<span class="org-css-selector">.grid[data-layout=</span><span class="org-string">"col-4"</span><span class="org-css-selector">]</span> {
+    <span class="org-variable-name">--gutter</span>: var(<span class="org-variable-name">--space-s</span>);
+    <span class="org-variable-name">--grid-placement</span>: auto-fit;
+    <span class="org-comment-delimiter">/* </span><span class="org-comment">--grid-min-item-size: 12.5rem;</span><span class="org-comment-delimiter"> */</span>
+    <span class="org-comment-delimiter">/* </span><span class="org-comment">--grid-max-item-size: calc((var(--nyc-sys-dimension-page-max-width) - calc(var( --nyc-sys-dimension-gutter ) * 3)) / 4);</span><span class="org-comment-delimiter"> */</span>
+    <span class="org-comment-delimiter">/* </span><span class="org-comment">--grid-min-item-size: calc(var(--grid-max-item-size) * .85);</span><span class="org-comment-delimiter"> */</span>
+    <span class="org-comment-delimiter">/* </span><span class="org-comment">--grid-max-item-size: 242px;</span><span class="org-comment-delimiter"> */</span>
+    <span class="org-variable-name">--grid-min-item-size</span>: calc(200px);
+}
+
+<span class="org-css-selector">.grid[data-layout=</span><span class="org-string">"col-2"</span><span class="org-css-selector">]</span> {
+    <span class="org-variable-name">--grid-placement</span>: auto-fit;
+    <span class="org-variable-name">--grid-min-item-size</span>: 20rem;
+}
+
+<span class="org-comment-delimiter">/* </span><span class="org-comment">TODO: address 900px hard-coded value</span><span class="org-comment-delimiter"> */</span>
+<span class="org-builtin">@container</span> grid-parent (max-width: 900px) {
+    <span class="org-css-selector">.grid[data-layout=</span><span class="org-string">"col-4"</span><span class="org-css-selector">]</span> {
+        <span class="org-comment-delimiter">/* </span><span class="org-comment">Bump min-size to ~300px to force 2 col layout</span><span class="org-comment-delimiter"> */</span>
+        <span class="org-comment-delimiter">/* </span><span class="org-comment">--grid-min-item-size: 18.75rem;</span><span class="org-comment-delimiter"> */</span>
+        <span class="org-comment-delimiter">/* </span><span class="org-comment">--grid-min-item-size: 18rem;</span><span class="org-comment-delimiter"> */</span>
+    }
+}</pre>
+</div>
+
+<h3><a id="sidebar" class="anchor" href="#sidebar">¶</a>Sidebar</h3><div class="outline-text-3" id="text-orgdbc8424">
+<pre><span class="org-css-selector">.with-sidebar</span> {
+    <span class="org-css-property">display</span>: flex;
+    <span class="org-css-property">flex-wrap</span>: wrap;
+    <span class="org-css-property">gap</span>: var(<span class="org-variable-name">--s1</span>);
+}
+
+.with-sidebar &gt; :first-child {
+    <span class="org-css-property">flex-grow</span>: 1;
+}
+
+.with-sidebar &gt; :last-child {
+    <span class="org-css-property">flex-basis</span>: 0;
+    <span class="org-css-property">flex-grow</span>: 999;
+    <span class="org-css-property">min-inline-size</span>: 50%;
+}</pre>
+</div>
+
+<h3><a id="flow" class="anchor" href="#flow">¶</a>Flow</h3><div class="outline-text-3" id="text-org7ff791a">
+<pre><span class="org-css-selector">.flow &gt; *</span> {
+    <span class="org-css-property">margin-block</span>: 0;
+}
+
+<span class="org-css-selector">.flow &gt; * + *</span> {
+    <span class="org-css-property">margin-block-start</span>: var(<span class="org-variable-name">--space</span>, 1em);
+}
+
+<span class="org-css-selector">[data-flow-space=s]</span> {
+    <span class="org-variable-name">--space</span>: var(<span class="org-variable-name">--space-s</span>);
+}
+
+<span class="org-css-selector">[data-flow-space=m]</span> {
+    <span class="org-variable-name">--space</span>: var(<span class="org-variable-name">--space-m</span>);
+}
+
+<span class="org-css-selector">[data-flow-space=l]</span> {
+    <span class="org-variable-name">--space</span>: var(<span class="org-variable-name">--space-l</span>);
+}</pre>
+</div>
+
+<h3><a id="switcher" class="anchor" href="#switcher">¶</a>Switcher</h3><div class="outline-text-3" id="text-org9071a73">
+<pre><span class="org-css-selector">.switcher</span> {
+      <span class="org-css-property">display</span>: flex;
+      <span class="org-css-property">flex-wrap</span>: wrap;
+      <span class="org-css-property">gap</span>: var(<span class="org-variable-name">--space-s-m</span>);
+      <span class="org-css-property">container</span>: switcher / inline-size;
+  }
+
+  <span class="org-css-selector">.switcher &gt; *</span> {
+      <span class="org-css-property">flex-grow</span>: 1;
+      <span class="org-css-property">flex-basis</span>: calc(( 40rem - 100%) * 999);
+  }
+
+  .switcher &gt; :nth-last-child(n+ 4),
+  .switcher &gt; :nth-last-child(n+ 4) ~ * {
+      <span class="org-css-property">flex-basis</span>: 100%;
+  }
+
+<span class="org-css-selector">[data-col-layout=</span><span class="org-string">"1-3-2"</span><span class="org-css-selector">]</span> {
+    &amp; :nth-child(2) {
+        <span class="org-css-property">order</span>: 3;
+    }
+
+    &amp; :nth-child(3) {
+        <span class="org-css-property">flex-grow</span>: 2;
+    }
+}
+
+<span class="org-builtin">@container</span> switcher (max-width: 40rem) {
+    <span class="org-css-selector">[data-col-layout=</span><span class="org-string">"1-3-2"</span><span class="org-css-selector">]</span> {
+        &amp; :nth-child(2) {
+            <span class="org-css-property">order</span>: initial;
+        }
+    }
+}</pre>
+</div>
+</div></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer></body></html>

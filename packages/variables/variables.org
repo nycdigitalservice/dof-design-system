@@ -1,0 +1,9 @@
+#+BEGIN_SRC css :tangle variables.css :noweb yes
+  :root {
+    <<ref-vars>>
+    <<sys-vars>>
+  }
+#+END_SRC
+
+#+INCLUDE: "./color.org"
+

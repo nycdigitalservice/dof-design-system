@@ -1,0 +1,180 @@
+* Composition
+
+** Container
+
+The `container` class *contains* elements to a *maximum size* and is *centered* by default
+
+#+BEGIN_SRC css :tangle composition.css
+.container {
+    margin-inline: auto;
+    max-inline-size: calc(var(--nyc-sys-dimension-page-max-width) + var(--nyc-sys-dimension-gutter) * 2);
+    padding-inline-start: var(--nyc-sys-dimension-gutter);
+    padding-inline-end: var(--nyc-sys-dimension-gutter);
+}
+#+END_SRC
+
+** Region
+
+Regions supply consistent vertical padding to sections of content
+
+#+BEGIN_SRC css :tangle composition.css
+  .region {
+    padding-block-start: var(--nyc-sys-dimension-region-space, var(--space-l-xl));
+    padding-block-end: var(--nyc-sys-dimension-region-space, var(--space-l-xl));
+  }
+  .region[data-region-space="s"] {
+      --nyc-sys-dimension-region-space: var(--space-s);
+  }
+
+  .region[data-region-space="m"] {
+      --nyc-sys-dimension-region-space: var(--space-m);
+  }
+
+  .region[data-region-space="l"] {
+      --nyc-sys-dimension-region-space: var(--space-l);
+  }
+
+  .region[data-region-space="xl"] {
+      --nyc-sys-dimension-region-space: var(--space-xl);
+  }
+
+  .region[data-region-space="s-m"] {
+      --nyc-sys-dimension-region-space: var(--space-s-m);
+  }
+
+  .region[data-region-space="xs-s"] {
+      --nyc-sys-dimension-region-space: var(--space-xs-s);
+  }
+#+END_SRC
+
+** Grid
+
+#+BEGIN_SRC css :tangle composition.css
+  .grid {
+    --gutter: var(--nyc-sys-dimension-gutter);
+    display: grid;
+    gap: var(--gutter, var(--space-s-l));
+    grid-auto-rows: 1fr
+  }
+
+  @supports (width: min(250px, 100%)) {
+    .grid {
+      /* grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); */
+      grid-template-columns: repeat(
+        var(--grid-placement, auto-fill),
+        minmax(var(--grid-min-item-size, 16rem), var(--grid-max-item-size, 1fr))
+      );
+    }
+  }
+
+.grid > * {
+  /* container: grid-item / inline-size; */
+}
+
+.grid[data-layout="col-4"] {
+    --gutter: var(--space-s);
+    --grid-placement: auto-fit;
+    /* --grid-min-item-size: 12.5rem; */
+    /* --grid-max-item-size: calc((var(--nyc-sys-dimension-page-max-width) - calc(var( --nyc-sys-dimension-gutter ) * 3)) / 4); */
+    /* --grid-min-item-size: calc(var(--grid-max-item-size) * .85); */
+    /* --grid-max-item-size: 242px; */
+    --grid-min-item-size: calc(200px);
+}
+
+.grid[data-layout="col-2"] {
+    --grid-placement: auto-fit;
+    --grid-min-item-size: 20rem;
+}
+
+/* TODO: address 900px hard-coded value */
+@container grid-parent (max-width: 900px) {
+    .grid[data-layout="col-4"] {
+        /* Bump min-size to ~300px to force 2 col layout */
+        /* --grid-min-item-size: 18.75rem; */
+        /* --grid-min-item-size: 18rem; */
+    }
+}
+#+END_SRC
+
+** Sidebar
+
+#+BEGIN_SRC css :tangle composition.css
+.with-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s1);
+}
+
+.with-sidebar > :first-child {
+    flex-grow: 1;
+}
+
+.with-sidebar > :last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 50%;
+}
+#+END_SRC
+
+** Flow
+
+#+begin_src css :tangle composition.css
+.flow > * {
+    margin-block: 0;
+}
+
+.flow > * + * {
+    margin-block-start: var(--space, 1em);
+}
+
+[data-flow-space=s] {
+    --space: var(--space-s);
+}
+
+[data-flow-space=m] {
+    --space: var(--space-m);
+}
+
+[data-flow-space=l] {
+    --space: var(--space-l);
+}
+#+end_src
+
+** Switcher
+
+#+begin_src css :tangle composition.css
+  .switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-s-m);
+      container: switcher / inline-size;
+  }
+
+  .switcher > * {
+      flex-grow: 1;
+      flex-basis: calc(( 40rem - 100%) * 999);
+  }
+
+  .switcher > :nth-last-child(n+ 4),
+  .switcher > :nth-last-child(n+ 4) ~ * {
+      flex-basis: 100%;
+  }
+
+[data-col-layout="1-3-2"] {
+    & :nth-child(2) {
+        order: 3;
+    }
+
+    & :nth-child(3) {
+        flex-grow: 2;
+    }
+}
+
+@container switcher (max-width: 40rem) {
+    [data-col-layout="1-3-2"] {
+        & :nth-child(2) {
+            order: initial;
+        }
+    }
+}
+#+end_src

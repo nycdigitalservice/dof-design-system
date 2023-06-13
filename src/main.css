@@ -1,10 +1,11 @@
 @import "../packages/core/variables.css";
 @import "../packages/core/global.css";
-@import "../packages/core/composition.css";
+@import "../packages/composition/composition.css";
 @import "../packages/core/utilities.css";
 @import "../packages/css-reset/reset.css";
 @import "../packages/components/card/card.css";
 @import "../packages/elements/button/button.css";
+@import "../packages/elements/form/form.css";
 @import "../packages/elements/select/select.css";
 
 /* Blocks */
@@ -17,10 +18,10 @@
 
 /* TODO: address 900px hard-coded value */
 @container grid-parent (max-width: 900px) {
-.grid[data-grid-cols="4"] {
-    /* Bump min-size to ~300px to force 2 col layout */
-  /* --grid-min-item-size: 18.75rem; */
-  --grid-min-item-size: 18rem;
+    .grid[data-layout="col-4"] {
+        /* Bump min-size to ~300px to force 2 col layout */
+        /* --grid-min-item-size: 18.75rem; */
+        --grid-min-item-size: 18rem;
   }
 }
 
@@ -40,24 +41,20 @@
   }
 }
 
-.news-item {
-  --space: .8em;
+.alert[data-variant=news] {
+    --space: .8em;
+    display: flex;
+    flex-direction: column;
+    & :--heading {
+        font-size: var(--nyc-sys-font-size-base);
+    }
 
-  & :--heading {
-    font-size: var(--nyc-sys-font-size-base);
-    order: 1;
-  }
-
-  & time {
-    order: 0;
-    --space: 0;
-    margin-block-end: .8em;
-    font-weight: 400;
-  }
-
-  .news-body {
-    order: 2;
-  }
+    & time {
+        order: -1;
+        --space: 0;
+        margin-block-end: .8em;
+        font-weight: 400;
+    }
 }
 
 @container grid-parent (max-width: 657px) {

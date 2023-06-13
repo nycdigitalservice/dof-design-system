@@ -9,98 +9,117 @@
   <body>
     <main class="u-reset flow">
       <section class="o-header background-gradient-primary-light">
-        <div class="center region flow">
-          <h1>Property</h1>
-          <h2>What would you like to do?</h2>
-          <div class="grid" data-grid-cols="4" data-flow-space="l">
-            <article class="c-card" data-variant="large">
-              <header class="c-card__header">
-                <h3>
-                  <a href="#" class="c-card__primary-action">
-                    <span>
-                      View property bills, assessments, and notices
-                    </span>
-                    <span>
-                      <span class="i-ri:external-link-line"></span>
-                    </span>
-                  </a>
-                </h3>
-              </header>
-            </article>
-            <article class="c-card" data-variant="large">
-              <header class="c-card__header">
-                <h3>
-                  <a href="#" class="c-card__primary-action">
-                    <span>
-                      Pay property taxes online
-                    </span>
-                    <span>
-                      <span class="i-ri:external-link-line"></span>
-                    </span>
-                  </a>
-                </h3>
-              </header>
-            </article>
-            <article class="c-card" data-variant="large">
-              <header class="c-card__header">
-                <h3>
-                  <a href="#" class="c-card__primary-action">
-                    <span>
-                      Explore property records (ACRIS)
-                    </span>
-                    <span>
-                      <span class="i-ri:external-link-line"></span>
-                    </span>
-                  </a>
-                </h3>
-              </header>
-            </article>
-            <article class="c-card" data-variant="large">
-              <header class="c-card__header">
-                <h3>
-                  <a href="#" class="c-card__primary-action">
-                    <span>
-                      Apply for tax exemptions and abatements
-                    </span>
-                    <span>
-                      <span class="i-ri:external-link-line"></span>
-                    </span>
-                  </a>
-                </h3>
-              </header>
-            </article>
+          <div class="region">
+              <div class="container flow">
+                  <h1>Property</h1>
+                  <article class="card">
+                    <header class="card__header">
+                      <h3>
+                        <a href="#" class="card__primary-action">
+                          <span>
+                            View property bills, assessments, and notices
+                          </span>
+                          <span>
+                            <span class="i-ri:external-link-line"></span>
+                          </span>
+                        </a>
+                      </h3>
+                    </header>
+                    <div class="card__media">
+                      <img src="/img/card-placeholder.png">
+                    </div>
+                    <div class="card__body">
+                        <p>A summary of this card</p>
+                    </div>
+                  </article>
+                  <h2>What would you like to do?</h2>
+                  <div class="grid" data-layout="col-4" data-flow-space="l">
+                    <article class="card" data-variant="large">
+                          <header class="card__header">
+                              <h3>
+                                  <a href="#" class="card__primary-action">
+                                      <span>
+                                          View property bills, assessments, and notices
+                                      </span>
+                                      <span>
+                                          <span class="i-ri:external-link-line"></span>
+                                      </span>
+                                  </a>
+                              </h3>
+                          </header>
+                      </article>
+                      <article class="card" data-variant="large">
+                          <header class="card__header">
+                              <h3>
+                                  <a href="#" class="card__primary-action">
+                                      <span>
+                                          Pay property taxes online
+                                      </span>
+                                      <span>
+                                          <span class="i-ri:external-link-line"></span>
+                                      </span>
+                                  </a>
+                              </h3>
+                          </header>
+                      </article>
+                      <article class="card" data-variant="large">
+                          <header class="card__header">
+                              <h3>
+                                  <a href="#" class="card__primary-action">
+                                      <span>
+                                          Explore property records (ACRIS)
+                                      </span>
+                                      <span>
+                                          <span class="i-ri:external-link-line"></span>
+                                      </span>
+                                  </a>
+                              </h3>
+                          </header>
+                      </article>
+                      <article class="card" data-variant="large">
+                          <header class="card__header">
+                              <h3>
+                                  <a href="/exemptions.html" class="card__primary-action">
+                                      <span>
+                                          Apply for tax exemptions and abatements
+                                      </span>
+                                      <span>
+                                          <span class="i-ri:external-link-line"></span>
+                                      </span>
+                                  </a>
+                              </h3>
+                          </header>
+                      </article>
+                  </div>
+              </div>
           </div>
-        </div>
       </section>
       <section>
-        <div class="center region">
+        <div class="container region">
           <h2>News and announcements</h2>
-          <ul role="list" class="grid mt-8" data-grid-cols="2">
-            <li>
-              <article class="alert news-item flow flex flex-col">
-                <h3>Deed fraud alert</h3>
-                <time datetime="2023-01-01">January 1, 2023</time>
-                <div class="news-body flow">
-                  <p>Learn how to protect your property from fraud.</p>
-                  <a href="#">Learn more <span class="i-ri:arrow-right-line"></span></a>
-                </div>
-              </article>
-            </li>
-            <li>
-              <article class="alert news-item flow">
-                <h3>Property tax payment notification</h3>
-                <time datetime="2023-01-01">January 1, 2023</time>
-                <div class="news-body flow">
-                  <p>You can now receive alerts when payments are credited to your property tax account.</p>
-                  <a href="#">Register now <span class="i-ri:arrow-right-line"></span></a>
-                </div>
-              </article>
-            </li>
+          <ul role="list" class="grid mt-8" data-layout="col-2">
+              <li>
+                  <article class="alert flow" data-variant="news">
+                      <h3>Deed fraud alert</h3>
+                      <time datetime="2023-01-01">January 1, 2023</time>
+
+                      <p>Learn how to protect your property from fraud.</p>
+                      <a href="#">Learn more <span class="i-ri:arrow-right-line"></span></a>
+                  </article>
+              </li>
+              <li>
+                  <article class="alert flow" data-variant="news">
+                      <h3>Property tax payment notification</h3>
+                      <time datetime="2023-01-01">January 1, 2023</time>
+                      <p>You can now receive alerts when payments are credited to your property tax account.</p>
+                      <a href="#">Register now <span class="i-ri:arrow-right-line"></span></a>
+                  </article>
+              </li>
           </ul>
         </div>
       </section>
       <section>
-        <div class="center region flow" data-flow-space="l">
+        <div class="container region flow" data-flow-space="l">
           <h2>You may also be interested in</h2>
           <div class="flow" id="suggested-content"></div>
         </div>

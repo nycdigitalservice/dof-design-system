@@ -1,0 +1,312 @@
+<!-- Generated from 2ad4703 on 2023-06-13 @ 02:59 with Emacs 29.0.91 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="/assets/dof-2023-styles.css"/><link rel="stylesheet" href="http://localhost:8080/fonts/jetbrains-mono/jetbrains-mono.css"/><link rel="stylesheet" href="http://localhost:8080/css/code.css"/><link rel="stylesheet" href="http://localhost:8080/css/site.css"/><title>Card - NYC</title></head><body class="u-reset"><header class="site-header region flow background-primary"><div class="container"><div class="site-title"><img class="logo" width="150" src="/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> </nav></div></div></header><div class="container"><div class="site-post flow region"><h1 class="site-post-title">Card</h1><p class="site-post-meta"></p><div id="content" class="flow">
+<h2><a id="card" class="anchor" href="#card">¶</a>Card</h2><div class="outline-text-2" id="text-org3253db5">
+<p>
+Cards are thumbnails of content and may include a full or partial set of content-related elements. It reflects what would be seen in the Header of a singular content view. Further guidance on generic cards can be found on the <a href="https://designsystem.digital.gov/components/card">U.S. Web Design System (USWDS) site</a>. Cards may contain any of the following elements; title, subtitle, status, summary, feature list, call-to-action, or web share component.
+</p>
+</div>
+
+<h3><a id="usage" class="anchor" href="#usage">¶</a>Usage</h3><div class="outline-text-3" id="text-org526fd19">
+<pre>&lt;<span class="org-function-name">article</span> <span class="org-variable-name">class</span>=<span class="org-string">"card"</span>&gt;
+  &lt;<span class="org-function-name">header</span> <span class="org-variable-name">class</span>=<span class="org-string">"card__header"</span>&gt;
+    &lt;<span class="org-function-name">h3</span>&gt;
+      &lt;<span class="org-function-name">a</span> <span class="org-variable-name">href</span>=<span class="org-string">"/property.page"</span> <span class="org-variable-name">class</span>=<span class="org-string">"card__primary-action"</span>&gt;
+        &lt;<span class="org-function-name">span</span>&gt;
+          View property bills, assessments, and notices
+        &lt;/<span class="org-function-name">span</span>&gt;
+        &lt;<span class="org-function-name">span</span>&gt;
+          &lt;<span class="org-function-name">span</span> <span class="org-variable-name">class</span>=<span class="org-string">"i-ri:external-link-line"</span>&gt;&lt;/<span class="org-function-name">span</span>&gt;
+        &lt;/<span class="org-function-name">span</span>&gt;
+      &lt;/<span class="org-function-name">a</span>&gt;
+    &lt;/<span class="org-function-name">h3</span>&gt;
+  &lt;/<span class="org-function-name">header</span>&gt;
+  &lt;<span class="org-function-name">div</span> <span class="org-variable-name">class</span>=<span class="org-string">"card__media"</span>&gt;
+    &lt;<span class="org-function-name">img</span> <span class="org-variable-name">src</span>=<span class="org-string">"/assets/img/card-placeholder.png"</span> <span class="org-variable-name">alt</span>=<span class="org-string">"Alt text here"</span>&gt;
+  &lt;/<span class="org-function-name">div</span>&gt;
+  &lt;<span class="org-function-name">div</span> <span class="org-variable-name">class</span>=<span class="org-string">"card__body"</span>&gt;
+    &lt;<span class="org-function-name">p</span>&gt;A short description for the card&lt;/<span class="org-function-name">p</span>&gt;
+  &lt;/<span class="org-function-name">div</span>&gt;
+&lt;/<span class="org-function-name">article</span>&gt;</pre>
+
+<article class="card">
+  <header class="card__header">
+    <h3>
+      <a href="/property.page" class="card__primary-action">
+        <span>
+          View property bills, assessments, and notices
+        </span>
+        <span>
+          <span class="i-ri:external-link-line"></span>
+        </span>
+      </a>
+    </h3>
+  </header>
+  <div class="card__media">
+    <img src="/assets/img/card-placeholder.png" alt="Alt text here">
+  </div>
+  <div class="card__body">
+    <p>A short description for the card</p>
+  </div>
+</article>
+</div>
+
+<h3><a id="css-variables" class="anchor" href="#css-variables">¶</a>CSS Variables</h3><div class="outline-text-3" id="text-orgcfd965a">
+<p>
+Component variables are prefixed with <code>nyc-cmp-</code> and take the form <code>component{-element}-property{-state}</code>
+</p>
+
+<pre><span class="org-css-selector">:root</span> {
+    <span class="org-variable-name">--nyc-cmp-card-background</span>: var(<span class="org-variable-name">--nyc-sys-color-background</span>, transparent);
+    <span class="org-variable-name">--nyc-cmp-card-background-hover</span>: var(<span class="org-variable-name">--nyc-sys-color-primary-lightest</span>, transparent);
+    <span class="org-variable-name">--nyc-cmp-card-shadow</span>: var(<span class="org-variable-name">--nyc-sys-shadow-base</span>);
+    <span class="org-variable-name">--nyc-cmp-card-color</span>: var(<span class="org-variable-name">--nyc-sys-color-text</span>);
+    <span class="org-variable-name">--nyc-cmp-card-body-color</span>: var(<span class="org-variable-name">--nyc-sys-color-text-light</span>);
+    <span class="org-variable-name">--nyc-cmp-card-color-hover</span>: var(<span class="org-variable-name">--nyc-sys-color-primary</span>);
+    <span class="org-variable-name">--nyc-cmp-card-border</span>: 1.5px solid var(<span class="org-variable-name">--nyc-sys-color-border</span>);
+    <span class="org-variable-name">--nyc-cmp-card-border-hover</span>: 1.5px solid var(<span class="org-variable-name">--nyc-sys-color-primary</span>);
+    <span class="org-variable-name">--nyc-cmp-card-heading-font-size</span>: var(<span class="org-variable-name">--size-step-0</span>);
+    <span class="org-variable-name">--nyc-cmp-card-body-font-size</span>: 1rem;
+}</pre>
+</div>
+
+<h3><a id="base" class="anchor" href="#base">¶</a>Base</h3><div class="outline-text-3" id="text-orgbb51f90">
+<p>
+We start by defining the Cards layout and style properties
+</p>
+
+<pre><span class="org-css-selector">.card</span> {
+    <span class="org-css-property">container</span>: card / inline-size;
+
+    <span class="org-css-property">position</span>: relative;
+    <span class="org-css-property">display</span>: flex;
+    <span class="org-css-property">flex-direction</span>: column;
+
+    <span class="org-css-property">background-color</span>: var(<span class="org-variable-name">--nyc-cmp-card-background</span>);
+    <span class="org-css-property">color</span>: var(<span class="org-variable-name">--nyc-cmp-card-color</span>);
+
+    <span class="org-css-property">border</span>: var(<span class="org-variable-name">--nyc-cmp-card-border</span>);
+    <span class="org-css-property">border-radius</span>: 4px;
+    <span class="org-css-property">box-shadow</span>: var(<span class="org-variable-name">--nyc-cmp-card-shadow</span>);
+
+    <span class="org-css-property">transition</span>: all .3s ease;
+    <span class="org-comment-delimiter">/* </span><span class="org-comment">min-block-size: 2.5rem;</span><span class="org-comment-delimiter"> */</span>
+
+    &amp;:hover {
+        <span class="org-css-property">background</span>: var(<span class="org-variable-name">--nyc-cmp-card-background-hover</span>);
+        <span class="org-css-property">color</span>: var(<span class="org-variable-name">--nyc-cmp-card-color-hover</span>);
+        <span class="org-css-property">border</span>: var(<span class="org-variable-name">--nyc-cmp-card-border-hover</span>);
+    }
+}</pre>
+
+<p>
+We use the flow composition pattern to apply vertical spacing
+</p>
+</div>
+
+<ul><li>- set up CSS property for vertical spacing</li>
+<li>END<div class="outline-text-16" id="text-orge10f3bb">
+<pre><span class="org-css-selector">.card &gt; * + *</span> {
+    <span class="org-css-property">margin-block-start</span>: .5rem;
+}</pre>
+</div>
+</li></ul>
+
+<h3><a id="sections" class="anchor" href="#sections">¶</a>Sections</h3><div class="outline-text-3" id="text-org2c400f6">
+<p>
+Here we define layout and style for the cards Header, Media, and Body sections
+</p>
+</div>
+
+<h4><a id="card-header" class="anchor" href="#card-header">¶</a>Card Header</h4><div class="outline-text-4" id="text-org79db5e9">
+<pre><span class="org-css-selector">.card__header</span> {
+    <span class="org-css-property">padding</span>: 1rem;
+    <span class="org-css-property">display</span>: flex;
+    <span class="org-css-property">flex</span>: 1;
+    &amp; :<span class="org-variable-name">--heading</span> {
+        <span class="org-css-property">flex</span>: 1;
+        <span class="org-css-property">font-size</span>: var(<span class="org-variable-name">--nyc-cmp-card-heading-font-size</span>);
+        <span class="org-comment-delimiter">/* </span><span class="org-comment">max-inline-size: 85%;</span><span class="org-comment-delimiter"> */</span>
+    }
+}</pre>
+</div>
+
+<h4><a id="card-media" class="anchor" href="#card-media">¶</a>Card Media</h4><div class="outline-text-4" id="text-orgfb64e31">
+<pre><span class="org-css-selector">.card__media</span> {
+    <span class="org-css-property">order</span>: -1;
+    <span class="org-css-property">margin-block-start</span>: 0;
+    &amp; img {
+        <span class="org-css-property">width</span>: 100%;
+    }
+}</pre>
+</div>
+
+<h4><a id="card-body" class="anchor" href="#card-body">¶</a>Card Body</h4><div class="outline-text-4" id="text-orgd5c4983">
+<pre><span class="org-css-selector">.card__body</span> {
+    <span class="org-css-property">flex-grow</span>: 1;
+    <span class="org-css-property">padding</span>: 1rem;
+    <span class="org-css-property">padding-top</span>: 0;
+    <span class="org-css-property">color</span>: var(<span class="org-variable-name">--nyc-cmp-card-body-color</span>);
+    <span class="org-css-property">font-size</span>: var(<span class="org-variable-name">--nyc-cmp-card-body-font-size</span>);
+}</pre>
+</div>
+
+<h3><a id="primary-action" class="anchor" href="#primary-action">¶</a>Primary action</h3><div class="outline-text-3" id="text-org3b8a7fd">
+<p>
+The primary action is associated with an <code>a</code> or <code>button</code> element and makes the entirety of the card clickable.
+</p>
+
+<pre><span class="org-css-selector">.card__primary-action</span> {
+    <span class="org-css-property">display</span>: flex;
+    <span class="org-css-property">text-decoration</span>: none;
+    &amp;:before {
+        <span class="org-css-property">content</span>: <span class="org-string">''</span>;
+        <span class="org-css-property">position</span>: absolute;
+        <span class="org-css-property">top</span>: 0; <span class="org-comment-delimiter">/* </span><span class="org-comment">2</span><span class="org-comment-delimiter"> */</span>
+        <span class="org-css-property">left</span>: 0; <span class="org-comment-delimiter">/* </span><span class="org-comment">2</span><span class="org-comment-delimiter"> */</span>
+        <span class="org-css-property">right</span>: 0; <span class="org-comment-delimiter">/* </span><span class="org-comment">2</span><span class="org-comment-delimiter"> */</span>
+        <span class="org-css-property">bottom</span>: 0; <span class="org-comment-delimiter">/* </span><span class="org-comment">2</span><span class="org-comment-delimiter"> */</span>
+        <span class="org-css-property">z-index</span>: 1; <span class="org-comment-delimiter">/* </span><span class="org-comment">3</span><span class="org-comment-delimiter"> */</span>
+    }
+    &amp; &gt; :first-child {
+        <span class="org-css-property">flex</span>: 1;
+    }
+    &amp;:focus {
+        <span class="org-css-property">text-decoration</span>: underline;
+    }
+    &amp; [class*=i-] {
+        <span class="org-css-property">font-size</span>: 1.5rem;
+        <span class="org-css-property">margin-inline-start</span>: .5rem;
+    }
+}</pre>
+</div>
+
+<h3><a id="container-query" class="anchor" href="#container-query">¶</a>Container query</h3><div class="outline-text-3" id="text-orgc7d101b">
+<p>
+To adjust the cards presentation based on its width, we use a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries">Container Query</a>
+</p>
+
+<pre><span class="org-builtin">@container</span> grid-parent (max-width: 900px) {
+      <span class="org-css-selector">.card</span> {
+          <span class="org-css-property">flex-direction</span>: row;
+          <span class="org-css-property">flex-wrap</span>: wrap;
+          <span class="org-css-property">overflow</span>: hidden;
+      }
+      <span class="org-css-selector">.card__header</span> {
+          <span class="org-css-property">flex</span>: 1;
+          <span class="org-css-property">flex-basis</span>: 100%;
+      }
+      <span class="org-css-selector">.card__media</span> {
+          <span class="org-css-property">width</span>: 35%;
+          <span class="org-css-property">height</span>: 100%;
+          <span class="org-css-property">position</span>: absolute;
+          &amp; img {
+              <span class="org-css-property">width</span>: 100%;
+              <span class="org-css-property">height</span>: 100%;
+              <span class="org-css-property">object-fit</span>: cover;
+          }
+      }
+      <span class="org-css-selector">.card__body</span> {
+          <span class="org-css-property">flex-grow</span>: 1;
+          <span class="org-css-property">flex-basis</span>: 100%;
+      }
+      .card:has(.card__media) {
+          &amp; .card__header,
+          &amp; .card__body {
+              <span class="org-css-property">margin-left</span>: auto;
+              <span class="org-css-property">flex-basis</span>: 65%;
+              <span class="org-css-property">flex-grow</span>: 0;
+          }
+      }
+  }
+<span class="org-builtin">@container</span> card (min-width: 320px) {
+      <span class="org-css-selector">.card__media</span> {
+          <span class="org-css-property">width</span>: 35%;
+          <span class="org-css-property">height</span>: 100%;
+          <span class="org-css-property">position</span>: absolute;
+          <span class="org-css-property">aspect-ratio</span>: 1/1;
+          &amp; img {
+              <span class="org-css-property">width</span>: 100%;
+              <span class="org-css-property">height</span>: 100%;
+              <span class="org-css-property">object-fit</span>: cover;
+          }
+      }
+      <span class="org-css-selector">.card__body</span> {
+          <span class="org-css-property">flex-grow</span>: 1;
+          <span class="org-css-property">flex-basis</span>: 100%;
+      }
+      .card:has(.card__media) {
+          &amp; .card__header,
+          &amp; .card__body {
+              <span class="org-css-property">margin-left</span>: auto;
+              <span class="org-css-property">flex-basis</span>: 65%;
+              <span class="org-css-property">flex-grow</span>: 0;
+              <span class="org-css-property">width</span>: 65%;
+          }
+      }    
+}
+  <span class="org-comment-delimiter">/* </span><span class="org-comment">@container card (min-width: 11rem) and (max-width: 15rem) {</span><span class="org-comment-delimiter"> */</span>
+  <span class="org-comment-delimiter">/*   </span><span class="org-comment">.card__header {</span><span class="org-comment-delimiter"> */</span>
+  <span class="org-comment-delimiter">/*     </span><span class="org-comment">aspect-ratio: 4 / 3;</span><span class="org-comment-delimiter"> */</span>
+  <span class="org-comment-delimiter">/*   </span><span class="org-comment">}</span><span class="org-comment-delimiter"> */</span>
+  <span class="org-comment-delimiter">/* </span><span class="org-comment">}</span><span class="org-comment-delimiter"> */</span></pre>
+</div>
+
+<h3><a id="variants" class="anchor" href="#variants">¶</a>Variants</h3><h4><a id="large-card" class="anchor" href="#large-card">¶</a>Large Card</h4><div class="outline-text-4" id="text-orgaee8914">
+<p>
+Large Cards have a larger heading size and do not include media or a card body
+</p>
+</div>
+
+<ul><li>Usage<div class="outline-text-5" id="text-orgce23f99">
+<pre>&lt;<span class="org-function-name">article</span> <span class="org-variable-name">class</span>=<span class="org-string">"card"</span> <span class="org-variable-name">data-variant</span>=<span class="org-string">"large"</span>&gt;
+  &lt;<span class="org-function-name">header</span> <span class="org-variable-name">class</span>=<span class="org-string">"card__header"</span>&gt;
+    &lt;<span class="org-function-name">h3</span>&gt;
+      &lt;<span class="org-function-name">a</span> <span class="org-variable-name">href</span>=<span class="org-string">"#"</span> <span class="org-variable-name">class</span>=<span class="org-string">"card__primary-action"</span>&gt;
+        &lt;<span class="org-function-name">span</span>&gt;
+          View property bills, assessments, and notices
+        &lt;/<span class="org-function-name">span</span>&gt;
+        &lt;<span class="org-function-name">span</span>&gt;
+          &lt;<span class="org-function-name">span</span> <span class="org-variable-name">class</span>=<span class="org-string">"i-ri:external-link-line"</span>&gt;&lt;/<span class="org-function-name">span</span>&gt;
+        &lt;/<span class="org-function-name">span</span>&gt;
+      &lt;/<span class="org-function-name">a</span>&gt;
+    &lt;/<span class="org-function-name">h3</span>&gt;
+  &lt;/<span class="org-function-name">header</span>&gt;
+&lt;/<span class="org-function-name">article</span>&gt;</pre>
+</div>
+</li>
+
+<li>Base<div class="outline-text-5" id="text-org5b996b7">
+<pre><span class="org-css-selector">.card[data-variant=large]</span> {
+    &amp; * {
+        <span class="org-css-property">display</span>: flex;
+        <span class="org-css-property">flex-wrap</span>: wrap;
+    }
+
+    &amp; .card__header {
+        <span class="org-css-property">flex-grow</span>: 1;
+    }
+
+    &amp; .card__header :<span class="org-variable-name">--heading</span> {
+        <span class="org-css-property">font-size</span>: var(<span class="org-variable-name">--size-step-1</span>);
+        <span class="org-css-property">max-width</span>: none;
+        <span class="org-css-property">width</span>: 100%;
+    }
+
+    <span class="org-css-selector">.card__primary-action</span> {
+        <span class="org-comment-delimiter">/* </span><span class="org-comment">flex-direction: column;</span><span class="org-comment-delimiter"> */</span>
+        <span class="org-css-property">height</span>: 100%;
+        <span class="org-css-property">width</span>: 100%;
+        <span class="org-comment-delimiter">/* </span><span class="org-comment">align-items: center;</span><span class="org-comment-delimiter"> */</span>
+        &amp; &gt; :first-child {
+            <span class="org-css-property">flex-basis</span>: 280px;
+        }
+        &amp; &gt; :last-child {
+            <span class="org-css-property">margin-block-start</span>: auto;
+            <span class="org-css-property">margin-inline-start</span>: auto;
+        }
+    }
+
+}</pre>
+</div>
+</li></ul>
+</div></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer></body></html>

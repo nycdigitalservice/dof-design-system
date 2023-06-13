@@ -1,0 +1,15 @@
+* Color
+
+** Reference variables
+#+BEGIN_SRC css :noweb-ref ref-vars
+  --nyc-ref-color-blue-50: hsla(214, 54%, 95%, 1);
+  --nyc-ref-color-blue-100: hsla(213, 53%, 50%, 1);
+  --nyc-ref-color-blue-200: hsla(213, 59%, 45%, 1);
+  --nyc-ref-color-blue-500: hsla(208, 100%, 30%, 1);
+  --nyc-ref-color-orange-500: hsla(26, 92%, 58%, 1);
+  --nyc-ref-color-orange-700: hsla(25, 78%, 41%, 1);
+  --nyc-ref-color-neutral-0: hsla(0, 0%, 100%, 1);
+  --nyc-ref-color-neutral-100: hsla(0, 0%, 93%, 1);
+  --nyc-ref-color-neutral-850: hsla(0, 0%, 20%, 1);
+  --nyc-ref-color-neutral-900: hsla(0, 0%, 0%, 1);
+#+END_SRC

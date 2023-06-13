@@ -2,29 +2,35 @@ export default [
   {
     title: "Cooperative and Condominium Abatement",
     description: "For managing agents or boards representing condo or co-op unit owners",
-    url: "./coop-abatement.html"
+      url: "./coop-abatement.html",
+      tag: "homeowner",
   },
   {
     title: "Senior Citizen Homeowner's Exemption (SCHE)",
-    description: "For homeowners 65 and older with combined annual income of $58,399 or less",
+      description: "For homeowners 65 and older with combined annual income of $58,399 or less",
+      tag: "homeowner",
   },
-  {
+    {
     title: "Senior Citizen Rent Increase Exemption (SCRIE)",
-    description: "For landlords with tenants 65 and older that qualify for rent freezes",
-  },
-  {
+        description: "For landlords with tenants 65 and older that qualify for rent freezes",
+        tag: "landlord",
+    },
+    {
     title: "School Tax Relief Exemption (STAR)",
-    description: "For homeowners currently enrolled in Basic STAR and Enhanced STAR Only available for renewals ",
-  },
-  {
+        description: "For homeowners currently enrolled in Basic STAR and Enhanced STAR Only available for renewals ",
+        tag: "homeowner",
+    },
+    {
     title: "Non-profit exemptions",
-    description: "For properties owned by non-profit organizations",
-  },
-  {
-    title: "Industrial and Commercial Abatement Program (ICAP)",
-    description: "For commercial and industrial properties in specific abatement zones undergoing significant construction",
-  },
-  {
+        description: "For properties owned by non-profit organizations",
+        tag: "non-profit-property-owner",
+    },
+    {
+        title: "Industrial and Commercial Abatement Program (ICAP)",
+        description: "For commercial and industrial properties in specific abatement zones undergoing significant construction",
+        tag: "commercial-tenant",
+    },
+    {
     title: "Veteran exemptions",
     description: "For veterans, spouses of veterans, and Gold Star parents",
   },

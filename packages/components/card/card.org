@@ -1,0 +1,315 @@
+#+TITLE: Card
+
+* Card
+:PROPERTIES:
+:END:
+
+Cards are thumbnails of content and may include a full or partial set of content-related elements. It reflects what would be seen in the Header of a singular content view. Further guidance on generic cards can be found on the [[https://designsystem.digital.gov/components/card][U.S. Web Design System (USWDS) site]]. Cards may contain any of the following elements; title, subtitle, status, summary, feature list, call-to-action, or web share component.
+
+** Usage
+
+#+begin_src html :exports both :results replace html
+  <article class="card">
+    <header class="card__header">
+      <h3>
+        <a href="/property.page" class="card__primary-action">
+          <span>
+            View property bills, assessments, and notices
+          </span>
+          <span>
+            <span class="i-ri:external-link-line"></span>
+          </span>
+        </a>
+      </h3>
+    </header>
+    <div class="card__media">
+      <img src="/assets/img/card-placeholder.png" alt="Alt text here">
+    </div>
+    <div class="card__body">
+      <p>A short description for the card</p>
+    </div>
+  </article>
+#+end_src
+
+#+RESULTS:
+
+** CSS Variables
+
+Component variables are prefixed with ~nyc-cmp-~ and take the form ~component{-element}-property{-state}~
+
+#+name: card-variables
+#+begin_src css
+    :root {
+        --nyc-cmp-card-background: var(--nyc-sys-color-background, transparent);
+        --nyc-cmp-card-background-hover: var(--nyc-sys-color-primary-lightest, transparent);
+        --nyc-cmp-card-shadow: var(--nyc-sys-shadow-base);
+        --nyc-cmp-card-color: var(--nyc-sys-color-text);
+        --nyc-cmp-card-body-color: var(--nyc-sys-color-text-light);
+        --nyc-cmp-card-color-hover: var(--nyc-sys-color-primary);
+        --nyc-cmp-card-border: 1.5px solid var(--nyc-sys-color-border);
+        --nyc-cmp-card-border-hover: 1.5px solid var(--nyc-sys-color-primary);
+        --nyc-cmp-card-heading-font-size: var(--size-step-0);
+        --nyc-cmp-card-body-font-size: 1rem;
+    }
+#+end_src
+
+** Base
+
+We start by defining the Cards layout and style properties
+
+#+begin_src css :noweb-ref card-base
+  .card {
+      container: card / inline-size;
+
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      background-color: var(--nyc-cmp-card-background);
+      color: var(--nyc-cmp-card-color);
+
+      border: var(--nyc-cmp-card-border);
+      border-radius: 4px;
+      box-shadow: var(--nyc-cmp-card-shadow);
+
+      transition: all .3s ease;
+      /* min-block-size: 2.5rem; */
+
+      &:hover {
+          background: var(--nyc-cmp-card-background-hover);
+          color: var(--nyc-cmp-card-color-hover);
+          border: var(--nyc-cmp-card-border-hover);
+      }
+  }
+#+end_src
+
+We use the flow composition pattern to apply vertical spacing
+
+*************** TODO - set up CSS property for vertical spacing
+*************** END
+
+#+begin_src css :noweb-ref card-base
+  .card > * + * {
+      margin-block-start: .5rem;
+  }
+#+end_src
+
+** Sections
+
+Here we define layout and style for the cards Header, Media, and Body sections
+
+*** Card Header
+#+begin_src css :noweb-ref card-sections
+  .card__header {
+      padding: 1rem;
+      display: flex;
+      flex: 1;
+      & :--heading {
+          flex: 1;
+          font-size: var(--nyc-cmp-card-heading-font-size);
+          /* max-inline-size: 85%; */
+      }
+  }
+#+end_src
+
+*** Card Media
+#+begin_src css :noweb-ref card-sections
+  .card__media {
+      order: -1;
+      margin-block-start: 0;
+      & img {
+          width: 100%;
+      }
+  }
+
+
+#+end_src
+
+*** Card Body
+#+begin_src css :noweb-ref card-sections
+    .card__body {
+        flex-grow: 1;
+        padding: 1rem;
+        padding-top: 0;
+        color: var(--nyc-cmp-card-body-color);
+        font-size: var(--nyc-cmp-card-body-font-size);
+    }
+#+end_src
+
+** Primary action
+
+The primary action is associated with an ~a~ or ~button~ element and makes the entirety of the card clickable.
+
+#+name: card-primary-action
+#+begin_src css
+    .card__primary-action {
+        display: flex;
+        text-decoration: none;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0; /* 2 */
+            left: 0; /* 2 */
+            right: 0; /* 2 */
+            bottom: 0; /* 2 */
+            z-index: 1; /* 3 */
+        }
+        & > :first-child {
+            flex: 1;
+        }
+        &:focus {
+            text-decoration: underline;
+        }
+        & [class*=i-] {
+            font-size: 1.5rem;
+            margin-inline-start: .5rem;
+        }
+    }
+#+end_src
+
+** Container query
+
+To adjust the cards presentation based on its width, we use a [[https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries][Container Query]]
+
+#+name: card-container-query
+#+begin_src css
+      @container grid-parent (max-width: 900px) {
+          .card {
+              flex-direction: row;
+              flex-wrap: wrap;
+              overflow: hidden;
+          }
+          .card__header {
+              flex: 1;
+              flex-basis: 100%;
+          }
+          .card__media {
+              width: 35%;
+              height: 100%;
+              position: absolute;
+              & img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+              }
+          }
+          .card__body {
+              flex-grow: 1;
+              flex-basis: 100%;
+          }
+          .card:has(.card__media) {
+              & .card__header,
+              & .card__body {
+                  margin-left: auto;
+                  flex-basis: 65%;
+                  flex-grow: 0;
+              }
+          }
+      }
+    @container card (min-width: 320px) {
+          .card__media {
+              width: 35%;
+              height: 100%;
+              position: absolute;
+              aspect-ratio: 1/1;
+              & img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+              }
+          }
+          .card__body {
+              flex-grow: 1;
+              flex-basis: 100%;
+          }
+          .card:has(.card__media) {
+              & .card__header,
+              & .card__body {
+                  margin-left: auto;
+                  flex-basis: 65%;
+                  flex-grow: 0;
+                  width: 65%;
+              }
+          }    
+    }
+      /* @container card (min-width: 11rem) and (max-width: 15rem) { */
+      /*   .card__header { */
+      /*     aspect-ratio: 4 / 3; */
+      /*   } */
+      /* } */
+
+#+end_src
+
+** Variants
+
+*** Large Card
+
+Large Cards have a larger heading size and do not include media or a card body
+
+**** Usage
+
+#+begin_src html
+  <article class="card" data-variant="large">
+    <header class="card__header">
+      <h3>
+        <a href="#" class="card__primary-action">
+          <span>
+            View property bills, assessments, and notices
+          </span>
+          <span>
+            <span class="i-ri:external-link-line"></span>
+          </span>
+        </a>
+      </h3>
+    </header>
+  </article>
+#+end_src
+
+**** Base
+
+#+name: card-variant-large
+#+begin_src css :noweb-ref variants
+  .card[data-variant=large] {
+      & * {
+          display: flex;
+          flex-wrap: wrap;
+      }
+
+      & .card__header {
+          flex-grow: 1;
+      }
+
+      & .card__header :--heading {
+          font-size: var(--size-step-1);
+          max-width: none;
+          width: 100%;
+      }
+
+      .card__primary-action {
+          /* flex-direction: column; */
+          height: 100%;
+          width: 100%;
+          /* align-items: center; */
+          & > :first-child {
+              flex-basis: 280px;
+          }
+          & > :last-child {
+              margin-block-start: auto;
+              margin-inline-start: auto;
+          }
+      }
+
+  }
+#+end_src
+
+** Appendix :noexport:
+
+*** Tangle template
+#+begin_src css :noweb yes :tangle card.css
+  <<card-variables>>
+  <<card-base>>
+  <<card-sections>>
+  <<card-primary-action>>
+  <<variants>>
+  <<card-container-query>>
+#+end_src
