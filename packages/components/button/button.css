@@ -9,7 +9,7 @@
 .button {
   background-color: var(--nyc-cmp-button-background);
   color: var(--nyc-cmp-button-color);
-  padding: var(--space-xs);
+  padding: var(--nyc-sys-dimension-space-xs);
   text-decoration: none;
   font-weight: 700;
   border-radius: 4px;
@@ -23,7 +23,7 @@
 
   & > i:last-child {
     flex-shrink: 0;
-    margin-inline-start: var(--space-s-l);
+    margin-inline-start: var(--nyc-sys-dimension-space-s-l);
     margin-block: auto;
   }
 }

@@ -1,3 +1,11 @@
-* DOF Prototype Packages
+* Packages
 
-Here you will find documentation related to the prototype built for Department of Finance's site redesign
+- [[file:reset/reset.org][Reset]]: A CSS reset utility
+- [[file:variables/variables.org][Variables]]: CSS variables for Reference and System tiers, used in all
+  following packages
+- [[/global][Global]]: Base global styling and typesetting
+- [[/composition][Composition]]: Classes that govern higher-level page layout
+- [[/components][Components]]: A set of UI elements: buttons, cards, etc
+
+
+

@@ -1,0 +1,75 @@
+<!-- Generated from 9b94150 on 2023-06-21 @ 18:46 with Emacs 29.0.91 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="/assets/dof-2023-styles.css"/><link rel="stylesheet" href="/assets/dof-2023-docs.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script><script>hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());</script><title> - NYC</title></head><body class="u-reset"><header class="site-header region flow background-primary"><div class="container"><div class="site-title"><img class="logo" width="150" src="/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> </nav></div></div></header><div class="container"><div class="site-post flow region"><h1 class="site-post-title"></h1><p class="site-post-meta"></p><div id="content" class="flow"><h1><a id="dof-design-system" class="anchor" href="#dof-design-system">¶</a>DOF Design System</h1><h2><a id="about" class="anchor" href="#about">¶</a>About</h2><div class="outline-text-3" id="text-org64592d3">
+<p>
+The DOF Design System provides a set of components that compose a CSS
+library, used to build pages for the Department of Finance&rsquo;s website
+redesign. It is an opinionated set of design decisions made to address
+issues facing the Department of Finance&rsquo;s current website. As such
+this library is not intended for general-purpose use, though it can be
+used as a reference for other design systems.
+</p>
+
+<p>
+This repository is structured in a monorepo style, with library files
+all living under the <a href="packages/index">packages</a> directory. To ease the prototyping
+and build process, the <a href="https://vitejs.dev/">Vite</a> development environment is used.
+</p>
+</div>
+
+<h2><a id="principles" class="anchor" href="#principles">¶</a>Principles</h2><h3><a id="cube-css" class="anchor" href="#cube-css">¶</a>CUBE CSS</h3><div class="outline-text-4" id="text-orgc678bbc">
+<p>
+Architect CSS with the <a href="https://cube.fyi/">CUBE CSS</a> methodology, embracing the cascading
+nature of CSS to provide progressively enhanced page styling.
+</p>
+</div>
+
+<h3><a id="css-variables" class="anchor" href="#css-variables">¶</a>CSS variables</h3><div class="outline-text-4" id="text-org18f2e98">
+<p>
+Use CSS variables as hooks to theme the design system. They can be
+used to modify size, space, color and typography.
+</p>
+
+<p>
+<a href="/variables">Learn more about DOF CSS variables</a>
+</p>
+</div>
+
+<h3><a id="intrinsic-web-design" class="anchor" href="#intrinsic-web-design">¶</a>Intrinsic web design</h3><div class="outline-text-4" id="text-org524a169">
+<p>
+Breakpoint-based styling modifications are eschewed where possible,
+favoring fluid typography and spacing, and modifying component layouts
+based on the size of their container, not the viewport.
+</p>
+</div>
+
+
+<h2><a id="getting-started" class="anchor" href="#getting-started">¶</a>Getting Started</h2><div class="outline-text-3" id="text-org177bbba">
+<p>
+If you are interested in utilizing the library, a good starting point
+is to review the <a href="packages/index">packages documentation</a>. There an overview of the
+library&rsquo;s architecture is provided and you may browse the available
+packages. Each package&rsquo;s documentation contains examples, usage
+guidelines, and source code.
+</p>
+</div>
+
+<h2><a id="development" class="anchor" href="#development">¶</a>Development</h2><h3><a id="requirements" class="anchor" href="#requirements">¶</a>Requirements</h3><div class="outline-text-4" id="text-org3a0e7d9">
+<ul class="org-ul">
+<li><a href="https://pnpm.io/">pnpm</a> package manager</li>
+<li><a href="https://www.gnu.org/software/emacs/">GNU Emacs</a> (optional) - the emacs binary is used to build the
+documentation website and extract source code from <code>org</code> files.</li>
+</ul>
+
+<p>
+After cloning this repository, run to fetch the
+required dependencies and to start the
+development server.
+</p>
+</div>
+
+<h3><a id="building" class="anchor" href="#building">¶</a>Building</h3><div class="outline-text-4" id="text-org81fa449">
+<p>
+To build the library stylesheet run 
+</p>
+</div>
+</div></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer></body></html>

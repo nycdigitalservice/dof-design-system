@@ -2,14 +2,14 @@
 
 ** Container
 
-The `container` class *contains* elements to a *maximum size* and is *centered* by default
+The =container= class *contains* elements to a *maximum size* and is *centered* by default
 
 #+BEGIN_SRC css :tangle composition.css
 .container {
     margin-inline: auto;
-    max-inline-size: calc(var(--nyc-sys-dimension-page-max-width) + var(--nyc-sys-dimension-gutter) * 2);
-    padding-inline-start: var(--nyc-sys-dimension-gutter);
-    padding-inline-end: var(--nyc-sys-dimension-gutter);
+    max-inline-size: calc(var(--nyc-ref-dimension-page-max-width) + var(--nyc-ref-dimension-gutter) * 2);
+    padding-inline-start: var(--nyc-ref-dimension-gutter);
+    padding-inline-end: var(--nyc-ref-dimension-gutter);
 }
 #+END_SRC
 
@@ -19,31 +19,31 @@ Regions supply consistent vertical padding to sections of content
 
 #+BEGIN_SRC css :tangle composition.css
   .region {
-    padding-block-start: var(--nyc-sys-dimension-region-space, var(--space-l-xl));
-    padding-block-end: var(--nyc-sys-dimension-region-space, var(--space-l-xl));
+    padding-block-start: var(--nyc-ref-dimension-region-space, var(--nyc-ref-dimension-space-l-xl));
+    padding-block-end: var(--nyc-ref-dimension-region-space, var(--nyc-ref-dimension-space-l-xl));
   }
   .region[data-region-space="s"] {
-      --nyc-sys-dimension-region-space: var(--space-s);
+      --nyc-ref-dimension-region-space: var(--nyc-ref-dimension-space-s);
   }
 
   .region[data-region-space="m"] {
-      --nyc-sys-dimension-region-space: var(--space-m);
+      --nyc-ref-dimension-region-space: var(--nyc-ref-dimension-space-m);
   }
 
   .region[data-region-space="l"] {
-      --nyc-sys-dimension-region-space: var(--space-l);
+      --nyc-ref-dimension-region-space: var(--nyc-ref-dimension-space-l);
   }
 
   .region[data-region-space="xl"] {
-      --nyc-sys-dimension-region-space: var(--space-xl);
+      --nyc-ref-dimension-region-space: var(--nyc-ref-dimension-space-xl);
   }
 
   .region[data-region-space="s-m"] {
-      --nyc-sys-dimension-region-space: var(--space-s-m);
+      --nyc-ref-dimension-region-space: var(--nyc-ref-dimension-space-s-m);
   }
 
   .region[data-region-space="xs-s"] {
-      --nyc-sys-dimension-region-space: var(--space-xs-s);
+      --nyc-ref-dimension-region-space: var(--nyc-ref-dimension-space-xs-s);
   }
 #+END_SRC
 
@@ -51,9 +51,9 @@ Regions supply consistent vertical padding to sections of content
 
 #+BEGIN_SRC css :tangle composition.css
   .grid {
-    --gutter: var(--nyc-sys-dimension-gutter);
+    --gutter: var(--nyc-ref-dimension-gutter);
     display: grid;
-    gap: var(--gutter, var(--space-s-l));
+    gap: var(--gutter, var(--nyc-ref-dimension-space-s-l));
     grid-auto-rows: 1fr
   }
 
@@ -72,10 +72,10 @@ Regions supply consistent vertical padding to sections of content
 }
 
 .grid[data-layout="col-4"] {
-    --gutter: var(--space-s);
+    --gutter: var(--nyc-ref-dimension-space-s);
     --grid-placement: auto-fit;
     /* --grid-min-item-size: 12.5rem; */
-    /* --grid-max-item-size: calc((var(--nyc-sys-dimension-page-max-width) - calc(var( --nyc-sys-dimension-gutter ) * 3)) / 4); */
+    /* --grid-max-item-size: calc((var(--nyc-ref-dimension-page-max-width) - calc(var( --nyc-ref-dimension-gutter ) * 3)) / 4); */
     /* --grid-min-item-size: calc(var(--grid-max-item-size) * .85); */
     /* --grid-max-item-size: 242px; */
     --grid-min-item-size: calc(200px);
@@ -128,15 +128,15 @@ Regions supply consistent vertical padding to sections of content
 }
 
 [data-flow-space=s] {
-    --space: var(--space-s);
+    --space: var(--nyc-ref-dimension-space-s);
 }
 
 [data-flow-space=m] {
-    --space: var(--space-m);
+    --space: var(--nyc-ref-dimension-space-m);
 }
 
 [data-flow-space=l] {
-    --space: var(--space-l);
+    --space: var(--nyc-ref-dimension-space-l);
 }
 #+end_src
 
@@ -146,7 +146,7 @@ Regions supply consistent vertical padding to sections of content
   .switcher {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--space-s-m);
+      gap: var(--nyc-ref-dimension-space-s-m);
       container: switcher / inline-size;
   }
 

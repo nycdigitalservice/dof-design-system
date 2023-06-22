@@ -1,12 +1,12 @@
-@import "../packages/core/variables.css";
-@import "../packages/core/global.css";
+@import "../packages/variables/variables.css";
+@import "../packages/global/global.css";
 @import "../packages/composition/composition.css";
 @import "../packages/core/utilities.css";
-@import "../packages/css-reset/reset.css";
+@import "../packages/reset/reset.css";
 @import "../packages/components/card/card.css";
-@import "../packages/elements/button/button.css";
-@import "../packages/elements/form/form.css";
-@import "../packages/elements/select/select.css";
+@import "../packages/components/button/button.css";
+@import "../packages/components/form/form.css";
+@import "../packages/components/select/select.css";
 
 /* Blocks */
 
@@ -27,7 +27,7 @@
 
 .alert {
   --alert-color: var(--nyc-sys-color-secondary);
-  padding-inline-start: var(--space-s-m);
+  padding-inline-start: var(--nyc-sys-dimension-space-s-m);
   position: relative;
   &::before {
     content: '';
@@ -60,7 +60,7 @@
 @container grid-parent (max-width: 657px) {
   .alert {
     padding-inline-start: 0;
-    padding-block-start: var(--space-s-m);
+    padding-block-start: var(--nyc-sys-dimension-space-s-m);
     &::before {
       top: 0;
       width: 100%;

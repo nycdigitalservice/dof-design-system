@@ -1,0 +1,102 @@
+* Global styles
+
+As mentioned in the [[/#principles][Principles]], this library embraces the power of the
+CSS cascade to provide a set of base, global styling properties.
+
+#+begin_src css :tangle global.css
+html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+  max-inline-size: none;
+}
+
+body {
+  color: var(--nyc-sys-color-text);
+  background: var(--nyc-sys-color-background);
+  font-size: var(--nyc-sys-font-size-base);
+  font-family: var(--nyc-sys-font-family-base);
+  line-height: 1.4;
+  letter-spacing: var(--nyc-sys-dimension-tracking);
+  margin: 0;
+}
+#+end_src
+
+** Typesetting
+
+#+begin_src css :tangle global.css
+h1,
+h2,
+h3 {
+  line-height: 1;
+  letter-spacing: var(--nyc-sys-dimension-tracking-s);
+}
+
+h1 {
+  font-size: var(--nyc-sys-dimension-size-step-4);
+}
+
+h2 {
+  font-size: var(--nyc-sys-dimension-size-step-3);
+}
+
+h3 {
+  font-size: var(--nyc-sys-dimension-size-step-2);
+}
+
+p {
+  max-inline-size: var(--nyc-sys-dimension-measure);
+}
+
+#+end_src
+
+** Elements
+
+#+begin_src css :tangle global.css
+  a {
+    color: currentcolor;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  :focus {
+    outline: 2px solid;
+    outline-offset: 0.3ch;
+  }
+
+  :target {
+    scroll-margin-top: 2ex;
+  }
+
+  main:focus {
+    outline: none;
+  }
+
+  [class*="i-"] {
+    display: inline-block;
+  }
+
+  /* Base selection styles that invert whatever colours are rendered */
+  ::selection {
+    background: var(--nyc-sys-color-text);
+    color: var(--nyc-sys-color-background);
+  }
+
+  main {
+    background: var(--nyc-sys-color-background);
+  }
+
+  /* Inputs */
+  input,
+  select {
+    font-size: inherit;
+    line-height: 2.25;
+    padding-inline: 1rem;
+  }
+#+end_src
+

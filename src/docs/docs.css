@@ -1,0 +1,10 @@
+.region {
+    --nyc-sys-dimension-region-space: var(--nyc-sys-dimension-space-s-m);
+}
+
+:--heading {
+    display: flex;
+    & .anchor {
+        font-size: 1rem;
+    }
+}

@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const scriptsDir = resolve(__dirname);
 const publishEl = resolve(__dirname, 'publish.el');
 
-const command = `cd ${scriptsDir} && emacs -Q --batch -l ./publish.el --funcall nyc/publish`;
+const command = `cd ${scriptsDir} && ./publish-docs`;
 exec(command, (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);

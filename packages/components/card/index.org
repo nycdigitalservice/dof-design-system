@@ -4,10 +4,18 @@
 :PROPERTIES:
 :END:
 
-Cards are thumbnails of content and may include a full or partial set of content-related elements. It reflects what would be seen in the Header of a singular content view. Further guidance on generic cards can be found on the [[https://designsystem.digital.gov/components/card][U.S. Web Design System (USWDS) site]]. Cards may contain any of the following elements; title, subtitle, status, summary, feature list, call-to-action, or web share component.
+Cards are thumbnails of content and may include a full or partial set
+of content-related elements. It reflects what would be seen in the
+Header of a singular content view. Further guidance on generic cards
+can be found on the [[https://designsystem.digital.gov/components/card][U.S. Web Design System (USWDS) site]]. Cards may
+contain any of the following elements; title, subtitle, status,
+summary, feature list, call-to-action, or web share component.
 
 ** Usage
 
+#+RESULTS: card-example
+
+#+name: card-example
 #+begin_src html :exports both :results replace html
   <article class="card">
     <header class="card__header">
@@ -31,14 +39,12 @@ Cards are thumbnails of content and may include a full or partial set of content
   </article>
 #+end_src
 
-#+RESULTS:
-
 ** CSS Variables
 
 Component variables are prefixed with ~nyc-cmp-~ and take the form ~component{-element}-property{-state}~
 
 #+name: card-variables
-#+begin_src css
+#+begin_src css :comments link
     :root {
         --nyc-cmp-card-background: var(--nyc-sys-color-background, transparent);
         --nyc-cmp-card-background-hover: var(--nyc-sys-color-primary-lightest, transparent);
@@ -48,7 +54,7 @@ Component variables are prefixed with ~nyc-cmp-~ and take the form ~component{-e
         --nyc-cmp-card-color-hover: var(--nyc-sys-color-primary);
         --nyc-cmp-card-border: 1.5px solid var(--nyc-sys-color-border);
         --nyc-cmp-card-border-hover: 1.5px solid var(--nyc-sys-color-primary);
-        --nyc-cmp-card-heading-font-size: var(--size-step-0);
+        --nyc-cmp-card-heading-font-size: var(--nyc-sys-dimension-size-step-0);
         --nyc-cmp-card-body-font-size: 1rem;
     }
 #+end_src
@@ -280,7 +286,7 @@ Large Cards have a larger heading size and do not include media or a card body
       }
 
       & .card__header :--heading {
-          font-size: var(--size-step-1);
+          font-size: var(--nyc-sys-dimension-size-step-1);
           max-width: none;
           width: 100%;
       }

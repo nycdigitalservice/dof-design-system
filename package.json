@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-      "docs": "vite build && node ./scripts/publish-exec.js",
-      "serve:docs": "wds --watch --open --root-dir docs"
+    "docs:build": "vite build && node ./scripts/publish/publish.js",
+    "docs:serve": "wds --watch --open --root-dir docs"
   },
   "devDependencies": {
     "@iconify-json/ri": "^1.1.7",
@@ -20,6 +20,7 @@
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
     "postcss-preset-env": "^8.3.0",
+    "rollup-plugin-postcss": "^4.0.2",
     "typescript": "^4.9.3",
     "unocss": "^0.50.6",
     "vite": "^4.1.4",

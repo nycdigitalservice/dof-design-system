@@ -216,22 +216,21 @@ try {
   if (exemptionsContainer) {
     exemptionsContainer.innerHTML = exemptionsListMarkup;
   }
-  const exemptionControl = document.querySelector("[aria-controls=exemptions]");
-  exemptionControl.addEventListener("change", (evt) => {
-    const { value } = evt.target;
-    Array.from(exemptionsContainer.children).map((child) => {
-      const { tag } = child.dataset;
-      if (value.length > 0 && tag != value) {
-        child.style.display = "none";
-        return;
-      }
-      child.style.display = "flex";
+  const filterControls = document.querySelectorAll("[aria-controls][data-action=filter]");
+  if (filterControls.length > 0) {
+    filterControls.forEach((controller) => {
+      controller.addEventListener("change", ({ target }) => {
+        const controlsParent = document.getElementById(target.getAttribute("aria-controls"));
+        Array.from(controlsParent.children).map((child) => {
+          child.style.display = target.value.length > 0 && child.dataset.tag != target.value ? "none" : "flex";
+        });
+      });
     });
-  });
+  }
   const suggestedContentContainer = document.getElementById("suggested-content");
   if (suggestedContentContainer) {
     suggestedContentContainer.innerHTML = suggestedContentListMarkup;
   }
 } catch (e) {
-  console.log("exemptions not here");
+  console.error(e);
 }

@@ -6,37 +6,37 @@
 }
 
 .region {
-  padding-block-start: var(--nyc-sys-dimension-region-space, var(--space-l-xl));
-  padding-block-end: var(--nyc-sys-dimension-region-space, var(--space-l-xl));
+  padding-block-start: var(--nyc-sys-dimension-region-space, var(--nyc-sys-dimension-space-l-xl));
+  padding-block-end: var(--nyc-sys-dimension-region-space, var(--nyc-sys-dimension-space-l-xl));
 }
 .region[data-region-space="s"] {
-    --nyc-sys-dimension-region-space: var(--space-s);
+    --nyc-sys-dimension-region-space: var(--nyc-sys-dimension-space-s);
 }
 
 .region[data-region-space="m"] {
-    --nyc-sys-dimension-region-space: var(--space-m);
+    --nyc-sys-dimension-region-space: var(--nyc-sys-dimension-space-m);
 }
 
 .region[data-region-space="l"] {
-    --nyc-sys-dimension-region-space: var(--space-l);
+    --nyc-sys-dimension-region-space: var(--nyc-sys-dimension-space-l);
 }
 
 .region[data-region-space="xl"] {
-    --nyc-sys-dimension-region-space: var(--space-xl);
+    --nyc-sys-dimension-region-space: var(--nyc-sys-dimension-space-xl);
 }
 
 .region[data-region-space="s-m"] {
-    --nyc-sys-dimension-region-space: var(--space-s-m);
+    --nyc-sys-dimension-region-space: var(--nyc-sys-dimension-space-s-m);
 }
 
 .region[data-region-space="xs-s"] {
-    --nyc-sys-dimension-region-space: var(--space-xs-s);
+    --nyc-sys-dimension-region-space: var(--nyc-sys-dimension-space-xs-s);
 }
 
 .grid {
     --gutter: var(--nyc-sys-dimension-gutter);
     display: grid;
-    gap: var(--gutter, var(--space-s-l));
+    gap: var(--gutter, var(--nyc-sys-dimension-space-s-l));
     grid-auto-rows: 1fr
   }
 
@@ -55,7 +55,7 @@
 }
 
 .grid[data-layout="col-4"] {
-    --gutter: var(--space-s);
+    --gutter: var(--nyc-sys-dimension-space-s);
     --grid-placement: auto-fit;
     /* --grid-min-item-size: 12.5rem; */
     /* --grid-max-item-size: calc((var(--nyc-sys-dimension-page-max-width) - calc(var( --nyc-sys-dimension-gutter ) * 3)) / 4); */
@@ -103,21 +103,21 @@
 }
 
 [data-flow-space=s] {
-    --space: var(--space-s);
+    --space: var(--nyc-sys-dimension-space-s);
 }
 
 [data-flow-space=m] {
-    --space: var(--space-m);
+    --space: var(--nyc-sys-dimension-space-m);
 }
 
 [data-flow-space=l] {
-    --space: var(--space-l);
+    --space: var(--nyc-sys-dimension-space-l);
 }
 
 .switcher {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--space-s-m);
+      gap: var(--nyc-sys-dimension-space-s-m);
       container: switcher / inline-size;
   }
 

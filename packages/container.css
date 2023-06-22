@@ -1,7 +1,0 @@
-.container {
-    box-sizing: content-box;
-    margin-inline: auto;
-    max-inline-size: var(--nyc-sys-dimension-page-max-width);
-    padding-inline-start: var(--nyc-sys-dimension-gutter);
-    padding-inline-end: var(--nyc-sys-dimension-gutter);
-}

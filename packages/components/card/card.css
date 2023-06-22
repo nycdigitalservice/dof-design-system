@@ -7,7 +7,7 @@
     --nyc-cmp-card-color-hover: var(--nyc-sys-color-primary);
     --nyc-cmp-card-border: 1.5px solid var(--nyc-sys-color-border);
     --nyc-cmp-card-border-hover: 1.5px solid var(--nyc-sys-color-primary);
-    --nyc-cmp-card-heading-font-size: var(--size-step-0);
+    --nyc-cmp-card-heading-font-size: var(--nyc-sys-dimension-size-step-0);
     --nyc-cmp-card-body-font-size: 1rem;
 }
 .card {
@@ -96,7 +96,7 @@
     }
 
     & .card__header :--heading {
-        font-size: var(--size-step-1);
+        font-size: var(--nyc-sys-dimension-size-step-1);
         max-width: none;
         width: 100%;
     }

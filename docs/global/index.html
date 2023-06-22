@@ -1,0 +1,98 @@
+<!-- Generated from 9b94150 on 2023-06-21 @ 19:12 with Emacs 29.0.91 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="/assets/dof-2023-styles.css"/><link rel="stylesheet" href="/assets/dof-2023-docs.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script><script>hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());</script><title> - NYC</title></head><body class="u-reset"><header class="site-header region flow background-primary"><div class="container"><div class="site-title"><img class="logo" width="150" src="/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> </nav></div></div></header><div class="container"><div class="site-post flow region"><h1 class="site-post-title"></h1><p class="site-post-meta"></p><div id="content" class="flow"><h1><a id="global-styles" class="anchor" href="#global-styles">¶</a>Global styles</h1><div class="outline-text-2" id="text-orgba0a3cf">
+<p>
+As mentioned in the <a href="/#principles">Principles</a>, this library embraces the power of the
+CSS cascade to provide a set of base, global styling properties.
+</p>
+
+<details><summary>Inspect code</summary><pre><code class="language-css">html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+  max-inline-size: none;
+}
+
+body {
+  color: var(--nyc-sys-color-text);
+  background: var(--nyc-sys-color-background);
+  font-size: var(--nyc-sys-font-size-base);
+  font-family: var(--nyc-sys-font-family-base);
+  line-height: 1.4;
+  letter-spacing: var(--nyc-sys-dimension-tracking);
+  margin: 0;
+}</code></pre></details>
+</div>
+
+<h2><a id="typesetting" class="anchor" href="#typesetting">¶</a>Typesetting</h2><div class="outline-text-3" id="text-org4938e76">
+<details><summary>Inspect code</summary><pre><code class="language-css">h1,
+h2,
+h3 {
+  line-height: 1;
+  letter-spacing: var(--nyc-sys-dimension-tracking-s);
+}
+
+h1 {
+  font-size: var(--nyc-sys-dimension-size-step-4);
+}
+
+h2 {
+  font-size: var(--nyc-sys-dimension-size-step-3);
+}
+
+h3 {
+  font-size: var(--nyc-sys-dimension-size-step-2);
+}
+
+p {
+  max-inline-size: var(--nyc-sys-dimension-measure);
+}</code></pre></details>
+</div>
+
+<h2><a id="elements" class="anchor" href="#elements">¶</a>Elements</h2><div class="outline-text-3" id="text-org7e7bb40">
+<details><summary>Inspect code</summary><pre><code class="language-css">a {
+  color: currentcolor;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+:focus {
+  outline: 2px solid;
+  outline-offset: 0.3ch;
+}
+
+:target {
+  scroll-margin-top: 2ex;
+}
+
+main:focus {
+  outline: none;
+}
+
+[class*="i-"] {
+  display: inline-block;
+}
+
+/* Base selection styles that invert whatever colours are rendered */
+::selection {
+  background: var(--nyc-sys-color-text);
+  color: var(--nyc-sys-color-background);
+}
+
+main {
+  background: var(--nyc-sys-color-background);
+}
+
+/* Inputs */
+input,
+select {
+  font-size: inherit;
+  line-height: 2.25;
+  padding-inline: 1rem;
+}</code></pre></details>
+</div>
+</div></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer></body></html>
