@@ -23,13 +23,18 @@
 ;; 
 
 ;;; Code:
+(defvar nyc/site-url (if (string-equal (getenv "CI") "true")
+                         "https://nycdigitalservice.github.io/dof-design-system"
+                       "http://localhost:8000")
+  "The URL for the site being generated.")
+
 (defun nyc/site-header ()
   (list `(header (@ (class "background-primary"))
                  (nav (@ (class "p-2 flex"))
                       (a (@ (href "/") (class "mr-auto flex"))
                          (img (@ (class "logo")
                                  (height "50")
-                                 (src ,(concat "/assets/img/nyc-dof-logo.svg"))
+                                 (src ,(concat nyc/site-url "/assets/img/nyc-dof-logo.svg"))
                                  (alt "NYC Department of Finance"))))
                       (button (@ (is "toggle-button")
                                  (id "main-menu-control")
@@ -118,8 +123,8 @@
             (meta (@ (name "viewport")
                      (content "width=device-width, initial-scale=1, shrink-to-fit=no")))
             (link (@ (rel "icon") (type "image/png") (href "/img/favicon.png")))
-            (link (@ (rel "stylesheet") (href ,(concat  "/assets/dof-2023-styles.css"))))
-            (link (@ (rel "stylesheet") (href ,(concat  "/assets/dof-2023-docs.css"))))
+            (link (@ (rel "stylesheet") (href ,(concat nyc/site-url "/assets/dof-2023-styles.css"))))
+            (link (@ (rel "stylesheet") (href ,(concat nyc/site-url "/assets/dof-2023-docs.css"))))
             (link (@ (rel "stylesheet") (href "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css")))
             (link (@ (rel "stylesheet") (href "https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css")))
 
@@ -140,7 +145,7 @@
                      (nyc/site-footer))
                  (script (@ (src "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js")) "")
 
-                 (script (@ (src "/assets/main.js")) "")
+                 (script (@ (src ,(concat nyc/site-url "/assets/main.js"))) "")
                  ;; (script (@ (src "https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js")) "")
 
                  (script (@) "try{hljs.highlightAll();} catch(e) {}"))))))

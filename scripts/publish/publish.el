@@ -75,11 +75,6 @@
 
 (org-babel-do-load-languages 'org-babel-load-languages '((html . t)))
 
-(defvar nyc/site-url (if (string-equal (getenv "CI") "true")
-                         "https://nycdigitalservice.github.io/dof-ds"
-                       "http://localhost:8000")
-  "The URL for the site being generated.")
-
 
 ;; (defun nyc/site-header ()
 ;;   (list `(header (@ (class "site-header region flow background-primary"))
