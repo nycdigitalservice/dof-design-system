@@ -45,7 +45,7 @@
 (defun nyc/link-list (list)
   (let ((result ()) (reversed ()))
     (dolist (el list reversed)
-      (setq reversed (cons `(a (@ (class "p-2") (href ,(car el))) ,(cdr el)) reversed)))
+      (setq reversed (cons `(a (@ (class "p-2") (href ,(concat nyc/site-url (car el)))) ,(cdr el)) reversed)))
     (dolist (el reversed result)
       (setq result (cons el result)))))
 
