@@ -1,0 +1,9 @@
+#+title: Form
+
+#+begin_src css :tangle form.css
+  .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+  }
+#+end_src

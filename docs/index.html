@@ -1,0 +1,66 @@
+<!-- Generated from c442340 on 2023-07-10 @ 18:12 with Emacs 29.0.92 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="/assets/dof-2023-styles.css"/><link rel="stylesheet" href="/assets/dof-2023-docs.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><title>DOF Design System - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="button" aria-controls="main-menu"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="/">Home</a><a class="p-2" href="/packages/">Packages</a><a class="p-2" href="/packages/components/">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="/packages/components/accordion/">Accordion</a><a class="p-2" href="/packages/components/alert/">Alert</a><a class="p-2" href="/packages/components/button/">Button</a><a class="p-2" href="/packages/components/card/">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">DOF Design System</h1><div id="content" class="flow">
+<section class="region flow"><h2><a id="about" class="anchor" href="#about"><i class="i-ri:anchor-line"></i></a>About</h2><p>
+The DOF Design System provides a set of components that compose a CSS
+library, used to build pages for the Department of Finance&rsquo;s website
+redesign. It is an opinionated set of design decisions made to address
+issues facing the Department of Finance&rsquo;s current website. As such
+this library is not intended for general-purpose use, though it can be
+used as a reference for other design systems.
+</p>
+
+<p>
+This repository is structured in a monorepo style, with library files
+all living under the <a href="packages/index.html">packages</a> directory. To ease the prototyping
+and build process, the <a href="https://vitejs.dev/">Vite</a> development environment is used.
+</p>
+</section>
+
+<section class="region flow"><h2><a id="principles" class="anchor" href="#principles"><i class="i-ri:anchor-line"></i></a>Principles</h2><h3><a id="cube-css" class="anchor" href="#cube-css"><i class="i-ri:anchor-line"></i></a>CUBE CSS</h3><p>
+Architect CSS with the <a href="https://cube.fyi/">CUBE CSS</a> methodology, embracing the cascading
+nature of CSS to provide progressively enhanced page styling.
+</p>
+
+<h3><a id="css-variables" class="anchor" href="#css-variables"><i class="i-ri:anchor-line"></i></a>CSS variables</h3><p>
+Use CSS variables as hooks to theme the design system. They can be
+used to modify size, space, color and typography.
+</p>
+
+<p>
+<a href="packages/variables/variables.html">Learn more about DOF CSS variables</a>
+</p>
+
+<h3><a id="intrinsic-web-design" class="anchor" href="#intrinsic-web-design"><i class="i-ri:anchor-line"></i></a>Intrinsic web design</h3><p>
+Breakpoint-based styling modifications are eschewed where possible,
+favoring fluid typography and spacing, and modifying component layouts
+based on the size of their container, not the viewport.
+</p>
+</section>
+
+
+<section class="region flow"><h2><a id="getting-started" class="anchor" href="#getting-started"><i class="i-ri:anchor-line"></i></a>Getting Started</h2><p>
+If you are interested in utilizing the library, a good starting point
+is to review the <a href="packages/index.html">packages documentation</a>. There an overview of the
+library&rsquo;s architecture is provided and you may browse the available
+packages. Each package&rsquo;s documentation contains examples, usage
+guidelines, and source code.
+</p>
+</section>
+
+<section class="region flow"><h2><a id="development" class="anchor" href="#development"><i class="i-ri:anchor-line"></i></a>Development</h2><h3><a id="requirements" class="anchor" href="#requirements"><i class="i-ri:anchor-line"></i></a>Requirements</h3><ul class="org-ul">
+<li><a href="https://pnpm.io/">pnpm</a> package manager</li>
+<li><a href="https://www.gnu.org/software/emacs/">GNU Emacs</a> (optional) - the emacs binary is used to build the
+documentation website and extract source code from <code>org</code> files.</li>
+</ul>
+
+<p>
+After cloning this repository, run to fetch the
+required dependencies and to start the
+development server.
+</p>
+
+<h3><a id="building" class="anchor" href="#building"><i class="i-ri:anchor-line"></i></a>Building</h3><p>
+To build the library stylesheet run 
+</p>
+</section>
+</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="/assets/main.js"></script><script>try{hljs.highlightAll();} catch(e) {}</script></body></html>

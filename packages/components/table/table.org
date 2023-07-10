@@ -1,0 +1,4 @@
+#+title: Table
+
+#+begin_src css :tangle table.css
+#+end_src

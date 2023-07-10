@@ -1,21 +1,35 @@
 {
-  "name": "standards-postcss",
+  "name": "dof-design-system",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docs:build": "vite build && node ./scripts/publish/publish.js",
+    "docs:serve": "wds --watch --open --root-dir docs"
   },
   "devDependencies": {
     "@iconify-json/ri": "^1.1.7",
     "@unocss/vite": "^0.50.6",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@web/dev-server": "^0.2.2",
+    "@yankeeinlondon/builder-api": "^1.4.1",
+    "markdown-it": "^13.0.1",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
     "postcss-preset-env": "^8.3.0",
+    "rollup-plugin-postcss": "^4.0.2",
     "typescript": "^4.9.3",
     "unocss": "^0.50.6",
-    "vite": "^4.1.4"
+    "vite": "^4.1.4",
+    "vite-plugin-inspect": "^0.7.28",
+    "vite-plugin-md": "^0.21.5",
+    "vite-plugin-run": "^0.4.1"
+  },
+  "dependencies": {
+    "@ungap/custom-elements": "^1.3.0",
+    "vue": "^3.3.4"
   }
 }

@@ -6,17 +6,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vite + TS</title>
   </head>
-  <body>
-    <main class="u-reset flow">
+  <body class="u-reset">
+    <header class="background-primary">
+      <nav class="p-2 flex">
+        <a href="/" class="mr-auto flex">
+          <img src="/img/nyc-dof-logo.svg" height="50" alt="NYC Department of Finance" />
+        </a>
+        <button is="toggle-button" id="main-menu-control" class="button" aria-controls="main-menu">
+          <i class="i-ri:menu-line mr-2"></i>Menu
+        </button>
+      </nav>
+    </header>
+    <aside id="main-menu" class="background-primary-lighter" aria-labelledby="main-menu-control" hidden>
+      <div class="container grid p-4">
+        <nav class="flex flex-col">
+          <span>Main</span>
+          <a href="/">Home</a>
+          <a href="/packages">Packages</a>
+          <a href="/components">Components</a>
+        </nav>
+        <nav class="flex flex-col">
+          <span>Components</span>
+          <a href="/packages/components/accordion">Accordion</a>
+          <a href="/packages/components/alert">Alert</a>
+          <a href="/packages/components/button">Button</a>
+          <a href="/packages/components/card">Card</a>
+        </nav>
+      </div>
+    </aside>
+    <main class="flow">
       <section class="o-header background-gradient-primary-light">
-        <div class="center region flow">
-          <h1>Property</h1>
-          <h2>What would you like to do?</h2>
-          <div class="grid" data-grid-cols="4" data-flow-space="l">
-            <article class="c-card" data-variant="large">
-              <header class="c-card__header">
+        <div class="region">
+          <div class="container flow">
+            <h1>Property</h1>
+
+            <nyc-accordion>
+              <h4>Another Heading</h4>
+              <section>
+                <p>hey</p>
+              </section>
+              <h4>heading 2</h4>
+              <section>
+                <h5>howdy</h5>
+                <p>hey again</p>
+              </section>
+              <h4>hahaha</h4>
+              <p>hey</p>
+              <br>
+              <div>another one</div>
+              <nyc-accordion>
+                <h5>hey</h5>
+                <p>this is another</p>
+                <table>
+                  <tr>
+                    <td>Key</td>
+                    <td>Val</td>
+                  </tr>
+                  <tr>
+                    <td>Red</td>
+                    <td>#333</td>
+                  </tr>
+                </table>
+                <h5>wow</h5>
+                <div>
+                  <p>Look at that</p>
+                  <nyc-accordion>
+                    just text
+                    <div>with a panel</div>
+                    more text
+                    <div>another panel</div>
+                  </nyc-accordion>
+                </div>
+              </nyc-accordion>
+            </nyc-accordion>
+            <nyc-accordion>
+              <article class="accordion__group">
                 <h3>
-                  <a href="#" class="c-card__primary-action">
+                  <button is="toggle-button" aria-controls="assessment-definitions">
+                    Assessment definitions
+                    <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <div id="assessment-definitions" class="flow" hidden>
+                  <p>The following alphabetical listing of terms is provided to help you understand property valuation and tax assessment:</p>
+                  <h3>a wild heading appears</h3>
+                  <nyc-accordion>
+                    <article class="accordion__group">
+                      <h3>
+                        <button is="toggle-button" aria-controls="abatements">
+                          Abatements
+                          <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
+                        </button>
+                      </h3>
+                      <div id="abatements" hidden>
+                        <p>Abatements reduce your taxes after they've been calculated. Different abatement programs are available for housing rehabilitation, revitalization and cooperatives and condominiums.</p>
+                      </div>
+                    </article>
+                    <article class="accordion__group">
+                      <h3>
+                        <button is="toggle-button" aria-controls="actual-assessed-value">
+                          Actual assessed value
+                          <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
+                        </button>
+                      </h3>
+                      <div id="actual-assessed-value" hidden>
+                        <p>The assessed value before five year phase-in requirements (for some tax class 2 and all tax class 4 properties) and/or exemptions are applied.</p>
+                      </div>
+                    </article>
+                  </nyc-accordion>
+                </div>
+              </article>
+            </nyc-accordion>
+            <ul>
+              <li>hey</li>
+              <li>woah</li>
+              <li>look at that</li>
+            </ul>
+            <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+              <colgroup>
+                <col class="org-left">
+
+                <col class="org-left">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" class="org-left">Prefix</th>
+                  <th scope="col" class="org-left">Pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="org-left">nyc-ref</td>
+                  <td class="org-left">–{prefix}-{property}-{label}{-scale}</td>
+                </tr>
+              </tbody>
+            </table>
+            <article class="card">
+              <header class="card__header">
+                <h3>
+                  <a href="#" class="card__primary-action">
                     <span>
                       View property bills, assessments, and notices
                     </span>
@@ -26,81 +154,101 @@
                   </a>
                 </h3>
               </header>
+              <div class="card__media">
+                <img src="/img/card-placeholder.png">
+              </div>
+              <div class="card__body">
+                <p>A summary of this card</p>
+              </div>
             </article>
-            <article class="c-card" data-variant="large">
-              <header class="c-card__header">
-                <h3>
-                  <a href="#" class="c-card__primary-action">
-                    <span>
-                      Pay property taxes online
-                    </span>
-                    <span>
-                      <span class="i-ri:external-link-line"></span>
-                    </span>
-                  </a>
-                </h3>
-              </header>
-            </article>
-            <article class="c-card" data-variant="large">
-              <header class="c-card__header">
-                <h3>
-                  <a href="#" class="c-card__primary-action">
-                    <span>
-                      Explore property records (ACRIS)
-                    </span>
-                    <span>
-                      <span class="i-ri:external-link-line"></span>
-                    </span>
-                  </a>
-                </h3>
-              </header>
-            </article>
-            <article class="c-card" data-variant="large">
-              <header class="c-card__header">
-                <h3>
-                  <a href="#" class="c-card__primary-action">
-                    <span>
-                      Apply for tax exemptions and abatements
-                    </span>
-                    <span>
-                      <span class="i-ri:external-link-line"></span>
-                    </span>
-                  </a>
-                </h3>
-              </header>
-            </article>
+            <h2>What would you like to do?</h2>
+            <div class="grid" data-layout="col-4" data-flow-space="l">
+              <article class="card" data-variant="large">
+                <header class="card__header">
+                  <h3>
+                    <a href="#" class="card__primary-action">
+                      <span>
+                        View property bills, assessments, and notices
+                      </span>
+                      <span>
+                        <span class="i-ri:external-link-line"></span>
+                      </span>
+                    </a>
+                  </h3>
+                </header>
+              </article>
+              <article class="card" data-variant="large">
+                <header class="card__header">
+                  <h3>
+                    <a href="#" class="card__primary-action">
+                      <span>
+                        Pay property taxes online
+                      </span>
+                      <span>
+                        <span class="i-ri:external-link-line"></span>
+                      </span>
+                    </a>
+                  </h3>
+                </header>
+              </article>
+              <article class="card" data-variant="large">
+                <header class="card__header">
+                  <h3>
+                    <a href="#" class="card__primary-action">
+                      <span>
+                        Explore property records (ACRIS)
+                      </span>
+                      <span>
+                        <span class="i-ri:external-link-line"></span>
+                      </span>
+                    </a>
+                  </h3>
+                </header>
+              </article>
+              <article class="card" data-variant="large">
+                <header class="card__header">
+                  <h3>
+                    <a href="/exemptions.html" class="card__primary-action">
+                      <span>
+                        Apply for tax exemptions and abatements
+                      </span>
+                      <span>
+                        <span class="i-ri:external-link-line"></span>
+                      </span>
+                    </a>
+                  </h3>
+                </header>
+              </article>
+            </div>
           </div>
         </div>
       </section>
       <section>
-        <div class="center region">
+        <div class="container region">
           <h2>News and announcements</h2>
-          <ul role="list" class="grid mt-8" data-grid-cols="2">
+          <ul role="list" class="grid mt-8" data-layout="col-2">
             <li>
-              <article class="alert news-item flow flex flex-col">
+              <article class="alert flow" data-variant="news">
                 <h3>Deed fraud alert</h3>
                 <time datetime="2023-01-01">January 1, 2023</time>
-                <div class="news-body flow">
-                  <p>Learn how to protect your property from fraud.</p>
-                  <a href="#">Learn more <span class="i-ri:arrow-right-line"></span></a>
-                </div>
+
+                <p>Learn how to protect your property from fraud.</p>
+                <a href="#">Learn more <span class="i-ri:arrow-right-line"></span></a>
               </article>
             </li>
             <li>
-              <article class="alert news-item flow">
+              <article class="alert flow" data-variant="news">
                 <h3>Property tax payment notification</h3>
                 <time datetime="2023-01-01">January 1, 2023</time>
-                <div class="news-body flow">
-                  <p>You can now receive alerts when payments are credited to your property tax account.</p>
-                  <a href="#">Register now <span class="i-ri:arrow-right-line"></span></a>
-                </div>
+                <p>You can now receive alerts when payments are credited to your property tax account.</p>
+                <a href="#">Register now <span class="i-ri:arrow-right-line"></span></a>
               </article>
             </li>
           </ul>
         </div>
       </section>
       <section>
-        <div class="center region flow" data-flow-space="l">
+        <div class="container region flow" data-flow-space="l">
           <h2>You may also be interested in</h2>
           <div class="flow" id="suggested-content"></div>
         </div>

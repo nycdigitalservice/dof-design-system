@@ -8,39 +8,43 @@
   </head>
   <body>
     <main class="u-reset bg-blue-weak">
-      <header class="o-header background-primary">
-        <div class="center">
+      <header class="o-header background-gradient-primary-light">
+        <div class="container">
           <div class="region flow">
             <h1>Tax Exemptions and abatements</h1>
             <p>These benefits can help you pay less property tax by reducing your property’s assessed value or providing tax credits.</p>
           </div>
         </div>
       </header>
-      <div class="background-base">
-        <div class="center">
+      <div class="shadow-base">
+        <div class="container">
           <div class="region" data-region-space="s-m">
-            <div class="center flex flex-wrap items-center gap-6">
-              <label class="strong shrink-0">What best describes you?</label>
-              <div class="select">
-                <select>
-                  <option>Select an option</option>
-                  <option value="homeowner">Homeowner</option>
-                  <option value="landlord">Landlord</option>
-                  <option value="commercial-property-owner">Commercial property owner</option>
-                  <option value="commercial-tenant">Commercial tenant</option>
-                  <option value="government-property-owner">Government property owner</option>
-                  <option value="non-profit-property-owner">Non-profit property owner</option>
-                  <option value="builder-developer">Builder/Developer</option>
-                  <option value="other">Other</option>
-                </select>
-                <i class="i-ri:arrow-down-s-line"></i>
-              </div>
+            <div class="container">
+                <form>
+                    <div class="form-group max-w-xl w-full justify-between gap-2">
+                        <label class="strong shrink-0">What best describes you?</label>
+                        <div class="select">
+                            <select aria-controls="exemptions" data-action="filter">
+                                <option value="">Select an option</option>
+                                <option value="homeowner">Homeowner</option>
+                                <option value="landlord">Landlord</option>
+                                <option value="commercial-property-owner">Commercial property owner</option>
+                                <option value="commercial-tenant">Commercial tenant</option>
+                                <option value="government-property-owner">Government property owner</option>
+                                <option value="non-profit-property-owner">Non-profit property owner</option>
+                                <option value="builder-developer">Builder/Developer</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <i class="i-ri:arrow-down-s-line"></i>
+                        </div>
+                    </div>
+                </form>
             </div>
           </div>
         </div>
       </div>
-      <div class="center">
-        <div class="region" data-region-space="md">
+      <div class="container">
+        <div class="region" data-region-space="xl">
           <div class="grid" id="exemptions" data-gap="m"></div>
         </div>
         <div class="region flow">
@@ -77,6 +81,6 @@
         </div>
       </div>
     </main>
-    <script type="module" src="./main.ts"></script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>

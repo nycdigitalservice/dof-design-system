@@ -1,0 +1,179 @@
+#+title: Composition
+
+** Container
+
+The =container= class *contains* elements to a *maximum size* and is
+*centered* by default
+
+#+BEGIN_SRC css :tangle composition.css
+  .container {
+    margin-inline: auto;
+    max-inline-size: calc(var(--nyc-sys-dimension-page-max-width) + var(--nyc-sys-dimension-gutter) * 2);
+    padding-inline: var(--nyc-sys-dimension-gutter);
+    container: container / inline-size;
+  }
+#+END_SRC
+
+** Region
+
+Regions supply consistent vertical padding to sections of content
+
+#+BEGIN_SRC css :tangle composition.css
+  .region {
+    --region-space: var(--nyc-sys-dimension-space-l-xl);
+    padding-block-start: var(--region-space);
+    padding-block-end: var(--region-space);
+  }
+
+  .region[data-region-space="s"] {
+    --region-space: var(--nyc-sys-dimension-space-s);
+  }
+
+  .region[data-region-space="m"] {
+    --region-space: var(--nyc-sys-dimension-space-m);
+  }
+
+  .region[data-region-space="l"] {
+    --region-space: var(--nyc-sys-dimension-space-l);
+  }
+
+  .region[data-region-space="xl"] {
+    --region-space: var(--nyc-sys-dimension-space-xl);
+  }
+
+  .region[data-region-space="s-m"] {
+    --region-space: var(--nyc-sys-dimension-space-s-m);
+  }
+
+  .region[data-region-space="xs-s"] {
+    --region-space: var(--nyc-sys-dimension-space-xs-s);
+  }
+#+END_SRC
+
+** Grid
+
+#+BEGIN_SRC css :tangle composition.css
+  .grid {
+    --gutter: var(--nyc-sys-dimension-gutter);
+    display: grid;
+    gap: var(--gutter, var(--nyc-sys-dimension-space-s-l));
+    grid-auto-rows: 1fr
+  }
+
+  @supports (width: min(250px, 100%)) {
+    .grid {
+      grid-template-columns: repeat(
+        var(--grid-placement, auto-fill),
+        minmax(var(--grid-min-item-size, 16rem), var(--grid-max-item-size, 1fr))
+      );
+    }
+  }
+
+  .grid[data-layout^="col-"] {
+    --max-w: calc(var(--nyc-sys-dimension-page-max-width) + ((var(--grid-cols, 1) - 1) * var(--gutter)));
+    --grid-min-item-size: calc((var(--max-w) / var(--grid-cols)) * var(--grid-shrink-ratio, .7));
+    --grid-placement: auto-fit;
+  }
+
+  .grid[data-layout="col-4"] {
+    --gutter: var(--nyc-sys-dimension-space-s);
+    --grid-shrink-ratio: .7;
+    --grid-cols: 4;
+  }
+
+  .grid[data-layout="col-2"] {
+    --grid-cols: 2;
+  }
+
+  /* TODO: address max hard-coded value */
+  @container container (max-width: 806px) {
+    .grid[data-layout="col-4"] {
+      --grid-cols: 2;
+      --grid-shrink-ratio: .5;
+    }
+  }
+#+END_SRC
+
+** Sidebar
+
+#+BEGIN_SRC css :tangle composition.css
+  .with-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s1);
+  }
+
+  .with-sidebar > :first-child {
+    flex-grow: 1;
+  }
+
+  .with-sidebar > :last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 50%;
+  }
+#+END_SRC
+
+** Flow
+
+#+begin_src css :tangle composition.css
+  .flow > * {
+    margin-block: 0;
+  }
+
+  .flow > * + * {
+    --space: var(--nyc-sys-dimension-space-m);
+    margin-block-start: var(--space, 1em);
+  }
+
+  [data-flow-space=s] {
+    --space: var(--nyc-sys-dimension-space-s);
+  }
+
+  [data-flow-space=m] {
+    --space: var(--nyc-sys-dimension-space-m);
+  }
+
+  [data-flow-space=l] {
+    --space: var(--nyc-sys-dimension-space-l);
+  }
+#+end_src
+
+** Switcher
+
+#+begin_src css :tangle composition.css
+  .switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nyc-sys-dimension-space-s-m);
+    container: switcher / inline-size;
+  }
+
+  .switcher > * {
+    flex-grow: 1;
+    flex-basis: calc(( 40rem - 100%) * 999);
+  }
+
+  .switcher > :nth-last-child(n+ 4),
+  .switcher > :nth-last-child(n+ 4) ~ * {
+    flex-basis: 100%;
+  }
+
+  [data-col-layout="1-3-2"] {
+    & :nth-child(2) {
+      order: 3;
+    }
+
+    & :nth-child(3) {
+      flex-grow: 2;
+    }
+  }
+
+  @container switcher (max-width: 40rem) {
+    [data-col-layout="1-3-2"] {
+      & :nth-child(2) {
+        order: initial;
+      }
+    }
+  }
+#+end_src
