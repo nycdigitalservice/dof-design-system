@@ -2,7 +2,7 @@ import { defineConfig, presetUno, presetIcons } from 'unocss';
 
 export default defineConfig({
     blocklist: ['grid'],
-    safelist: 'i-ri:external-link-line i-ri:anchor-line'.split(' '),
+  safelist: 'i-ri:external-link-line i-ri:anchor-line i-ri:arrow-down-s-line flex border-b-2 border-solid border-current p-1 p-2 p-4 mr-auto i-ri:menu-line mr-2 flex-col'.split(' '),
     presets: [
         presetUno({ variablePrefix: 'nyc-' }),
         presetIcons({

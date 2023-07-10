@@ -1,5 +1,5 @@
 {
-  "name": "dof-2023",
+  "name": "dof-design-system",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -29,6 +29,7 @@
     "vite-plugin-run": "^0.4.1"
   },
   "dependencies": {
+    "@ungap/custom-elements": "^1.3.0",
     "vue": "^3.3.4"
   }
 }

@@ -1,4 +1,3 @@
-/* @custom-media --nyc-cmp-button- */
 :root {
   --nyc-cmp-button-color: var(--nyc-sys-color-text, currentColor);
   --nyc-cmp-button-background: var(--nyc-sys-color-background, transparent);
@@ -7,11 +6,19 @@
 }
 
 .button {
+  --nyc-cmp-button-background: transparent;
+  --nyc-cmp-button-border: none;
+  --nyc-cmp-button-color: currentcolor;
+  --nyc-cmp-button-shadow: none;
+  appearance: none;
   background-color: var(--nyc-cmp-button-background);
+  border: var(--nyc-cmp-button-border);
   color: var(--nyc-cmp-button-color);
   padding: var(--nyc-sys-dimension-space-xs);
   text-decoration: none;
+  cursor: pointer;
   font-weight: 700;
+  font-size: inherit;
   border-radius: 4px;
   display: inline-flex;
   align-items: center;
@@ -20,53 +27,20 @@
   & > span:first-child {
     flex-grow: 1;
   }
+}
 
+.button[data-variant] {
+  --nyc-cmp-button-background: var(--nyc-sys-color-background);
+  --nyc-cmp-button-border: 2px solid var(--nyc-sys-color-border);
+  --nyc-cmp-button-shadow: var(--nyc-sys-shadow-base);
   & > i:last-child {
     flex-shrink: 0;
     margin-inline-start: var(--nyc-sys-dimension-space-s-l);
     margin-block: auto;
-  }
+  }  
 }
 
-/* .button[data-variant="tile"] { */
-/*   --nyc-cmp-button-shadow: var(--nyc-sys-shadow-weak); */
-/*   /\* font-size: var(--size-step-2); *\/ */
-/*   --fs: clamp(1.00rem, calc(0.83rem + 0.85vw), 1.38rem); */
-/*   font-size: var(--fs); */
-/*   flex-wrap: wrap; */
-/*   height: 100%; */
-/*   align-items: auto; */
-/*   min-block-size: 2.5rem; */
-/*   --modifier: calc(18rem - 100%); */
-/*   /\* flex-direction: column; *\/ */
-
-/*   & > * { */
-/*     flex-grow: 1; */
-/*     flex-basis: calc(var(--modifier) * 999); */
-/*   } */
-
-/*   & i { */
-/*     font-size: calc(var(--fs) * 1.2); */
-/*   } */
-
-/*   & .title { */
-/*     --modifier: calc(20rem - 100%); */
-/*     flex-basis: 0; */
-/*     min-inline-size: 85%; */
-/*     /\* flex-grow: 999; *\/ */
-/*   } */
-
-/*   & > :last-child { */
-/*     --modifier: calc(18rem - 100%); */
-/*     display: flex; */
-/*     justify-content: flex-end; */
-/*     align-items: flex-end; */
-/*     margin-block-start: 1.5rem; */
-/*   } */
-/* } */
-
-.button[data-variant="outline"],
-.button[data-variant="tile"] {
+.button[data-variant="outline"] {
   border: var(--nyc-cmp-button-border);
   box-shadow: var(--nyc-cmp-button-shadow);
   &:hover {

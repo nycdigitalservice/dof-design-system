@@ -16,17 +16,17 @@ html {
 }
 
 :where(.u-reset) {
-    font-family: var(--nyc-font-family);
-    font-feature-settings: var(--nyc-font-features);
-    font-weight: var(--nyc-font-weight);
-    line-height: var(--nyc-line-height);
-    color: var(--nyc-color-text);
-    accent-color: var(--nyc-color-accent)
+  font-family: var(--nyc-sys-font-family-base);
+  font-feature-settings: var(--nyc-sys-font-features, normal);
+  font-weight: var(--nyc-sys-font-weight, 500);
+  line-height: var(--nyc-sys-line-height);
+  color: var(--nyc-sys-color-text);
+  accent-color: var(--nyc-sys-color-accent)
 }
 
 :where(.u-reset a) {
-    color: var(--nyc-color-text-link);
-    text-decoration: underline
+  color: var(--nyc-sys-tcolor-text-link);
+  text-decoration: underline
 }
 
 :where(.u-reset),:where(.u-reset) :where(body,div,span,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,code,img,svg,small,strike,strong,sub,sup,b,u,i,ol,ul,li,form,label,table,caption,tbody,tfoot,thead,tr,th,td,main,article,aside,canvas,footer,header,nav,section,time,button,video,textarea,input) {

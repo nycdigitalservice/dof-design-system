@@ -1,19 +1,24 @@
-* Variables
+#+TITLE: Variables
 
-This library utilizes [[https://developer.mozilla.org/en-US/docs/Web/CSS/--*][CSS custom properties]]*, adopting a naming
-convention influeced by Google's [[https://m3.material.io/foundations/design-tokens/how-to-read-tokens#98e82e98-5ecd-4c5d-a03a-7d4cc5d55c20][Material design system tokens]]. The
+This library utilizes [[https://developer.mozilla.org/en-US/docs/Web/CSS/--*][CSS custom properties]], adopting a naming
+convention influenced by Google's [[https://m3.material.io/foundations/design-tokens/how-to-read-tokens#98e82e98-5ecd-4c5d-a03a-7d4cc5d55c20][Material design system tokens]]. The
 variables are divided into a 3-tier structure: Reference, System, and
 Component.
+
+#+TOC: headlines 2
 
 ** Reference variables
 
 Reference variables are used to hold direct property values, the value
 you would give to a CSS property when not using variables.
 
-*Prefix*: =nyc-ref=
-*Pattern*: =--{prefix}-{property}-{value}=
+| Prefix  | Pattern                               |
+|---------+---------------------------------------|
+| nyc-ref | --{prefix}-{property}{-label}{-scale} |
 
 *** Color
+
+Color reference variables allow you to label and scale colors used on the site.
 
 #+begin_src css :noweb-ref ref-vars
   --nyc-ref-color-blue-50: hsla(214, 54%, 95%, 1);
@@ -26,14 +31,21 @@ you would give to a CSS property when not using variables.
   --nyc-ref-color-orange-700: hsla(25, 78%, 41%, 1);
   --nyc-ref-color-neutral-0: hsla(0, 0%, 100%, 1);
   --nyc-ref-color-neutral-100: hsla(0, 0%, 93%, 1);
+  --nyc-ref-color-neutral-200: hsla(0, 0%, 80%, 1);
+  --nyc-ref-color-neutral-300: hsla(0, 0%, 53%, 1);
   --nyc-ref-color-neutral-400:  hsla(0, 0%, 40%, 1);
-  --nyc-ref-color-neutral-850: hsla(0, 0%, 20%, 1);
+  --nyc-ref-color-neutral-800: hsla(0, 0%, 20%, 1);
   --nyc-ref-color-neutral-900: hsla(0, 0%, 0%, 1);
+
   --nyc-ref-shadow-400: 4px 4px 8px hsla(0, 0%, 0%, .2);
   --nyc-ref-shadow-450: 0 4px 8px hsla(0, 0%, 0%, .2);
   --nyc-ref-shadow-500: 0 4px 4px hsla(0, 0%, 0%, .25);
 
-  --nyc-ref-gradient-blue-100: radial-gradient(56.94% 119.67% at 78.96% 43.36%, #E6F4FF 0%, #BDE3FF 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  --nyc-ref-gradient-blue-100: radial-gradient(
+    56.94% 119.67% at 78.96% 43.36%, #E6F4FF 0%, #BDE3FF 100%
+  );
+  /* warning: gradient uses a rotation that is not supported by
+     CSS and may not behave as expected */
 #+end_src
 
 *** Size
@@ -73,65 +85,86 @@ The below space variables are used for fluid =margin= and =padding= and
 are generated from the [[https://utopia.fyi][Utopia]] calculator ([[https://utopia.fyi/space/calculator?c=320,16,1.2,1024,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12][scale source]])
 
 #+begin_src css :noweb-ref ref-vars
-  --nyc-ref-dimension-space-3xs: clamp(0.25rem, calc(0.22rem + 0.14vw), 0.31rem);
-  --nyc-ref-dimension-space-2xs: clamp(0.50rem, calc(0.47rem + 0.14vw), 0.56rem);
-  --nyc-ref-dimension-space-xs: clamp(0.75rem, calc(0.69rem + 0.28vw), 0.88rem);
-  --nyc-ref-dimension-space-s: clamp(1.00rem, calc(0.94rem + 0.28vw), 1.13rem);
-  --nyc-ref-dimension-space-m: clamp(1.50rem, calc(1.41rem + 0.43vw), 1.69rem);
-  --nyc-ref-dimension-space-l: clamp(2.00rem, calc(1.89rem + 0.57vw), 2.25rem);
-  --nyc-ref-dimension-space-xl: clamp(3.00rem, calc(2.83rem + 0.85vw), 3.38rem);
-  --nyc-ref-dimension-space-2xl: clamp(4.00rem, calc(3.77rem + 1.14vw), 4.50rem);
-  --nyc-ref-dimension-space-3xl: clamp(6.00rem, calc(5.66rem + 1.70vw), 6.75rem);
+  --nyc-sys-dimension-space-3xs: clamp(0.25rem, calc(0.22rem + 0.14vw), 0.31rem);
+  --nyc-sys-dimension-space-2xs: clamp(0.50rem, calc(0.47rem + 0.14vw), 0.56rem);
+  --nyc-sys-dimension-space-xs: clamp(0.75rem, calc(0.69rem + 0.28vw), 0.88rem);
+  --nyc-sys-dimension-space-s: clamp(1.00rem, calc(0.94rem + 0.28vw), 1.13rem);
+  --nyc-sys-dimension-space-m: clamp(1.50rem, calc(1.41rem + 0.43vw), 1.69rem);
+  --nyc-sys-dimension-space-l: clamp(2.00rem, calc(1.89rem + 0.57vw), 2.25rem);
+  --nyc-sys-dimension-space-xl: clamp(3.00rem, calc(2.83rem + 0.85vw), 3.38rem);
+  --nyc-sys-dimension-space-2xl: clamp(4.00rem, calc(3.77rem + 1.14vw), 4.50rem);
+  --nyc-sys-dimension-space-3xl: clamp(6.00rem, calc(5.66rem + 1.70vw), 6.75rem);
 
   /* One-up pairs */
-  --nyc-ref-dimension-space-3xs-2xs: clamp(0.25rem, calc(0.11rem + 0.71vw), 0.56rem);
-  --nyc-ref-dimension-space-2xs-xs: clamp(0.50rem, calc(0.33rem + 0.85vw), 0.88rem);
-  --nyc-ref-dimension-space-xs-s: clamp(0.75rem, calc(0.58rem + 0.85vw), 1.13rem);
-  --nyc-ref-dimension-space-s-m: clamp(1.00rem, calc(0.69rem + 1.56vw), 1.69rem);
-  --nyc-ref-dimension-space-m-l: clamp(1.50rem, calc(1.16rem + 1.70vw), 2.25rem);
-  --nyc-ref-dimension-space-l-xl: clamp(2.00rem, calc(1.38rem + 3.13vw), 3.38rem);
-  --nyc-ref-dimension-space-xl-2xl: clamp(3.00rem, calc(2.32rem + 3.41vw), 4.50rem);
-  --nyc-ref-dimension-space-2xl-3xl: clamp(4.00rem, calc(2.75rem + 6.25vw), 6.75rem);
+  --nyc-sys-dimension-space-3xs-2xs: clamp(0.25rem, calc(0.11rem + 0.71vw), 0.56rem);
+  --nyc-sys-dimension-space-2xs-xs: clamp(0.50rem, calc(0.33rem + 0.85vw), 0.88rem);
+  --nyc-sys-dimension-space-xs-s: clamp(0.75rem, calc(0.58rem + 0.85vw), 1.13rem);
+  --nyc-sys-dimension-space-s-m: clamp(1.00rem, calc(0.69rem + 1.56vw), 1.69rem);
+  --nyc-sys-dimension-space-m-l: clamp(1.50rem, calc(1.16rem + 1.70vw), 2.25rem);
+  --nyc-sys-dimension-space-l-xl: clamp(2.00rem, calc(1.38rem + 3.13vw), 3.38rem);
+  --nyc-sys-dimension-space-xl-2xl: clamp(3.00rem, calc(2.32rem + 3.41vw), 4.50rem);
+  --nyc-sys-dimension-space-2xl-3xl: clamp(4.00rem, calc(2.75rem + 6.25vw), 6.75rem);
 
   /* Custom pairs */
-  --nyc-ref-dimension-space-s-l: clamp(1.00rem, calc(0.43rem + 2.84vw), 2.25rem);
+  --nyc-sys-dimension-space-s-l: clamp(1.00rem, calc(0.43rem + 2.84vw), 2.25rem);
 #+end_src
 
-** System variables (sys)
+** System variables
 
 System variables introduce a semantic layer where we can provide
 useful names to our Reference variables, such as a ~primary~ color or a
 ~base~ font.
 
-*Prefix*: =nyc-sys
-*Pattern*: =--{prefix}-{property}-{label}-{variant}=
+| Prefix  | Pattern                                 |
+|---------+-----------------------------------------|
+| nyc-sys | --{prefix}-{property}-{label}{-variant} |
 
 
 #+begin_src css :noweb-ref sys-vars
   --nyc-sys-color-primary: var(--nyc-ref-color-blue-500);
   --nyc-sys-color-on-primary: var(--nyc-ref-color-neutral-0);
   --nyc-sys-color-primary-lighter: var(--nyc-ref-color-blue-100);
+  --nyc-sys-color-on-primary-lighter: var(--nyc-ref-color-blue-700);
   --nyc-sys-color-primary-lightest: var(--nyc-ref-color-blue-50);
   --nyc-sys-color-primary-dark: var(--nyc-ref-color-blue-700);
   --nyc-sys-color-secondary: var(--nyc-ref-color-orange-500);
-  --nyc-sys-color-text: var(--nyc-ref-color-neutral-850);
+  --nyc-sys-color-text: var(--nyc-ref-color-neutral-800);
   --nyc-sys-color-text-light: var(--nyc-ref-color-neutral-400);
+  --nyc-sys-color-link: var(--nyc-sys-color-primary, currentColor);
   --nyc-sys-color-background: var(--nyc-ref-color-neutral-0);
   --nyc-sys-color-border: var(--nyc-ref-color-neutral-100);
+  --nyc-sys-color-neutral-lightest: var(--nyc-ref-color-neutral-100);
+  --nyc-sys-color-neutral-light: var(--nyc-ref-color-neutral-200);
+  --nyc-sys-color-neutral: var(--nyc-ref-color-neutral-300);
+  --nyc-sys-color-accent: var(--nyc-sys-color-primary);
   --nyc-sys-gradient-primary-light: var(--nyc-ref-gradient-blue-100);
   --nyc-sys-shadow-base: var(--nyc-ref-shadow-500);
   --nyc-sys-shadow-weak: var(--nyc-ref-shadow-400);
-  --nyc-sys-font-size-base: var(--size-step-0);
+  --nyc-sys-line-height: 1.4;
+  --nyc-sys-font-size-base: var(--nyc-ref-dimension-size-step-0);
   --nyc-sys-font-family-base: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
   --nyc-sys-dimension-page-max-width: 64rem;
-  --nyc-sys-dimension-gutter: var(--nyc-sys-dimension-size-step-0);
+  --nyc-sys-dimension-gutter: var(--nyc-ref-dimension-size-step-0);
+
+  --nyc-sys-dimension-size-xs: var(--nyc-ref-dimension-size-step--2);
+  --nyc-sys-dimension-size-s: var(--nyc-ref-dimension-size-step--1);
+  --nyc-sys-dimension-size-m: var(--nyc-ref-dimension-size-step-0);
+  --nyc-sys-dimension-size-l: var(--nyc-ref-dimension-size-step-2);
+  --nyc-sys-dimension-size-xl: var(--nyc-ref-dimension-size-step-3);
+  --nyc-sys-dimension-size-xxl: var(--nyc-ref-dimension-size-step-4);
 #+end_src
 
 
-** Component variables (cmp)
+** Component variables
 
 Component variables are the variables that will be referenced in our
 component CSS properties and these reference System variables.
+
+| Prefix  | Pattern                                   |
+|---------+-------------------------------------------|
+| nyc-cmp | --{prefix}-{component}-{property}{-state} |
+
 
 #+begin_src css :tangle no
   --nyc-cmp-card-background-hover: var(--nyc-sys-color-primary-light, transparent);
@@ -151,11 +184,11 @@ multiple CSS selectors under a given name.
 #+BEGIN_SRC css :tangle variables.css :noweb yes
   /* CSS variables: Reference and System */
   :root {
-      /* Reference variables */
-      <<ref-vars>>
+    /* Reference variables */
+    <<ref-vars>>
 
-      /* System variables */
-      <<sys-vars>>
+    /* System variables */
+    <<sys-vars>>
   }
 
   /* Custom selectors */

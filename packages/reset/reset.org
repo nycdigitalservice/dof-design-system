@@ -1,3 +1,0 @@
-* Reset
-
-A CSS reset utility

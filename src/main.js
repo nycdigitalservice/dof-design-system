@@ -1,7 +1,10 @@
+import '@ungap/custom-elements';
 import 'uno.css';
 import './main.css';
 import exemptionsListMarkup from './js/exemptions';
 import suggestedContentListMarkup from './js/suggested-content.js';
+import './js/toggle-button';
+import '../packages/components/accordion/src/nyc-accordion.js';
 // import '../packages/composition/composition.md';
 // import variableDoc from '../packages/variables/README.md?url';
 

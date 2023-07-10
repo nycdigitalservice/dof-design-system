@@ -7,6 +7,8 @@
 @import "../packages/components/button/button.css";
 @import "../packages/components/form/form.css";
 @import "../packages/components/select/select.css";
+@import "../packages/components/alert/alert.css";
+@import "../packages/components/accordion/src/accordion.css";
 
 /* Blocks */
 
@@ -14,57 +16,4 @@
 .grid li > .button {
   display: flex;
   height: 100%;
-}
-
-/* TODO: address 900px hard-coded value */
-@container grid-parent (max-width: 900px) {
-    .grid[data-layout="col-4"] {
-        /* Bump min-size to ~300px to force 2 col layout */
-        /* --grid-min-item-size: 18.75rem; */
-        --grid-min-item-size: 18rem;
-  }
-}
-
-.alert {
-  --alert-color: var(--nyc-sys-color-secondary);
-  padding-inline-start: var(--nyc-sys-dimension-space-s-m);
-  position: relative;
-  &::before {
-    content: '';
-    width: 5px;
-    height: 100%;
-    background: var(--alert-color);
-    position: absolute;
-    left: 0;
-    display: flex;
-    border-radius: 5px;
-  }
-}
-
-.alert[data-variant=news] {
-    --space: .8em;
-    display: flex;
-    flex-direction: column;
-    & :--heading {
-        font-size: var(--nyc-sys-font-size-base);
-    }
-
-    & time {
-        order: -1;
-        --space: 0;
-        margin-block-end: .8em;
-        font-weight: 400;
-    }
-}
-
-@container grid-parent (max-width: 657px) {
-  .alert {
-    padding-inline-start: 0;
-    padding-block-start: var(--nyc-sys-dimension-space-s-m);
-    &::before {
-      top: 0;
-      width: 100%;
-      height: 5px;
-    }
-  }
 }

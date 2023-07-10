@@ -1,7 +1,7 @@
 ;;; publish.el --- Build NYC documentation site
 
 ;; Copyright (C) 2021, 2023 David Wilson <david@systemcrafters.net>
-;; Copyright (C) 2023 Michael Mausler <mmausler@oti.nyc.gov>
+;; Copyright (C) 2023 Michael Mausler, City of New York <mmausler@oti.nyc.gov>
 
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "28.2"))
@@ -33,18 +33,18 @@
 ;; emacs -Q --batch -l ./publish.el --funcall nyc/publish
 
 ;;; Code:
-
 ;; Initialize package sources
 (require 'package)
 
 ;; Set the package installation directory so that packages aren't stored in the
 ;; ~/.emacs.d/elpa path.
-(setq package-user-dir (expand-file-name "./.packages"))
+(setq pwd (file-name-directory (or load-file-name buffer-file-name)))
+(setq package-user-dir (expand-file-name "./.packages" pwd))
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("stable" . "https://stable.melpa.org/packages/"))
 
-(add-to-list 'load-path (file-name-directory (or load-file-name buffer-file-name)))
+(add-to-list 'load-path (expand-file-name "./site-lisp" pwd))
 
 ;; Initialize the package system
 (package-initialize)
@@ -62,12 +62,12 @@
 (require 'subr-x)
 (require 'cl-lib)
 
-;; (load-file "./ob-html.el")
+(require 'nyc-publish)
 (require 'ob-html)
 
 ;; Install other dependencies
 (use-package esxml
-  :pin "melpa-stable"
+  :pin "stable"
   :ensure t)
 
 (use-package htmlize
@@ -81,188 +81,20 @@
   "The URL for the site being generated.")
 
 
-(defun nyc/site-header ()
-  (list `(header (@ (class "site-header region flow background-primary"))
-                 (div (@ (class "container"))
-                      (div (@ (class "site-title"))
-                           (img (@ (class "logo")
-                                   (width "150")
-                                   (src ,(concat "/assets/img/nyc-dof-logo.svg"))
-                                   (alt "NYC Department of Finance")))))
-                 (div (@ (class "site-masthead"))
-                      (div (@ (class "container"))
-                           (nav (@ (class "nav"))
-                                (a (@ (class "nav-link") (href "/")) "Home") " "
-                                ))))))
+;; (defun nyc/site-header ()
+;;   (list `(header (@ (class "site-header region flow background-primary"))
+;;                  (div (@ (class "container"))
+;;                       (div (@ (class "site-title"))
+;;                            (img (@ (class "logo")
+;;                                    (width "150")
+;;                                    (src ,(concat "/assets/img/nyc-dof-logo.svg"))
+;;                                    (alt "NYC Department of Finance")))))
+;;                  (div (@ (class "site-masthead"))
+;;                       (div (@ (class "container"))
+;;                            (nav (@ (class "nav"))
+;;                                 (a (@ (class "nav-link") (href "/")) "Home") " "
+;;                                 ))))))
 
-(defun nyc/site-footer ()
-  (list `(footer (@ (class "site-footer"))
-                 (div (@ (class "container"))
-                      (div (@ (class "row"))
-                           (div (@ (class "column"))
-                                (p "© 2023 City of New York")))))))
-
-(defun get-article-output-path (org-file pub-dir)
-  (let ((article-dir (concat pub-dir
-                             (downcase
-                              (file-name-as-directory
-                               (file-name-sans-extension
-                                (file-name-nondirectory org-file)))))))
-
-    (if (string-match "\\/index.org\\|\\/404.org$" org-file)
-        pub-dir
-      (progn
-        (unless (file-directory-p article-dir)
-          (make-directory article-dir t))
-        article-dir))))
-
-
-(defun nyc/get-commit-hash ()
-  "Get the short hash of the latest commit in the current repository."
-  (string-trim-right
-   (with-output-to-string
-     (with-current-buffer standard-output
-       (vc-git-command t nil nil "rev-parse" "--short" "HEAD")))))
-
-(cl-defun nyc/generate-page (title
-                             content
-                             info
-                             &key
-                             (publish-date)
-                             (head-extra)
-                             (pre-content)
-                             (exclude-header)
-                             (exclude-footer))
-  (concat
-   "<!-- Generated from " (nyc/get-commit-hash)  " on " (format-time-string "%Y-%m-%d @ %H:%M") " with " org-export-creator-string " -->\n"
-   "<!DOCTYPE html>"
-   (sxml-to-xml
-    `(html (@ (lang "en"))
-           (head
-            (meta (@ (charset "utf-8")))
-            (meta (@ (author "Michael Mausler - NYC")))
-            (meta (@ (name "viewport")
-                     (content "width=device-width, initial-scale=1, shrink-to-fit=no")))
-            (link (@ (rel "icon") (type "image/png") (href "/img/favicon.png")))
-            (link (@ (rel "stylesheet") (href ,(concat  "/assets/dof-2023-styles.css"))))
-            (link (@ (rel "stylesheet") (href ,(concat  "/assets/dof-2023-docs.css"))))
-            (link (@ (rel "stylesheet") (href "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css")))
-            (script (@ (src "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js")) "")
-            (link (@ (rel "stylesheet") (href "https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css")))
-            (script (@ (src "https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js")) "")
-
-            (script (@) "hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());")
-            ,(when head-extra head-extra)
-            (title ,(concat title " - NYC")))
-           (body (@ (class "u-reset")) ,@(unless exclude-header
-                                           (nyc/site-header))
-                 (div (@ (class "container"))
-                      (div (@ (class "s region"))
-                           (h1 (@ (class "site-post-title"))
-                               ,title)
-                           ,(when publish-date
-                              `(p (@ (class "site-post-meta")) ,publish-date))
-                           ,(if-let ((video-id (plist-get info :video)))
-                                (nyc/embed-video video-id))
-                           ,(when pre-content pre-content)
-                           (div (@ (id "content") (class "flow"))
-                                ,content)))
-                 ,@(unless exclude-footer
-                     (nyc/site-footer)))))))
-
-(defun nyc/org-html-template (contents info)
-  (nyc/generate-page (org-export-data (plist-get info :title) info)
-                     contents
-                     info
-                     :publish-date (org-export-data (org-export-get-date info "%B %e, %Y") info)))
-
-;; TODO - point to directory for non-index.org links
-(defun nyc/org-html-link (link contents info)
-  "Removes file extension and changes the path into lowercase file:// links."
-  (when (and (string= 'file (org-element-property :type link))
-             (string= "org" (file-name-extension (org-element-property :path link))))
-    (org-element-put-property link :path
-                              (downcase
-                               (concat
-                                (file-name-directory (org-element-property :path link))
-                                "index.org"
-                                ))))
-
-  (let ((exported-link (org-export-custom-protocol-maybe link contents 'html info)))
-    (cond
-     (exported-link exported-link)
-     ((equal contents nil)
-      (format "<a href=\"%s\">%s</a>"
-              (org-element-property :raw-link link)
-              (org-element-property :raw-link link)))
-     ((string-prefix-p "/" (org-element-property :raw-link link))
-      (format "<a href=\"%s\">%s</a>"
-              (org-element-property :raw-link link)
-              contents))
-     (t (org-export-with-backend 'html link contents info)))))
-
-(defun nyc/make-heading-anchor-name (headline-text)
-  (thread-last headline-text
-               (downcase)
-               (replace-regexp-in-string " " "-")
-               (replace-regexp-in-string "[^[:alnum:]_-]" "")))
-
-;; TODO - only set achor on level 2
-(defun nyc/org-html-headline (headline contents info)
-  (let* ((text (org-export-data (org-element-property :title headline) info))
-         (level (org-export-get-relative-level headline info))
-         ;; (level (min 7 (when level (1+ level))))
-         (anchor-name (nyc/make-heading-anchor-name text))
-         (attributes (org-element-property :ATTR_HTML headline))
-         ;; Wrap level 2s in section tags unless theres a property
-         (container (or (org-element-property :HTML_CONTAINER headline) (when (equal level 2) "section")))
-         ;; (container (cond ((not (string= "" container)) container)
-         ;;                  ((equal level 2) "section")))
-         ;; (container (if (not (string= "" container)) container (when (equal level 2) "section")))
-         (container-class (and container (or (org-element-property :HTML_CONTAINER_CLASS headline) (when (equal level 2) "region flow")))))
-    (when attributes
-      (setq attributes
-            (format " %s" (org-html--make-attribute-string
-                           (org-export-read-attribute 'attr_html `(nil
-                                                                   (attr_html ,(split-string attributes))))))))
-    (concat
-     (when (and container (not (string= "" container)))
-       (format "<%s%s>" container (if container-class (format " class=\"%s\"" container-class) "")))
-     (format "<h%d%s><a id=\"%s\" class=\"anchor\" href=\"#%s\"><i class=\"i-ri:anchor-line\"></i></a>%s</h%d>%s"
-             level
-             (or attributes "")
-             anchor-name
-             anchor-name
-             text
-             level
-             (or contents ""))
-     (when (and container (not (string= "" container)))
-       (format "</%s>" (cl-subseq container 0 (cl-search " " container)))))))
-
-(defun nyc/org-html-src-block (src-block _contents info)
-  (let* ((lang (org-element-property :language src-block))
-         (value (org-element-property :value src-block))
-	 (code (org-html-format-code src-block info)))
-    (format
-     (concat "<details>"
-             "<summary>Inspect code</summary>"
-             "<pre><code class=\"language-%s\">%s</code></pre>"
-             "</details>")
-     lang
-     (string-trim (if (string= lang "html") code value)))))
-
-(defun nyc/org-html-special-block (special-block contents info)
-  "Transcode a SPECIAL-BLOCK element from Org to HTML.
-CONTENTS holds the contents of the block.  INFO is a plist
-holding contextual information."
-  (let* ((block-type (org-element-property :type special-block))
-         (attributes (org-export-read-attribute :attr_html special-block)))
-    (format "<div class=\"%s center\">\n%s\n</div>"
-            block-type
-            (or contents
-                (if (string= block-type "cta")
-                    "If you find this guide helpful, please consider supporting System Crafters via the links on the <a href=\"/how-to-help/#support-my-work\">How to Help</a> page!"
-                  "")))))
 
 (org-export-get-all-transcoders 'site-html)
 
@@ -272,7 +104,8 @@ holding contextual information."
     (link . nyc/org-html-link)
     (src-block . nyc/org-html-src-block)
     (special-block . nyc/org-html-special-block)
-    (headline . nyc/org-html-headline))
+    (headline . nyc/org-html-headline)
+    (section . nyc/org-html-section))
   :options-alist
   '((:video "VIDEO" nil nil)))
 
@@ -284,7 +117,12 @@ holding contextual information."
                (lambda (extension &optional subtreep pub-dir)
                  ;; The 404 page is a special case, it must be named "404.html"
                  (concat article-path
-                         (if (string= (file-name-nondirectory filename) "404.org") "404" "index")
+                         (if
+                             (string= (file-name-nondirectory filename) "404.org")
+                             "404"
+                           (if
+                               (string= (file-name-nondirectory filename) "README.org")
+                               "index" (file-name-sans-extension (file-name-nondirectory filename))))
                          extension))))
       (org-publish-org-to 'site-html
                           filename
@@ -297,7 +135,7 @@ holding contextual information."
   (not (string= lang "html")))  ;don't ask for html
 
 (setq org-publish-use-timestamps-flag nil
-      org-publish-timestamp-directory "./.org-cache/"
+      org-publish-timestamp-directory (expand-file-name "./.org-cache/" pwd)
       org-export-with-section-numbers nil
       org-export-use-babel t
       org-export-with-smart-quotes t
@@ -315,26 +153,26 @@ holding contextual information."
       make-backup-files nil)
 
 (setq org-publish-project-alist
-      (list '("dofdocs:packages"
-              :base-directory "../../packages"
+      (list `("packages"
+              :base-directory ,(expand-file-name "../../packages" pwd)
               :base-extension "org"
               :recursive t
-              :publishing-directory "../../docs/packages"
+              :publishing-directory ,(expand-file-name "../../docs/packages" pwd)
               :publishing-function org-html-publish-to-html
               :with-title nil
               ;; :exclude "docs\\|scripts\\|src\\|dist\\|node_modules"
               :with-timestamps nil)
-            '("dofdocs:index"
-              :base-directory "../../"
+            `("dofdocs:index"
+              :base-directory ,(expand-file-name "../../" pwd)
               :base-extension "org"
-              :publishing-directory "../../docs"
+              :publishing-directory ,(expand-file-name "../../docs" pwd)
               :publishing-function org-html-publish-to-html
               :with-title nil
               :with-timestamps nil)
-            '("dofdocs:assets"
-              :base-directory "../dist"
+            `("dofdocs:assets"
+              :base-directory ,(expand-file-name "../../dist" pwd)
               :base-extension "css\\|js\\|png\\|svg\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf"
-              :publishing-directory "../../docs/assets"
+              :publishing-directory ,(expand-file-name "../../docs/assets" pwd)
               :recursive t
               :publishing-function org-publish-attachment)
             ))
@@ -349,3 +187,6 @@ holding contextual information."
 
 (provide 'publish)
 ;;; publish.el ends here
+
+
+

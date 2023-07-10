@@ -1,7 +1,26 @@
-.region {
-    --nyc-sys-dimension-region-space: var(--nyc-sys-dimension-space-s-m);
+:root {
+  --nyc-ref-dimension-measure: 70ch;
 }
 
-:--heading .anchor {
-        font-size: 1rem;
-    }
+.region {
+  --nyc-sys-dimension-region-space: var(--nyc-sys-dimension-space-s-m);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  display: flex;
+  position: relative;
+}
+
+h1 .anchor, h2 .anchor, h3 .anchor, h4 .anchor, h5 .anchor, h6 .anchor {
+    font-size: .8em;
+    position: absolute;
+    left: -1.2em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+summary {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}

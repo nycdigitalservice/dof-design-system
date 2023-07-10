@@ -1,4 +1,4 @@
-#!/opt/homebrew/Cellar/emacs-plus@29/29.0.90/bin/emacs --script
+#!emacs --script
 
 (add-to-list 'load-path (file-name-directory load-file-name))
 

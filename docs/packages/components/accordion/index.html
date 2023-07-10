@@ -1,0 +1,141 @@
+<!-- Generated from c442340 on 2023-07-10 @ 18:12 with Emacs 29.0.92 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="/assets/dof-2023-styles.css"/><link rel="stylesheet" href="/assets/dof-2023-docs.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><title>Accordion - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="button" aria-controls="main-menu"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="/">Home</a><a class="p-2" href="/packages/">Packages</a><a class="p-2" href="/packages/components/">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="/packages/components/accordion/">Accordion</a><a class="p-2" href="/packages/components/alert/">Alert</a><a class="p-2" href="/packages/components/button/">Button</a><a class="p-2" href="/packages/components/card/">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Accordion</h1><div id="content" class="flow"><p>
+An accordion is a list of headers that hide or reveal additional
+content when selected.
+</p>
+
+<nyc-accordion>
+  <h4>Taxes</h4>
+  <p>Content about taxes</p>
+  <h4>Fines</h4>
+  <h5>Parking tickets</h5>
+  <p>Content about parking tickets</p>
+</nyc-accordion>
+<nyc-accordion>
+  <article class="accordion__group">
+    <h3>
+      <button is="toggle-button" aria-controls="assessment-definitions">
+        Assessment definitions
+        <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
+      </button>
+    </h3>
+    <div id="assessment-definitions" class="flow" hidden>
+      <p>
+        The following alphabetical listing of terms is provided to
+        help you understand property valuation and tax assessment:
+      </p>
+      <nyc-accordion>
+        <article class="accordion__group">
+          <h3>
+            <button is="toggle-button" aria-controls="abatements">
+              Abatements
+              <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div id="abatements" hidden>
+            <p>
+              Abatements reduce your taxes after they've been
+              calculated. Different abatement programs are available
+              for housing rehabilitation, revitalization and
+              cooperatives and condominiums.
+            </p>
+          </div>
+        </article>
+        <article class="accordion__group">
+          <h3>
+            <button
+              is="toggle-button"
+              aria-controls="actual-assessed-value"
+              >
+              Actual assessed value
+              <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div id="actual-assessed-value" hidden>
+            <p>
+              The assessed value before five year phase-in
+              requirements (for some tax class 2 and all tax class 4
+              properties) and/or exemptions are applied.
+            </p>
+          </div>
+        </article>
+      </nyc-accordion>
+    </div>
+  </article>
+</nyc-accordion>
+
+<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-html">&lt;nyc-accordion&gt;
+  &lt;h4&gt;Taxes&lt;/h4&gt;
+  &lt;p&gt;Content about taxes&lt;/p&gt;
+  &lt;h4&gt;Fines&lt;/h4&gt;
+  &lt;h5&gt;Parking tickets&lt;/h5&gt;
+  &lt;p&gt;Content about parking tickets&lt;/p&gt;
+&lt;/nyc-accordion&gt;
+&lt;nyc-accordion&gt;
+  &lt;article class="accordion__group"&gt;
+    &lt;h3&gt;
+      &lt;button is="toggle-button" aria-controls="assessment-definitions"&gt;
+        Assessment definitions
+        &lt;i class="i-ri:arrow-down-s-line" aria-hidden="true"&gt;&lt;/i&gt;
+      &lt;/button&gt;
+    &lt;/h3&gt;
+    &lt;div id="assessment-definitions" class="flow" hidden&gt;
+      &lt;p&gt;
+        The following alphabetical listing of terms is provided to
+        help you understand property valuation and tax assessment:
+      &lt;/p&gt;
+      &lt;nyc-accordion&gt;
+        &lt;article class="accordion__group"&gt;
+          &lt;h3&gt;
+            &lt;button is="toggle-button" aria-controls="abatements"&gt;
+              Abatements
+              &lt;i class="i-ri:arrow-down-s-line" aria-hidden="true"&gt;&lt;/i&gt;
+            &lt;/button&gt;
+          &lt;/h3&gt;
+          &lt;div id="abatements" hidden&gt;
+            &lt;p&gt;
+              Abatements reduce your taxes after they've been
+              calculated. Different abatement programs are available
+              for housing rehabilitation, revitalization and
+              cooperatives and condominiums.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="accordion__group"&gt;
+          &lt;h3&gt;
+            &lt;button
+              is="toggle-button"
+              aria-controls="actual-assessed-value"
+              &gt;
+              Actual assessed value
+              &lt;i class="i-ri:arrow-down-s-line" aria-hidden="true"&gt;&lt;/i&gt;
+            &lt;/button&gt;
+          &lt;/h3&gt;
+          &lt;div id="actual-assessed-value" hidden&gt;
+            &lt;p&gt;
+              The assessed value before five year phase-in
+              requirements (for some tax class 2 and all tax class 4
+              properties) and/or exemptions are applied.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/article&gt;
+      &lt;/nyc-accordion&gt;
+    &lt;/div&gt;
+  &lt;/article&gt;
+&lt;/nyc-accordion&gt;</code></pre></div></nyc-accordion>
+
+<section class="region flow"><h2><a id="source-code" class="anchor" href="#source-code"><i class="i-ri:anchor-line"></i></a>Source Code</h2><ul class="org-ul">
+<li><a href="./css.html">CSS</a></li>
+<li><a href="./nyc-accordion.html">NYCAccordion Custom Element</a></li>
+</ul>
+</section>
+
+<section class="region flow"><h2><a id="references" class="anchor" href="#references"><i class="i-ri:anchor-line"></i></a>References</h2><ul class="org-ul">
+<li><a href="https://nycopportunity.github.io/standard/accordion">NYCO Opportunity Standard: Accordion</a></li>
+<li><a href="https://www.scottohara.me/blog/2017/10/25/accordion-release.html">Accessible ARIA Accordions by Scott Ohara</a></li>
+<li><a href="https://www.aditus.io/patterns/accordion/">Aditus: Accessible Accordion</a></li>
+<li><a href="https://www.smashingmagazine.com/2017/06/designing-perfect-accordion-checklist/">Smashing Magazine: Designing The Perfect Accordion</a></li>
+<li><a href="https://designsystem.digital.gov/components/accordion/">U.S. Web Design System: Accordion</a></li>
+</ul>
+</section>
+</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="/assets/main.js"></script><script>try{hljs.highlightAll();} catch(e) {}</script></body></html>

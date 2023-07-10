@@ -1,0 +1,82 @@
+#+title: Accordion
+
+An accordion is a list of headers that hide or reveal additional
+content when selected.
+
+#+results: accordion-example
+
+#+name: accordion-example
+#+begin_src html :exports both :results replace html
+  <nyc-accordion>
+    <h4>Taxes</h4>
+    <p>Content about taxes</p>
+    <h4>Fines</h4>
+    <h5>Parking tickets</h5>
+    <p>Content about parking tickets</p>
+  </nyc-accordion>
+  <nyc-accordion>
+    <article class="accordion__group">
+      <h3>
+        <button is="toggle-button" aria-controls="assessment-definitions">
+          Assessment definitions
+          <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
+        </button>
+      </h3>
+      <div id="assessment-definitions" class="flow" hidden>
+        <p>
+          The following alphabetical listing of terms is provided to
+          help you understand property valuation and tax assessment:
+        </p>
+        <nyc-accordion>
+          <article class="accordion__group">
+            <h3>
+              <button is="toggle-button" aria-controls="abatements">
+                Abatements
+                <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div id="abatements" hidden>
+              <p>
+                Abatements reduce your taxes after they've been
+                calculated. Different abatement programs are available
+                for housing rehabilitation, revitalization and
+                cooperatives and condominiums.
+              </p>
+            </div>
+          </article>
+          <article class="accordion__group">
+            <h3>
+              <button
+                is="toggle-button"
+                aria-controls="actual-assessed-value"
+                >
+                Actual assessed value
+                <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div id="actual-assessed-value" hidden>
+              <p>
+                The assessed value before five year phase-in
+                requirements (for some tax class 2 and all tax class 4
+                properties) and/or exemptions are applied.
+              </p>
+            </div>
+          </article>
+        </nyc-accordion>
+      </div>
+    </article>
+  </nyc-accordion>
+#+end_src
+
+** Source Code
+
+- [[file:css.org][CSS]]
+- [[file:nyc-accordion.org][NYCAccordion Custom Element]]
+  
+** References
+
+- [[https://nycopportunity.github.io/standard/accordion][NYCO Opportunity Standard: Accordion]]
+- [[https://www.scottohara.me/blog/2017/10/25/accordion-release.html][Accessible ARIA Accordions by Scott Ohara]]
+- [[https://www.aditus.io/patterns/accordion/][Aditus: Accessible Accordion]]
+- [[https://www.smashingmagazine.com/2017/06/designing-perfect-accordion-checklist/][Smashing Magazine: Designing The Perfect Accordion]]
+- [[https://designsystem.digital.gov/components/accordion/][U.S. Web Design System: Accordion]]

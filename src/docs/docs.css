@@ -1,10 +1,25 @@
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+:root {
+  --nyc-ref-dimension-measure: 70ch;
+}
+
 .region {
-    --nyc-sys-dimension-region-space: var(--nyc-sys-dimension-space-s-m);
+  --nyc-sys-dimension-region-space: var(--nyc-sys-dimension-space-s-m);
 }
 
 :--heading {
+  display: flex;
+  position: relative;
+  & .anchor {
+    font-size: .8em;
+    position: absolute;
+    left: -1.2em;
+    height: 100%;
     display: flex;
-    & .anchor {
-        font-size: 1rem;
-    }
+    align-items: center;
+  }
+}
+
+summary {
+  padding-block: .75rem;
 }

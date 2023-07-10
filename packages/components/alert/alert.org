@@ -1,0 +1,63 @@
+#+title: Alert
+
+Alerts contain contextually relevant messages for the user. They may
+be used to indicate a successful or unsuccessful interaction, provide
+feedback for form inputs, or display time-sensitive information about
+content within a view. Further guidance on Alerts can be found on the
+[[https://designsystem.digital.gov/components/alert/][U.S. Web Design System (USWDS) site]].
+
+
+#+begin_src css :tangle alert.css
+.alert {
+  --alert-color: var(--nyc-sys-color-secondary);
+  padding-inline-start: var(--nyc-sys-dimension-space-s-m);
+  position: relative;
+  &::before {
+    content: '';
+    width: 5px;
+    height: 100%;
+    background: var(--alert-color);
+    position: absolute;
+    left: 0;
+    display: flex;
+    border-radius: 5px;
+  }
+}
+#+end_src
+
+** Variants
+
+*** News
+#+begin_src css :tangle alert.css
+.alert[data-variant=news] {
+    --space: .8em;
+    display: flex;
+    flex-direction: column;
+    & :--heading {
+        font-size: var(--nyc-sys-font-size-base);
+    }
+
+    & time {
+        order: -1;
+        --space: 0;
+        margin-block-end: .8em;
+        font-weight: 400;
+    }
+}
+#+end_src
+
+** Container queries
+
+#+begin_src css :tangle alert.css
+@container grid-parent (max-width: 657px) {
+  .alert {
+    padding-inline-start: 0;
+    padding-block-start: var(--nyc-sys-dimension-space-s-m);
+    &::before {
+      top: 0;
+      width: 100%;
+      height: 5px;
+    }
+  }
+}
+#+end_src

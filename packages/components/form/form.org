@@ -1,4 +1,4 @@
-* Form
+#+title: Form
 
 #+begin_src css :tangle form.css
   .form-group {

@@ -1,11 +1,11 @@
-* Packages
+#+title: Packages
 
 - [[file:reset/reset.org][Reset]]: A CSS reset utility
 - [[file:variables/variables.org][Variables]]: CSS variables for Reference and System tiers, used in all
   following packages
-- [[/global][Global]]: Base global styling and typesetting
-- [[/composition][Composition]]: Classes that govern higher-level page layout
-- [[/components][Components]]: A set of UI elements: buttons, cards, etc
+- [[file:global/global.org][Global]]: Base global styling and typesetting
+- [[file:composition/composition.org][Composition]]: Classes that govern higher-level page layout
+- [[file:components/index.org][Components]]: A set of UI elements: buttons, cards, etc
 
 
 

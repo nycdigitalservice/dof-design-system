@@ -1,11 +1,10 @@
-<!-- Generated from 9b94150 on 2023-06-22 @ 15:45 with Emacs 29.0.92 (Org mode 9.6.6) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="/assets/dof-2023-styles.css"/><link rel="stylesheet" href="/assets/dof-2023-docs.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script><script>hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());</script><title> - NYC</title></head><body class="u-reset"><header class="site-header region flow background-primary"><div class="container"><div class="site-title"><img class="logo" width="150" src="/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></div></div><div class="site-masthead"><div class="container"><nav class="nav"><a class="nav-link" href="/">Home</a> </nav></div></div></header><div class="container"><div class="s region"><h1 class="site-post-title"></h1><p class="site-post-meta"></p><div id="content" class="flow"><h1><a id="global-styles" class="anchor" href="#global-styles"><i class="i-ri:anchor-line"></i></a>Global styles</h1><div class="outline-text-2" id="text-orgb02a092">
-<p>
+<!-- Generated from c442340 on 2023-07-05 @ 12:13 with Emacs 29.0.92 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="/assets/dof-2023-styles.css"/><link rel="stylesheet" href="/assets/dof-2023-docs.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><title>Global styles - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="button" aria-controls="main-menu"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="/">Home</a><a class="p-2" href="/packages">Packages</a><a class="p-2" href="/packages/components">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="/packages/components/accordion">Accordion</a><a class="p-2" href="/packages/components/alert">Alert</a><a class="p-2" href="/packages/components/button">Button</a><a class="p-2" href="/packages/components/card">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Global styles</h1><div id="content" class="flow"><p>
 As mentioned in the <a href="/#principles">Principles</a>, this library embraces the power of the
 CSS cascade to provide a set of base, global styling properties.
 </p>
 
-<details><summary>Inspect code</summary><pre><code class="language-css">html,
+<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">html,
 body,
 div,
 header,
@@ -21,43 +20,43 @@ body {
   font-size: var(--nyc-sys-font-size-base);
   font-family: var(--nyc-sys-font-family-base);
   line-height: 1.4;
-  letter-spacing: var(--nyc-sys-dimension-tracking);
+  letter-spacing: var(--nyc-ref-dimension-tracking);
   margin: 0;
-}</code></pre></details>
-</div>
+}</code></pre></div></nyc-accordion>
 
-<section class="region flow"><h2><a id="typesetting" class="anchor" href="#typesetting"><i class="i-ri:anchor-line"></i></a>Typesetting</h2><div class="outline-text-3" id="text-org0d8a70b">
-<details><summary>Inspect code</summary><pre><code class="language-css">h1,
+<section class="region flow"><h2><a id="typesetting" class="anchor" href="#typesetting"><i class="i-ri:anchor-line"></i></a>Typesetting</h2><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">h1,
 h2,
 h3 {
-  line-height: 1;
-  letter-spacing: var(--nyc-sys-dimension-tracking-s);
+  line-height: 1.2;
+  letter-spacing: var(--nyc-ref-dimension-tracking-s);
 }
 
 h1 {
-  font-size: var(--nyc-sys-dimension-size-step-4);
+  font-size: var(--nyc-sys-dimension-size-xxl);
 }
 
 h2 {
-  font-size: var(--nyc-sys-dimension-size-step-3);
+  font-size: var(--nyc-sys-dimension-size-xl);
 }
 
 h3 {
-  font-size: var(--nyc-sys-dimension-size-step-2);
+  font-size: var(--nyc-sys-dimension-size-l);
 }
 
 p {
-  max-inline-size: var(--nyc-sys-dimension-measure);
-}</code></pre></details>
-</div>
+  max-inline-size: var(--nyc-ref-dimension-measure);
+}</code></pre></div></nyc-accordion>
 </section>
 
-<section class="region flow"><h2><a id="elements" class="anchor" href="#elements"><i class="i-ri:anchor-line"></i></a>Elements</h2><div class="outline-text-3" id="text-org1db5de2">
-<details><summary>Inspect code</summary><pre><code class="language-css">a {
-  color: currentcolor;
+<section class="region flow"><h2><a id="elements" class="anchor" href="#elements"><i class="i-ri:anchor-line"></i></a>Elements</h2><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">a, button {
+  appearance: none;
+  background: transparent;
+  color: var(--nyc-sys-color-link);
+  font-size: inherit;
+  text-decoration: none;
 
   &:hover {
-    text-decoration: none;
+    text-decoration: underline;
   }
 }
 
@@ -94,7 +93,34 @@ select {
   font-size: inherit;
   line-height: 2.25;
   padding-inline: 1rem;
-}</code></pre></details>
-</div>
+}
+
+/* Tables */
+table {
+  background: var(--nyc-sys-color-neutral-lightest);
+  padding: .75rem;
+  display: flex;
+  flex-direction: column;
+  & thead tr {
+    text-align: left;
+    border-bottom: 1px solid var(--nyc-sys-color-neutral);
+    padding-block-end: .75rem;
+  }
+  & tr {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+
+  }
+  & tbody tr {
+    border-bottom: 1px solid var(--nyc-sys-color-neutral-light);
+    padding-block-end: .5rem;
+    &:first-child {
+      padding-block-start: .75rem;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}</code></pre></div></nyc-accordion>
 </section>
-</div></div></div><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer></body></html>
+</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="/assets/main.js"></script><script>try{hljs.highlightAll();} catch(e) {}</script></body></html>
