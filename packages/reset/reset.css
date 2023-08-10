@@ -1,6 +1,6 @@
-:not(:defined) {
-    visibility: hidden
-}
+/* :not(:defined) { */
+/*     visibility: hidden */
+/* } */
 
 * {
     -webkit-tap-highlight-color: transparent
@@ -24,10 +24,6 @@ html {
   accent-color: var(--nyc-sys-color-accent)
 }
 
-:where(.u-reset a) {
-  color: var(--nyc-sys-tcolor-text-link);
-  text-decoration: underline
-}
 
 :where(.u-reset),:where(.u-reset) :where(body,div,span,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,code,img,svg,small,strike,strong,sub,sup,b,u,i,ol,ul,li,form,label,table,caption,tbody,tfoot,thead,tr,th,td,main,article,aside,canvas,footer,header,nav,section,time,button,video,textarea,input) {
     -webkit-appearance: none;
@@ -53,3 +49,9 @@ html {
     -webkit-appearance: none;
     appearance: none
 }
+
+/* From https://github.com/elad2412/the-new-css-reset */
+/* *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) { */
+/*   all: unset; */
+/*   display: revert; */
+/* } */

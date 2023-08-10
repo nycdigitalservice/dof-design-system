@@ -1,26 +1,99 @@
-<!-- Generated from c442340 on 2023-07-05 @ 12:13 with Emacs 29.0.92 (Org mode 9.6.6) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="/assets/dof-2023-styles.css"/><link rel="stylesheet" href="/assets/dof-2023-docs.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><title>Button - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="button" aria-controls="main-menu"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="/">Home</a><a class="p-2" href="/packages">Packages</a><a class="p-2" href="/packages/components">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="/packages/components/accordion">Accordion</a><a class="p-2" href="/packages/components/alert">Alert</a><a class="p-2" href="/packages/components/button">Button</a><a class="p-2" href="/packages/components/card">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Button</h1><div id="content" class="flow"><p>
+<!-- Generated from 36aa79c on 2023-08-10 @ 14:22 with Emacs 29.0.92 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-styles.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-docs.css"/><title>Button - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="https://nycdigitalservice.github.io/dof-design-system/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="font-bold p-2" aria-controls="main-menu" aria-expanded="false"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/">Home</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/">Packages</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/accordion/">Accordion</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/alert/">Alert</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/button/">Button</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/card/">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Button</h1><div id="content" class="flow"><p>
 A button draws attention to important actions with a large selectable
 surface.
 </p>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">:root {
-  --nyc-cmp-button-color: var(--nyc-sys-color-text, currentColor);
-  --nyc-cmp-button-background: var(--nyc-sys-color-background, transparent);
-  --nyc-cmp-button-shadow: var(--nyc-sys-shadow-base);
-  --nyc-cmp-button-border: 2px solid var(--nyc-sys-color-border);
-}</code></pre></div></nyc-accordion>
+<section class="region flow"><h2><a id="examples" class="anchor" href="#examples"><i class="i-ri:anchor-line"></i></a>Examples</h2><div class="example-wrapper">
+<a href="#" class="button">Default button</a>
+<a href="#" class="button" data-variant="primary">Primary button</a>
+<a href="#" class="button">
+  <span>Button with icon</span>
+  <i class="i-ri:arrow-right-line"></i>
+</a>
+</div>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.button {
-  --nyc-cmp-button-background: transparent;
-  --nyc-cmp-button-border: none;
-  --nyc-cmp-button-color: currentcolor;
-  --nyc-cmp-button-shadow: none;
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-html">&lt;a href="#" class="button"&gt;Default button&lt;/a&gt;
+&lt;a href="#" class="button" data-variant="primary"&gt;Primary button&lt;/a&gt;
+&lt;a href="#" class="button"&gt;
+  &lt;span&gt;Button with icon&lt;/span&gt;
+  &lt;i class="i-ri:arrow-right-line"&gt;&lt;/i&gt;
+&lt;/a&gt;</code></pre></div></nyc-accordion>
+</section>
+
+<section class="region flow"><h2><a id="custom-properties" class="anchor" href="#custom-properties"><i class="i-ri:anchor-line"></i></a>Custom properties</h2><p>
+Use these custom properties in your theme to override default styling
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Property</th>
+<th scope="col" class="org-left">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#x2013;nyc-cmp-button-color</td>
+<td class="org-left">currentColor</td>
+</tr>
+
+<tr>
+<td class="org-left">&#x2013;nyc-cmp-button-background</td>
+<td class="org-left">white</td>
+</tr>
+
+<tr>
+<td class="org-left">&#x2013;nyc-cmp-button-border-width</td>
+<td class="org-left">2px</td>
+</tr>
+
+<tr>
+<td class="org-left">&#x2013;nyc-cmp-button-border-color</td>
+<td class="org-left">grey</td>
+</tr>
+
+<tr>
+<td class="org-left">&#x2013;nyc-cmp-button-shadow</td>
+<td class="org-left">none</td>
+</tr>
+
+<tr>
+<td class="org-left">&#x2013;nyc-cmp-button-padding</td>
+<td class="org-left">.75rem</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section class="region flow"><h2><a id="base-class" class="anchor" href="#base-class"><i class="i-ri:anchor-line"></i></a>Base class</h2><p>
+The <code>button</code> CSS class implements the custom properties and other
+default styles.
+</p>
+
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.button,
+.button:link {
+  --_background: var(--nyc-cmp-button-background, hsla(0, 0%, 100%, 1));
+  --_border-color: var(--nyc-cmp-button-border-color, hsla(0, 0%, 93%, 1));
+  --_border-width: var(--nyc-cmp-button-border-width, 2px);
+  --_color: var(--nyc-cmp-button-color, currentColor);
+  --_shadow: var(--nyc-cmp-button-shadow, none);
+  --_padding: var(--nyc-cmp-button-padding, .75rem);
   appearance: none;
-  background-color: var(--nyc-cmp-button-background);
-  border: var(--nyc-cmp-button-border);
-  color: var(--nyc-cmp-button-color);
-  padding: var(--nyc-sys-dimension-space-xs);
+  background-color: var(--_background);
+  border-color: var(--_border-color);
+  border-width: var(--_border-width);
+  border-style: solid;
+  color: var(--_color);
+  padding: var(--_padding);
+  box-shadow: var(--_shadow);
   text-decoration: none;
   cursor: pointer;
   font-weight: 700;
@@ -30,30 +103,85 @@ surface.
   align-items: center;
   transition: all 0.3s ease;
 
-  & > span:first-child {
+  & > :first-child:not(i) {
     flex-grow: 1;
+    width: max-content;
   }
-}</code></pre></div></nyc-accordion>
 
-<section class="region flow"><h2><a id="variants" class="anchor" href="#variants"><i class="i-ri:anchor-line"></i></a>Variants</h2><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.button[data-variant] {
-  --nyc-cmp-button-background: var(--nyc-sys-color-background);
-  --nyc-cmp-button-border: 2px solid var(--nyc-sys-color-border);
-  --nyc-cmp-button-shadow: var(--nyc-sys-shadow-base);
   & > i:last-child {
     flex-shrink: 0;
-    margin-inline-start: var(--nyc-sys-dimension-space-s-l);
+    margin-inline-start: .5em;
     margin-block: auto;
-  }  
-}</code></pre></div></nyc-accordion>
+    font-size: 1.5rem;
+  }
 
-<h3><a id="outline" class="anchor" href="#outline"><i class="i-ri:anchor-line"></i></a>Outline</h3><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.button[data-variant="outline"] {
-  border: var(--nyc-cmp-button-border);
-  box-shadow: var(--nyc-cmp-button-shadow);
   &:hover {
-    background: var(--nyc-ref-color-blue-50);
+    background: var(--nyc-sys-color-primary-lightest);
     color: var(--nyc-sys-color-primary);
     border-color: var(--nyc-sys-color-primary);
+    text-decoration: none;
   }
 }</code></pre></div></nyc-accordion>
+
+<p>
+When within a grid list, have the button fill the grid child
+</p>
+
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.grid li > .button {
+  display: flex;
+  height: 100%;
+}</code></pre></div></nyc-accordion>
 </section>
-</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="/assets/main.js"></script><script>try{hljs.highlightAll();} catch(e) {}</script></body></html>
+
+<section class="region flow"><h2><a id="variants" class="anchor" href="#variants"><i class="i-ri:anchor-line"></i></a>Variants</h2><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.button[data-variant] {
+  &:hover {
+    background: var(--_color);
+    color: var(--_background);
+  }    
+}</code></pre></div></nyc-accordion>
+
+<h3><a id="primary" class="anchor" href="#primary"><i class="i-ri:anchor-line"></i></a>Primary</h3><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.button[data-variant=primary] {
+  --nyc-cmp-button-background: var(--nyc-sys-color-primary-dark);
+  --nyc-cmp-button-color: var(--nyc-sys-color-on-primary);
+  --nyc-cmp-button-border-color: var(--nyc-sys-color-primary-dark);
+  --nyc-cmp-button-shadow: none;
+}</code></pre></div></nyc-accordion>
+</section>
+
+<section class="region flow"><h2><a id="javascript" class="anchor" href="#javascript"><i class="i-ri:anchor-line"></i></a>Javascript</h2><h3><a id="toggle-button" class="anchor" href="#toggle-button"><i class="i-ri:anchor-line"></i></a>Toggle Button</h3><p>
+The Toggle Button is an extended Custom Element that when clicked
+toggles the visibility of another element.
+</p>
+
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-js">import { toggle } from '@dofds/utilities';
+
+customElements.define(
+  'toggle-button',
+  class ToggleButton extends HTMLButtonElement {
+    connectedCallback() {
+      if (!this.hasAttribute('aria-controls')) {
+        console.error(
+          `ToggleButton: "aria-controls" must be set to the
+                      ID of the element you are toggling`
+        );
+        return;
+      }
+      if (!this.hasAttribute('aria-expanded')) {
+        console.error(
+          `ToggleButton: "aria-expanded" must be set to the
+           toggled elements initial visibility, either
+           "true" or "false"`
+        );
+        return;
+      }
+      this.addEventListener('click', this);
+    }
+    handleEvent(e) { this['on' + e.type](e); }
+    onclick(e) {
+      toggle(this);
+    }
+  },
+  { extends: 'button' }
+)</code></pre></div></nyc-accordion>
+</section>
+</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="https://nycdigitalservice.github.io/dof-design-system/assets/main.js"></script><script src="https://unpkg.com/highlightjs-copy@1.0.3/dist/highlightjs-copy.min.js"></script><script>try{hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());} catch(e) {}</script></body></html>

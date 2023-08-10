@@ -75,22 +75,6 @@
 
 (org-babel-do-load-languages 'org-babel-load-languages '((html . t)))
 
-
-;; (defun nyc/site-header ()
-;;   (list `(header (@ (class "site-header region flow background-primary"))
-;;                  (div (@ (class "container"))
-;;                       (div (@ (class "site-title"))
-;;                            (img (@ (class "logo")
-;;                                    (width "150")
-;;                                    (src ,(concat "/assets/img/nyc-dof-logo.svg"))
-;;                                    (alt "NYC Department of Finance")))))
-;;                  (div (@ (class "site-masthead"))
-;;                       (div (@ (class "container"))
-;;                            (nav (@ (class "nav"))
-;;                                 (a (@ (class "nav-link") (href "/")) "Home") " "
-;;                                 ))))))
-
-
 (org-export-get-all-transcoders 'site-html)
 
 (org-export-define-derived-backend 'site-html 'html
@@ -126,7 +110,7 @@
                           plist
                           article-path))))
 
-(defun my-org-confirm-babel-evaluate (lang body)
+(defun nyc/org-confirm-babel-evaluate (lang body)
   (not (string= lang "html")))  ;don't ask for html
 
 (setq org-publish-use-timestamps-flag nil
@@ -144,7 +128,7 @@
       org-html-html5-fancy t
       org-html-self-link-headlines t
       org-export-with-toc nil
-      org-confirm-babel-evaluate #'my-org-confirm-babel-evaluate
+      org-confirm-babel-evaluate #'nyc/org-confirm-babel-evaluate
       make-backup-files nil)
 
 (setq org-publish-project-alist
@@ -155,7 +139,14 @@
               :publishing-directory ,(expand-file-name "../../docs/packages" pwd)
               :publishing-function org-html-publish-to-html
               :with-title nil
-              ;; :exclude "docs\\|scripts\\|src\\|dist\\|node_modules"
+              :with-timestamps nil)
+            `("guides"
+              :base-directory ,(expand-file-name "../../guides" pwd)
+              :base-extension "org"
+              :recursive t
+              :publishing-directory ,(expand-file-name "../../docs/guides" pwd)
+              :publishing-function org-html-publish-to-html
+              :with-title nil
               :with-timestamps nil)
             `("dofdocs:index"
               :base-directory ,(expand-file-name "../../" pwd)
@@ -172,7 +163,6 @@
               :publishing-function org-publish-attachment)
             ))
 
-
 (defun nyc/publish ()
   "Publish the entire site."
   (interactive)
@@ -182,6 +172,3 @@
 
 (provide 'publish)
 ;;; publish.el ends here
-
-
-

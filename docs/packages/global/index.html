@@ -1,10 +1,10 @@
-<!-- Generated from c442340 on 2023-07-05 @ 12:13 with Emacs 29.0.92 (Org mode 9.6.6) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="/assets/dof-2023-styles.css"/><link rel="stylesheet" href="/assets/dof-2023-docs.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><title>Global styles - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="button" aria-controls="main-menu"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="/">Home</a><a class="p-2" href="/packages">Packages</a><a class="p-2" href="/packages/components">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="/packages/components/accordion">Accordion</a><a class="p-2" href="/packages/components/alert">Alert</a><a class="p-2" href="/packages/components/button">Button</a><a class="p-2" href="/packages/components/card">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Global styles</h1><div id="content" class="flow"><p>
+<!-- Generated from 36aa79c on 2023-08-10 @ 14:22 with Emacs 29.0.92 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-styles.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-docs.css"/><title>Global styles - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="https://nycdigitalservice.github.io/dof-design-system/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="font-bold p-2" aria-controls="main-menu" aria-expanded="false"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/">Home</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/">Packages</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/accordion/">Accordion</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/alert/">Alert</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/button/">Button</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/card/">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Global styles</h1><div id="content" class="flow"><p>
 As mentioned in the <a href="/#principles">Principles</a>, this library embraces the power of the
 CSS cascade to provide a set of base, global styling properties.
 </p>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">html,
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">html,
 body,
 div,
 header,
@@ -24,7 +24,7 @@ body {
   margin: 0;
 }</code></pre></div></nyc-accordion>
 
-<section class="region flow"><h2><a id="typesetting" class="anchor" href="#typesetting"><i class="i-ri:anchor-line"></i></a>Typesetting</h2><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">h1,
+<section class="region flow"><h2><a id="typesetting" class="anchor" href="#typesetting"><i class="i-ri:anchor-line"></i></a>Typesetting</h2><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">h1,
 h2,
 h3 {
   line-height: 1.2;
@@ -48,15 +48,25 @@ p {
 }</code></pre></div></nyc-accordion>
 </section>
 
-<section class="region flow"><h2><a id="elements" class="anchor" href="#elements"><i class="i-ri:anchor-line"></i></a>Elements</h2><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">a, button {
+<section class="region flow"><h2><a id="elements" class="anchor" href="#elements"><i class="i-ri:anchor-line"></i></a>Elements</h2><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">a,
+a:link,
+button {
   appearance: none;
   background: transparent;
   color: var(--nyc-sys-color-link);
+  display: inline-flex;
+  align-items: center;
   font-size: inherit;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover {
     text-decoration: underline;
+  }
+
+  & [class^=i-] {
+    margin-inline-start: .5em;
+    font-size: 1.5rem;
   }
 }
 
@@ -67,6 +77,11 @@ p {
 
 :target {
   scroll-margin-top: 2ex;
+}
+
+:--heading {
+  display: flex;
+  align-items: center;
 }
 
 main:focus {
@@ -99,6 +114,14 @@ select {
 table {
   background: var(--nyc-sys-color-neutral-lightest);
   padding: .75rem;
+  & th {
+    text-align: left;
+  }
+}
+
+table {
+  background: var(--nyc-sys-color-neutral-lightest);
+  padding: .75rem;
   display: flex;
   flex-direction: column;
   & thead tr {
@@ -108,8 +131,8 @@ table {
   }
   & tr {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    gap: .8rem;
   }
   & tbody tr {
     border-bottom: 1px solid var(--nyc-sys-color-neutral-light);
@@ -121,6 +144,22 @@ table {
       border-bottom: none;
     }
   }
+}
+
+ul, ol {
+  padding-inline-start: 1em;
+}
+
+ul[role=list] {
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+
+/* Header */
+header > nav {
+  & a, & button {
+    color: inherit;
+  }
 }</code></pre></div></nyc-accordion>
 </section>
-</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="/assets/main.js"></script><script>try{hljs.highlightAll();} catch(e) {}</script></body></html>
+</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="https://nycdigitalservice.github.io/dof-design-system/assets/main.js"></script><script src="https://unpkg.com/highlightjs-copy@1.0.3/dist/highlightjs-copy.min.js"></script><script>try{hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());} catch(e) {}</script></body></html>

@@ -1,0 +1,7 @@
+{
+  "name": "@dofds/accordion",
+  "main": "src/index.js",
+  "dependencies": {
+    "@dofds/utilities": "workspace:^"
+  }
+}

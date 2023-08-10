@@ -1,6 +1,18 @@
 @custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
 :root {
   --nyc-ref-dimension-measure: 70ch;
+  --nyc-code-text: var(--nyc-sys-color-primary-lightest);
+  --nyc-code-text-base: var(--nyc-sys-color-primary-lightest);
+  --nyc-code-text-keyword: var(--nyc-sys-color-primary-lighter);
+  --nyc-code-text-javascript: var(--nyc-sys-color-primary-lightest);
+  --nyc-code-text-css: var(--nyc-sys-color-primary-lightest);
+  --nyc-code-text-comment: var(--nyc-sys-color-primary);
+  --nyc-code-text-string: var(--nyc-ref-color-orange-500);
+  --nyc-code-text-symbol: var(--nyc-ref-color-orange-500);
+  --nyc-code-text-code: var(--nyc-ref-color-orange-500);
+  --nyc-code-link: var(--nyc-sys-color-primary-lightest);
+  --nyc-code-background: var(--nyc-sys-color-primary-dark);
 }
 
 .region {
@@ -17,9 +29,97 @@
     height: 100%;
     display: flex;
     align-items: center;
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+
+  &:hover .anchor {
+    opacity: 1;
   }
 }
 
 summary {
   padding-block: .75rem;
+}
+
+.example-wrapper {
+  padding: var(--nyc-sys-dimension-space-m);
+  border: 2px solid var(--nyc-sys-color-border);
+  & + nyc-accordion {
+    margin-top: 0;
+  }
+}
+
+nyc-accordion.code-view {
+  .accordion__group > [id^=panel] {
+    padding: 0;
+  }
+}
+
+/* section > :not(.example-wrapper) .accordion__group > [id^=panel] { */
+/*   padding: 0; */
+/* } */
+
+.hljs, .hljs-copy-wrapper {
+  background: var(--nyc-code-background);
+  color: var(--nyc-code-text);
+}
+
+.hljs-copy-wrapper {
+  padding: 1rem;
+  width: calc(var(--nyc-sys-dimension-page-max-width) - var(--nyc-cmp-container-gutter) * 2);
+  width: 100%;
+  max-inline-size: var(--nyc-sys-dimension-page-max-width);
+  overflow-x: auto;
+  display: flex;
+}
+
+.hljs {
+  flex: 0 0 auto;
+  width: max-content;
+  display: block;
+}
+
+.hljs-tag, .hljs-name {
+  color: var(--nyc-sys-color-primary-lighter);
+}
+
+.hljs-attr {}
+
+.hljs-string {}
+
+.hljs-number {}
+
+.hljs-built_in, .hljs-class, .hljs-type {}
+
+.hljs-selector-attr, .hljs-selector-class {}
+
+.language-css .hljs-built_in {}
+
+.css {
+  color: var(--nyco-code-text-css)!important
+}
+
+.javascript {
+  color: var(--nyco-code-text-javascript)!important
+}
+
+.hljs-attr,.hljs-name {
+  color: var(--nyco-code-text)!important
+}
+
+.hljs-comment {
+  color: var(--nyc-code-text-comment)!important
+}
+
+.hljs-attribute,.hljs-built_in,.hljs-doctag,.hljs-keyword,.hljs-meta-keyword,.hljs-name,.hljs-selector-tag {
+  color: var(--nyc-code-text-keyword)!important
+}
+
+.hljs-deletion,.hljs-number,.hljs-quote,.hljs-selector-class,.hljs-selector-id,.hljs-string,.hljs-subst,.hljs-template-tag,.hljs-type {
+  color: var(--nyc-code-text-string)!important
+}
+
+.hljs-link,.hljs-regexp,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-symbol,.hljs-template-variable,.hljs-variable {
+  color: var(--nyc-code-text-symbol)!important
 }

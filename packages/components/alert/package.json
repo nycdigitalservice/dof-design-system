@@ -1,0 +1,6 @@
+{
+  "name": "@dofds/alert",
+  "exports": {
+    ".": "./src/alert.css"
+  }
+}

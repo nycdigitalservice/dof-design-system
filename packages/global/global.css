@@ -41,15 +41,25 @@ p {
   max-inline-size: var(--nyc-ref-dimension-measure);
 }
 
-a, button {
+a,
+a:link,
+button {
   appearance: none;
   background: transparent;
   color: var(--nyc-sys-color-link);
+  display: inline-flex;
+  align-items: center;
   font-size: inherit;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover {
     text-decoration: underline;
+  }
+
+  & [class^=i-] {
+    margin-inline-start: .5em;
+    font-size: 1.5rem;
   }
 }
 
@@ -60,6 +70,11 @@ a, button {
 
 :target {
   scroll-margin-top: 2ex;
+}
+
+:--heading {
+  display: flex;
+  align-items: center;
 }
 
 main:focus {
@@ -92,6 +107,14 @@ select {
 table {
   background: var(--nyc-sys-color-neutral-lightest);
   padding: .75rem;
+  & th {
+    text-align: left;
+  }
+}
+
+table {
+  background: var(--nyc-sys-color-neutral-lightest);
+  padding: .75rem;
   display: flex;
   flex-direction: column;
   & thead tr {
@@ -101,8 +124,8 @@ table {
   }
   & tr {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    gap: .8rem;
   }
   & tbody tr {
     border-bottom: 1px solid var(--nyc-sys-color-neutral-light);
@@ -116,10 +139,18 @@ table {
   }
 }
 
-ul {
+ul, ol {
   padding-inline-start: 1em;
 }
 
 ul[role=list] {
   padding-inline-start: 0;
+  list-style-type: none;
+}
+
+/* Header */
+header > nav {
+  & a, & button {
+    color: inherit;
+  }
 }

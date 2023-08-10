@@ -52,6 +52,9 @@ Regions supply consistent vertical padding to sections of content
 
 ** Grid
 
+The =grid= class is used to create CSS grid layouts that are
+customizable via CSS variables
+
 #+BEGIN_SRC css :tangle composition.css
   .grid {
     --gutter: var(--nyc-sys-dimension-gutter);

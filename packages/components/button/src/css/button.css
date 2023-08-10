@@ -1,0 +1,63 @@
+.button,
+.button:link {
+  --_background: var(--nyc-cmp-button-background, hsla(0, 0%, 100%, 1));
+  --_border-color: var(--nyc-cmp-button-border-color, hsla(0, 0%, 93%, 1));
+  --_border-width: var(--nyc-cmp-button-border-width, 2px);
+  --_color: var(--nyc-cmp-button-color, currentColor);
+  --_shadow: var(--nyc-cmp-button-shadow, none);
+  --_padding: var(--nyc-cmp-button-padding, .75rem);
+  appearance: none;
+  background-color: var(--_background);
+  border-color: var(--_border-color);
+  border-width: var(--_border-width);
+  border-style: solid;
+  color: var(--_color);
+  padding: var(--_padding);
+  box-shadow: var(--_shadow);
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: inherit;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+
+  & > :first-child:not(i) {
+    flex-grow: 1;
+    width: max-content;
+  }
+
+  & > i:last-child {
+    flex-shrink: 0;
+    margin-inline-start: .5em;
+    margin-block: auto;
+    font-size: 1.5rem;
+  }
+
+  &:hover {
+    background: var(--nyc-sys-color-primary-lightest);
+    color: var(--nyc-sys-color-primary);
+    border-color: var(--nyc-sys-color-primary);
+    text-decoration: none;
+  }
+}
+
+.grid li > .button {
+  display: flex;
+  height: 100%;
+}
+
+.button[data-variant] {
+  &:hover {
+    background: var(--_color);
+    color: var(--_background);
+  }    
+}
+
+.button[data-variant=primary] {
+  --nyc-cmp-button-background: var(--nyc-sys-color-primary-dark);
+  --nyc-cmp-button-color: var(--nyc-sys-color-on-primary);
+  --nyc-cmp-button-border-color: var(--nyc-sys-color-primary-dark);
+  --nyc-cmp-button-shadow: none;
+}

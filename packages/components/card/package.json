@@ -1,0 +1,6 @@
+{
+  "name": "@dofds/card",
+  "exports": {
+    ".": "./src/card.css"
+  }
+}

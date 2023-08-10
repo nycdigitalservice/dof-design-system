@@ -1,0 +1,173 @@
+#+title: Global styles
+
+As mentioned in the [[/#principles][Principles]], this library embraces the power of the
+CSS cascade to provide a set of base, global styling properties.
+
+#+begin_src css :tangle global.css
+html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+  max-inline-size: none;
+}
+
+body {
+  color: var(--nyc-sys-color-text);
+  background: var(--nyc-sys-color-background);
+  font-size: var(--nyc-sys-font-size-base);
+  font-family: var(--nyc-sys-font-family-base);
+  line-height: 1.4;
+  letter-spacing: var(--nyc-ref-dimension-tracking);
+  margin: 0;
+}
+#+end_src
+
+** Typesetting
+
+#+begin_src css :tangle global.css
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  letter-spacing: var(--nyc-ref-dimension-tracking-s);
+}
+
+h1 {
+  font-size: var(--nyc-sys-dimension-size-xxl);
+}
+
+h2 {
+  font-size: var(--nyc-sys-dimension-size-xl);
+}
+
+h3 {
+  font-size: var(--nyc-sys-dimension-size-l);
+}
+
+p {
+  max-inline-size: var(--nyc-ref-dimension-measure);
+}
+
+#+end_src
+
+** Elements
+
+#+begin_src css :tangle global.css
+  a,
+  a:link,
+  button {
+    appearance: none;
+    background: transparent;
+    color: var(--nyc-sys-color-link);
+    display: inline-flex;
+    align-items: center;
+    font-size: inherit;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    & [class^=i-] {
+      margin-inline-start: .5em;
+      font-size: 1.5rem;
+    }
+  }
+
+  :focus {
+    outline: 2px solid;
+    outline-offset: 0.3ch;
+  }
+
+  :target {
+    scroll-margin-top: 2ex;
+  }
+
+  :--heading {
+    display: flex;
+    align-items: center;
+  }
+
+  main:focus {
+    outline: none;
+  }
+
+  [class*="i-"] {
+    display: inline-block;
+  }
+
+  /* Base selection styles that invert whatever colours are rendered */
+  ::selection {
+    background: var(--nyc-sys-color-text);
+    color: var(--nyc-sys-color-background);
+  }
+
+  main {
+    background: var(--nyc-sys-color-background);
+  }
+
+  /* Inputs */
+  input,
+  select {
+    font-size: inherit;
+    line-height: 2.25;
+    padding-inline: 1rem;
+  }
+
+  /* Tables */
+  table {
+    background: var(--nyc-sys-color-neutral-lightest);
+    padding: .75rem;
+    & th {
+      text-align: left;
+    }
+  }
+
+  table {
+    background: var(--nyc-sys-color-neutral-lightest);
+    padding: .75rem;
+    display: flex;
+    flex-direction: column;
+    & thead tr {
+      text-align: left;
+      border-bottom: 1px solid var(--nyc-sys-color-neutral);
+      padding-block-end: .75rem;
+    }
+    & tr {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+      gap: .8rem;
+    }
+    & tbody tr {
+      border-bottom: 1px solid var(--nyc-sys-color-neutral-light);
+      padding-block-end: .5rem;
+      &:first-child {
+        padding-block-start: .75rem;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  ul, ol {
+    padding-inline-start: 1em;
+  }
+
+  ul[role=list] {
+    padding-inline-start: 0;
+    list-style-type: none;
+  }
+
+  /* Header */
+  header > nav {
+    & a, & button {
+      color: inherit;
+    }
+  }
+#+end_src
+

@@ -3,75 +3,77 @@
 An accordion is a list of headers that hide or reveal additional
 content when selected.
 
-#+results: accordion-example
+** Examples
 
-#+name: accordion-example
+*** Basic
+
+Accordions can be invoked in two ways: the =nyc-accordion= custom
+element or adding a ~data-is="nyc-accordion"~ attribute to a desired
+element. These will generate an accessible accordion markup structure
+and functionality when given a heading element as a first child;
+sibling elements will be added to the accordion panel. Whenever the
+same heading type is encountered a new accordion group will be
+created.
+
+#+html: <div class="example-wrapper">
+#+results: accordion-basic-example
+#+html: </div>
+
+#+name: accordion-basic-example
 #+begin_src html :exports both :results replace html
-  <nyc-accordion>
+  <nyc-accordion data-expanded="true">
     <h4>Taxes</h4>
     <p>Content about taxes</p>
     <h4>Fines</h4>
     <h5>Parking tickets</h5>
     <p>Content about parking tickets</p>
   </nyc-accordion>
+#+end_src
+
+*** Nested accordions
+
+Nesting accordions also works as expected
+
+#+html: <div class="example-wrapper">
+#+results: accordion-nested-example
+#+html: </div>
+
+#+name: accordion-nested-example
+#+begin_src html :exports both :results replace html
   <nyc-accordion>
-    <article class="accordion__group">
-      <h3>
-        <button is="toggle-button" aria-controls="assessment-definitions">
-          Assessment definitions
-          <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
-        </button>
-      </h3>
-      <div id="assessment-definitions" class="flow" hidden>
-        <p>
-          The following alphabetical listing of terms is provided to
-          help you understand property valuation and tax assessment:
-        </p>
-        <nyc-accordion>
-          <article class="accordion__group">
-            <h3>
-              <button is="toggle-button" aria-controls="abatements">
-                Abatements
-                <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
-              </button>
-            </h3>
-            <div id="abatements" hidden>
-              <p>
-                Abatements reduce your taxes after they've been
-                calculated. Different abatement programs are available
-                for housing rehabilitation, revitalization and
-                cooperatives and condominiums.
-              </p>
-            </div>
-          </article>
-          <article class="accordion__group">
-            <h3>
-              <button
-                is="toggle-button"
-                aria-controls="actual-assessed-value"
-                >
-                Actual assessed value
-                <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
-              </button>
-            </h3>
-            <div id="actual-assessed-value" hidden>
-              <p>
-                The assessed value before five year phase-in
-                requirements (for some tax class 2 and all tax class 4
-                properties) and/or exemptions are applied.
-              </p>
-            </div>
-          </article>
-        </nyc-accordion>
+    <h3>Assessment definitions</h3>
+    <div class="flow">
+      <p>
+        The following alphabetical listing of terms is provided to
+        help you understand property valuation and tax assessment:
+      </p>
+      <div data-is="nyc-accordion">
+        <h4>Abatements</h4>
+        <div>
+          <p>
+            Abatements reduce your taxes after they've been
+            calculated. Different abatement programs are available
+            for housing rehabilitation, revitalization and
+            cooperatives and condominiums.
+          </p>
+        </div>
+        <h4>Actual assessed value</h4>
+        <div>
+          <p>
+            The assessed value before five year phase-in
+            requirements (for some tax class 2 and all tax class 4
+            properties) and/or exemptions are applied.
+          </p>
+        </div>
       </div>
-    </article>
+    </div>
   </nyc-accordion>
 #+end_src
 
 ** Source Code
 
 - [[file:css.org][CSS]]
-- [[file:nyc-accordion.org][NYCAccordion Custom Element]]
+- [[file:js.org][Javascript]]
   
 ** References
 
@@ -80,3 +82,4 @@ content when selected.
 - [[https://www.aditus.io/patterns/accordion/][Aditus: Accessible Accordion]]
 - [[https://www.smashingmagazine.com/2017/06/designing-perfect-accordion-checklist/][Smashing Magazine: Designing The Perfect Accordion]]
 - [[https://designsystem.digital.gov/components/accordion/][U.S. Web Design System: Accordion]]
+- [[https://accessibility.18f.gov/hidden-content/][18F Accessibility Guide: Hidden content]]

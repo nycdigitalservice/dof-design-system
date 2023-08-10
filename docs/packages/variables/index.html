@@ -1,10 +1,36 @@
-<!-- Generated from c442340 on 2023-07-05 @ 12:13 with Emacs 29.0.92 (Org mode 9.6.6) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="/assets/dof-2023-styles.css"/><link rel="stylesheet" href="/assets/dof-2023-docs.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><title>Variables - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="button" aria-controls="main-menu"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="/">Home</a><a class="p-2" href="/packages">Packages</a><a class="p-2" href="/packages/components">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="/packages/components/accordion">Accordion</a><a class="p-2" href="/packages/components/alert">Alert</a><a class="p-2" href="/packages/components/button">Button</a><a class="p-2" href="/packages/components/card">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Variables</h1><div id="content" class="flow"><p>
+<!-- Generated from 36aa79c on 2023-08-10 @ 14:22 with Emacs 29.0.92 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-styles.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-docs.css"/><title>Variables - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="https://nycdigitalservice.github.io/dof-design-system/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="font-bold p-2" aria-controls="main-menu" aria-expanded="false"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/">Home</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/">Packages</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/accordion/">Accordion</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/alert/">Alert</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/button/">Button</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/card/">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Variables</h1><div id="content" class="flow"><p>
 This library utilizes <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*">CSS custom properties</a>, adopting a naming
 convention influenced by Google&rsquo;s <a href="https://m3.material.io/foundations/design-tokens/how-to-read-tokens#98e82e98-5ecd-4c5d-a03a-7d4cc5d55c20">Material design system tokens</a>. The
 variables are divided into a 3-tier structure: Reference, System, and
 Component.
 </p>
+
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#reference-variables">Reference variables</a>
+<ul>
+<li><a href="#color">Color</a></li>
+<li><a href="#size">Size</a></li>
+<li><a href="#space">Space</a></li>
+</ul>
+</li>
+<li><a href="#system-variables">System variables</a>
+<ul>
+<li><a href="#color">Color</a></li>
+<li><a href="#gradientshadow">Gradient/Shadow</a></li>
+<li><a href="#dimension">Dimension</a></li>
+<li><a href="#typesetting">Typesetting</a></li>
+<li><a href="#logical-variables">Logical variables</a></li>
+</ul>
+</li>
+<li><a href="#component-variables">Component variables</a></li>
+<li><a href="#custom-selectors">Custom selectors</a></li>
+</ul>
+</div>
+</div>
 
 <section class="region flow"><h2><a id="reference-variables" class="anchor" href="#reference-variables"><i class="i-ri:anchor-line"></i></a>Reference variables</h2><p>
 Reference variables are used to hold direct property values, the value
@@ -33,7 +59,11 @@ you would give to a CSS property when not using variables.
 </tbody>
 </table>
 
-<h3><a id="color" class="anchor" href="#color"><i class="i-ri:anchor-line"></i></a>Color</h3><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">--nyc-ref-color-blue-50: hsla(214, 54%, 95%, 1);
+<h3><a id="color" class="anchor" href="#color"><i class="i-ri:anchor-line"></i></a>Color</h3><p>
+Color reference variables allow you to label and scale colors used on the site.
+</p>
+
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">--nyc-ref-color-blue-50: hsla(214, 54%, 95%, 1);
 --nyc-ref-color-blue-100: hsla(207, 71%, 68%, 1);
 --nyc-ref-color-blue-200: hsla(213, 53%, 50%, 1);
 --nyc-ref-color-blue-250: hsla(213, 59%, 45%, 1);
@@ -43,23 +73,28 @@ you would give to a CSS property when not using variables.
 --nyc-ref-color-orange-700: hsla(25, 78%, 41%, 1);
 --nyc-ref-color-neutral-0: hsla(0, 0%, 100%, 1);
 --nyc-ref-color-neutral-100: hsla(0, 0%, 93%, 1);
---nyc-ref-color-neutral-150: hsla(0, 0%, 80%, 1);
---nyc-ref-color-neutral-200: hsla(0, 0%, 53%, 1);
+--nyc-ref-color-neutral-200: hsla(0, 0%, 80%, 1);
+--nyc-ref-color-neutral-300: hsla(0, 0%, 53%, 1);
 --nyc-ref-color-neutral-400:  hsla(0, 0%, 40%, 1);
---nyc-ref-color-neutral-850: hsla(0, 0%, 20%, 1);
+--nyc-ref-color-neutral-800: hsla(0, 0%, 20%, 1);
 --nyc-ref-color-neutral-900: hsla(0, 0%, 0%, 1);
+
 --nyc-ref-shadow-400: 4px 4px 8px hsla(0, 0%, 0%, .2);
 --nyc-ref-shadow-450: 0 4px 8px hsla(0, 0%, 0%, .2);
 --nyc-ref-shadow-500: 0 4px 4px hsla(0, 0%, 0%, .25);
 
---nyc-ref-gradient-blue-100: radial-gradient(56.94% 119.67% at 78.96% 43.36%, #E6F4FF 0%, #BDE3FF 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;</code></pre></div></nyc-accordion>
+--nyc-ref-gradient-blue-100: radial-gradient(
+  56.94% 119.67% at 78.96% 43.36%, #E6F4FF 0%, #BDE3FF 100%
+);
+/* warning: gradient uses a rotation that is not supported by
+   CSS and may not behave as expected */</code></pre></div></nyc-accordion>
 
 <h3><a id="size" class="anchor" href="#size"><i class="i-ri:anchor-line"></i></a>Size</h3><p>
 The below size variables are used for fluid <code>font-size</code> and are
 generated from the <a href="https://utopia.fyi">Utopia</a> calculator (<a href="https://utopia.fyi/type/calculator?c=320,16,1.2,1024,18,1.25,5,2,&amp;s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&amp;g=s,l,xl,12">scale source</a>)
 </p>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">/* Step -2: 11.11px → 11.52px */
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">/* Step -2: 11.11px → 11.52px */
 --nyc-ref-dimension-size-step--2: clamp(0.69rem, calc(0.68rem + 0.06vw), 0.72rem);
 
 /* Step -1: 13.33px → 14.40px */
@@ -88,7 +123,7 @@ The below space variables are used for fluid <code>margin</code> and <code>paddi
 are generated from the <a href="https://utopia.fyi">Utopia</a> calculator (<a href="https://utopia.fyi/space/calculator?c=320,16,1.2,1024,18,1.25,5,2,&amp;s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&amp;g=s,l,xl,12">scale source</a>)
 </p>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">--nyc-sys-dimension-space-3xs: clamp(0.25rem, calc(0.22rem + 0.14vw), 0.31rem);
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">--nyc-sys-dimension-space-3xs: clamp(0.25rem, calc(0.22rem + 0.14vw), 0.31rem);
 --nyc-sys-dimension-space-2xs: clamp(0.50rem, calc(0.47rem + 0.14vw), 0.56rem);
 --nyc-sys-dimension-space-xs: clamp(0.75rem, calc(0.69rem + 0.28vw), 0.88rem);
 --nyc-sys-dimension-space-s: clamp(1.00rem, calc(0.94rem + 0.28vw), 1.13rem);
@@ -140,31 +175,28 @@ useful names to our Reference variables, such as a <code>primary</code> color or
 </tbody>
 </table>
 
-
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">--nyc-sys-color-primary: var(--nyc-ref-color-blue-500);
+<h3><a id="color" class="anchor" href="#color"><i class="i-ri:anchor-line"></i></a>Color</h3><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">--nyc-sys-color-primary: var(--nyc-ref-color-blue-500);
 --nyc-sys-color-on-primary: var(--nyc-ref-color-neutral-0);
 --nyc-sys-color-primary-lighter: var(--nyc-ref-color-blue-100);
+--nyc-sys-color-on-primary-lighter: var(--nyc-ref-color-blue-700);
 --nyc-sys-color-primary-lightest: var(--nyc-ref-color-blue-50);
 --nyc-sys-color-primary-dark: var(--nyc-ref-color-blue-700);
 --nyc-sys-color-secondary: var(--nyc-ref-color-orange-500);
---nyc-sys-color-text: var(--nyc-ref-color-neutral-850);
+--nyc-sys-color-text: var(--nyc-ref-color-neutral-800);
 --nyc-sys-color-text-light: var(--nyc-ref-color-neutral-400);
 --nyc-sys-color-link: var(--nyc-sys-color-primary, currentColor);
 --nyc-sys-color-background: var(--nyc-ref-color-neutral-0);
 --nyc-sys-color-border: var(--nyc-ref-color-neutral-100);
 --nyc-sys-color-neutral-lightest: var(--nyc-ref-color-neutral-100);
---nyc-sys-color-neutral-light: var(--nyc-ref-color-neutral-150);
---nyc-sys-color-neutral: var(--nyc-ref-color-neutral-200);
---nyc-sys-color-accent: var(--nyc-sys-color-primary);
---nyc-sys-gradient-primary-light: var(--nyc-ref-gradient-blue-100);
---nyc-sys-shadow-base: var(--nyc-ref-shadow-500);
---nyc-sys-shadow-weak: var(--nyc-ref-shadow-400);
---nyc-sys-line-height: 1.4;
---nyc-sys-font-size-base: var(--nyc-ref-dimension-size-step-0);
---nyc-sys-font-family-base: "Helvetica Neue", Helvetica, Arial, sans-serif;
+--nyc-sys-color-neutral-light: var(--nyc-ref-color-neutral-200);
+--nyc-sys-color-neutral: var(--nyc-ref-color-neutral-300);
+--nyc-sys-color-accent: var(--nyc-sys-color-primary);</code></pre></div></nyc-accordion>
 
---nyc-sys-dimension-page-max-width: 64rem;
---nyc-sys-dimension-gutter: var(--nyc-ref-dimension-size-step-0);
+<h3><a id="gradientshadow" class="anchor" href="#gradientshadow"><i class="i-ri:anchor-line"></i></a>Gradient/Shadow</h3><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">--nyc-sys-gradient-primary-light: var(--nyc-ref-gradient-blue-100);
+--nyc-sys-shadow-base: var(--nyc-ref-shadow-500);
+--nyc-sys-shadow-weak: var(--nyc-ref-shadow-400);</code></pre></div></nyc-accordion>
+
+<h3><a id="dimension" class="anchor" href="#dimension"><i class="i-ri:anchor-line"></i></a>Dimension</h3><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">--nyc-sys-dimension-page-max-width: 64rem;
 
 --nyc-sys-dimension-size-xs: var(--nyc-ref-dimension-size-step--2);
 --nyc-sys-dimension-size-s: var(--nyc-ref-dimension-size-step--1);
@@ -172,8 +204,14 @@ useful names to our Reference variables, such as a <code>primary</code> color or
 --nyc-sys-dimension-size-l: var(--nyc-ref-dimension-size-step-2);
 --nyc-sys-dimension-size-xl: var(--nyc-ref-dimension-size-step-3);
 --nyc-sys-dimension-size-xxl: var(--nyc-ref-dimension-size-step-4);</code></pre></div></nyc-accordion>
-</section>
 
+<h3><a id="typesetting" class="anchor" href="#typesetting"><i class="i-ri:anchor-line"></i></a>Typesetting</h3><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">--nyc-sys-line-height: 1.4;
+--nyc-sys-font-size-base: var(--nyc-ref-dimension-size-step-0);
+--nyc-sys-font-family-base: "Helvetica Neue", Helvetica, Arial, sans-serif;</code></pre></div></nyc-accordion>
+
+<h3><a id="logical-variables" class="anchor" href="#logical-variables"><i class="i-ri:anchor-line"></i></a>Logical variables</h3><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">--ON: initial;
+--OFF: ;</code></pre></div></nyc-accordion>
+</section>
 
 <section class="region flow"><h2><a id="component-variables" class="anchor" href="#component-variables"><i class="i-ri:anchor-line"></i></a>Component variables</h2><p>
 Component variables are the variables that will be referenced in our
@@ -203,7 +241,7 @@ component CSS properties and these reference System variables.
 </table>
 
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">--nyc-cmp-card-background-hover: var(--nyc-sys-color-primary-light, transparent);</code></pre></div></nyc-accordion>
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">--nyc-cmp-card-background-hover: var(--nyc-sys-color-primary-light, transparent);</code></pre></div></nyc-accordion>
 </section>
 
 <section class="region flow"><h2><a id="custom-selectors" class="anchor" href="#custom-selectors"><i class="i-ri:anchor-line"></i></a>Custom selectors</h2><p>
@@ -211,6 +249,6 @@ component CSS properties and these reference System variables.
 multiple CSS selectors under a given name.
 </p>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">@custom-selector :--heading h1, h2, h3, h4, h5, h6;</code></pre></div></nyc-accordion>
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">@custom-selector :--heading h1, h2, h3, h4, h5, h6;</code></pre></div></nyc-accordion>
 </section>
-</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="/assets/main.js"></script><script>try{hljs.highlightAll();} catch(e) {}</script></body></html>
+</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="https://nycdigitalservice.github.io/dof-design-system/assets/main.js"></script><script src="https://unpkg.com/highlightjs-copy@1.0.3/dist/highlightjs-copy.min.js"></script><script>try{hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());} catch(e) {}</script></body></html>

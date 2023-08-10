@@ -1,0 +1,265 @@
+<!-- Generated from 36aa79c on 2023-08-10 @ 14:22 with Emacs 29.0.92 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-styles.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-docs.css"/><title>Accordion javascript - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="https://nycdigitalservice.github.io/dof-design-system/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="font-bold p-2" aria-controls="main-menu" aria-expanded="false"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/">Home</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/">Packages</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/accordion/">Accordion</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/alert/">Alert</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/button/">Button</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/card/">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Accordion javascript</h1><div id="content" class="flow">
+<section class="region flow"><h2><a id="accordion-class" class="anchor" href="#accordion-class"><i class="i-ri:anchor-line"></i></a>Accordion class</h2><p>
+The <code>Accordion</code> class provides the functionality for an accordion
+component, creating and/or formatting accordion groups, headings, and
+panels. Breaking this out into a separate class allows us to attach
+functionality in different contexts, like a Custom Element or via a
+<code>data</code> attribute.
+</p>
+
+<p>
+The class accepts a parent element and will scan its children and
+attempt to format them with the required markup. You can supply it
+with alternating heading and panel elements and it will apply the
+required attributes.
+</p>
+
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-js">import {chunkArray,chunkr,isAlternating} from '@dofds/utilities';
+
+export default class Accordion {
+  constructor(element) {
+    this.headingTagName = null;
+    this.element = element;
+    this.init();
+  }
+
+  init() {
+    if (!this.element.firstChild) return;
+    this.groups = this.element.querySelectorAll(':scope > .accordion__group');
+    // If we have groups, format them
+    if (this.groups.length > 0) {
+      this.groups.forEach(this.formatGroup.bind(this));      
+    } else {
+      /* We don't have groups, remove empty nodes and check if first node
+       * is a heading. If it is, create groups from chunking siblings by this
+       * heading tag.
+       */
+      const nodes = this.removeEmptyTextNodes(this.element.childNodes);
+      if (this.isHeading(nodes[0])) {
+        console.log('have initial heading', nodes[0])
+
+        this.headingTagName = nodes[0].nodeName;
+
+        const groupsArr = chunkr(nodes, (n) => n.nodeName === this.headingTagName)
+
+        const groups = groupsArr.map(group => {
+          const frag = new DocumentFragment();
+          group.forEach(el => frag.appendChild(el))
+
+          const groupEl = this.createGroup(frag);
+          return groupEl;
+        })
+        //console.log(groups)
+        groups.forEach(this.formatGroup.bind(this));
+        this.element.append(...groups);
+      } else if (isAlternating(nodes)) {
+        /* We don't have an initial heading, so test if we have a series of
+         * alternating nodes, which we can then turn into headings and panels.
+         */
+        const groups = chunkArray(nodes, 2);
+        const frags = groups.map(group => {
+          const frag = new DocumentFragment();
+          group.forEach(el => frag.appendChild(el))
+
+          const groupEl = this.createGroup(frag);
+          return groupEl;
+        })
+
+        frags.forEach(this.formatGroup.bind(this));
+        this.element.append(...frags);
+      } else {
+        /* We don't have an alternating set either, so create a group
+         * with the nodes we have. The first node will be made the heading.
+         */
+        const group = this.createGroup(this.element);
+        this.element.appendChild(group);
+        this.formatGroup(group);
+      }
+    }
+  }
+
+  createGroup(parent) {
+    const groupEl = document.createElement('article');
+    groupEl.classList.add('accordion__group');
+    const fragment = new DocumentFragment();
+    while(parent.hasChildNodes()){
+      fragment.appendChild(parent.firstChild)
+    }
+    groupEl.appendChild(fragment);
+    return groupEl;
+  }
+
+  formatGroup(group) {
+    const nodes = this.removeEmptyTextNodes(group.childNodes);
+    const firstChild = nodes[0];
+    const siblings = nodes.slice(1);
+    const hasHeading = this.isHeading(firstChild);
+    // Need a better way to detect panel
+    const hasPanel = siblings[0].hasAttribute('hidden') ||
+          siblings[0].classList.contains('accordion__body');
+    group.setAttribute('data-panel-id', `panel-${this.generateId()}`);
+
+    if (hasHeading) {
+      this.formatHeading(firstChild);
+    } else {
+      const heading = this.createHeading(firstChild);
+      group.prepend(heading);
+      this.formatHeading(heading);
+    }
+
+    if (hasPanel) {
+      this.formatPanel(siblings[0]);
+    } else {
+      const panel = this.createPanel(siblings);
+      group.append(panel);
+      this.formatPanel(panel);
+    }
+  }
+
+  createHeading(child) {
+
+    const closestHeading = this.findClosestHeading(this.element);
+
+    if(closestHeading) {
+      const headingLevel = parseInt(closestHeading.tagName.split('H')[1]);
+      this.headingTagName = `h${headingLevel + 1}`;
+    } else {
+      this.headingTagName = 'h4';
+    }
+
+    const headingEl = document.createElement(this.headingTagName);
+    headingEl.appendChild(child);
+    return headingEl;
+  }
+
+  formatHeading(heading) {
+    const firstChild = this.removeEmptyTextNodes(heading.childNodes)[0];
+
+    let headingLabel;
+    if (firstChild.nodeName !== 'BUTTON') {
+      const button = this.createButton(
+        firstChild,
+        heading.parentNode.dataset.panelId
+      );
+      headingLabel =
+        firstChild.nodeName !== '#text' ?
+        firstChild.innerText : firstChild.data;
+      heading.appendChild(button);
+    } else {
+      headingLabel = firstChild.innerText;
+    }
+    //console.log(headingLabel, firstChild, firstChild.innerText);
+    let headingId =
+        `${headingLabel.trim()
+         .replace(/[^\w\s]/gi, '')
+         .replace(/\s+/g, '-').toLowerCase()}-heading`;
+    if (document.getElementById(headingId)) {
+      headingId = `${headingId}-${this.generateId()}`;
+    }
+    heading.setAttribute('id', headingId);
+  }
+
+  createPanel(children) {
+    const panel = document.createElement('div')
+    panel.append(...children);
+    return panel;
+  }
+
+  formatPanel(panel) {
+    //if (!panel.hasAttribute('id')) {
+    panel.setAttribute('id', panel.parentNode.dataset.panelId);
+    //}
+    panel.setAttribute('aria-labelledby', panel.parentNode.children[0].id);
+    panel.classList.add('flow');
+    panel.setAttribute('hidden', '');
+  }
+
+  createButton(label, panelId) {
+    const labelEl = document.createElement('span');
+    labelEl.append(label);
+    const button = document.createElement('button', { is: 'toggle-button' });
+    button.setAttribute('aria-controls', panelId);
+    button.setAttribute('aria-expanded', false);
+    button.innerHTML = "<i class='i-ri:arrow-down-s-line' aria-hidden='true'></i>";
+    button.prepend(labelEl);
+    return button;
+  }
+
+  removeEmptyTextNodes(nodelist) {
+    return Array.from(nodelist).filter(node =>
+      (node.nodeName !== '#text' || node.data.trim().length > 0 || false ))
+  }
+
+  generateId() {
+    return Math.floor(Math.random() * Date.now()).toString(16);
+  }
+
+  isHeading(element) {
+    return element.tagName && element.tagName.match(/^H\d$/i)
+  }
+
+  findClosestHeading(element) {
+    if (!element.parentElement) {
+      return false;
+    }
+
+    // Check if the element is already a heading tag
+    if (this.isHeading(element)) {
+      return element;
+    }
+
+    // Traverse the ancestor chain and search for heading tags among their children
+    let ancestor = element.parentElement;
+    // debugger
+    while (ancestor !== null) {
+      const siblings = Array.from(ancestor.children);
+      const headingTags = siblings.filter(sibling =>
+        this.isHeading(sibling)
+      );
+
+      if (headingTags.length > 0) {
+        //console.log(headingTags);
+        // Find the closest sibling heading
+        const index = siblings.indexOf(element);
+        if (index !== -1) {
+          const closestHeading = headingTags.reduce((closest, heading) => {
+            const headingIndex = siblings.indexOf(heading);
+            const distance = Math.abs(headingIndex - index);
+            if (closest === null || distance < closest.distance) {
+              return { heading: heading, distance: distance };
+            }
+            return closest;
+          }, null);
+
+          if (closestHeading !== null) {
+            return closestHeading.heading;
+          }
+        }
+      }
+      ancestor = ancestor.parentElement;
+    }
+
+    // No heading tag found among ancestors' children
+    return null;
+  }
+}</code></pre></div></nyc-accordion>
+</section>
+
+<section class="region flow"><h2><a id="nycaccordion-custom-element" class="anchor" href="#nycaccordion-custom-element"><i class="i-ri:anchor-line"></i></a>NYCAccordion custom element</h2><p>
+The <code>NYCAccordion</code> class is a simple wrapper for the <code>Accordion</code>
+class above, providing the <code>nyc-accordion</code> custom element.
+</p>
+
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-js">import Accordion from './accordion';
+
+class NYCAccordion extends HTMLElement {
+  connectedCallback() {
+    if (!this.firstChild) return;
+    this.accordion = new Accordion(this);
+  }
+}
+
+customElements.define('nyc-accordion', NYCAccordion);</code></pre></div></nyc-accordion>
+</section>
+</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="https://nycdigitalservice.github.io/dof-design-system/assets/main.js"></script><script src="https://unpkg.com/highlightjs-copy@1.0.3/dist/highlightjs-copy.min.js"></script><script>try{hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());} catch(e) {}</script></body></html>

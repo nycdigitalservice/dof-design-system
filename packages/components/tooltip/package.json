@@ -1,0 +1,6 @@
+{
+  "name": "@dofds/tooltip",
+  "exports": {
+    ".": "./src/tooltip.css"
+  }
+}

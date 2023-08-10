@@ -1,95 +1,238 @@
-<!-- Generated from c442340 on 2023-07-05 @ 12:13 with Emacs 29.0.92 (Org mode 9.6.6) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="/assets/dof-2023-styles.css"/><link rel="stylesheet" href="/assets/dof-2023-docs.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><title>Composition - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="button" aria-controls="main-menu"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="/">Home</a><a class="p-2" href="/packages">Packages</a><a class="p-2" href="/packages/components">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="/packages/components/accordion">Accordion</a><a class="p-2" href="/packages/components/alert">Alert</a><a class="p-2" href="/packages/components/button">Button</a><a class="p-2" href="/packages/components/card">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Composition</h1><div id="content" class="flow">
-<section class="region flow"><h2><a id="container" class="anchor" href="#container"><i class="i-ri:anchor-line"></i></a>Container</h2><p>
-The <code>container</code> class <b>contains</b> elements to a <b>maximum size</b> and is
-<b>centered</b> by default
+<!-- Generated from 36aa79c on 2023-08-10 @ 14:22 with Emacs 29.0.92 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-styles.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-docs.css"/><title>Composition - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="https://nycdigitalservice.github.io/dof-design-system/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="font-bold p-2" aria-controls="main-menu" aria-expanded="false"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/">Home</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/">Packages</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/accordion/">Accordion</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/alert/">Alert</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/button/">Button</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/card/">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Composition</h1><div id="content" class="flow"><p>
+Composition classes can be used to control page layout and spacing
+between page items
 </p>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.container {
+<section class="region flow"><h2><a id="container" class="anchor" href="#container"><i class="i-ri:anchor-line"></i></a>Container</h2><p>
+The <code>container</code> class <b>contains</b> elements to a <b>maximum size</b>, provides
+horizontal <b>padding</b>, and is <b>centered</b> by default
+</p>
+
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.container {
+  --_gutter: var(--nyc-cmp-container-gutter, 1rem);
+  --_max-w: var(--nyc-sys-dimension-page-max-width, 64rem);
   margin-inline: auto;
-  max-inline-size: calc(var(--nyc-sys-dimension-page-max-width) + var(--nyc-sys-dimension-gutter) * 2);
-  padding-inline: var(--nyc-sys-dimension-gutter);
+  max-inline-size: calc(var(--_max-w) + var(--_gutter) * 2);
+  padding-inline: var(--_gutter);
   container: container / inline-size;
 }</code></pre></div></nyc-accordion>
 </section>
-
 <section class="region flow"><h2><a id="region" class="anchor" href="#region"><i class="i-ri:anchor-line"></i></a>Region</h2><p>
-Regions supply consistent vertical padding to sections of content
+The <code>region</code> class supplies consistent vertical padding to sections of content
 </p>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.region {
-  --region-space: var(--nyc-sys-dimension-space-l-xl);
-  padding-block-start: var(--region-space);
-  padding-block-end: var(--region-space);
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.region {
+  --_region-space: var(--nyc-sys-dimension-space-l-xl);
+  padding-block-start: var(--_region-space);
+  padding-block-end: var(--_region-space);
 }
 
 .region[data-region-space="s"] {
-  --region-space: var(--nyc-sys-dimension-space-s);
+  --_region-space: var(--nyc-sys-dimension-space-s);
 }
 
 .region[data-region-space="m"] {
-  --region-space: var(--nyc-sys-dimension-space-m);
+  --_region-space: var(--nyc-sys-dimension-space-m);
 }
 
 .region[data-region-space="l"] {
-  --region-space: var(--nyc-sys-dimension-space-l);
+  --_region-space: var(--nyc-sys-dimension-space-l);
 }
 
 .region[data-region-space="xl"] {
-  --region-space: var(--nyc-sys-dimension-space-xl);
+  --_region-space: var(--nyc-sys-dimension-space-xl);
 }
 
 .region[data-region-space="s-m"] {
-  --region-space: var(--nyc-sys-dimension-space-s-m);
+  --_region-space: var(--nyc-sys-dimension-space-s-m);
 }
 
 .region[data-region-space="xs-s"] {
-  --region-space: var(--nyc-sys-dimension-space-xs-s);
+  --_region-space: var(--nyc-sys-dimension-space-xs-s);
+}</code></pre></div></nyc-accordion>
+</section>
+<section class="region flow"><h2><a id="flow" class="anchor" href="#flow"><i class="i-ri:anchor-line"></i></a>Flow</h2><p>
+The <code>flow</code> class controls vertical space between child elements in a
+content block. The <code>data-flow-space</code> attribute can be used to adjust
+this spacing on a per-element level.
+</p>
+
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.flow > * {
+  margin-block: 0;
+}
+
+.flow > * + *,
+.flow[data-flow-recursive] * + * {
+  --_flow-space: var(--nyc-sys-dimension-space-m, 1em);
+  margin-block-start: var(--_flow-space);
+}
+
+[data-flow-space=s] {
+  --_flow-space: var(--nyc-sys-dimension-space-s);
+}
+
+[data-flow-space=m] {
+  --_flow-space: var(--nyc-sys-dimension-space-m);
+}
+
+[data-flow-space=l] {
+  --_flow-space: var(--nyc-sys-dimension-space-l);
 }</code></pre></div></nyc-accordion>
 </section>
 
-<section class="region flow"><h2><a id="grid" class="anchor" href="#grid"><i class="i-ri:anchor-line"></i></a>Grid</h2><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.grid {
-  --gutter: var(--nyc-sys-dimension-gutter);
+<section class="region flow"><h2><a id="grid" class="anchor" href="#grid"><i class="i-ri:anchor-line"></i></a>Grid</h2><p>
+The <code>grid</code> class creates CSS grid layouts that are customizable via CSS
+variables
+</p>
+
+<h3><a id="custom-properties" class="anchor" href="#custom-properties"><i class="i-ri:anchor-line"></i></a>Custom properties</h3><table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Property</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#x2013;nyc-cmp-grid-gutter</td>
+<td class="org-left">Used to set the <code>gap</code> property</td>
+<td class="org-left">1rem</td>
+</tr>
+
+<tr>
+<td class="org-left">&#x2013;nyc-cmp-grid-placement</td>
+<td class="org-left">How to place items in the grid, can be <code>auto-fit</code>, <code>auto-fill</code>, or a fixed integer</td>
+<td class="org-left">auto-fill</td>
+</tr>
+
+<tr>
+<td class="org-left">&#x2013;nyc-cmp-grid-min-item-size</td>
+<td class="org-left">What is the minimum size a grid item can reach before layout breaks?</td>
+<td class="org-left">16rem</td>
+</tr>
+
+<tr>
+<td class="org-left">&#x2013;nyc-cmp-grid-max-item-size</td>
+<td class="org-left">What is the maximum size a grid item can reach before layout breaks?</td>
+<td class="org-left">1fr</td>
+</tr>
+
+<tr>
+<td class="org-left">&#x2013;nyc-cmp-grid-cols</td>
+<td class="org-left">How many columns should be in a row?</td>
+<td class="org-left">1</td>
+</tr>
+
+<tr>
+<td class="org-left">&#x2013;nyc-cmp-grid-item-shrink-ratio</td>
+<td class="org-left">If not setting a fixed min size, by what percentage can the item shrink before layout breaks?</td>
+<td class="org-left">.7</td>
+</tr>
+</tbody>
+</table>
+
+<h3><a id="base" class="anchor" href="#base"><i class="i-ri:anchor-line"></i></a>Base</h3><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.grid {
+  --_gutter: var(--nyc-cmp-grid-gutter, 1rem);
+  --_placement: var(--nyc-cmp-grid-placement, auto-fill);
+  --_min-item-size: var(--nyc-cmp-grid-min-item-size, 16rem);
+  --_max-item-size: var(--nyc-cmp-grid-max-item-size, 1fr);
+  --_cols: var(--nyc-cmp-grid-cols, 1);
+  --_item-shrink-ratio: var(--nyc-cmp-grid-item-shrink-ratio, .7);
+  --_max-w: calc(var(--nyc-sys-dimension-page-max-width) + ((var(--_cols) - 1) * var(--_gutter)));
+
+  /* Setting container property breaks grid on Safari */
+  /* container: grid-container / inline-size; */
   display: grid;
-  gap: var(--gutter, var(--nyc-sys-dimension-space-s-l));
+  gap: var(--_gutter);
   grid-auto-rows: 1fr
 }
 
 @supports (width: min(250px, 100%)) {
   .grid {
     grid-template-columns: repeat(
-      var(--grid-placement, auto-fill),
-      minmax(var(--grid-min-item-size, 16rem), var(--grid-max-item-size, 1fr))
+      var(--_placement),
+      minmax(var(--_min-item-size), var(--_max-item-size))
     );
   }
 }
 
 .grid[data-layout^="col-"] {
-  --max-w: calc(var(--nyc-sys-dimension-page-max-width) + ((var(--grid-cols, 1) - 1) * var(--gutter)));
-  --grid-min-item-size: calc((var(--max-w) / var(--grid-cols)) * var(--grid-shrink-ratio, .7));
-  --grid-placement: auto-fit;
+  --nyc-cmp-grid-min-item-size: calc((var(--_max-w) / var(--_cols)) * var(--_item-shrink-ratio));
+  --nyc-cmp-grid-placement: auto-fit;
 }
 
 .grid[data-layout="col-4"] {
-  --gutter: var(--nyc-sys-dimension-space-s);
-  --grid-shrink-ratio: .7;
-  --grid-cols: 4;
+  --nyc-cmp-grid-gutter: var(--nyc-sys-dimension-space-s);
+  --nyc-cmp-grid-cols: 4;
 }
 
 .grid[data-layout="col-2"] {
-  --grid-cols: 2;
+  --nyc-cmp-grid-cols: 2;
 }
 
 /* TODO: address max hard-coded value */
 @container container (max-width: 806px) {
   .grid[data-layout="col-4"] {
-    --grid-cols: 2;
-    --grid-shrink-ratio: .5;
+    --nyc-cmp-grid-cols: 2;
+    --nyc-cmp-grid-item-shrink-ratio: .5;
+  }
+}</code></pre></div></nyc-accordion>
+
+<h3><a id="figure-split-layout" class="anchor" href="#figure-split-layout"><i class="i-ri:anchor-line"></i></a>Figure split layout</h3><p>
+Given you have three (or more) elements that are stacked on mobile,
+the figure split layout allows you to position the <code>.figure</code> element
+side-by-side on desktop, regardless of its order in the
+markup. Especially useful if the markup order is <code>heading</code> -&gt; <code>figure</code> -&gt;
+<code>body</code>.
+</p>
+
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.grid[data-layout=figure-split] {
+  grid-template-columns: 1fr;
+  --_gutter: 0;
+}
+
+@media (min-width: 768px) {
+  .grid[data-layout=figure-split] {
+    --_gutter: var(--nyc-sys-dimension-space-s-m);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    "heading figure"
+    "body figure";
+    row-gap: 0;
+
+    & :--heading {
+      grid-area: heading;
+    }
+
+    & .figure {
+      grid-area: figure;
+    }
+
+    & > * {
+      grid-area: body;
+    }
+
+    &[data-split-direction=left] {
+      grid-template-areas:
+      "figure heading"
+      "figure body";
+    }
   }
 }</code></pre></div></nyc-accordion>
 </section>
 
-<section class="region flow"><h2><a id="sidebar" class="anchor" href="#sidebar"><i class="i-ri:anchor-line"></i></a>Sidebar</h2><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.with-sidebar {
+<section class="region flow"><h2><a id="sidebar" class="anchor" href="#sidebar"><i class="i-ri:anchor-line"></i></a>Sidebar</h2><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.with-sidebar {
   display: flex;
   flex-wrap: wrap;
   gap: var(--s1);
@@ -106,29 +249,7 @@ Regions supply consistent vertical padding to sections of content
 }</code></pre></div></nyc-accordion>
 </section>
 
-<section class="region flow"><h2><a id="flow" class="anchor" href="#flow"><i class="i-ri:anchor-line"></i></a>Flow</h2><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.flow > * {
-  margin-block: 0;
-}
-
-.flow > * + * {
-  --space: var(--nyc-sys-dimension-space-m);
-  margin-block-start: var(--space, 1em);
-}
-
-[data-flow-space=s] {
-  --space: var(--nyc-sys-dimension-space-s);
-}
-
-[data-flow-space=m] {
-  --space: var(--nyc-sys-dimension-space-m);
-}
-
-[data-flow-space=l] {
-  --space: var(--nyc-sys-dimension-space-l);
-}</code></pre></div></nyc-accordion>
-</section>
-
-<section class="region flow"><h2><a id="switcher" class="anchor" href="#switcher"><i class="i-ri:anchor-line"></i></a>Switcher</h2><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.switcher {
+<section class="region flow"><h2><a id="switcher" class="anchor" href="#switcher"><i class="i-ri:anchor-line"></i></a>Switcher</h2><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.switcher {
   display: flex;
   flex-wrap: wrap;
   gap: var(--nyc-sys-dimension-space-s-m);
@@ -145,22 +266,22 @@ Regions supply consistent vertical padding to sections of content
   flex-basis: 100%;
 }
 
-[data-col-layout="1-3-2"] {
-  & :nth-child(2) {
+.switcher[data-layout="col-1-3-2"] {
+  & > :nth-child(2) {
     order: 3;
   }
 
-  & :nth-child(3) {
+  & > :nth-child(3) {
     flex-grow: 2;
   }
 }
 
 @container switcher (max-width: 40rem) {
-  [data-col-layout="1-3-2"] {
-    & :nth-child(2) {
+  .switchert[data-layout="col-1-3-2"] {
+    & > :nth-child(2) {
       order: initial;
     }
   }
 }</code></pre></div></nyc-accordion>
 </section>
-</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="/assets/main.js"></script><script>try{hljs.highlightAll();} catch(e) {}</script></body></html>
+</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="https://nycdigitalservice.github.io/dof-design-system/assets/main.js"></script><script src="https://unpkg.com/highlightjs-copy@1.0.3/dist/highlightjs-copy.min.js"></script><script>try{hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());} catch(e) {}</script></body></html>

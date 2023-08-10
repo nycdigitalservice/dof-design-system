@@ -557,47 +557,57 @@ const exemptions = [
   {
     title: "Industrial and Commercial Abatement Program (ICAP)",
     description: "For commercial and industrial properties in specific abatement zones undergoing significant construction",
-    tag: "commercial-tenant"
+    tag: "commercial-property-owner,builder-developer"
   },
   {
     title: "Veteran exemptions",
-    description: "For veterans, spouses of veterans, and Gold Star parents"
+    description: "For veterans, spouses of veterans, and Gold Star parents",
+    tag: "homeowner"
   },
   {
     title: "Disability Rent Increase Exemption (DRIE)",
-    description: "For landlords with disabled tenants that qualify for rent freezes"
+    description: "For landlords with disabled tenants that qualify for rent freezes",
+    tag: "landlord"
   },
   {
     title: "Disabled Homeowners Exemption (DHE)",
-    description: "For disabled homeowners with combined annual income of $58,399 or less"
+    description: "For disabled homeowners with combined annual income of $58,399 or less",
+    tag: "homeowner"
   },
   {
     title: "Payment in Lieu of Taxes Agreements (PILOT)",
-    description: "For manufacturing, industrial, and not-for-profit business properties"
+    description: "For manufacturing, industrial, and not-for-profit business properties",
+    tag: "commercial-property-owner,non-profit-property-owner"
   },
   {
     title: "Industrial and Commercial Incentive Program (ICIP) ",
-    description: "For current ICIP benefit recipients Only available for renewals "
+    description: "For current ICIP benefit recipients Only available for renewals ",
+    tag: "commercial-property-owner,non-profit-property-owner"
   },
   {
     title: "Solar Electric Generating System Abatement (SEGS)",
-    description: "For owners of properties that generate electricity using solar power"
+    description: "For owners of properties that generate electricity using solar power",
+    tag: "homeowner,landlord,commercial-property-owner,government-property-owner,non-profit-property-owner,builder-developer"
   },
   {
     title: "Clergy exemption",
-    description: "For active and retired clergy members and spouses of deceased clergy members"
+    description: "For active and retired clergy members and spouses of deceased clergy members",
+    tag: "homeowner"
   },
   {
     title: "Major Capital Improvement Abatement (MCI)",
-    description: "For owners of rent-regulated properties planning major repairs or other improvement projects"
+    description: "For owners of rent-regulated properties planning major repairs or other improvement projects",
+    tag: "landlord,builder-developer"
   },
   {
     title: "Green Roof Abatement",
-    description: "For owners of buildings with vegetation-covered roofs"
+    description: "For owners of buildings with vegetation-covered roofs",
+    tag: "homeowner,landlord,commercial-property-owner,government-property-owner,non-profit-property-owner,builder-developer"
   },
   {
     title: "Commercial Revitalization Program (CRP)",
-    description: "For commercial buildings in a specific abatement zone built before 1975"
+    description: "For commercial buildings in a specific abatement zone built before 1975",
+    tag: "commercial-property-owner,commercial-tenant,builder-developer"
   },
   {
     title: "Childcare Center Abatement",
@@ -605,19 +615,23 @@ const exemptions = [
   },
   {
     title: "Commercial Expansion Program (CEP)",
-    description: "For commercial offices and industrial properties in a specific abatement zone built before 1999"
+    description: "For commercial offices and industrial properties in a specific abatement zone built before 1999",
+    tag: "commercial-property-owner,commercial-tenant,builder-developer"
   },
   {
     title: "Clean Energy Systems Exemption",
-    description: "For property owners who have renewable energy technology including solar, wind, and battery systems"
+    description: "For property owners who have renewable energy technology including solar, wind, and battery systems",
+    tag: "homeowner,landlord,commercial-property-owner,government-property-owner,non-profit-property-owner,builder-developer"
   },
   {
     title: "Domestic and foreign government exemptions",
-    description: "For federal, state, local, and foreign government entities"
+    description: "For federal, state, local, and foreign government entities",
+    tag: "government-property-owner"
   },
   {
     title: "Disabled Crime Victim/Good Samaritan Exemption",
-    description: "For people with disabilities resulting from a crime"
+    description: "For people with disabilities resulting from a crime",
+    tag: "homeowner"
   }
 ];
 const buildCardMarkup = ({ title, description, url = "http://google.com", tag = "homeowner" }) => `
@@ -726,7 +740,7 @@ ${listItemEls(sectionsRef[section])}
 `).join("");
 const listItemEls = (items) => items.map((item) => `<li>${linkEl(item)}</li>`).join("");
 const linkEl = ({ url, title }) => `
-  <a href="${url}" class="button" data-variant="outline">
+  <a href="${url}" class="button" data-outline>
   <span class="title">
 ${title}
   </span>
@@ -736,7 +750,7 @@ ${title}
 const suggestedContentListMarkup = sectionEls(sections);
 const toggle = (controller) => {
   const controls = document.getElementById(controller.getAttribute("aria-controls"));
-  const isExpanded = controller.getAttribute("aria-expanded") === "true";
+  const isExpanded = controller.getAttribute("aria-expanded").toLowerCase() === "true";
   controller.setAttribute("aria-expanded", !isExpanded);
   isExpanded ? controls.setAttribute("hidden", "") : controls.removeAttribute("hidden");
   return controller;
@@ -749,21 +763,6 @@ const chunkArray = (array, chunkSize) => {
   }
   return arr;
 };
-customElements.define(
-  "toggle-button",
-  class ToggleButton extends HTMLButtonElement {
-    connectedCallback() {
-      this.addEventListener("click", this);
-    }
-    handleEvent(e) {
-      this["on" + e.type](e);
-    }
-    onclick(e) {
-      toggle(this);
-    }
-  },
-  { extends: "button" }
-);
 const isAlternating = (n) => n.every((el, i) => {
   return n[i & 1].nodeName == el.nodeName;
 });
@@ -784,23 +783,54 @@ const chunkr = (arr, cond) => {
   })(arr);
   return res;
 };
-class NYCAccordion extends HTMLElement {
-  constructor() {
-    super();
-    this.headings = ["H1", "H2", "H3", "H4", "H5", "H6"];
-    this.panels = ["DIV", "SECTION"];
+customElements.define(
+  "toggle-button",
+  class ToggleButton extends HTMLButtonElement {
+    connectedCallback() {
+      if (!this.hasAttribute("aria-controls")) {
+        console.error(
+          `ToggleButton: "aria-controls" must be set to the
+                      ID of the element you are toggling`
+        );
+        return;
+      }
+      if (!this.hasAttribute("aria-expanded")) {
+        console.error(
+          `ToggleButton: "aria-expanded" must be set to the
+           toggled elements initial visibility, either
+           "true" or "false"`
+        );
+        return;
+      }
+      this.addEventListener("click", this);
+    }
+    handleEvent(e) {
+      this["on" + e.type](e);
+    }
+    onclick(e) {
+      toggle(this);
+    }
+  },
+  { extends: "button" }
+);
+class Accordion {
+  constructor(element) {
+    this.headingTagName = null;
+    this.element = element;
+    this.init();
   }
-  connectedCallback() {
-    if (!this.firstChild)
+  init() {
+    if (!this.element.firstChild)
       return;
-    this.groups = this.querySelectorAll(":scope > .accordion__group");
+    this.groups = this.element.querySelectorAll(":scope > .accordion__group");
     if (this.groups.length > 0) {
       this.groups.forEach(this.formatGroup.bind(this));
     } else {
-      const nodes = this.removeEmptyTextNodes(this.childNodes);
-      if (this.headings.includes(nodes[0].nodeName)) {
-        const headingNodeName = nodes[0].nodeName;
-        const groupsArr = chunkr(nodes, (n) => n.nodeName === headingNodeName);
+      const nodes = this.removeEmptyTextNodes(this.element.childNodes);
+      if (this.isHeading(nodes[0])) {
+        console.log("have initial heading", nodes[0]);
+        this.headingTagName = nodes[0].nodeName;
+        const groupsArr = chunkr(nodes, (n) => n.nodeName === this.headingTagName);
         const groups = groupsArr.map((group) => {
           const frag = new DocumentFragment();
           group.forEach((el) => frag.appendChild(el));
@@ -808,7 +838,7 @@ class NYCAccordion extends HTMLElement {
           return groupEl;
         });
         groups.forEach(this.formatGroup.bind(this));
-        this.append(...groups);
+        this.element.append(...groups);
       } else if (isAlternating(nodes)) {
         const groups = chunkArray(nodes, 2);
         const frags = groups.map((group) => {
@@ -818,10 +848,10 @@ class NYCAccordion extends HTMLElement {
           return groupEl;
         });
         frags.forEach(this.formatGroup.bind(this));
-        this.append(...frags);
+        this.element.append(...frags);
       } else {
-        const group = this.createGroup(this);
-        this.appendChild(group);
+        const group = this.createGroup(this.element);
+        this.element.appendChild(group);
         this.formatGroup(group);
       }
     }
@@ -840,13 +870,13 @@ class NYCAccordion extends HTMLElement {
     const nodes = this.removeEmptyTextNodes(group.childNodes);
     const firstChild = nodes[0];
     const siblings = nodes.slice(1);
-    const hasHeading = this.headings.includes(firstChild.nodeName);
-    const hasPanel = siblings[0].hasAttribute("hidden") || this.panels.includes(siblings[0].nodeName);
+    const hasHeading = this.isHeading(firstChild);
+    const hasPanel = siblings[0].hasAttribute("hidden") || siblings[0].classList.contains("accordion__body");
     group.setAttribute("data-panel-id", `panel-${this.generateId()}`);
     if (hasHeading) {
       this.formatHeading(firstChild);
     } else {
-      const heading = this.createHeading(group);
+      const heading = this.createHeading(firstChild);
       group.prepend(heading);
       this.formatHeading(heading);
     }
@@ -858,20 +888,16 @@ class NYCAccordion extends HTMLElement {
       this.formatPanel(panel);
     }
   }
-  removeEmptyTextNodes(nodelist) {
-    const arr = Array.from(nodelist);
-    const nonEmpty = arr.filter((node) => {
-      if (node.nodeName !== "#text") {
-        return true;
-      } else if (node.data.trim().length > 0) {
-        return true;
-      }
-    });
-    return nonEmpty;
-  }
-  createHeading(group) {
-    const headingEl = document.createElement("h4");
-    headingEl.appendChild(group.firstChild);
+  createHeading(child) {
+    const closestHeading = this.findClosestHeading(this.element);
+    if (closestHeading) {
+      const headingLevel = parseInt(closestHeading.tagName.split("H")[1]);
+      this.headingTagName = `h${headingLevel + 1}`;
+    } else {
+      this.headingTagName = "h4";
+    }
+    const headingEl = document.createElement(this.headingTagName);
+    headingEl.appendChild(child);
     return headingEl;
   }
   formatHeading(heading) {
@@ -879,14 +905,15 @@ class NYCAccordion extends HTMLElement {
     let headingLabel;
     if (firstChild.nodeName !== "BUTTON") {
       const button = this.createButton(firstChild, heading.parentNode.dataset.panelId);
-      headingLabel = firstChild.data;
+      headingLabel = firstChild.nodeName !== "#text" ? firstChild.innerText : firstChild.data;
       heading.appendChild(button);
     } else {
       headingLabel = firstChild.innerText;
     }
-    let headingId = `${headingLabel.trim().replace(/\s+/g, "-").toLowerCase()}-heading`;
+    let headingId = `${headingLabel.trim().replace(/[^\w\s]/gi, "").replace(/\s+/g, "-").toLowerCase()}-heading
+    `;
     if (document.getElementById(headingId)) {
-      headingId = `${headingId}-1`;
+      headingId = `${headingId}-${this.generateId()}`;
     }
     heading.setAttribute("id", headingId);
   }
@@ -896,22 +923,69 @@ class NYCAccordion extends HTMLElement {
     return panel;
   }
   formatPanel(panel) {
-    if (!panel.hasAttribute("id")) {
-      panel.setAttribute("id", panel.parentNode.dataset.panelId);
-    }
+    panel.setAttribute("id", panel.parentNode.dataset.panelId);
     panel.setAttribute("aria-labelledby", panel.parentNode.children[0].id);
     panel.classList.add("flow");
     panel.setAttribute("hidden", "");
   }
   createButton(label, panelId) {
+    const labelEl = document.createElement("span");
+    labelEl.append(label);
     const button = document.createElement("button", { is: "toggle-button" });
     button.setAttribute("aria-controls", panelId);
-    button.innerHTML = "<i class='i-ri:arrow-down-s-line'></i>";
-    button.prepend(label);
+    button.setAttribute("aria-expanded", false);
+    button.innerHTML = "<i class='i-ri:arrow-down-s-line' aria-hidden='true'></i>";
+    button.prepend(labelEl);
     return button;
+  }
+  removeEmptyTextNodes(nodelist) {
+    return Array.from(nodelist).filter((node) => node.nodeName !== "#text" || node.data.trim().length > 0 || false);
   }
   generateId() {
     return Math.floor(Math.random() * Date.now()).toString(16);
+  }
+  isHeading(element) {
+    return element.tagName && element.tagName.match(/^H\d$/i);
+  }
+  findClosestHeading(element) {
+    if (!element.parentElement) {
+      return false;
+    }
+    if (this.isHeading(element)) {
+      return element;
+    }
+    let ancestor = element.parentElement;
+    while (ancestor !== null) {
+      const siblings = Array.from(ancestor.children);
+      const headingTags = siblings.filter(
+        (sibling) => this.isHeading(sibling)
+      );
+      if (headingTags.length > 0) {
+        const index = siblings.indexOf(element);
+        if (index !== -1) {
+          const closestHeading = headingTags.reduce((closest, heading) => {
+            const headingIndex = siblings.indexOf(heading);
+            const distance = Math.abs(headingIndex - index);
+            if (closest === null || distance < closest.distance) {
+              return { heading, distance };
+            }
+            return closest;
+          }, null);
+          if (closestHeading !== null) {
+            return closestHeading.heading;
+          }
+        }
+      }
+      ancestor = ancestor.parentElement;
+    }
+    return null;
+  }
+}
+class NYCAccordion extends HTMLElement {
+  connectedCallback() {
+    if (!this.firstChild)
+      return;
+    this.accordion = new Accordion(this);
   }
 }
 customElements.define("nyc-accordion", NYCAccordion);
@@ -928,9 +1002,11 @@ try {
   if (filterControls.length > 0) {
     filterControls.forEach((controller) => {
       controller.addEventListener("change", ({ target }) => {
+        const { value } = target;
         const controlsParent = document.getElementById(target.getAttribute("aria-controls"));
         Array.from(controlsParent.children).map((child) => {
-          child.style.display = target.value.length > 0 && child.dataset.tag != target.value ? "none" : "flex";
+          const tags = child.dataset.tag.split(",");
+          child.style.display = tags.includes(value) || value === "other" || value === "" ? "flex" : "none";
         });
       });
     });
@@ -942,3 +1018,6 @@ try {
 } catch (e) {
   console.error(e);
 }
+Array.from(
+  document.querySelectorAll("[data-is=nyc-accordion]")
+).map((el) => new Accordion(el));

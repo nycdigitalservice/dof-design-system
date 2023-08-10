@@ -92,19 +92,20 @@
   --nyc-sys-gradient-primary-light: var(--nyc-ref-gradient-blue-100);
   --nyc-sys-shadow-base: var(--nyc-ref-shadow-500);
   --nyc-sys-shadow-weak: var(--nyc-ref-shadow-400);
-  --nyc-sys-line-height: 1.4;
-  --nyc-sys-font-size-base: var(--nyc-ref-dimension-size-step-0);
-  --nyc-sys-font-family-base: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  
   --nyc-sys-dimension-page-max-width: 64rem;
-  --nyc-sys-dimension-gutter: var(--nyc-ref-dimension-size-step-0);
   
   --nyc-sys-dimension-size-xs: var(--nyc-ref-dimension-size-step--2);
   --nyc-sys-dimension-size-s: var(--nyc-ref-dimension-size-step--1);
   --nyc-sys-dimension-size-m: var(--nyc-ref-dimension-size-step-0);
   --nyc-sys-dimension-size-l: var(--nyc-ref-dimension-size-step-2);
   --nyc-sys-dimension-size-xl: var(--nyc-ref-dimension-size-step-3);
-  --nyc-sys-dimension-size-xxl: var(--nyc-ref-dimension-size-step-4);
+  --nyc-sys-dimension-size-xxl: var(--nyc-ref-dimension-size-step-4);  
+  
+  --nyc-sys-line-height: 1.4;
+  --nyc-sys-font-size-base: var(--nyc-ref-dimension-size-step-0);
+  --nyc-sys-font-family-base: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --ON: initial;
+  --OFF: ;
 }
 
 /* Custom selectors */

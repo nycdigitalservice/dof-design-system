@@ -1,0 +1,6 @@
+{
+  "name": "@dofds/utilities",
+  "description": "Utility classes and functions",
+  "main": "src/js/index.js",
+  "private": true
+}

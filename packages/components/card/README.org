@@ -1,0 +1,185 @@
+#+TITLE: Card
+
+Cards are thumbnails of content and may include a full or partial set
+of content-related elements. It reflects what would be seen in the
+Header of a singular content view. Further guidance on generic cards
+can be found on the [[https://designsystem.digital.gov/components/card][U.S. Web Design System (USWDS) site]]. Cards may
+contain any of the following elements; title, subtitle, status,
+summary, feature list, call-to-action, or web share component.
+
+** Usage
+
+#+html: <div class="example-wrapper container">
+#+RESULTS: card-example
+#+html: </div>
+
+#+name: card-example
+#+begin_src html :exports both :results replace html
+  <div class="grid" data-layout="col-4">
+    <article class="card">
+      <header class="card__header">
+        <h3>
+          <a href="/property.page" class="card__primary-action">
+            <span>
+              View property bills, assessments, and notices
+            </span>
+            <span>
+              <span class="i-ri:external-link-line"></span>
+            </span>
+          </a>
+        </h3>
+      </header>
+      <div class="card__media">
+        <img src="/assets/img/card-placeholder.png" alt="Alt text here">
+      </div>
+      <div class="card__body">
+        <p>A short description for the card</p>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card__header">
+        <h3>
+          <a href="/property.page" class="card__primary-action">
+            <span>
+              View property bills, assessments, and notices
+            </span>
+            <span>
+              <span class="i-ri:external-link-line"></span>
+            </span>
+          </a>
+        </h3>
+      </header>
+      <div class="card__media">
+        <img src="/assets/img/card-placeholder.png" alt="Alt text here">
+      </div>
+      <div class="card__body">
+        <p>A short description for the card</p>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card__header">
+        <h3>
+          <a href="/property.page" class="card__primary-action">
+            <span>
+              View property bills, assessments, and notices
+            </span>
+            <span>
+              <span class="i-ri:external-link-line"></span>
+            </span>
+          </a>
+        </h3>
+      </header>
+      <div class="card__media">
+        <img src="/assets/img/card-placeholder.png" alt="Alt text here">
+      </div>
+      <div class="card__body">
+        <p>A short description for the card</p>
+      </div>
+    </article>
+    <article class="card">
+      <header class="card__header">
+        <h3>
+          <a href="/property.page" class="card__primary-action">
+            <span>
+              View property bills, assessments, and notices
+            </span>
+            <span>
+              <span class="i-ri:external-link-line"></span>
+            </span>
+          </a>
+        </h3>
+      </header>
+      <div class="card__media">
+        <img src="/assets/img/card-placeholder.png" alt="Alt text here">
+      </div>
+      <div class="card__body">
+        <p>A short description for the card</p>
+      </div>
+    </article>
+  </div>
+#+end_src
+
+
+** Variants
+
+*** Large Card
+
+Large Cards have a larger heading size and do not include media or a
+card body
+
+**** Usage
+
+#+html: <div class="example-wrapper">
+#+results: large-card-example
+#+html: </div>
+
+#+name: large-card-example
+#+begin_src html :exports both :results replace html
+  <div class="grid" data-layout="col-4">
+    <article class="card" data-variant="large">
+      <header class="card__header">
+        <h3>
+          <a href="#" class="card__primary-action">
+            <span>
+              View property bills, assessments, and notices
+            </span>
+            <span>
+              <span class="i-ri:external-link-line"></span>
+            </span>
+          </a>
+        </h3>
+      </header>
+    </article>
+    <article class="card" data-variant="large">
+      <header class="card__header">
+        <h3>
+          <a href="#" class="card__primary-action">
+            <span>
+              View property bills, assessments, and notices
+            </span>
+            <span>
+              <span class="i-ri:external-link-line"></span>
+            </span>
+          </a>
+        </h3>
+      </header>
+    </article>
+    <article class="card" data-variant="large">
+      <header class="card__header">
+        <h3>
+          <a href="#" class="card__primary-action">
+            <span>
+              View property bills, assessments, and notices
+            </span>
+            <span>
+              <span class="i-ri:external-link-line"></span>
+            </span>
+          </a>
+        </h3>
+      </header>
+    </article>
+    <article class="card" data-variant="large">
+      <header class="card__header">
+        <h3>
+          <a href="#" class="card__primary-action">
+            <span>
+              View property bills, assessments, and notices
+            </span>
+            <span>
+              <span class="i-ri:external-link-line"></span>
+            </span>
+          </a>
+        </h3>
+      </header>
+    </article>
+  </div>
+#+end_src
+
+** Source Code
+
+- [[file:css.org][CSS]]
+
+** References
+
+- [[https://nycopportunity.github.io/standard/card][NYCO Opportunity Standard: Card]]
+- [[https://designsystem.digital.gov/components/card/][U.S. Web Design System: Card]]

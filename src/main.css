@@ -1,19 +1,2 @@
-@import "../packages/variables/variables.css";
-@import "../packages/global/global.css";
-@import "../packages/composition/composition.css";
-@import "../packages/core/utilities.css";
-@import "../packages/reset/reset.css";
-@import "../packages/components/card/card.css";
-@import "../packages/components/button/button.css";
-@import "../packages/components/form/form.css";
-@import "../packages/components/select/select.css";
-@import "../packages/components/alert/alert.css";
-@import "../packages/components/accordion/src/accordion.css";
-
-/* Blocks */
-
-/* Button */
-.grid li > .button {
-  display: flex;
-  height: 100%;
-}
+@import "@dofds/core/css";
+@import "@dofds/themes/theme.css";

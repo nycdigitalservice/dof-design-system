@@ -1,5 +1,5 @@
-<!-- Generated from 2194115 on 2023-07-10 @ 19:08 with Emacs 29.0.92 (Org mode 9.6.6) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-styles.css"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-docs.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><title>Card - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="https://nycdigitalservice.github.io/dof-design-system/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="button" aria-controls="main-menu"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/">Home</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/">Packages</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/accordion/">Accordion</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/alert/">Alert</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/button/">Button</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/card/">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Card</h1><div id="content" class="flow"><p>
+<!-- Generated from 36aa79c on 2023-08-04 @ 10:18 with Emacs 29.0.92 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="http://localhost:8000/assets/dof-2023-styles.css"/><link rel="stylesheet" href="http://localhost:8000/assets/dof-2023-docs.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><title>Card - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="http://localhost:8000/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="font-bold p-2" aria-controls="main-menu" aria-expanded="false"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="http://localhost:8000/">Home</a><a class="p-2" href="http://localhost:8000/packages/">Packages</a><a class="p-2" href="http://localhost:8000/packages/components/">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="http://localhost:8000/packages/components/accordion/">Accordion</a><a class="p-2" href="http://localhost:8000/packages/components/alert/">Alert</a><a class="p-2" href="http://localhost:8000/packages/components/button/">Button</a><a class="p-2" href="http://localhost:8000/packages/components/card/">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Card</h1><div id="content" class="flow"><p>
 Cards are thumbnails of content and may include a full or partial set
 of content-related elements. It reflects what would be seen in the
 Header of a singular content view. Further guidance on generic cards
@@ -111,7 +111,7 @@ summary, feature list, call-to-action, or web share component.
   </article>
 </div>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-html">&lt;article class="card"&gt;
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-html">&lt;article class="card"&gt;
   &lt;header class="card__header"&gt;
     &lt;h3&gt;
       &lt;a href="/property.page" class="card__primary-action"&gt;
@@ -215,7 +215,7 @@ summary, feature list, call-to-action, or web share component.
 &lt;/div&gt;</code></pre></div></nyc-accordion>
 </section>
 
-<section class="region flow"><h2><a id="css-variables" class="anchor" href="#css-variables"><i class="i-ri:anchor-line"></i></a>CSS Variables</h2><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">:root {
+<section class="region flow"><h2><a id="css-variables" class="anchor" href="#css-variables"><i class="i-ri:anchor-line"></i></a>CSS Variables</h2><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">:root {
   --nyc-cmp-card-background: var(--nyc-sys-color-background, transparent);
   --nyc-cmp-card-background-hover: var(--nyc-sys-color-primary-lightest, transparent);
   --nyc-cmp-card-shadow: var(--nyc-sys-shadow-base);
@@ -233,7 +233,7 @@ summary, feature list, call-to-action, or web share component.
 We start by defining the Cards layout and style properties
 </p>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.card {
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.card {
   container: card / inline-size;
 
   position: relative;
@@ -267,7 +267,7 @@ Here we define layout and style for the cards Header, Media, and Body
 sections
 </p>
 
-<h3><a id="card-header" class="anchor" href="#card-header"><i class="i-ri:anchor-line"></i></a>Card Header</h3><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.card__header {
+<h3><a id="card-header" class="anchor" href="#card-header"><i class="i-ri:anchor-line"></i></a>Card Header</h3><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.card__header {
   padding: 1rem;
   display: flex;
   flex: 1;
@@ -278,7 +278,7 @@ sections
   }
 }</code></pre></div></nyc-accordion>
 
-<h3><a id="card-media" class="anchor" href="#card-media"><i class="i-ri:anchor-line"></i></a>Card Media</h3><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.card__media {
+<h3><a id="card-media" class="anchor" href="#card-media"><i class="i-ri:anchor-line"></i></a>Card Media</h3><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.card__media {
   order: -1;
   margin-block-start: 0;
   & img {
@@ -286,7 +286,7 @@ sections
   }
 }</code></pre></div></nyc-accordion>
 
-<h3><a id="card-body" class="anchor" href="#card-body"><i class="i-ri:anchor-line"></i></a>Card Body</h3><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.card__body {
+<h3><a id="card-body" class="anchor" href="#card-body"><i class="i-ri:anchor-line"></i></a>Card Body</h3><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.card__body {
   flex-grow: 1;
   padding: 1rem;
   padding-top: 0;
@@ -300,7 +300,7 @@ The primary action is associated with an <code>a</code> or <code>button</code> e
 the entirety of the card clickable.
 </p>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.card__primary-action {
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.card__primary-action {
   display: flex;
   color: currentColor;
   text-decoration: none;
@@ -331,7 +331,7 @@ To adjust the cards presentation based on its width, we use a
 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries">Container Query</a>
 </p>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">@container grid-parent (max-width: 900px) {
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">@container grid-parent (max-width: 900px) {
   .card {
     flex-direction: row;
     flex-wrap: wrap;
@@ -417,7 +417,7 @@ card body
   </header>
 </article>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-html">&lt;article class="card" data-variant="large"&gt;
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-html">&lt;article class="card" data-variant="large"&gt;
   &lt;header class="card__header"&gt;
     &lt;h3&gt;
       &lt;a href="#" class="card__primary-action"&gt;
@@ -432,7 +432,7 @@ card body
   &lt;/header&gt;
 &lt;/article&gt;</code></pre></div></nyc-accordion>
 
-<h4><a id="base" class="anchor" href="#base"><i class="i-ri:anchor-line"></i></a>Base</h4><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.card[data-variant=large] {
+<h4><a id="base" class="anchor" href="#base"><i class="i-ri:anchor-line"></i></a>Base</h4><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.card[data-variant=large] {
   & * {
     display: flex;
     flex-wrap: wrap;
@@ -464,4 +464,4 @@ card body
 
 }</code></pre></div></nyc-accordion>
 </section>
-</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="https://nycdigitalservice.github.io/dof-design-system/assets/main.js"></script><script>try{hljs.highlightAll();} catch(e) {}</script></body></html>
+</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="http://localhost:8000/assets/main.js"></script><script src="https://unpkg.com/highlightjs-copy@1.0.3/dist/highlightjs-copy.min.js"></script><script>try{hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());} catch(e) {}</script></body></html>

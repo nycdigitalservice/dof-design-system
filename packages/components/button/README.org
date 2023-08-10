@@ -1,0 +1,157 @@
+#+title: Button
+
+A button draws attention to important actions with a large selectable
+surface.
+
+** Examples
+
+#+html: <div class="example-wrapper">
+#+results: button-basic-example
+#+html: </div>
+
+#+name: button-basic-example
+#+begin_src html :exports both :results replace html
+  <a href="#" class="button">Default button</a>
+  <a href="#" class="button" data-variant="primary">Primary button</a>
+  <a href="#" class="button">
+    <span>Button with icon</span>
+    <i class="i-ri:arrow-right-line"></i>
+  </a>
+
+#+end_src
+
+** Custom properties
+
+Use these custom properties in your theme to override default styling
+
+| Property                      | Default      |
+|-------------------------------+--------------|
+| --nyc-cmp-button-color        | currentColor |
+| --nyc-cmp-button-background   | white        |
+| --nyc-cmp-button-border-width | 2px          |
+| --nyc-cmp-button-border-color | grey         |
+| --nyc-cmp-button-shadow       | none         |
+| --nyc-cmp-button-padding      | .75rem       |
+
+** Base class
+
+The =button= CSS class implements the custom properties and other
+default styles.
+
+#+begin_src css :tangle src/css/button.css
+  .button,
+  .button:link {
+    --_background: var(--nyc-cmp-button-background, hsla(0, 0%, 100%, 1));
+    --_border-color: var(--nyc-cmp-button-border-color, hsla(0, 0%, 93%, 1));
+    --_border-width: var(--nyc-cmp-button-border-width, 2px);
+    --_color: var(--nyc-cmp-button-color, currentColor);
+    --_shadow: var(--nyc-cmp-button-shadow, none);
+    --_padding: var(--nyc-cmp-button-padding, .75rem);
+    appearance: none;
+    background-color: var(--_background);
+    border-color: var(--_border-color);
+    border-width: var(--_border-width);
+    border-style: solid;
+    color: var(--_color);
+    padding: var(--_padding);
+    box-shadow: var(--_shadow);
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: inherit;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+
+    & > :first-child:not(i) {
+      flex-grow: 1;
+      width: max-content;
+    }
+
+    & > i:last-child {
+      flex-shrink: 0;
+      margin-inline-start: .5em;
+      margin-block: auto;
+      font-size: 1.5rem;
+    }
+
+    &:hover {
+      background: var(--nyc-sys-color-primary-lightest);
+      color: var(--nyc-sys-color-primary);
+      border-color: var(--nyc-sys-color-primary);
+      text-decoration: none;
+    }
+  }
+#+end_src
+
+When within a grid list, have the button fill the grid child
+
+#+begin_src css :tangle src/css/button.css
+  .grid li > .button {
+    display: flex;
+    height: 100%;
+  }
+#+end_src
+
+** Variants
+
+#+begin_src css :tangle src/css/button.css
+  .button[data-variant] {
+    &:hover {
+      background: var(--_color);
+      color: var(--_background);
+    }    
+  }
+#+end_src
+
+*** Primary
+
+#+begin_src css :tangle src/css/button.css
+  .button[data-variant=primary] {
+    --nyc-cmp-button-background: var(--nyc-sys-color-primary-dark);
+    --nyc-cmp-button-color: var(--nyc-sys-color-on-primary);
+    --nyc-cmp-button-border-color: var(--nyc-sys-color-primary-dark);
+    --nyc-cmp-button-shadow: none;
+  }
+#+end_src
+
+** Javascript
+
+*** Toggle Button
+
+The Toggle Button is an extended Custom Element that when clicked
+toggles the visibility of another element.
+
+#+begin_src js :tangle src/js/toggle-button.js
+  import { toggle } from '@dofds/utilities';
+
+  customElements.define(
+    'toggle-button',
+    class ToggleButton extends HTMLButtonElement {
+      connectedCallback() {
+        if (!this.hasAttribute('aria-controls')) {
+          console.error(
+            `ToggleButton: "aria-controls" must be set to the
+                        ID of the element you are toggling`
+          );
+          return;
+        }
+        if (!this.hasAttribute('aria-expanded')) {
+          console.error(
+            `ToggleButton: "aria-expanded" must be set to the
+             toggled elements initial visibility, either
+             "true" or "false"`
+          );
+          return;
+        }
+        this.addEventListener('click', this);
+      }
+      handleEvent(e) { this['on' + e.type](e); }
+      onclick(e) {
+        toggle(this);
+      }
+    },
+    { extends: 'button' }
+  )
+#+end_src

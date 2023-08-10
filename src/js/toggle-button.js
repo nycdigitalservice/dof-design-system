@@ -1,4 +1,4 @@
-import {toggle} from '../../packages/core/js';
+import {toggle} from '@dofds/utilities';
 
 customElements.define(
   'toggle-button',

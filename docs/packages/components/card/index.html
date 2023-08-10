@@ -1,5 +1,5 @@
-<!-- Generated from c442340 on 2023-07-05 @ 12:13 with Emacs 29.0.92 (Org mode 9.6.6) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="/assets/dof-2023-styles.css"/><link rel="stylesheet" href="/assets/dof-2023-docs.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><title>Card - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="button" aria-controls="main-menu"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="/">Home</a><a class="p-2" href="/packages">Packages</a><a class="p-2" href="/packages/components">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="/packages/components/accordion">Accordion</a><a class="p-2" href="/packages/components/alert">Alert</a><a class="p-2" href="/packages/components/button">Button</a><a class="p-2" href="/packages/components/card">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Card</h1><div id="content" class="flow"><p>
+<!-- Generated from 36aa79c on 2023-08-10 @ 14:22 with Emacs 29.0.92 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-styles.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-docs.css"/><title>Card - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="https://nycdigitalservice.github.io/dof-design-system/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="font-bold p-2" aria-controls="main-menu" aria-expanded="false"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/">Home</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/">Packages</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/accordion/">Accordion</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/alert/">Alert</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/button/">Button</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/card/">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Card</h1><div id="content" class="flow"><p>
 Cards are thumbnails of content and may include a full or partial set
 of content-related elements. It reflects what would be seen in the
 Header of a singular content view. Further guidance on generic cards
@@ -8,26 +8,7 @@ contain any of the following elements; title, subtitle, status,
 summary, feature list, call-to-action, or web share component.
 </p>
 
-<section class="region flow"><h2><a id="usage" class="anchor" href="#usage"><i class="i-ri:anchor-line"></i></a>Usage</h2><article class="card">
-  <header class="card__header">
-    <h3>
-      <a href="/property.page" class="card__primary-action">
-        <span>
-          View property bills, assessments, and notices
-        </span>
-        <span>
-          <span class="i-ri:external-link-line"></span>
-        </span>
-      </a>
-    </h3>
-  </header>
-  <div class="card__media">
-    <img src="/assets/img/card-placeholder.png" alt="Alt text here">
-  </div>
-  <div class="card__body">
-    <p>A short description for the card</p>
-  </div>
-</article>
+<section class="region flow"><h2><a id="usage" class="anchor" href="#usage"><i class="i-ri:anchor-line"></i></a>Usage</h2><div class="example-wrapper container">
 <div class="grid" data-layout="col-4">
   <article class="card">
     <header class="card__header">
@@ -110,28 +91,9 @@ summary, feature list, call-to-action, or web share component.
     </div>
   </article>
 </div>
+</div>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-html">&lt;article class="card"&gt;
-  &lt;header class="card__header"&gt;
-    &lt;h3&gt;
-      &lt;a href="/property.page" class="card__primary-action"&gt;
-        &lt;span&gt;
-          View property bills, assessments, and notices
-        &lt;/span&gt;
-        &lt;span&gt;
-          &lt;span class="i-ri:external-link-line"&gt;&lt;/span&gt;
-        &lt;/span&gt;
-      &lt;/a&gt;
-    &lt;/h3&gt;
-  &lt;/header&gt;
-  &lt;div class="card__media"&gt;
-    &lt;img src="/assets/img/card-placeholder.png" alt="Alt text here"&gt;
-  &lt;/div&gt;
-  &lt;div class="card__body"&gt;
-    &lt;p&gt;A short description for the card&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/article&gt;
-&lt;div class="grid" data-layout="col-4"&gt;
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-html">&lt;div class="grid" data-layout="col-4"&gt;
   &lt;article class="card"&gt;
     &lt;header class="card__header"&gt;
       &lt;h3&gt;
@@ -215,253 +177,141 @@ summary, feature list, call-to-action, or web share component.
 &lt;/div&gt;</code></pre></div></nyc-accordion>
 </section>
 
-<section class="region flow"><h2><a id="css-variables" class="anchor" href="#css-variables"><i class="i-ri:anchor-line"></i></a>CSS Variables</h2><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">:root {
-    --nyc-cmp-card-background: var(--nyc-sys-color-background, transparent);
-    --nyc-cmp-card-background-hover: var(--nyc-sys-color-primary-lightest, transparent);
-    --nyc-cmp-card-shadow: var(--nyc-sys-shadow-base);
-    --nyc-cmp-card-color: var(--nyc-sys-color-text);
-    --nyc-cmp-card-body-color: var(--nyc-sys-color-text-light);
-    --nyc-cmp-card-color-hover: var(--nyc-sys-color-primary);
-    --nyc-cmp-card-border: 1.5px solid var(--nyc-sys-color-border);
-    --nyc-cmp-card-border-hover: 1.5px solid var(--nyc-sys-color-primary);
-    --nyc-cmp-card-heading-font-size: var(--nyc-sys-dimension-size-m);
-    --nyc-cmp-card-body-font-size: 1rem;
-}</code></pre></div></nyc-accordion>
-</section>
-
-<section class="region flow"><h2><a id="base" class="anchor" href="#base"><i class="i-ri:anchor-line"></i></a>Base</h2><p>
-We start by defining the Cards layout and style properties
-</p>
-
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.card {
-    container: card / inline-size;
-
-    position: relative;
-    display: flex;
-    flex-direction: column;
-
-    background-color: var(--nyc-cmp-card-background);
-    color: var(--nyc-cmp-card-color);
-
-    border: var(--nyc-cmp-card-border);
-    border-radius: 4px;
-    box-shadow: var(--nyc-cmp-card-shadow);
-
-    transition: all .3s ease;
-    /* min-block-size: 2.5rem; */
-
-    &:hover {
-        background: var(--nyc-cmp-card-background-hover);
-        color: var(--nyc-cmp-card-color-hover);
-        border: var(--nyc-cmp-card-border-hover);
-    }
-}</code></pre></div></nyc-accordion>
-
-<p>
-We use the flow composition pattern to apply vertical spacing
-</p>
-</section>
-
-<section class="region flow"><h2><a id="sections" class="anchor" href="#sections"><i class="i-ri:anchor-line"></i></a>Sections</h2><p>
-Here we define layout and style for the cards Header, Media, and Body
-sections
-</p>
-
-<h3><a id="card-header" class="anchor" href="#card-header"><i class="i-ri:anchor-line"></i></a>Card Header</h3><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.card__header {
-    padding: 1rem;
-    display: flex;
-    flex: 1;
-    & :--heading {
-        flex: 1;
-        font-size: var(--nyc-cmp-card-heading-font-size);
-        /* max-inline-size: 85%; */
-    }
-}</code></pre></div></nyc-accordion>
-
-<h3><a id="card-media" class="anchor" href="#card-media"><i class="i-ri:anchor-line"></i></a>Card Media</h3><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.card__media {
-    order: -1;
-    margin-block-start: 0;
-    & img {
-        width: 100%;
-    }
-}</code></pre></div></nyc-accordion>
-
-<h3><a id="card-body" class="anchor" href="#card-body"><i class="i-ri:anchor-line"></i></a>Card Body</h3><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.card__body {
-    flex-grow: 1;
-    padding: 1rem;
-    padding-top: 0;
-    color: var(--nyc-cmp-card-body-color);
-    font-size: var(--nyc-cmp-card-body-font-size);
-}</code></pre></div></nyc-accordion>
-</section>
-
-<section class="region flow"><h2><a id="primary-action" class="anchor" href="#primary-action"><i class="i-ri:anchor-line"></i></a>Primary action</h2><p>
-The primary action is associated with an <code>a</code> or <code>button</code> element and makes
-the entirety of the card clickable.
-</p>
-
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.card__primary-action {
-    display: flex;
-    color: currentColor;
-    text-decoration: none;
-    &:before {
-        content: '';
-        position: absolute;
-        top: 0; /* 2 */
-        left: 0; /* 2 */
-        right: 0; /* 2 */
-        bottom: 0; /* 2 */
-        z-index: 1; /* 3 */
-    }
-    & > :first-child {
-        flex: 1;
-    }
-    &:focus {
-        text-decoration: underline;
-    }
-    & [class*=i-] {
-        font-size: 1.5rem;
-        margin-inline-start: .5rem;
-    }
-}</code></pre></div></nyc-accordion>
-</section>
-
-<section class="region flow"><h2><a id="container-query" class="anchor" href="#container-query"><i class="i-ri:anchor-line"></i></a>Container query</h2><p>
-To adjust the cards presentation based on its width, we use a
-<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries">Container Query</a>
-</p>
-
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">@container grid-parent (max-width: 900px) {
-    .card {
-        flex-direction: row;
-        flex-wrap: wrap;
-        overflow: hidden;
-    }
-    .card__header {
-        flex: 1;
-        flex-basis: 100%;
-    }
-    .card__media {
-        width: 35%;
-        height: 100%;
-        position: absolute;
-        & img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-    .card__body {
-        flex-grow: 1;
-        flex-basis: 100%;
-    }
-    .card:has(.card__media) {
-        & .card__header,
-        & .card__body {
-            margin-left: auto;
-            flex-basis: 65%;
-            flex-grow: 0;
-        }
-    }
-}
-@container card (min-width: 320px) {
-    .card__media {
-        width: 35%;
-        height: 100%;
-        position: absolute;
-        aspect-ratio: 1/1;
-        & img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-    .card__body {
-        flex-grow: 1;
-        flex-basis: 100%;
-    }
-    .card:has(.card__media) {
-        & .card__header,
-        & .card__body {
-            margin-left: auto;
-            flex-basis: 65%;
-            flex-grow: 0;
-            width: 65%;
-        }
-    }    
-}
-/* @container card (min-width: 11rem) and (max-width: 15rem) { */
-/*   .card__header { */
-/*     aspect-ratio: 4 / 3; */
-/*   } */
-/* } */</code></pre></div></nyc-accordion>
-</section>
 
 <section class="region flow"><h2><a id="variants" class="anchor" href="#variants"><i class="i-ri:anchor-line"></i></a>Variants</h2><h3><a id="large-card" class="anchor" href="#large-card"><i class="i-ri:anchor-line"></i></a>Large Card</h3><p>
 Large Cards have a larger heading size and do not include media or a
 card body
 </p>
 
-<h4><a id="usage" class="anchor" href="#usage"><i class="i-ri:anchor-line"></i></a>Usage</h4><article class="card" data-variant="large">
-  <header class="card__header">
-    <h3>
-      <a href="#" class="card__primary-action">
-        <span>
-          View property bills, assessments, and notices
-        </span>
-        <span>
-          <span class="i-ri:external-link-line"></span>
-        </span>
-      </a>
-    </h3>
-  </header>
-</article>
+<h4><a id="usage" class="anchor" href="#usage"><i class="i-ri:anchor-line"></i></a>Usage</h4><div class="example-wrapper">
+<div class="grid" data-layout="col-4">
+  <article class="card" data-variant="large">
+    <header class="card__header">
+      <h3>
+        <a href="#" class="card__primary-action">
+          <span>
+            View property bills, assessments, and notices
+          </span>
+          <span>
+            <span class="i-ri:external-link-line"></span>
+          </span>
+        </a>
+      </h3>
+    </header>
+  </article>
+  <article class="card" data-variant="large">
+    <header class="card__header">
+      <h3>
+        <a href="#" class="card__primary-action">
+          <span>
+            View property bills, assessments, and notices
+          </span>
+          <span>
+            <span class="i-ri:external-link-line"></span>
+          </span>
+        </a>
+      </h3>
+    </header>
+  </article>
+  <article class="card" data-variant="large">
+    <header class="card__header">
+      <h3>
+        <a href="#" class="card__primary-action">
+          <span>
+            View property bills, assessments, and notices
+          </span>
+          <span>
+            <span class="i-ri:external-link-line"></span>
+          </span>
+        </a>
+      </h3>
+    </header>
+  </article>
+  <article class="card" data-variant="large">
+    <header class="card__header">
+      <h3>
+        <a href="#" class="card__primary-action">
+          <span>
+            View property bills, assessments, and notices
+          </span>
+          <span>
+            <span class="i-ri:external-link-line"></span>
+          </span>
+        </a>
+      </h3>
+    </header>
+  </article>
+</div>
+</div>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-html">&lt;article class="card" data-variant="large"&gt;
-  &lt;header class="card__header"&gt;
-    &lt;h3&gt;
-      &lt;a href="#" class="card__primary-action"&gt;
-        &lt;span&gt;
-          View property bills, assessments, and notices
-        &lt;/span&gt;
-        &lt;span&gt;
-          &lt;span class="i-ri:external-link-line"&gt;&lt;/span&gt;
-        &lt;/span&gt;
-      &lt;/a&gt;
-    &lt;/h3&gt;
-  &lt;/header&gt;
-&lt;/article&gt;</code></pre></div></nyc-accordion>
-
-<h4><a id="base" class="anchor" href="#base"><i class="i-ri:anchor-line"></i></a>Base</h4><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.card[data-variant=large] {
-    & * {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    & .card__header {
-        flex-grow: 1;
-    }
-
-    & .card__header :--heading {
-        font-size: calc(var(--nyc-cmp-card-heading-font-size) * 1.16);
-        max-width: none;
-        width: 100%;
-    }
-
-    .card__primary-action {
-        /* flex-direction: column; */
-        height: 100%;
-        width: 100%;
-        /* align-items: center; */
-        & > :first-child {
-            flex-basis: 280px;
-        }
-        & > :last-child {
-            margin-block-start: auto;
-            margin-inline-start: auto;
-        }
-    }
-
-}</code></pre></div></nyc-accordion>
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-html">&lt;div class="grid" data-layout="col-4"&gt;
+  &lt;article class="card" data-variant="large"&gt;
+    &lt;header class="card__header"&gt;
+      &lt;h3&gt;
+        &lt;a href="#" class="card__primary-action"&gt;
+          &lt;span&gt;
+            View property bills, assessments, and notices
+          &lt;/span&gt;
+          &lt;span&gt;
+            &lt;span class="i-ri:external-link-line"&gt;&lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/h3&gt;
+    &lt;/header&gt;
+  &lt;/article&gt;
+  &lt;article class="card" data-variant="large"&gt;
+    &lt;header class="card__header"&gt;
+      &lt;h3&gt;
+        &lt;a href="#" class="card__primary-action"&gt;
+          &lt;span&gt;
+            View property bills, assessments, and notices
+          &lt;/span&gt;
+          &lt;span&gt;
+            &lt;span class="i-ri:external-link-line"&gt;&lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/h3&gt;
+    &lt;/header&gt;
+  &lt;/article&gt;
+  &lt;article class="card" data-variant="large"&gt;
+    &lt;header class="card__header"&gt;
+      &lt;h3&gt;
+        &lt;a href="#" class="card__primary-action"&gt;
+          &lt;span&gt;
+            View property bills, assessments, and notices
+          &lt;/span&gt;
+          &lt;span&gt;
+            &lt;span class="i-ri:external-link-line"&gt;&lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/h3&gt;
+    &lt;/header&gt;
+  &lt;/article&gt;
+  &lt;article class="card" data-variant="large"&gt;
+    &lt;header class="card__header"&gt;
+      &lt;h3&gt;
+        &lt;a href="#" class="card__primary-action"&gt;
+          &lt;span&gt;
+            View property bills, assessments, and notices
+          &lt;/span&gt;
+          &lt;span&gt;
+            &lt;span class="i-ri:external-link-line"&gt;&lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/h3&gt;
+    &lt;/header&gt;
+  &lt;/article&gt;
+&lt;/div&gt;</code></pre></div></nyc-accordion>
 </section>
-</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="/assets/main.js"></script><script>try{hljs.highlightAll();} catch(e) {}</script></body></html>
+
+<section class="region flow"><h2><a id="source-code" class="anchor" href="#source-code"><i class="i-ri:anchor-line"></i></a>Source Code</h2><ul class="org-ul">
+<li><a href="./css.html">CSS</a></li>
+</ul>
+</section>
+
+<section class="region flow"><h2><a id="references" class="anchor" href="#references"><i class="i-ri:anchor-line"></i></a>References</h2><ul class="org-ul">
+<li><a href="https://nycopportunity.github.io/standard/card">NYCO Opportunity Standard: Card</a></li>
+<li><a href="https://designsystem.digital.gov/components/card/">U.S. Web Design System: Card</a></li>
+</ul>
+</section>
+</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="https://nycdigitalservice.github.io/dof-design-system/assets/main.js"></script><script src="https://unpkg.com/highlightjs-copy@1.0.3/dist/highlightjs-copy.min.js"></script><script>try{hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());} catch(e) {}</script></body></html>

@@ -1,3 +1,20 @@
 {
-  "name": "@dofds/core"
+  "name": "@dofds/core",
+  "exports": {
+    ".": "./src/index.js",
+    "./css": "./src/index.css"
+  },
+  "dependencies": {
+    "@dofds/accordion": "workspace:^",
+    "@dofds/alert": "workspace:^",
+    "@dofds/button": "workspace:^",
+    "@dofds/card": "workspace:^",
+    "@dofds/composition": "workspace:^",
+    "@dofds/global": "workspace:^",
+    "@dofds/reset": "workspace:^",
+    "@dofds/themes": "workspace:^",
+    "@dofds/tooltip": "workspace:^",
+    "@dofds/utilities": "workspace:^",
+    "@dofds/variables": "workspace:^"
+  }
 }

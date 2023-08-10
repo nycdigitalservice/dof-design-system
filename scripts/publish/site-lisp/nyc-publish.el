@@ -38,10 +38,12 @@
                                  (alt "NYC Department of Finance"))))
                       (button (@ (is "toggle-button")
                                  (id "main-menu-control")
-                                 (class "button")
-                                 (aria-controls "main-menu"))
+                                 (class "font-bold p-2")
+                                 (aria-controls "main-menu")
+                                 (aria-expanded "false"))
                               (i (@ (class "i-ri:menu-line mr-2")) "")
                               "Menu")))))
+
 (defun nyc/link-list (list)
   (let ((result ()) (reversed ()))
     (dolist (el list reversed)
@@ -124,9 +126,10 @@
                      (content "width=device-width, initial-scale=1, shrink-to-fit=no")))
             (link (@ (rel "icon") (type "image/png") (href "/img/favicon.png")))
             (link (@ (rel "stylesheet") (href ,(concat nyc/site-url "/assets/dof-2023-styles.css"))))
-            (link (@ (rel "stylesheet") (href ,(concat nyc/site-url "/assets/dof-2023-docs.css"))))
-            (link (@ (rel "stylesheet") (href "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css")))
             (link (@ (rel "stylesheet") (href "https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css")))
+            (link (@ (rel "stylesheet") (href ,(concat nyc/site-url "/assets/dof-2023-docs.css"))))
+            ;;(link (@ (rel "stylesheet") (href "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css")))
+
 
             ,(when head-extra head-extra)
             (title ,(concat title " - NYC")))
@@ -146,9 +149,9 @@
                  (script (@ (src "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js")) "")
 
                  (script (@ (src ,(concat nyc/site-url "/assets/main.js"))) "")
-                 ;; (script (@ (src "https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js")) "")
+                 (script (@ (src "https://unpkg.com/highlightjs-copy@1.0.3/dist/highlightjs-copy.min.js")) "")
 
-                 (script (@) "try{hljs.highlightAll();} catch(e) {}"))))))
+                 (script (@) "try{hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());} catch(e) {}"))))))
 
 (defun nyc/org-html-template (contents info)
   (nyc/generate-page (org-export-data (plist-get info :title) info)
@@ -160,26 +163,30 @@
 (defun nyc/org-html-link (link contents info)
   "Removes file extension and changes the path into lowercase file:// links."
   (let* ((path (org-element-property :path link))
-         (dir (file-name-directory path)))
+         (dir (file-name-directory path))
+         (filename (file-name-nondirectory path)))
     (when (and (string= 'file (org-element-property :type link))
                (string= "org" (file-name-extension path)))
+      ;;(message filename)
       (org-element-put-property link :path
                                 (downcase
                                  (concat
                                   (if dir dir "./")
-                                  (file-name-nondirectory path)
+                                  (if (string= "README.org" filename) "index.org" filename)
                                   )))))
 
-  (let ((exported-link (org-export-custom-protocol-maybe link contents 'html info)))
+  (let ((exported-link (org-export-custom-protocol-maybe link contents 'html info))
+        (raw-link (org-element-property :raw-link link)))
+    ;;(message raw-link)
     (cond
      (exported-link exported-link)
      ((equal contents nil)
       (format "<a href=\"%s\">%s</a>"
-              (org-element-property :raw-link link)
-              (org-element-property :raw-link link)))
-     ((string-prefix-p "/" (org-element-property :raw-link link))
+              raw-link
+              raw-link))
+     ((string-prefix-p "/" raw-link)
       (format "<a href=\"%s\">%s</a>"
-              (org-element-property :raw-link link)
+              raw-link
               contents))
      (t (org-export-with-backend 'html link contents info)))))
 
@@ -232,7 +239,7 @@
          (value (org-element-property :value src-block))
 	 (code (org-html-format-code src-block info)))
     (format
-     (concat "<nyc-accordion>"
+     (concat "<nyc-accordion class='code-view'>"
              "<h3>Inspect code</h3>"
              "<div>"
              "<pre><code class=\"language-%s\">%s</code></pre>"

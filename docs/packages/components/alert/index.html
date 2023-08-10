@@ -1,5 +1,5 @@
-<!-- Generated from c442340 on 2023-07-05 @ 12:13 with Emacs 29.0.92 (Org mode 9.6.6) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="/assets/dof-2023-styles.css"/><link rel="stylesheet" href="/assets/dof-2023-docs.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/nord.min.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><title>Alert - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="button" aria-controls="main-menu"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="/">Home</a><a class="p-2" href="/packages">Packages</a><a class="p-2" href="/packages/components">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="/packages/components/accordion">Accordion</a><a class="p-2" href="/packages/components/alert">Alert</a><a class="p-2" href="/packages/components/button">Button</a><a class="p-2" href="/packages/components/card">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Alert</h1><div id="content" class="flow"><p>
+<!-- Generated from 36aa79c on 2023-08-10 @ 14:22 with Emacs 29.0.92 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-styles.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-docs.css"/><title>Alert - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="https://nycdigitalservice.github.io/dof-design-system/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="font-bold p-2" aria-controls="main-menu" aria-expanded="false"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/">Home</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/">Packages</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/accordion/">Accordion</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/alert/">Alert</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/button/">Button</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/card/">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Alert</h1><div id="content" class="flow"><p>
 Alerts contain contextually relevant messages for the user. They may
 be used to indicate a successful or unsuccessful interaction, provide
 feedback for form inputs, or display time-sensitive information about
@@ -7,30 +7,62 @@ content within a view. Further guidance on Alerts can be found on the
 <a href="https://designsystem.digital.gov/components/alert/">U.S. Web Design System (USWDS) site</a>.
 </p>
 
+<section class="region flow"><h2><a id="example" class="anchor" href="#example"><i class="i-ri:anchor-line"></i></a>Example</h2><div class="example-wrapper">
+<article class="alert flow" data-variant="news">
+  <h3>Deed fraud alert</h3>
+  <time datetime="2023-01-01">January 1, 2023</time>
 
-<nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.alert {
-  --alert-color: var(--nyc-sys-color-secondary);
-  padding-inline-start: var(--nyc-sys-dimension-space-s-m);
+  <p>Learn how to protect your property from fraud.</p>
+  <a href="#">Learn more <span class="i-ri:arrow-right-line"></span></a>
+</article>
+</div>
+
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-html">&lt;article class="alert flow" data-variant="news"&gt;
+  &lt;h3&gt;Deed fraud alert&lt;/h3&gt;
+  &lt;time datetime="2023-01-01"&gt;January 1, 2023&lt;/time&gt;
+
+  &lt;p&gt;Learn how to protect your property from fraud.&lt;/p&gt;
+  &lt;a href="#"&gt;Learn more &lt;span class="i-ri:arrow-right-line"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;/article&gt;</code></pre></div></nyc-accordion>
+
+<nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.alert {
+  --_accent-color: var(--nyc-cmp-alert-accent-color, hsla(208, 100%, 30%, 1));
+  --_panel-background: var(--nyc-cmp-alert-panel-background-color, hsla(0, 0%, 93%, 1));
+  background: var(--_panel-background);
+  border-radius: .3125rem;
+  margin-inline-start: var(--nyc-sys-dimension-space-s-m);
+  margin-inline-start: 1.125rem;
+  padding: .75rem 1rem;
   position: relative;
   &::before {
     content: '';
-    width: 5px;
+    width: .625rem;
     height: 100%;
-    background: var(--alert-color);
+    background: var(--_accent-color);
     position: absolute;
-    left: 0;
+    top: 0;
+    left: calc(var(--nyc-sys-dimension-space-s-m) * -1);
+    left: -1.125rem;
     display: flex;
     border-radius: 5px;
   }
-}</code></pre></div></nyc-accordion>
 
-<section class="region flow"><h2><a id="variants" class="anchor" href="#variants"><i class="i-ri:anchor-line"></i></a>Variants</h2><h3><a id="news" class="anchor" href="#news"><i class="i-ri:anchor-line"></i></a>News</h3><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">.alert[data-variant=news] {
+  & :--heading {
+    font-size: var(--nyc-sys-font-size-base);
+    & i {
+      color: var(--_accent-color);
+      font-size: 1.5rem;
+      margin-inline-end: .5rem;
+    }
+  }
+}</code></pre></div></nyc-accordion>
+</section>
+
+<section class="region flow"><h2><a id="variants" class="anchor" href="#variants"><i class="i-ri:anchor-line"></i></a>Variants</h2><h3><a id="news" class="anchor" href="#news"><i class="i-ri:anchor-line"></i></a>News</h3><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.alert[data-variant=news] {
     --space: .8em;
+    --_accent-color: var(--nyc-sys-color-secondary);
     display: flex;
     flex-direction: column;
-    & :--heading {
-        font-size: var(--nyc-sys-font-size-base);
-    }
 
     & time {
         order: -1;
@@ -41,7 +73,7 @@ content within a view. Further guidance on Alerts can be found on the
 }</code></pre></div></nyc-accordion>
 </section>
 
-<section class="region flow"><h2><a id="container-queries" class="anchor" href="#container-queries"><i class="i-ri:anchor-line"></i></a>Container queries</h2><nyc-accordion><h3>Inspect code</h3><div><pre><code class="language-css">@container grid-parent (max-width: 657px) {
+<section class="region flow"><h2><a id="container-queries" class="anchor" href="#container-queries"><i class="i-ri:anchor-line"></i></a>Container queries</h2><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">@container grid-parent (max-width: 657px) {
   .alert {
     padding-inline-start: 0;
     padding-block-start: var(--nyc-sys-dimension-space-s-m);
@@ -53,4 +85,4 @@ content within a view. Further guidance on Alerts can be found on the
   }
 }</code></pre></div></nyc-accordion>
 </section>
-</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="/assets/main.js"></script><script>try{hljs.highlightAll();} catch(e) {}</script></body></html>
+</div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="https://nycdigitalservice.github.io/dof-design-system/assets/main.js"></script><script src="https://unpkg.com/highlightjs-copy@1.0.3/dist/highlightjs-copy.min.js"></script><script>try{hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());} catch(e) {}</script></body></html>

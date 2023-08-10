@@ -12,12 +12,18 @@
         <a href="/" class="mr-auto flex">
           <img src="/img/nyc-dof-logo.svg" height="50" alt="NYC Department of Finance" />
         </a>
-        <button is="toggle-button" id="main-menu-control" class="button" aria-controls="main-menu">
-          <i class="i-ri:menu-line mr-2"></i>Menu
+        <button
+          is="toggle-button"
+          class="font-bold p-2"
+          id="main-menu-control"
+          aria-controls="main-menu"
+          aria-expanded="false"
+        >
+          <i class="i-ri:menu-line mr-2"></i><span>Menu</span>
         </button>
       </nav>
     </header>
-    <aside id="main-menu" class="background-primary-lighter" aria-labelledby="main-menu-control" hidden>
+    <aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden>
       <div class="container grid p-4">
         <nav class="flex flex-col">
           <span>Main</span>
@@ -35,88 +41,99 @@
       </div>
     </aside>
     <main class="flow">
-      <section class="o-header background-gradient-primary-light">
+      <section class="page-header background-gradient-primary-light">
         <div class="region">
           <div class="container flow">
-            <h1>Property</h1>
+            <a href="#" class="button">Help</a>
 
-            <nyc-accordion>
-              <h4>Another Heading</h4>
-              <section>
-                <p>hey</p>
-              </section>
-              <h4>heading 2</h4>
-              <section>
-                <h5>howdy</h5>
-                <p>hey again</p>
-              </section>
-              <h4>hahaha</h4>
-              <p>hey</p>
-              <br>
-              <div>another one</div>
-              <nyc-accordion>
+            <h2>Subheading</h2>
+            <h3>subsubheading</h3>
+            <nyc-accordion expanded>
+              blah
+              <div>
                 <h5>hey</h5>
-                <p>this is another</p>
-                <table>
-                  <tr>
-                    <td>Key</td>
-                    <td>Val</td>
-                  </tr>
-                  <tr>
-                    <td>Red</td>
-                    <td>#333</td>
-                  </tr>
-                </table>
-                <h5>wow</h5>
-                <div>
-                  <p>Look at that</p>
-                  <nyc-accordion>
-                    just text
-                    <div>with a panel</div>
-                    more text
-                    <div>another panel</div>
-                  </nyc-accordion>
-                </div>
-              </nyc-accordion>
+                hahahah
+              </div>
+              another heading
+              <div><p>a paragraph</p></div>
             </nyc-accordion>
-            <nyc-accordion>
-              <article class="accordion__group">
-                <h3>
-                  <button is="toggle-button" aria-controls="assessment-definitions">
-                    Assessment definitions
-                    <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
-                  </button>
-                </h3>
-                <div id="assessment-definitions" class="flow" hidden>
-                  <p>The following alphabetical listing of terms is provided to help you understand property valuation and tax assessment:</p>
-                  <h3>a wild heading appears</h3>
-                  <nyc-accordion>
-                    <article class="accordion__group">
-                      <h3>
-                        <button is="toggle-button" aria-controls="abatements">
-                          Abatements
-                          <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
-                        </button>
-                      </h3>
-                      <div id="abatements" hidden>
-                        <p>Abatements reduce your taxes after they've been calculated. Different abatement programs are available for housing rehabilitation, revitalization and cooperatives and condominiums.</p>
-                      </div>
-                    </article>
-                    <article class="accordion__group">
-                      <h3>
-                        <button is="toggle-button" aria-controls="actual-assessed-value">
-                          Actual assessed value
-                          <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
-                        </button>
-                      </h3>
-                      <div id="actual-assessed-value" hidden>
-                        <p>The assessed value before five year phase-in requirements (for some tax class 2 and all tax class 4 properties) and/or exemptions are applied.</p>
-                      </div>
-                    </article>
-                  </nyc-accordion>
-                </div>
-              </article>
-            </nyc-accordion>
+            <!-- <div is="nyc-accordion">
+                 <h3>Another Heading</h3>
+                 <section>
+                 <p>hey</p>
+                 </section>
+                 <h4>heading 2</h4>
+                 <section>
+                 <h5>howdy</h5>
+                 <p>hey again</p>
+                 </section>
+                 <h4>hahaha</h4>
+                 <p>hey</p>
+                 <br>
+                 <div>another one</div>
+                 <div is="nyc-accordion">
+                 <h5>hey</h5>
+                 <p>this is another</p>
+                 <table>
+                 <tr>
+                 <td>Key</td>
+                 <td>Val</td>
+                 </tr>
+                 <tr>
+                 <td>Red</td>
+                 <td>#333</td>
+                 </tr>
+                 </table>
+                 <h5>wow</h5>
+                 <div>
+                 <p>Look at that</p>
+                 <div is="nyc-accordion">
+                 just text
+                 <div>with a panel</div>
+                 more text
+                 <div>another panel</div>
+                 </div>
+                 </div>
+                 </div>
+                 </div>
+                 <div is="nyc-accordion">
+                 <article class="accordion__group">
+                 <h3>
+                 <button is="toggle-button" aria-controls="assessment-definitions">
+                 Assessment definitions
+                 <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
+                 </button>
+                 </h3>
+                 <div id="assessment-definitions" class="flow" hidden>
+                 <p>The following alphabetical listing of terms is provided to help you understand property valuation and tax assessment:</p>
+                 <h3>a wild heading appears</h3>
+                 <div is="nyc-accordion">
+                 <article class="accordion__group">
+                 <h3>
+                 <button is="toggle-button" aria-controls="abatements">
+                 Abatements
+                 <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
+                 </button>
+                 </h3>
+                 <div id="abatements" hidden>
+                 <p>Abatements reduce your taxes after they've been calculated. Different abatement programs are available for housing rehabilitation, revitalization and cooperatives and condominiums.</p>
+                 </div>
+                 </article>
+                 <article class="accordion__group">
+                 <h3>
+                 <button is="toggle-button" aria-controls="actual-assessed-value">
+                 Actual assessed value
+                 <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
+                 </button>
+                 </h3>
+                 <div id="actual-assessed-value" hidden>
+                 <p>The assessed value before five year phase-in requirements (for some tax class 2 and all tax class 4 properties) and/or exemptions are applied.</p>
+                 </div>
+                 </article>
+                 </div>
+                 </div>
+                 </article>
+                 </div> -->
             <ul>
               <li>hey</li>
               <li>woah</li>
@@ -161,6 +178,7 @@
                 <p>A summary of this card</p>
               </div>
             </article>
+            <h1>Property</h1>
             <h2>What would you like to do?</h2>
             <div class="grid" data-layout="col-4" data-flow-space="l">
               <article class="card" data-variant="large">
@@ -224,8 +242,39 @@
         </div>
       </section>
       <section>
+        <div class="region container">
+          <i class="i-ri:arrow-right-line"></i>
+        </div>
+      </section>
+      <section>
         <div class="container region">
           <h2>News and announcements</h2>
+          <a href="#">Just a plain link</a>
+          <button class="button">Another button</button>
+
+          <ul>
+            <li>
+              The property must be classified as a
+              <button>
+                tax class 2 property
+                <i class="i-ri:information-fill color-primary"></i>
+                <tool-tip inert role="tooltip" tip-position="top">
+                  <span class="font-bold block mb-2">Tax Class 2 Property</span>
+                  Most residential properties with more than three units are class 2
+                </tool-tip>
+              </button>.
+            </li>
+            <li>The co-op or condo unit must be the owner's primary residence.</li>
+            <li>The owner must have purchased the unit on or before January 5 to qualify for the abatement for the upcoming tax year</li>
+            <li>New owners must have filed a Real Property Transfer Tax (RPTT) form or deed with the Division of Land Records on ACRIS. </li>
+            <li>Prevailing wage affidavits must be filed for certain properties. View a list of properties required to file the prevailing wage affidavit.</li>
+          </ul>
+          <article class="alert flow">
+            <h3><i class="i-ri:information-fill"></i><span>Information</span></h3>
+            <p>Learn how to protect your property from fraud.</p>
+            <a href="#">Learn more <span class="i-ri:arrow-right-line"></span></a>
+          </article>
+
           <ul role="list" class="grid mt-8" data-layout="col-2">
             <li>
               <article class="alert flow" data-variant="news">

@@ -32,7 +32,7 @@ ${listItemEls(sectionsRef[section])}
 const listItemEls = (items) => items.map((item) => `<li>${linkEl(item)}</li>`).join('');
 
 const linkEl = ({ url, title }) => `
-  <a href="${url}" class="button" data-variant="outline">
+  <a href="${url}" class="button" data-outline>
   <span class="title">
 ${title}
   </span>
