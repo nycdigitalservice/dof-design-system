@@ -495,9 +495,9 @@ header > nav a, header > nav button {
 .hidden {
   display: none !important;
 }
-:not(:defined) { 
-  visibility: hidden
-}
+/* :not(:defined) {  */
+/*   visibility: hidden */
+/* } */
 * {
   -webkit-tap-highlight-color: transparent
 }

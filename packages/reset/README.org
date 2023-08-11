@@ -5,9 +5,9 @@ Provides the =.u-reset= class, a CSS reset utility
 ** CSS
 
 #+begin_src css :tangle src/reset.css
-  :not(:defined) { 
-    visibility: hidden
-  }
+  /* :not(:defined) {  */
+  /*   visibility: hidden */
+  /* } */
 
   ,* {
     -webkit-tap-highlight-color: transparent
