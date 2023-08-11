@@ -31,7 +31,7 @@
 (defun nyc/site-header ()
   (list `(header (@ (class "background-primary"))
                  (nav (@ (class "p-2 flex"))
-                      (a (@ (href "/") (class "mr-auto flex"))
+                      (a (@ (href ,nyc/site-url) (class "mr-auto flex"))
                          (img (@ (class "logo")
                                  (height "50")
                                  (src ,(concat nyc/site-url "/assets/img/nyc-dof-logo.svg"))
