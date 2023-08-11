@@ -2,7 +2,7 @@
   "name": "@dofds/core",
   "type": "module",
   "exports": {
-    ".": "./src/index.js",
+    ".": "./dist/dofds-core.js",
     "./css": "./src/index.css"
   },
   "dependencies": {
@@ -18,6 +18,8 @@
     "@dofds/themes": "workspace:^",
     "@dofds/tooltip": "workspace:^",
     "@dofds/utilities": "workspace:^",
-    "@dofds/variables": "workspace:^"
+    "@dofds/variables": "workspace:^",
+    "esbuild": "^0.19.1",
+    "@ungap/custom-elements": "^1.3.0"
   }
 }

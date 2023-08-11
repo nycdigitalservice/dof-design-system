@@ -1,9 +1,8 @@
-import '@ungap/custom-elements';
 import 'uno.css';
 import './main.css';
 import exemptionsListMarkup from './js/exemptions';
 import suggestedContentListMarkup from './js/suggested-content.js';
-import {Accordion} from '@dofds/core';
+import '@dofds/core';
 
 const supportsContainerQueries = "container" in document.documentElement.style;
 if (!supportsContainerQueries) {
@@ -38,11 +37,4 @@ try {
 } catch (e) {
   console.error(e)
 }
-
-const accordionEls = Array.from(
-  document.querySelectorAll('[data-is=nyc-accordion]')
-).map(el => new Accordion(el));
-
-//console.log(accordionEls);
-
 

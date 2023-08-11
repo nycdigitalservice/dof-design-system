@@ -27,7 +27,6 @@
   "dependencies": {
     "@dofds/core": "workspace:^",
     "@dofds/themes": "workspace:^",
-    "@dofds/utilities": "workspace:^",
-    "@ungap/custom-elements": "^1.3.0"
+    "@dofds/utilities": "workspace:^"
   }
 }
