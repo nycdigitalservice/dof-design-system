@@ -1,5 +1,64 @@
-<!-- Generated from 36aa79c on 2023-08-10 @ 14:22 with Emacs 29.0.92 (Org mode 9.6.6) -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-styles.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-docs.css"/><title>Reset - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="https://nycdigitalservice.github.io/dof-design-system/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="font-bold p-2" aria-controls="main-menu" aria-expanded="false"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Main</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/">Home</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/">Packages</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/">Components</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/accordion/">Accordion</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/alert/">Alert</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/button/">Button</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/card/">Card</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Reset</h1><div id="content" class="flow"><p>
-A CSS reset utility
+<!-- Generated from 53a355b on 2023-08-11 @ 13:08 with Emacs 29.0.92 (Org mode 9.6.6) -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-styles.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-docs.css"/><title>Reset - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="/" class="mr-auto flex"><img class="logo" height="50" src="https://nycdigitalservice.github.io/dof-design-system/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="font-bold p-2" aria-controls="main-menu" aria-expanded="false"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Packages</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/reset/">Reset</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/variables/">Variables</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/global/">Global</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/composition/">Composition</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/accordion/">Accordion</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/alert/">Alert</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/button/">Button</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/card/">Card</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/tooltip/">Tooltip</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Guides</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/guides/navigation-page.html">Building a Navigation Page</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/guides/icons.html">Using Icons</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Reset</h1><div id="content" class="flow"><p>
+Provides the <code>.u-reset</code> class, a CSS reset utility
 </p>
+
+<section class="region flow"><h2><a id="css" class="anchor" href="#css"><i class="i-ri:anchor-line"></i></a>CSS</h2><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">:not(:defined) { 
+  visibility: hidden
+}
+
+* {
+  -webkit-tap-highlight-color: transparent
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%
+}
+
+:where(.u-reset) :where(*,::before,::after) {
+  box-sizing: border-box
+}
+
+:where(.u-reset) {
+  font-family: var(--nyc-sys-font-family-base);
+  font-feature-settings: var(--nyc-sys-font-features, normal);
+  font-weight: var(--nyc-sys-font-weight, 500);
+  line-height: var(--nyc-sys-line-height);
+  color: var(--nyc-sys-color-text);
+  accent-color: var(--nyc-sys-color-accent)
+}
+
+
+:where(.u-reset),:where(.u-reset) :where(body,div,span,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,code,img,svg,small,strike,strong,sub,sup,b,u,i,ol,ul,li,form,label,table,caption,tbody,tfoot,thead,tr,th,td,main,article,aside,canvas,footer,header,nav,section,time,button,video,textarea,input) {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  padding: 0
+}
+
+:where(.u-reset) :where(ul[role=list],ol[role=list]) {
+  list-style: none
+}
+
+:where(.u-reset) :where(img,picture) {
+  max-inline-size: 100%;
+  display: block
+}
+
+:where(.u-reset) :where(input,button,textarea,select) {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  -webkit-appearance: none;
+  appearance: none
+}
+
+/* From https://github.com/elad2412/the-new-css-reset */
+/* *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) { */
+/*   all: unset; */
+/*   display: revert; */
+/* } */</code></pre></div></nyc-accordion>
+</section>
 </div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="https://nycdigitalservice.github.io/dof-design-system/assets/main.js"></script><script src="https://unpkg.com/highlightjs-copy@1.0.3/dist/highlightjs-copy.min.js"></script><script>try{hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());} catch(e) {}</script></body></html>

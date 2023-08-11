@@ -202,7 +202,7 @@ multiple CSS selectors under a given name.
 
 ** Appendix :noexport:
 
-#+BEGIN_SRC css :tangle variables.css :noweb yes
+#+BEGIN_SRC css :tangle src/variables.css :noweb yes
   /* CSS variables: Reference and System */
   :root {
     /* Reference variables */

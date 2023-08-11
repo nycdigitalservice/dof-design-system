@@ -1,0 +1,6 @@
+{
+  "name": "@dofds/select",
+  "exports": {
+    "./css": "./src/select.css"
+  }
+}

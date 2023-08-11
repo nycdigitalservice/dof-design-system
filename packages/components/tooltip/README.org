@@ -6,6 +6,35 @@ it. It typically appears after a small delay and disappears when
 Escape is pressed or on mouse out. ([[https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/][ARIA Authoring Practices Guide:
 Tooltip Pattern]])
 
+** Example
+
+#+html: <div class="example-wrapper">
+#+results: tooltip-basic-example
+#+html: </div>
+
+#+name: tooltip-basic-example
+#+begin_src html :exports both :results replace html
+  <ul>
+    <li>
+      The property must be classified as a
+      <button>
+        tax class 2 property
+        <i class="i-ri:information-fill color-primary"></i>
+        <tool-tip inert role="tooltip" tip-position="top">
+          <span class="font-bold block mb-2">Tax Class 2 Property</span>
+          Most residential properties with more than three units are class 2
+        </tool-tip>
+      </button>.
+    </li>
+    <li>The co-op or condo unit must be the owner's primary residence.</li>
+    <li>The owner must have purchased the unit on or before January 5 to qualify for the abatement for the upcoming tax year</li>
+    <li>New owners must have filed a Real Property Transfer Tax (RPTT) form or deed with the Division of Land Records on ACRIS. </li>
+    <li>Prevailing wage affidavits must be filed for certain properties. View a list of properties required to file the prevailing wage affidavit.</li>
+  </ul>
+#+end_src
+
+** CSS
+
 #+begin_src css :tangle src/tooltip.css
   tool-tip {
     --_p-inline: 1rem;

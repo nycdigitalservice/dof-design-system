@@ -1,7 +1,8 @@
 #+title: Icons
 
-Icons are from the [[https://icon-sets.iconify.design/ri/][Remix]] library, and are available via CSS classes by
-using [[https://unocss.dev/presets/icons][UnoCSS icon preset]]
+Icons are from the [[https://icon-sets.iconify.design/ri/][Remix]] library, and are available via CSS
+classes. The classes are generated using the [[https://unocss.dev/presets/icons][UnoCSS icon preset]]. Size
+and color can be controlled via =font-size= and =color= CSS properties.
 
 ** Examples
 

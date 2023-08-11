@@ -2,7 +2,8 @@
   "name": "@dofds/button",
   "main": "src/js/index.js",
   "exports": {
-    ""
+    ".": "./src/js/index.js",
+    "css": "./src/css/button.css"
   },
   "dependencies": {
     "@dofds/utilities": "workspace:^"

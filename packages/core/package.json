@@ -1,5 +1,6 @@
 {
   "name": "@dofds/core",
+  "type": "module",
   "exports": {
     ".": "./src/index.js",
     "./css": "./src/index.css"
@@ -10,8 +11,10 @@
     "@dofds/button": "workspace:^",
     "@dofds/card": "workspace:^",
     "@dofds/composition": "workspace:^",
+    "@dofds/form": "workspace:^",
     "@dofds/global": "workspace:^",
     "@dofds/reset": "workspace:^",
+    "@dofds/select": "workspace:^",
     "@dofds/themes": "workspace:^",
     "@dofds/tooltip": "workspace:^",
     "@dofds/utilities": "workspace:^",

@@ -1,0 +1,21 @@
+#+title: Select
+
+** CSS
+
+#+begin_src css :tangle src/select.css
+  .select {
+    position: relative;
+
+    & select {
+      padding-inline-end: 3rem;
+    }
+
+    & i {
+      position: absolute;
+      pointer-events: none;
+      font-size: 2rem;
+      inset-inline-end: .75rem;
+      height: 100%;
+    }
+  }
+#+end_src

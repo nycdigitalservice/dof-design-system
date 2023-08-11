@@ -1,3 +1,7 @@
 {
-  "name": "@dofds/variables"
+  "name": "@dofds/variables",
+  "type": "module",
+  "exports": {
+    "./css": "./src/variables.css"
+  }
 }

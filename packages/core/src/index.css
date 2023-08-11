@@ -1,12 +1,12 @@
-@import "@dofds/variables/variables.css";
+@import "@dofds/variables/src/variables.css";
 @import "@dofds/global/global.css";
 @import "@dofds/composition/composition.css";
 @import "@dofds/utilities/src/css/utilities.css";
-@import "@dofds/reset/reset.css";
+@import "@dofds/reset/src/reset.css";
 @import "@dofds/card/src/card.css";
 @import "@dofds/button/src/css/button.css";
 @import "@dofds/alert/src/alert.css";
 @import "@dofds/tooltip/src/tooltip.css";
 @import "@dofds/accordion/src/accordion.css";
-@import "../../components/form/form.css";
-@import "../../components/select/select.css";
+@import "@dofds/form/src/form.css";
+@import "@dofds/select/src/select.css";

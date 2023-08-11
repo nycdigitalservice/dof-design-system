@@ -14,14 +14,14 @@ content within a view. Further guidance on Alerts can be found on the
 
 #+name: alert-basic-example
 #+begin_src html :exports both :results replace html
-  <article class="alert flow" data-variant="news">
-    <h3>Deed fraud alert</h3>
-    <time datetime="2023-01-01">January 1, 2023</time>
-
+  <article class="alert flow">
+    <h3><i class="i-ri:information-fill"></i><span>Information</span></h3>
     <p>Learn how to protect your property from fraud.</p>
     <a href="#">Learn more <span class="i-ri:arrow-right-line"></span></a>
   </article>
 #+end_src
+
+** CSS
 
 #+begin_src css :tangle src/alert.css
   .alert {
@@ -60,6 +60,26 @@ content within a view. Further guidance on Alerts can be found on the
 ** Variants
 
 *** News
+
+**** Example
+
+#+html: <div class="example-wrapper">
+#+results: alert-news-example
+#+html: </div>
+
+#+name: alert-news-example
+#+begin_src html :exports both :results replace html
+  <article class="alert flow" data-variant="news">
+    <h3>Deed fraud alert</h3>
+    <time datetime="2023-01-01">January 1, 2023</time>
+
+    <p>Learn how to protect your property from fraud.</p>
+    <a href="#">Learn more <span class="i-ri:arrow-right-line"></span></a>
+  </article>
+#+end_src
+
+**** CSS
+
 #+begin_src css :tangle src/alert.css
   .alert[data-variant=news] {
       --space: .8em;
@@ -70,6 +90,7 @@ content within a view. Further guidance on Alerts can be found on the
       & time {
           order: -1;
           --space: 0;
+          margin-block-start: 0;
           margin-block-end: .8em;
           font-weight: 400;
       }

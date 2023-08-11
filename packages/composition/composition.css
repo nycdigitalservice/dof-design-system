@@ -94,6 +94,10 @@
   --nyc-cmp-grid-cols: 4;
 }
 
+.grid[data-layout="col-3"] {
+  --nyc-cmp-grid-cols: 3;
+}
+
 .grid[data-layout="col-2"] {
   --nyc-cmp-grid-cols: 2;
 }

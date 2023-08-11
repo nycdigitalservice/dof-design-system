@@ -364,6 +364,9 @@ header > nav a, header > nav button {
   --nyc-cmp-grid-gutter: var(--nyc-sys-dimension-space-s);
   --nyc-cmp-grid-cols: 4;
 }
+.grid[data-layout="col-3"] {
+  --nyc-cmp-grid-cols: 3;
+}
 .grid[data-layout="col-2"] {
   --nyc-cmp-grid-cols: 2;
 }
@@ -492,19 +495,19 @@ header > nav a, header > nav button {
 .hidden {
   display: none !important;
 }
-/* :not(:defined) { */
-/*     visibility: hidden */
-/* } */
+:not(:defined) { 
+  visibility: hidden
+}
 * {
-    -webkit-tap-highlight-color: transparent
+  -webkit-tap-highlight-color: transparent
 }
 html {
-    -webkit-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-         text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+       text-size-adjust: 100%
 }
 :where(.u-reset) :where(*,::before,::after) {
-    box-sizing: border-box
+  box-sizing: border-box
 }
 :where(.u-reset) {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -521,27 +524,27 @@ html {
   accent-color: var(--nyc-sys-color-accent)
 }
 :where(.u-reset),:where(.u-reset) :where(body,div,span,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,code,img,svg,small,strike,strong,sub,sup,b,u,i,ol,ul,li,form,label,table,caption,tbody,tfoot,thead,tr,th,td,main,article,aside,canvas,footer,header,nav,section,time,button,video,textarea,input) {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-         appearance: none;
-    box-sizing: border-box;
-    border: 0;
-    margin: 0;
-    padding: 0
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  padding: 0
 }
 :where(.u-reset) :where(ul[role=list],ol[role=list]) {
-    list-style: none
+  list-style: none
 }
 :where(.u-reset) :where(img,picture) {
-    max-width: 100%;
-    display: block
+  max-width: 100%;
+  display: block
 }
 :where(.u-reset) :where(input,button,textarea,select) {
-    font-family: inherit;
-    font-feature-settings: inherit;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-         appearance: none
+  font-family: inherit;
+  font-feature-settings: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none
 }
 /* From https://github.com/elad2412/the-new-css-reset */
 /* *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) { */
@@ -844,6 +847,7 @@ html {
 .alert[data-variant=news] time {
         order: -1;
         --space: 0;
+        margin-top: 0;
         margin-bottom: .8em;
         font-weight: 400;
     }

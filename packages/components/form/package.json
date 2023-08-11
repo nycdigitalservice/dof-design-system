@@ -1,0 +1,6 @@
+{
+  "name": "@dofds/form",
+  "exports": {
+    "./css": "./src/form.css"
+  }
+}

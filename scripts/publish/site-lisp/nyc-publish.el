@@ -55,10 +55,19 @@
                      '("/packages/" . "Packages")
                      '("/packages/components/" . "Components")))
 
+(setq package-nav (list '("/packages/reset/" . "Reset")
+                        '("/packages/variables/" . "Variables")
+                        '("/packages/global/" . "Global")
+                        '("/packages/composition/" . "Composition")))
+
 (setq component-nav (list '("/packages/components/accordion/" . "Accordion")
                           '("/packages/components/alert/" . "Alert")
                           '("/packages/components/button/" . "Button")
-                          '("/packages/components/card/" . "Card")))
+                          '("/packages/components/card/" . "Card")
+                          '("/packages/components/tooltip/" . "Tooltip")))
+
+(setq guide-nav (list '("/guides/navigation-page.html" . "Building a Navigation Page")
+                      '("/guides/icons.html" . "Using Icons")))
 
 (defun nyc/main-menu-nav (title links)
   (let ((link-list (nyc/link-list links)))
@@ -72,8 +81,9 @@
                    (aria-labelledby "main-menu-control")
                    (hidden ""))
                 (div (@ (class "container grid p-4"))
-                     ,@(nyc/main-menu-nav "Main" main-nav)
-                     ,@(nyc/main-menu-nav "Components" component-nav)))))
+                     ,@(nyc/main-menu-nav "Packages" package-nav)
+                     ,@(nyc/main-menu-nav "Components" component-nav)
+                     ,@(nyc/main-menu-nav "Guides" guide-nav)))))
 
 ;; FIX list here
 (defun nyc/site-footer ()
