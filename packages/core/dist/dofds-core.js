@@ -618,7 +618,6 @@
       } else {
         const nodes = this.removeEmptyTextNodes(this.element.childNodes);
         if (this.isHeading(nodes[0])) {
-          console.log("have initial heading", nodes[0]);
           this.headingTagName = nodes[0].nodeName;
           const groupsArr = chunkr(nodes, (n) => n.nodeName === this.headingTagName);
           const groups = groupsArr.map((group) => {
@@ -694,14 +693,16 @@
       const firstChild = this.removeEmptyTextNodes(heading.childNodes)[0];
       let headingLabel;
       if (firstChild.nodeName !== "BUTTON") {
-        const button = this.createButton(firstChild, heading.parentNode.dataset.panelId);
+        const button = this.createButton(
+          firstChild,
+          heading.parentNode.dataset.panelId
+        );
         headingLabel = firstChild.nodeName !== "#text" ? firstChild.innerText : firstChild.data;
         heading.appendChild(button);
       } else {
         headingLabel = firstChild.innerText;
       }
-      let headingId = `${headingLabel.trim().replace(/[^\w\s]/gi, "").replace(/\s+/g, "-").toLowerCase()}-heading
-    `;
+      let headingId = `${headingLabel.trim().replace(/[^\w\s]/gi, "").replace(/\s+/g, "-").toLowerCase()}-heading`;
       if (document.getElementById(headingId)) {
         headingId = `${headingId}-${this.generateId()}`;
       }
@@ -789,6 +790,87 @@
     ).map((el) => new Accordion(el));
   } catch (e) {
     console.error(`Could not initialize Accordions: ${e}`);
+  }
+
+  // ../components/tab-group/src/tab-group.js
+  var NYCTabGroup = class extends HTMLElement {
+    connectedCallback() {
+      try {
+        this.tablist = this.querySelector("[data-tab-list]");
+        this.tabs = this.tablist.querySelectorAll("a");
+        this.panels = this.querySelectorAll("[data-tab-panels] > *");
+      } catch (err) {
+        console.error(`NYCTabGroup: ${err}`);
+        return;
+      }
+      this.tablist.setAttribute("role", "tablist");
+      this.setupTabs();
+      this.setupPanels();
+      this.tabs[0].removeAttribute("tabindex");
+      this.tabs[0].setAttribute("aria-selected", "true");
+      this.panels[0].hidden = false;
+    }
+    // The tab switching function
+    switchTab(oldTab, newTab) {
+      newTab.focus();
+      newTab.removeAttribute("tabindex");
+      newTab.setAttribute("aria-selected", "true");
+      oldTab.removeAttribute("aria-selected");
+      oldTab.setAttribute("tabindex", "-1");
+      let index = Array.prototype.indexOf.call(this.tabs, newTab);
+      let oldIndex = Array.prototype.indexOf.call(this.tabs, oldTab);
+      this.panels[oldIndex].hidden = true;
+      this.panels[index].hidden = false;
+    }
+    setupTabs() {
+      Array.prototype.forEach.call(this.tabs, (tab, i) => {
+        tab.setAttribute("role", "tab");
+        tab.setAttribute("id", "tab" + (i + 1));
+        tab.setAttribute("tabindex", "-1");
+        tab.parentNode.setAttribute("role", "presentation");
+        tab.addEventListener("click", (e) => {
+          e.preventDefault();
+          let currentTab = this.tablist.querySelector("[aria-selected]");
+          if (e.currentTarget !== currentTab) {
+            this.switchTab(currentTab, e.currentTarget);
+          }
+        });
+        tab.addEventListener("keydown", (e) => {
+          let index = Array.prototype.indexOf.call(this.tabs, e.currentTarget);
+          let dir = e.which === 37 ? index - 1 : e.which === 39 ? index + 1 : e.which === 40 ? "down" : null;
+          if (dir !== null) {
+            e.preventDefault();
+            dir === "down" ? this.panels[i].focus() : this.tabs[dir] ? this.switchTab(e.currentTarget, this.tabs[dir]) : void 0;
+          }
+        });
+      });
+    }
+    setupPanels() {
+      Array.prototype.forEach.call(this.panels, (panel, i) => {
+        panel.setAttribute("role", "tabpanel");
+        panel.setAttribute("tabindex", "-1");
+        let id = panel.getAttribute("id");
+        panel.setAttribute("aria-labelledby", this.tabs[i].id);
+        panel.hidden = true;
+      });
+    }
+  };
+  customElements.define("nyc-tab-group", NYCTabGroup);
+
+  // ../components/tab-group/src/index.js
+  var wrapElement = (el, newTag) => {
+    const parent = el.parentNode;
+    const elIndex = [...parent.children].indexOf(el);
+    const ce = document.createElement(newTag);
+    ce.appendChild(el);
+    parent.insertBefore(ce, parent.childNodes[elIndex]);
+  };
+  try {
+    Array.from(
+      document.querySelectorAll("[data-is=nyc-tab-group]")
+    ).map((el) => wrapElement(el, "nyc-tab-group"));
+  } catch (e) {
+    console.error(`Could not initialize TabGroup: ${e}`);
   }
 })();
 /*! Bundled license information:

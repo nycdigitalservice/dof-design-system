@@ -27,6 +27,7 @@
   "dependencies": {
     "@dofds/core": "workspace:^",
     "@dofds/themes": "workspace:^",
-    "@dofds/utilities": "workspace:^"
+    "@dofds/utilities": "workspace:^",
+    "@iconify-json/mi": "^1.1.5"
   }
 }

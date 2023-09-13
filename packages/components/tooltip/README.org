@@ -3,8 +3,7 @@
 A tooltip is a popup that displays information related to an element
 when the element receives keyboard focus or the mouse hovers over
 it. It typically appears after a small delay and disappears when
-Escape is pressed or on mouse out. ([[https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/][ARIA Authoring Practices Guide:
-Tooltip Pattern]])
+Escape is pressed or on mouse out.
 
 ** Example
 
@@ -20,10 +19,10 @@ Tooltip Pattern]])
       <button>
         tax class 2 property
         <i class="i-ri:information-fill color-primary"></i>
-        <tool-tip inert role="tooltip" tip-position="top">
+        <nyc-tooltip inert role="tooltip" tip-position="top">
           <span class="font-bold block mb-2">Tax Class 2 Property</span>
           Most residential properties with more than three units are class 2
-        </tool-tip>
+        </nyc-tooltip>
       </button>.
     </li>
     <li>The co-op or condo unit must be the owner's primary residence.</li>
@@ -36,7 +35,7 @@ Tooltip Pattern]])
 ** CSS
 
 #+begin_src css :tangle src/tooltip.css
-  tool-tip {
+  nyc-tooltip {
     --_p-inline: 1rem;
     --_p-block: 1rem;
     --_triangle-size: 20px;
@@ -86,12 +85,12 @@ Tooltip Pattern]])
       --isRTL: 1;
     }
 
-    /* create a stacking context for elements with > tool-tips */
+    /* create a stacking context for elements with > nyc-tooltips */
     @nest :has(> &) {
       position: relative;
 
       /* when those parent elements have focus, hover, etc */
-      &:is(:hover, :focus-visible, :active) > tool-tip {
+      &:is(:hover, :focus-visible, :active) > nyc-tooltip {
         opacity: 1;
         transition-delay: 200ms;
       }
@@ -138,7 +137,7 @@ Tooltip Pattern]])
       --_x: calc(50% * var(--isRTL));
 
       @media (prefers-reduced-motion: no-preference) {
-        @nest :has(> &):not(:hover, :active) tool-tip {
+        @nest :has(> &):not(:hover, :active) nyc-tooltip {
           --_y: 3px;
         }
       }
@@ -157,7 +156,7 @@ Tooltip Pattern]])
       --_y: 50%;
 
       @media (prefers-reduced-motion: no-preference) {
-        @nest :has(> &):not(:hover, :active) tool-tip {
+        @nest :has(> &):not(:hover, :active) nyc-tooltip {
           --_x: calc(var(--isRTL) * -3px * -1);
         }
       }
@@ -180,7 +179,7 @@ Tooltip Pattern]])
       --_x: calc(50% * var(--isRTL));
 
       @media (prefers-reduced-motion: no-preference) {
-        @nest :has(> &):not(:hover, :active) tool-tip {
+        @nest :has(> &):not(:hover, :active) nyc-tooltip {
           --_y: -3px;
         }
       }
@@ -199,7 +198,7 @@ Tooltip Pattern]])
       --_y: 50%;
 
       @media (prefers-reduced-motion: no-preference) {
-        @nest :has(> &):not(:hover, :active) tool-tip {
+        @nest :has(> &):not(:hover, :active) nyc-tooltip {
           --_x: calc(var(--isRTL) * 3px * -1);
         }
       }

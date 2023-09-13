@@ -5,6 +5,9 @@
     ".": "./dist/dofds-core.js",
     "./css": "./src/index.css"
   },
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --outfile=dist/dofds-core.js"
+  },
   "dependencies": {
     "@dofds/accordion": "workspace:^",
     "@dofds/alert": "workspace:^",
@@ -15,6 +18,7 @@
     "@dofds/global": "workspace:^",
     "@dofds/reset": "workspace:^",
     "@dofds/select": "workspace:^",
+    "@dofds/tab-group": "workspace:^",
     "@dofds/themes": "workspace:^",
     "@dofds/tooltip": "workspace:^",
     "@dofds/utilities": "workspace:^",

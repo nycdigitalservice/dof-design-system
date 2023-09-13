@@ -89,9 +89,11 @@
   --nyc-sys-color-neutral-light: var(--nyc-ref-color-neutral-200);
   --nyc-sys-color-neutral: var(--nyc-ref-color-neutral-300);
   --nyc-sys-color-accent: var(--nyc-sys-color-primary);
+  --nyc-sys-color-focus: var(--nyc-sys-color-primary-lighter);
   --nyc-sys-gradient-primary-light: var(--nyc-ref-gradient-blue-100);
   --nyc-sys-shadow-base: var(--nyc-ref-shadow-500);
   --nyc-sys-shadow-weak: var(--nyc-ref-shadow-400);
+  --nyc-sys-shadow-focus: inset 0 0 0 .2rem var(--nyc-sys-color-primary-lighter);
   --nyc-sys-dimension-page-max-width: 64rem;
   
   --nyc-sys-dimension-size-xs: var(--nyc-ref-dimension-size-step--2);

@@ -1,4 +1,4 @@
-<!-- Generated from 6633a42 on 2023-08-11 @ 15:05 with Emacs 29.0.92 (Org mode 9.6.6) -->
+<!-- Generated from cfc68d3 on 2023-09-13 @ 15:26 with Emacs 29.0.92 (Org mode 9.6.6) -->
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-styles.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-docs.css"/><title>Button - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="https://nycdigitalservice.github.io/dof-design-system" class="mr-auto flex"><img class="logo" height="50" src="https://nycdigitalservice.github.io/dof-design-system/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="font-bold p-2" aria-controls="main-menu" aria-expanded="false"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Packages</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/reset/">Reset</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/variables/">Variables</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/global/">Global</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/composition/">Composition</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/accordion/">Accordion</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/alert/">Alert</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/button/">Button</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/card/">Card</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/tooltip/">Tooltip</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Guides</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/guides/navigation-page.html">Building a Navigation Page</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/guides/icons.html">Using Icons</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Button</h1><div id="content" class="flow"><p>
 A button draws attention to important actions with a large selectable
 surface.
@@ -79,26 +79,33 @@ default styles.
 </p>
 
 <nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.button,
-.button:link {
+.button:link,
+.button:visited {
   --_background: var(--nyc-cmp-button-background, hsla(0, 0%, 100%, 1));
+  --_background-hover: var(--nyc-cmp-button-background-hover, white);
   --_border-color: var(--nyc-cmp-button-border-color, hsla(0, 0%, 93%, 1));
+  --_border-color-hover: var(--nyc-cmp-button-border-color-hover, currentColor);
   --_border-width: var(--nyc-cmp-button-border-width, 2px);
+  --_border-radius: var(--nyc-cmp-button-border-radius, 0);
   --_color: var(--nyc-cmp-button-color, currentColor);
+  --_color-hover: var(--nyc-cmp-button-color-hover, inherit);
+  --_font-weight: var(--nyc-cmp-button-font-weight, 500);
   --_shadow: var(--nyc-cmp-button-shadow, none);
   --_padding: var(--nyc-cmp-button-padding, .75rem);
+  --_outline-color: var(--nyc-cmp-button-outline-color, inherit);
   appearance: none;
   background-color: var(--_background);
   border-color: var(--_border-color);
   border-width: var(--_border-width);
   border-style: solid;
+  border-radius: var(--_border-radius);
   color: var(--_color);
   padding: var(--_padding);
   box-shadow: var(--_shadow);
   text-decoration: none;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: var(--_font-weight);
   font-size: inherit;
-  border-radius: 4px;
   display: inline-flex;
   align-items: center;
   transition: all 0.3s ease;
@@ -110,16 +117,21 @@ default styles.
 
   & > i:last-child {
     flex-shrink: 0;
-    margin-inline-start: .5em;
     margin-block: auto;
     font-size: 1.5rem;
+
+    margin-inline-start: .5em;
   }
 
   &:hover {
-    background: var(--nyc-sys-color-primary-lightest);
-    color: var(--nyc-sys-color-primary);
-    border-color: var(--nyc-sys-color-primary);
+    background: var(--_background-hover);
+    color: var(--_color-hover);
+    border-color: var(--_border-color-hover);
     text-decoration: none;
+  }
+
+  &:focus {
+    outline-color: var(--_outline-color);
   }
 }</code></pre></div></nyc-accordion>
 
@@ -133,18 +145,30 @@ When within a grid list, have the button fill the grid child
 }</code></pre></div></nyc-accordion>
 </section>
 
-<section class="region flow"><h2><a id="variants" class="anchor" href="#variants"><i class="i-ri:anchor-line"></i></a>Variants</h2><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.button[data-variant] {
-  &:hover {
-    background: var(--_color);
-    color: var(--_background);
-  }    
-}</code></pre></div></nyc-accordion>
+<section class="region flow"><h2><a id="variants" class="anchor" href="#variants"><i class="i-ri:anchor-line"></i></a>Variants</h2><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">/* .button[data-variant] { */
+/*   &:hover { */
+/*     background: var(--_color); */
+/*     color: var(--_background); */
+/*   }     */
+/* } */</code></pre></div></nyc-accordion>
 
 <h3><a id="primary" class="anchor" href="#primary"><i class="i-ri:anchor-line"></i></a>Primary</h3><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.button[data-variant=primary] {
   --nyc-cmp-button-background: var(--nyc-sys-color-primary-dark);
   --nyc-cmp-button-color: var(--nyc-sys-color-on-primary);
   --nyc-cmp-button-border-color: var(--nyc-sys-color-primary-dark);
   --nyc-cmp-button-shadow: none;
+  &:hover {
+    --nyc-cmp-button-color-hover: var(--nyc-cmp-button-color);
+    --nyc-cmp-button-background-hover: var(--nyc-sys-color-primary);
+    --nyc-cmp-button-border-color-hover: var(--nyc-sys-color-primary);
+  }
+}</code></pre></div></nyc-accordion>
+
+<h3><a id="pill" class="anchor" href="#pill"><i class="i-ri:anchor-line"></i></a>Pill</h3><nyc-accordion class='code-view'><h3>Inspect code</h3><div><pre><code class="language-css">.button[data-variant=pill] {
+  --nyc-cmp-button-border-radius: 2.25rem;
+  --nyc-cmp-button-shadow: none;
+  --nyc-cmp-button-font-weight: 500;
+  --nyc-cmp-button-border-width: 1px;
 }</code></pre></div></nyc-accordion>
 </section>
 

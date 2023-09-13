@@ -16,11 +16,11 @@ export default class Accordion {
     } else {
       /* We don't have groups, remove empty nodes and check if first node
        * is a heading. If it is, create groups from chunking siblings by this
-       * heading.
+       * heading tag.
        */
       const nodes = this.removeEmptyTextNodes(this.element.childNodes);
       if (this.isHeading(nodes[0])) {
-        console.log('have initial heading', nodes[0])
+        //console.log('have initial heading', nodes[0])
 
         this.headingTagName = nodes[0].nodeName;
 
@@ -121,8 +121,13 @@ export default class Accordion {
 
     let headingLabel;
     if (firstChild.nodeName !== 'BUTTON') {
-      const button = this.createButton(firstChild, heading.parentNode.dataset.panelId);
-      headingLabel = firstChild.nodeName !== '#text' ? firstChild.innerText : firstChild.data;
+      const button = this.createButton(
+        firstChild,
+        heading.parentNode.dataset.panelId
+      );
+      headingLabel =
+        firstChild.nodeName !== '#text' ?
+        firstChild.innerText : firstChild.data;
       heading.appendChild(button);
     } else {
       headingLabel = firstChild.innerText;
@@ -131,8 +136,7 @@ export default class Accordion {
     let headingId =
         `${headingLabel.trim()
          .replace(/[^\w\s]/gi, '')
-         .replace(/\s+/g, '-').toLowerCase()}-heading
-    `;
+         .replace(/\s+/g, '-').toLowerCase()}-heading`;
     if (document.getElementById(headingId)) {
       headingId = `${headingId}-${this.generateId()}`;
     }

@@ -36,7 +36,7 @@ required attributes.
          ,*/
         const nodes = this.removeEmptyTextNodes(this.element.childNodes);
         if (this.isHeading(nodes[0])) {
-          console.log('have initial heading', nodes[0])
+          //console.log('have initial heading', nodes[0])
 
           this.headingTagName = nodes[0].nodeName;
 

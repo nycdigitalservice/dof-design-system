@@ -1,2 +1,23 @@
 @import "@dofds/core/css";
 @import "@dofds/themes/theme.css";
+
+#contact-filters form {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  & div {
+    position: relative;
+  }
+  & input {
+    display: inline-block;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    padding: 0;
+  }
+  & input[checked] + label {
+    color: var(--nyc-cmp-button-color-hover);
+    background: var(--nyc-cmp-button-background-hover);
+    border-color: var(--nyc-cmp-button-background-hover);
+  }
+}

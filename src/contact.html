@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite + TS</title>
+  </head>
+  <body class="u-reset">
+    <main>
+      <header class="page-header background-gradient-primary-light">
+        <div class="container region">
+          <h1>Contact</h1>
+        </div>
+      </header>
+      <div class="container region">
+        <div data-is="nyc-tab-group">
+        </div>
+        <nyc-tab-group></nyc-tab-group>
+        <div data-is="nyc-tab-group">
+          <nav>
+            <ul role="list" data-tab-list>
+              <li>
+                <a href="#online">
+                  <i class="i-ri:computer-line"></i>
+                  <span>Online</span>
+                </a>
+              </li>
+              <li>
+                <a href="#phone">
+                  <i class="i-custom:phone"></i>
+                  <span>Phone</span>
+                </a>
+              </li>
+              <li>
+                <a href="#mail">
+                  <i class="i-ri:mail-send-line"></i>
+                  <span>Mail</span>
+                </a>
+              </li>
+              <li>
+                <a href="#in-person">
+                  <i class="i-ri:walk-fill"></i>
+                  <span>In-Person</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <section data-tab-panels>
+            <div id="online">
+              <div id="id-topic-select-label"><i class="i-mi:filter"></i> Select a topic</div>
+              <div id="contact-filters"></div>
+              <p>Click a tag to enable filter</p>
+              <div id="contact-topics"></div>
+            </div>
+            <div id="phone" class="flow">
+              <h2>Phone</h2>
+              <h3>General Inquiries (Available 24 hours)</h3>
+              Call 311
+              Call 212-NEW-YORK or 212-639-9675 (Out-of-City)
+              TTY 212-639-9675 (Hearing Impaired)
+
+              <h3>Cash Bail</h3>
+              Customer Assistance
+              Call 212-908-7619
+              (available 24 hours)
+            </div>
+            <div id="mail" class="flow">
+              <h2>Mail</h2>
+              <div class="alert">
+                Important: Do not send payments to any of the addresses below. Mailing addresses for property tax, business & excise tax, parking ticket, and camera violation payments are listed on the Payment Mailing Addresses page.
+              </div>
+              <h3>General Correspondence - DO NOT SEND PAYMENTS TO THIS ADDRESS</h3>
+              <address>
+                NYC Department of Finance<br/>
+                Correspondence Unit<br>
+                One Centre Street, 22nd Floor<br>
+                New York, NY 10007
+              </address>
+              <p>Please note: The address above is for mailing correspondence through postal mail. Walk-ins will not be seen at this location. To visit us in person, click here.</p>
+              <h3>Forms & Applications</h3>
+              <p>All Finance forms and applications should be submitted to the mailing address indicated on the form/application.  If you have questions, call 311 or Contact Finance.</p>
+
+              <h3>Parking</h3>
+              Parking Violations Hearing By Mail
+              <address>
+                NYC Department of Finance<br>
+                Parking Hearing by Mail<br>
+                Cadman Plaza Station<br>
+                P.O. Box 29021<br>
+                Brooklyn, NY 11202-9021
+              </address>
+              <h3>Property</h3>
+              Property Tax Exemption Applications
+              <address>
+                NYC Department of Finance<br>
+                P.O. Box 311<br>
+                Maplewood, NJ 07040-0311<br>
+              </address>
+              <h3>Business Tax Returns</h3>
+              <p>Business Tax Return addresses may vary. For mailing information, use the address listed on the form for the current year.</p>
+
+              <h3>Legal Papers</h3>
+              <p>In order to serve legal papers on the Commissioner or the Department of Finance, mail to:</p>
+              <address>
+                NYC Department of Finance
+                66 John Street, Room 104
+                New York, NY 10038﻿﻿
+              </address>
+            </div>
+            <div id="in-person">
+              <h2>In-Person</h2>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

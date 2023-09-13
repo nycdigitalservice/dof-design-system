@@ -1,0 +1,7 @@
+{
+  "name": "@dofds/tab-group",
+  "main": "src/index.js",
+  "dependencies": {
+    "@dofds/utilities": "workspace:^"
+  }
+}

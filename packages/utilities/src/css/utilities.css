@@ -41,6 +41,6 @@
     box-shadow: var(--nyc-sys-shadow-base);
 }
 
-.hidden {
+[hidden] {
   display: none !important;
 }

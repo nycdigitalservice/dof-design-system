@@ -34,7 +34,7 @@
         & :first-child {
           margin-right: .5rem;
         }
-        & i {
+        & [class^=i-]:last-child {
           margin-inline-start: auto;
           font-size: 1.5rem;
         }

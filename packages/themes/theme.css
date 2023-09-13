@@ -9,21 +9,26 @@
   --nyc-cmp-accordion-body-padding: var(--nyc-sys-dimension-space-xs-s);
 
   --nyc-cmp-button-color: inherit;
+  --nyc-cmp-button-color-hover: var(--nyc-sys-color-primary-dark);
   --nyc-cmp-button-background: var(--nyc-sys-color-background);
+  --nyc-cmp-button-background-hover: var(--nyc-sys-color-primary-lightest);
   --nyc-cmp-button-shadow: var(--nyc-sys-shadow-base);
   --nyc-cmp-button-border-color: var(--nyc-sys-color-border);
   --nyc-cmp-button-border-width: 2px;
+  --nyc-cmp-button-border-radius: 4px;
+  --nyc-cmp-button-font-weight: 700;
   --nyc-cmp-button-padding: var(--nyc-sys-dimension-space-xs);
+  --nyc-cmp-button-outline-color: var(--nyc-sys-color-primary-lighter);
 
   --nyc-cmp-card-background: var(--nyc-sys-color-background);
   --nyc-cmp-card-background-hover: var(--nyc-sys-color-primary-lightest);
   --nyc-cmp-card-shadow: var(--nyc-sys-shadow-base);
   --nyc-cmp-card-color: var(--nyc-sys-color-text);
   --nyc-cmp-card-body-color: var(--nyc-sys-color-text-light);
-  --nyc-cmp-card-color-hover: var(--nyc-sys-color-primary);
+  --nyc-cmp-card-color-hover: var(--nyc-sys-color-primary-dark);
   --nyc-cmp-card-border-color: var(--nyc-sys-color-border);
   --nyc-cmp-card-border: 1.5px solid var(--nyc-cmp-card-border-color);
-  --nyc-cmp-card-border-hover: 1.5px solid var(--nyc-sys-color-primary);
+  --nyc-cmp-card-border-hover: 1.5px solid var(--nyc-sys-color-primary-dark);
   --nyc-cmp-card-heading-font-size: var(--nyc-sys-dimension-size-m);
   --nyc-cmp-card-body-font-size: 1rem;
 }

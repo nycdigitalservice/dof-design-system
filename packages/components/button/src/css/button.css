@@ -1,24 +1,31 @@
 .button,
-.button:link {
+.button:link,
+.button:visited {
   --_background: var(--nyc-cmp-button-background, hsla(0, 0%, 100%, 1));
+  --_background-hover: var(--nyc-cmp-button-background-hover, white);
   --_border-color: var(--nyc-cmp-button-border-color, hsla(0, 0%, 93%, 1));
+  --_border-color-hover: var(--nyc-cmp-button-border-color-hover, currentColor);
   --_border-width: var(--nyc-cmp-button-border-width, 2px);
+  --_border-radius: var(--nyc-cmp-button-border-radius, 0);
   --_color: var(--nyc-cmp-button-color, currentColor);
+  --_color-hover: var(--nyc-cmp-button-color-hover, inherit);
+  --_font-weight: var(--nyc-cmp-button-font-weight, 500);
   --_shadow: var(--nyc-cmp-button-shadow, none);
   --_padding: var(--nyc-cmp-button-padding, .75rem);
+  --_outline-color: var(--nyc-cmp-button-outline-color, inherit);
   appearance: none;
   background-color: var(--_background);
   border-color: var(--_border-color);
   border-width: var(--_border-width);
   border-style: solid;
+  border-radius: var(--_border-radius);
   color: var(--_color);
   padding: var(--_padding);
   box-shadow: var(--_shadow);
   text-decoration: none;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: var(--_font-weight);
   font-size: inherit;
-  border-radius: 4px;
   display: inline-flex;
   align-items: center;
   transition: all 0.3s ease;
@@ -30,16 +37,21 @@
 
   & > i:last-child {
     flex-shrink: 0;
-    margin-inline-start: .5em;
     margin-block: auto;
     font-size: 1.5rem;
+
+    margin-inline-start: .5em;
   }
 
   &:hover {
-    background: var(--nyc-sys-color-primary-lightest);
-    color: var(--nyc-sys-color-primary);
-    border-color: var(--nyc-sys-color-primary);
+    background: var(--_background-hover);
+    color: var(--_color-hover);
+    border-color: var(--_border-color-hover);
     text-decoration: none;
+  }
+
+  &:focus {
+    outline-color: var(--_outline-color);
   }
 }
 
@@ -48,16 +60,28 @@
   height: 100%;
 }
 
-.button[data-variant] {
-  &:hover {
-    background: var(--_color);
-    color: var(--_background);
-  }    
-}
+/* .button[data-variant] { */
+/*   &:hover { */
+/*     background: var(--_color); */
+/*     color: var(--_background); */
+/*   }     */
+/* } */
 
 .button[data-variant=primary] {
   --nyc-cmp-button-background: var(--nyc-sys-color-primary-dark);
   --nyc-cmp-button-color: var(--nyc-sys-color-on-primary);
   --nyc-cmp-button-border-color: var(--nyc-sys-color-primary-dark);
   --nyc-cmp-button-shadow: none;
+  &:hover {
+    --nyc-cmp-button-color-hover: var(--nyc-cmp-button-color);
+    --nyc-cmp-button-background-hover: var(--nyc-sys-color-primary);
+    --nyc-cmp-button-border-color-hover: var(--nyc-sys-color-primary);
+  }
+}
+
+.button[data-variant=pill] {
+  --nyc-cmp-button-border-radius: 2.25rem;
+  --nyc-cmp-button-shadow: none;
+  --nyc-cmp-button-font-weight: 500;
+  --nyc-cmp-button-border-width: 1px;
 }

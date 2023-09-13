@@ -17,6 +17,9 @@ importers:
       '@dofds/utilities':
         specifier: workspace:^
         version: link:packages/utilities
+      '@iconify-json/mi':
+        specifier: ^1.1.5
+        version: 1.1.5
     devDependencies:
       '@iconify-json/ri':
         specifier: ^1.1.7
@@ -75,6 +78,12 @@ importers:
 
   packages/components/select: {}
 
+  packages/components/tab-group:
+    dependencies:
+      '@dofds/utilities':
+        specifier: workspace:^
+        version: link:../../utilities
+
   packages/components/tooltip: {}
 
   packages/composition: {}
@@ -108,6 +117,9 @@ importers:
       '@dofds/select':
         specifier: workspace:^
         version: link:../components/select
+      '@dofds/tab-group':
+        specifier: workspace:^
+        version: link:../components/tab-group
       '@dofds/themes':
         specifier: workspace:^
         version: link:../themes
@@ -911,6 +923,12 @@ packages:
     dev: false
     optional: true
 
+  /@iconify-json/mi@1.1.5:
+    resolution: {integrity: sha512-b50nma0KOXcF3WzD4Y0xgzW6HGjD/iTyVK0j6ggVj09tIJ5vPirDzDvJEPLzU9edguH9mPIiz0p+6LQrEZzLyA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
+
   /@iconify-json/ri@1.1.7:
     resolution: {integrity: sha512-ra80AV2Q0wFuzT3YB48DKy0q3IWmmIh2ZbDnMGNX2Wz1lOx9PHgcewVvThk8OaUJOeGkneTMAzKQ64MRrOXEpg==}
     dependencies:
@@ -919,7 +937,6 @@ packages:
 
   /@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
-    dev: true
 
   /@iconify/utils@2.1.5:
     resolution: {integrity: sha512-6MvDI+I6QMvXn5rK9KQGdpEE4mmLTcuQdLZEiX5N+uZB+vc4Yw9K1OtnOgkl8mp4d9X0UrILREyZgF1NUwUt+Q==}

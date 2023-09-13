@@ -1,4 +1,4 @@
-<!-- Generated from 6633a42 on 2023-08-11 @ 15:05 with Emacs 29.0.92 (Org mode 9.6.6) -->
+<!-- Generated from cfc68d3 on 2023-09-13 @ 15:26 with Emacs 29.0.92 (Org mode 9.6.6) -->
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Michael Mausler - NYC"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="icon" type="image/png" href="/img/favicon.png"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-styles.css"/><link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/><link rel="stylesheet" href="https://nycdigitalservice.github.io/dof-design-system/assets/dof-2023-docs.css"/><title>Global styles - NYC</title></head><body class="u-reset"><header class="background-primary"><nav class="p-2 flex"><a href="https://nycdigitalservice.github.io/dof-design-system" class="mr-auto flex"><img class="logo" height="50" src="https://nycdigitalservice.github.io/dof-design-system/assets/img/nyc-dof-logo.svg" alt="NYC Department of Finance"/></a><button is="toggle-button" id="main-menu-control" class="font-bold p-2" aria-controls="main-menu" aria-expanded="false"><i class="i-ri:menu-line mr-2"></i>Menu</button></nav></header><aside id="main-menu" class="background-primary-lightest" aria-labelledby="main-menu-control" hidden=""><div class="container grid p-4"><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Packages</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/reset/">Reset</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/variables/">Variables</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/global/">Global</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/composition/">Composition</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Components</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/accordion/">Accordion</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/alert/">Alert</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/button/">Button</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/card/">Card</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/packages/components/tooltip/">Tooltip</a></nav><nav class="flex flex-col"><span class="p-2 border-b-2 border-current border-solid">Guides</span><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/guides/navigation-page.html">Building a Navigation Page</a><a class="p-2" href="https://nycdigitalservice.github.io/dof-design-system/guides/icons.html">Using Icons</a></nav></div></aside><main class="container"><div class="region flow"><h1 class="site-post-title">Global styles</h1><div id="content" class="flow"><p>
 As mentioned in the <a href="/#principles">Principles</a>, this library embraces the power of the
 CSS cascade to provide a set of base, global styling properties.
@@ -65,13 +65,18 @@ button {
   }
 
   & [class^=i-] {
-    margin-inline-start: .5em;
     font-size: 1.5rem;
+    &:last-child {
+      margin-inline-start: .5em;        
+    }
+    &:first-child {
+      margin-inline-end: .5em;        
+    }
   }
 }
 
 :focus {
-  outline: 2px solid;
+  outline: 2px solid var(--nyc-sys-color-focus, inherit);
   outline-offset: 0.3ch;
 }
 
@@ -111,19 +116,14 @@ select {
 }
 
 /* Tables */
-table {
-  background: var(--nyc-sys-color-neutral-lightest);
-  padding: .75rem;
-  & th {
-    text-align: left;
-  }
-}
-
-table {
+.nyc-table {
   background: var(--nyc-sys-color-neutral-lightest);
   padding: .75rem;
   display: flex;
   flex-direction: column;
+  & th {
+    text-align: left;
+  }
   & thead tr {
     text-align: left;
     border-bottom: 1px solid var(--nyc-sys-color-neutral);
@@ -162,4 +162,6 @@ header > nav {
   }
 }</code></pre></div></nyc-accordion>
 </section>
+
+<section class="region flow"><h2><a id="" class="anchor" href="#"><i class="i-ri:anchor-line"></i></a></h2></section>
 </div></div></main><footer class="site-footer"><div class="container"><div class="row"><div class="column"><p>© 2023 City of New York</p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><script src="https://nycdigitalservice.github.io/dof-design-system/assets/main.js"></script><script src="https://unpkg.com/highlightjs-copy@1.0.3/dist/highlightjs-copy.min.js"></script><script>try{hljs.highlightAll();hljs.addPlugin(new CopyButtonPlugin());} catch(e) {}</script></body></html>

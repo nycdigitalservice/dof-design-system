@@ -94,6 +94,10 @@ and color can be controlled via =font-size= and =color= CSS properties.
       <span class="ms-2 grow">Mail</span>
     </div>
     <div class="flex items-center">
+      <i class="i-ri:mail-send-line"></i>
+      <span class="ms-2 grow">Mail send</span>
+    </div>
+    <div class="flex items-center">
       <i class="i-ri:table-2"></i>
       <span class="ms-2 grow">Spreadsheet</span>
     </div>
@@ -112,6 +116,14 @@ and color can be controlled via =font-size= and =color= CSS properties.
     <div class="flex items-center">
       <i class="i-ri:upload-cloud-2-line"></i>
       <span class="ms-2 grow">Upload</span>
+    </div>
+    <div class="flex items-center">
+      <i class="i-custom:phone"></i>
+      <span class="ms-2 grow">Phone</span>
+    </div>
+    <div class="flex items-center">
+      <i class="i-mi:filter"></i>
+      <span class="ms-2 grow">Filter</span>
     </div>
   </div>
 #+end_src

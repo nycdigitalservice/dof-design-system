@@ -99,10 +99,7 @@
             <div data-is="nyc-accordion">
               <article class="accordion__group">
                 <h3>
-                  <button is="toggle-button">
-                    Assessment definitions
-                    <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
-                  </button>
+                  Assessment definitions
                 </h3>
                 <div id="assessment-definitions" class="flow" hidden>
                   <p>The following alphabetical listing of terms is provided to help you understand property valuation and tax assessment:</p>
@@ -110,10 +107,7 @@
                   <div data-is="nyc-accordion">
                     <article class="accordion__group">
                       <h3>
-                        <button is="toggle-button" aria-controls="abatements">
-                          Abatements
-                          <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
-                        </button>
+                        Abatements
                       </h3>
                       <div id="abatements" hidden>
                         <p>Abatements reduce your taxes after they've been calculated. Different abatement programs are available for housing rehabilitation, revitalization and cooperatives and condominiums.</p>
@@ -121,10 +115,7 @@
                     </article>
                     <article class="accordion__group">
                       <h3>
-                        <button is="toggle-button" aria-controls="actual-assessed-value">
-                          Actual assessed value
-                          <i class="i-ri:arrow-down-s-line" aria-hidden="true"></i>
-                        </button>
+                        Actual assessed value
                       </h3>
                       <div id="actual-assessed-value" hidden>
                         <p>The assessed value before five year phase-in requirements (for some tax class 2 and all tax class 4 properties) and/or exemptions are applied.</p>
@@ -244,9 +235,12 @@
       <section>
         <div class="region container">
           <i class="i-ri:arrow-right-line"></i>
+          <i class="i-custom:phone"></i>
+          <i class="i-mi:filter"></i>
+          <a href="#" class="button" data-variant="primary">Primary btn</a>
         </div>
       </section>
-      <section>
+      <Section>
         <div class="container region">
           <h2>News and announcements</h2>
           <a href="#">Just a plain link</a>
@@ -258,10 +252,10 @@
               <button>
                 tax class 2 property
                 <i class="i-ri:information-fill color-primary"></i>
-                <tool-tip inert role="tooltip" tip-position="top">
+                <nyc-tooltip inert role="tooltip" tip-position="top">
                   <span class="font-bold block mb-2">Tax Class 2 Property</span>
                   Most residential properties with more than three units are class 2
-                </tool-tip>
+                </nyc-tooltip>
               </button>.
             </li>
             <li>The co-op or condo unit must be the owner's primary residence.</li>
