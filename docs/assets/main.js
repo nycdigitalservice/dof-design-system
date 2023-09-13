@@ -1,226 +1,5 @@
 const __uno = "";
 const main = "";
-const exemptions = [
-  {
-    title: "Cooperative and Condominium Abatement",
-    description: "For managing agents or boards representing condo or co-op unit owners",
-    url: "./coop-abatement.html",
-    tag: "homeowner"
-  },
-  {
-    title: "Senior Citizen Homeowner's Exemption (SCHE)",
-    description: "For homeowners 65 and older with combined annual income of $58,399 or less",
-    tag: "homeowner"
-  },
-  {
-    title: "Senior Citizen Rent Increase Exemption (SCRIE)",
-    description: "For landlords with tenants 65 and older that qualify for rent freezes",
-    tag: "landlord"
-  },
-  {
-    title: "School Tax Relief Exemption (STAR)",
-    description: "For homeowners currently enrolled in Basic STAR and Enhanced STAR Only available for renewals ",
-    tag: "homeowner"
-  },
-  {
-    title: "Non-profit exemptions",
-    description: "For properties owned by non-profit organizations",
-    tag: "non-profit-property-owner"
-  },
-  {
-    title: "Industrial and Commercial Abatement Program (ICAP)",
-    description: "For commercial and industrial properties in specific abatement zones undergoing significant construction",
-    tag: "commercial-property-owner,builder-developer"
-  },
-  {
-    title: "Veteran exemptions",
-    description: "For veterans, spouses of veterans, and Gold Star parents",
-    tag: "homeowner"
-  },
-  {
-    title: "Disability Rent Increase Exemption (DRIE)",
-    description: "For landlords with disabled tenants that qualify for rent freezes",
-    tag: "landlord"
-  },
-  {
-    title: "Disabled Homeowners Exemption (DHE)",
-    description: "For disabled homeowners with combined annual income of $58,399 or less",
-    tag: "homeowner"
-  },
-  {
-    title: "Payment in Lieu of Taxes Agreements (PILOT)",
-    description: "For manufacturing, industrial, and not-for-profit business properties",
-    tag: "commercial-property-owner,non-profit-property-owner"
-  },
-  {
-    title: "Industrial and Commercial Incentive Program (ICIP) ",
-    description: "For current ICIP benefit recipients Only available for renewals ",
-    tag: "commercial-property-owner,non-profit-property-owner"
-  },
-  {
-    title: "Solar Electric Generating System Abatement (SEGS)",
-    description: "For owners of properties that generate electricity using solar power",
-    tag: "homeowner,landlord,commercial-property-owner,government-property-owner,non-profit-property-owner,builder-developer"
-  },
-  {
-    title: "Clergy exemption",
-    description: "For active and retired clergy members and spouses of deceased clergy members",
-    tag: "homeowner"
-  },
-  {
-    title: "Major Capital Improvement Abatement (MCI)",
-    description: "For owners of rent-regulated properties planning major repairs or other improvement projects",
-    tag: "landlord,builder-developer"
-  },
-  {
-    title: "Green Roof Abatement",
-    description: "For owners of buildings with vegetation-covered roofs",
-    tag: "homeowner,landlord,commercial-property-owner,government-property-owner,non-profit-property-owner,builder-developer"
-  },
-  {
-    title: "Commercial Revitalization Program (CRP)",
-    description: "For commercial buildings in a specific abatement zone built before 1975",
-    tag: "commercial-property-owner,commercial-tenant,builder-developer"
-  },
-  {
-    title: "Childcare Center Abatement",
-    description: "For property owners who have created or expanded a childcare center in their building"
-  },
-  {
-    title: "Commercial Expansion Program (CEP)",
-    description: "For commercial offices and industrial properties in a specific abatement zone built before 1999",
-    tag: "commercial-property-owner,commercial-tenant,builder-developer"
-  },
-  {
-    title: "Clean Energy Systems Exemption",
-    description: "For property owners who have renewable energy technology including solar, wind, and battery systems",
-    tag: "homeowner,landlord,commercial-property-owner,government-property-owner,non-profit-property-owner,builder-developer"
-  },
-  {
-    title: "Domestic and foreign government exemptions",
-    description: "For federal, state, local, and foreign government entities",
-    tag: "government-property-owner"
-  },
-  {
-    title: "Disabled Crime Victim/Good Samaritan Exemption",
-    description: "For people with disabilities resulting from a crime",
-    tag: "homeowner"
-  }
-];
-const buildCardMarkup = ({ title, description, url = "http://google.com", tag = "homeowner" }) => `
-  <article class="card" data-tag="${tag}">
-  <header class="card__header">
-
-  <h2>
-  <a href="${url}" class="card__primary-action">
-<span>${title}</span>
-<span>  <i class="i-ri:arrow-right-line" aria-hidden="true"></i></span>
-</a>
-</h2>
-
-  </header>
-  <div class="card__body">
-${description}
-  </div>
-  </article>
-`;
-const buildCardsMarkup = (data) => data.map(buildCardMarkup).join("");
-const exemptionsListMarkup = buildCardsMarkup(exemptions);
-const suggestedContent = [
-  {
-    title: "Assessment information",
-    url: "https://www.nyc.gov/site/finance/taxes/property-assessments.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Property tax rebates",
-    url: "https://www.nyc.gov/site/finance/taxes/property-tax-rebate.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Property tax rates",
-    url: "https://www.nyc.gov/site/finance/taxes/property-tax-rates.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Calculate property taxes",
-    url: "https://www.nyc.gov/site/finance/taxes/calculating-your-property-taxes.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Property tax forms",
-    url: "https://www.nyc.gov/site/finance/taxes/property-forms/property-forms.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Update property and billing information",
-    url: "https://www.nyc.gov/site/finance/taxes/property-update-property-and-billing-information.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Payment plan information",
-    url: "https://www.nyc.gov/site/finance/taxes/property-payment-plans.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "How to divide and merge lots",
-    url: "https://www.nyc.gov/site/finance/taxes/property-dividing-and-merging-lots.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Real Property Transfer Tax information",
-    url: "https://www.nyc.gov/site/finance/taxes/property-real-property-transfer-tax-rptt.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Digital tax maps",
-    url: "https://www.nyc.gov/site/finance/taxes/property-digital-tax-map.page",
-    tags: ["data"]
-  },
-  {
-    title: "Record property-related documents",
-    url: "https://www.nyc.gov/site/finance/taxes/property-recording-property-related-documents.page",
-    tags: ["data"]
-  },
-  {
-    title: "Rolling sales data",
-    url: "https://www.nyc.gov/site/finance/taxes/property-rolling-sales-data.page",
-    tags: ["data"]
-  },
-  {
-    title: "Lien sales",
-    url: "https://www.nyc.gov/site/finance/taxes/property-lien-sales.page",
-    tags: ["sales-and-auctions"]
-  },
-  {
-    title: "Private asset auctions",
-    url: "https://www.nyc.gov/site/finance/taxes/property-private-asset-auctions.page",
-    tags: ["sales-and-auctions"]
-  }
-];
-const sections = {
-  "Property Tax": suggestedContent.filter((i) => i.tags.includes("property-tax")),
-  "Data": suggestedContent.filter((i) => i.tags.includes("data")),
-  "Sales and auctions": suggestedContent.filter((i) => i.tags.includes("sales-and-auctions"))
-};
-const sectionEls = (sectionsRef) => Object.keys(sectionsRef).map((section) => `
-<div class="flow" data-flow-space="m">
-  <h3 class="text-base">${section}</h3>
-<ul role="list" class="grid" data-flow-space="s">
-${listItemEls(sectionsRef[section])}
-</ul>
-  </div>
-`).join("");
-const listItemEls = (items) => items.map((item) => `<li>${linkEl(item)}</li>`).join("");
-const linkEl = ({ url, title }) => `
-  <a href="${url}" class="button" data-outline>
-  <span class="title">
-${title}
-  </span>
-  <i class="i-ri:arrow-right-line"></i>
-  </a>
-`;
-const suggestedContentListMarkup = sectionEls(sections);
 (() => {
   (function() {
     var attributesObserver = function(whenDefined2, MutationObserver2) {
@@ -827,7 +606,6 @@ const suggestedContentListMarkup = sectionEls(sections);
       } else {
         const nodes = this.removeEmptyTextNodes(this.element.childNodes);
         if (this.isHeading(nodes[0])) {
-          console.log("have initial heading", nodes[0]);
           this.headingTagName = nodes[0].nodeName;
           const groupsArr = chunkr(nodes, (n) => n.nodeName === this.headingTagName);
           const groups = groupsArr.map((group) => {
@@ -903,14 +681,16 @@ const suggestedContentListMarkup = sectionEls(sections);
       const firstChild = this.removeEmptyTextNodes(heading.childNodes)[0];
       let headingLabel;
       if (firstChild.nodeName !== "BUTTON") {
-        const button = this.createButton(firstChild, heading.parentNode.dataset.panelId);
+        const button = this.createButton(
+          firstChild,
+          heading.parentNode.dataset.panelId
+        );
         headingLabel = firstChild.nodeName !== "#text" ? firstChild.innerText : firstChild.data;
         heading.appendChild(button);
       } else {
         headingLabel = firstChild.innerText;
       }
-      let headingId = `${headingLabel.trim().replace(/[^\w\s]/gi, "").replace(/\s+/g, "-").toLowerCase()}-heading
-    `;
+      let headingId = `${headingLabel.trim().replace(/[^\w\s]/gi, "").replace(/\s+/g, "-").toLowerCase()}-heading`;
       if (document.getElementById(headingId)) {
         headingId = `${headingId}-${this.generateId()}`;
       }
@@ -995,6 +775,83 @@ const suggestedContentListMarkup = sectionEls(sections);
   } catch (e) {
     console.error(`Could not initialize Accordions: ${e}`);
   }
+  var NYCTabGroup = class extends HTMLElement {
+    connectedCallback() {
+      try {
+        this.tablist = this.querySelector("[data-tab-list]");
+        this.tabs = this.tablist.querySelectorAll("a");
+        this.panels = this.querySelectorAll("[data-tab-panels] > *");
+      } catch (err) {
+        console.error(`NYCTabGroup: ${err}`);
+        return;
+      }
+      this.tablist.setAttribute("role", "tablist");
+      this.setupTabs();
+      this.setupPanels();
+      this.tabs[0].removeAttribute("tabindex");
+      this.tabs[0].setAttribute("aria-selected", "true");
+      this.panels[0].hidden = false;
+    }
+    // The tab switching function
+    switchTab(oldTab, newTab) {
+      newTab.focus();
+      newTab.removeAttribute("tabindex");
+      newTab.setAttribute("aria-selected", "true");
+      oldTab.removeAttribute("aria-selected");
+      oldTab.setAttribute("tabindex", "-1");
+      let index = Array.prototype.indexOf.call(this.tabs, newTab);
+      let oldIndex = Array.prototype.indexOf.call(this.tabs, oldTab);
+      this.panels[oldIndex].hidden = true;
+      this.panels[index].hidden = false;
+    }
+    setupTabs() {
+      Array.prototype.forEach.call(this.tabs, (tab, i) => {
+        tab.setAttribute("role", "tab");
+        tab.setAttribute("id", "tab" + (i + 1));
+        tab.setAttribute("tabindex", "-1");
+        tab.parentNode.setAttribute("role", "presentation");
+        tab.addEventListener("click", (e) => {
+          e.preventDefault();
+          let currentTab = this.tablist.querySelector("[aria-selected]");
+          if (e.currentTarget !== currentTab) {
+            this.switchTab(currentTab, e.currentTarget);
+          }
+        });
+        tab.addEventListener("keydown", (e) => {
+          let index = Array.prototype.indexOf.call(this.tabs, e.currentTarget);
+          let dir = e.which === 37 ? index - 1 : e.which === 39 ? index + 1 : e.which === 40 ? "down" : null;
+          if (dir !== null) {
+            e.preventDefault();
+            dir === "down" ? this.panels[i].focus() : this.tabs[dir] ? this.switchTab(e.currentTarget, this.tabs[dir]) : void 0;
+          }
+        });
+      });
+    }
+    setupPanels() {
+      Array.prototype.forEach.call(this.panels, (panel, i) => {
+        panel.setAttribute("role", "tabpanel");
+        panel.setAttribute("tabindex", "-1");
+        panel.getAttribute("id");
+        panel.setAttribute("aria-labelledby", this.tabs[i].id);
+        panel.hidden = true;
+      });
+    }
+  };
+  customElements.define("nyc-tab-group", NYCTabGroup);
+  var wrapElement = (el, newTag) => {
+    const parent = el.parentNode;
+    const elIndex = [...parent.children].indexOf(el);
+    const ce = document.createElement(newTag);
+    ce.appendChild(el);
+    parent.insertBefore(ce, parent.childNodes[elIndex]);
+  };
+  try {
+    Array.from(
+      document.querySelectorAll("[data-is=nyc-tab-group]")
+    ).map((el) => wrapElement(el, "nyc-tab-group"));
+  } catch (e) {
+    console.error(`Could not initialize TabGroup: ${e}`);
+  }
 })();
 /*! Bundled license information:
 
@@ -1002,6 +859,366 @@ const suggestedContentListMarkup = sectionEls(sections);
   (*! (c) Andrea Giammarchi @webreflection ISC *)
   (*! (c) Andrea Giammarchi - ISC *)
 */
+const exemptions = [
+  {
+    title: "Cooperative and Condominium Abatement",
+    description: "For managing agents or boards representing condo or co-op unit owners",
+    url: "./coop-abatement.html",
+    tag: "homeowner"
+  },
+  {
+    title: "Senior Citizen Homeowner's Exemption (SCHE)",
+    description: "For homeowners 65 and older with combined annual income of $58,399 or less",
+    tag: "homeowner"
+  },
+  {
+    title: "Senior Citizen Rent Increase Exemption (SCRIE)",
+    description: "For landlords with tenants 65 and older that qualify for rent freezes",
+    tag: "landlord"
+  },
+  {
+    title: "School Tax Relief Exemption (STAR)",
+    description: "For homeowners currently enrolled in Basic STAR and Enhanced STAR Only available for renewals ",
+    tag: "homeowner"
+  },
+  {
+    title: "Non-profit exemptions",
+    description: "For properties owned by non-profit organizations",
+    tag: "non-profit-property-owner"
+  },
+  {
+    title: "Industrial and Commercial Abatement Program (ICAP)",
+    description: "For commercial and industrial properties in specific abatement zones undergoing significant construction",
+    tag: "commercial-property-owner,builder-developer"
+  },
+  {
+    title: "Veteran exemptions",
+    description: "For veterans, spouses of veterans, and Gold Star parents",
+    tag: "homeowner"
+  },
+  {
+    title: "Disability Rent Increase Exemption (DRIE)",
+    description: "For landlords with disabled tenants that qualify for rent freezes",
+    tag: "landlord"
+  },
+  {
+    title: "Disabled Homeowners Exemption (DHE)",
+    description: "For disabled homeowners with combined annual income of $58,399 or less",
+    tag: "homeowner"
+  },
+  {
+    title: "Payment in Lieu of Taxes Agreements (PILOT)",
+    description: "For manufacturing, industrial, and not-for-profit business properties",
+    tag: "commercial-property-owner,non-profit-property-owner"
+  },
+  {
+    title: "Industrial and Commercial Incentive Program (ICIP) ",
+    description: "For current ICIP benefit recipients Only available for renewals ",
+    tag: "commercial-property-owner,non-profit-property-owner"
+  },
+  {
+    title: "Solar Electric Generating System Abatement (SEGS)",
+    description: "For owners of properties that generate electricity using solar power",
+    tag: "homeowner,landlord,commercial-property-owner,government-property-owner,non-profit-property-owner,builder-developer"
+  },
+  {
+    title: "Clergy exemption",
+    description: "For active and retired clergy members and spouses of deceased clergy members",
+    tag: "homeowner"
+  },
+  {
+    title: "Major Capital Improvement Abatement (MCI)",
+    description: "For owners of rent-regulated properties planning major repairs or other improvement projects",
+    tag: "landlord,builder-developer"
+  },
+  {
+    title: "Green Roof Abatement",
+    description: "For owners of buildings with vegetation-covered roofs",
+    tag: "homeowner,landlord,commercial-property-owner,government-property-owner,non-profit-property-owner,builder-developer"
+  },
+  {
+    title: "Commercial Revitalization Program (CRP)",
+    description: "For commercial buildings in a specific abatement zone built before 1975",
+    tag: "commercial-property-owner,commercial-tenant,builder-developer"
+  },
+  {
+    title: "Childcare Center Abatement",
+    description: "For property owners who have created or expanded a childcare center in their building"
+  },
+  {
+    title: "Commercial Expansion Program (CEP)",
+    description: "For commercial offices and industrial properties in a specific abatement zone built before 1999",
+    tag: "commercial-property-owner,commercial-tenant,builder-developer"
+  },
+  {
+    title: "Clean Energy Systems Exemption",
+    description: "For property owners who have renewable energy technology including solar, wind, and battery systems",
+    tag: "homeowner,landlord,commercial-property-owner,government-property-owner,non-profit-property-owner,builder-developer"
+  },
+  {
+    title: "Domestic and foreign government exemptions",
+    description: "For federal, state, local, and foreign government entities",
+    tag: "government-property-owner"
+  },
+  {
+    title: "Disabled Crime Victim/Good Samaritan Exemption",
+    description: "For people with disabilities resulting from a crime",
+    tag: "homeowner"
+  }
+];
+const buildCardMarkup = ({ title, description, url = "http://google.com", tag = "homeowner" }) => `
+  <article class="card" data-tag="${tag}">
+  <header class="card__header">
+
+  <h2>
+  <a href="${url}" class="card__primary-action">
+<span>${title}</span>
+<span>  <i class="i-ri:arrow-right-line" aria-hidden="true"></i></span>
+</a>
+</h2>
+
+  </header>
+  <div class="card__body">
+${description}
+  </div>
+  </article>
+`;
+const buildCardsMarkup = (data) => data.map(buildCardMarkup).join("");
+const exemptionsListMarkup = buildCardsMarkup(exemptions);
+const suggestedContent = [
+  {
+    title: "Assessment information",
+    url: "https://www.nyc.gov/site/finance/taxes/property-assessments.page",
+    tags: ["property-tax"]
+  },
+  {
+    title: "Property tax rebates",
+    url: "https://www.nyc.gov/site/finance/taxes/property-tax-rebate.page",
+    tags: ["property-tax"]
+  },
+  {
+    title: "Property tax rates",
+    url: "https://www.nyc.gov/site/finance/taxes/property-tax-rates.page",
+    tags: ["property-tax"]
+  },
+  {
+    title: "Calculate property taxes",
+    url: "https://www.nyc.gov/site/finance/taxes/calculating-your-property-taxes.page",
+    tags: ["property-tax"]
+  },
+  {
+    title: "Property tax forms",
+    url: "https://www.nyc.gov/site/finance/taxes/property-forms/property-forms.page",
+    tags: ["property-tax"]
+  },
+  {
+    title: "Update property and billing information",
+    url: "https://www.nyc.gov/site/finance/taxes/property-update-property-and-billing-information.page",
+    tags: ["property-tax"]
+  },
+  {
+    title: "Payment plan information",
+    url: "https://www.nyc.gov/site/finance/taxes/property-payment-plans.page",
+    tags: ["property-tax"]
+  },
+  {
+    title: "How to divide and merge lots",
+    url: "https://www.nyc.gov/site/finance/taxes/property-dividing-and-merging-lots.page",
+    tags: ["property-tax"]
+  },
+  {
+    title: "Real Property Transfer Tax information",
+    url: "https://www.nyc.gov/site/finance/taxes/property-real-property-transfer-tax-rptt.page",
+    tags: ["property-tax"]
+  },
+  {
+    title: "Digital tax maps",
+    url: "https://www.nyc.gov/site/finance/taxes/property-digital-tax-map.page",
+    tags: ["data"]
+  },
+  {
+    title: "Record property-related documents",
+    url: "https://www.nyc.gov/site/finance/taxes/property-recording-property-related-documents.page",
+    tags: ["data"]
+  },
+  {
+    title: "Rolling sales data",
+    url: "https://www.nyc.gov/site/finance/taxes/property-rolling-sales-data.page",
+    tags: ["data"]
+  },
+  {
+    title: "Lien sales",
+    url: "https://www.nyc.gov/site/finance/taxes/property-lien-sales.page",
+    tags: ["sales-and-auctions"]
+  },
+  {
+    title: "Private asset auctions",
+    url: "https://www.nyc.gov/site/finance/taxes/property-private-asset-auctions.page",
+    tags: ["sales-and-auctions"]
+  }
+];
+const sections$2 = {
+  "Property Tax": suggestedContent.filter((i) => i.tags.includes("property-tax")),
+  "Data": suggestedContent.filter((i) => i.tags.includes("data")),
+  "Sales and auctions": suggestedContent.filter((i) => i.tags.includes("sales-and-auctions"))
+};
+const sectionEls$1 = (sectionsRef) => Object.keys(sectionsRef).map((section) => `
+<div class="flow" data-flow-space="m">
+  <h3 class="text-base">${section}</h3>
+<ul role="list" class="grid" data-flow-space="s">
+${listItemEls$1(sectionsRef[section])}
+</ul>
+  </div>
+`).join("");
+const listItemEls$1 = (items) => items.map((item) => `<li>${linkEl$1(item)}</li>`).join("");
+const linkEl$1 = ({ url, title }) => `
+  <a href="${url}" class="button" data-outline>
+  <span class="title">
+${title}
+  </span>
+  <i class="i-ri:arrow-right-line"></i>
+  </a>
+`;
+const suggestedContentListMarkup = sectionEls$1(sections$2);
+const links = [
+  {
+    title: "Assessment/Valuation",
+    url: "https://www.nyc.gov/site/finance/about/contact-by-email/assessment-and-valuation.page",
+    tags: ["property-related-inquiries"]
+  },
+  {
+    title: "Collection Agency Complaints",
+    url: "https://www.nyc.gov/site/finance/about/contact-by-email/contact-collection-agency-complaints.page",
+    tags: ["property-related-inquiries"]
+  },
+  {
+    title: "Condominium Online Apportionment Application Password Reset",
+    url: "https://www.nyc.gov/site/finance/about/contact-by-email/contact-us-online-condo-apportionment-application-password-reset.page",
+    tags: ["property-related-inquiries"]
+  },
+  {
+    title: "EFT Payments",
+    url: "https://www.nyc.gov/site/finance/about/contact-by-email/contact-electronic-tax-filing-and-payments.page",
+    tags: ["property-related-inquiries"]
+  },
+  {
+    title: "Audits & Appeals",
+    url: "https://www.nyc.gov/site/finance/about/contact-by-email/contact-audit-and-appeals.page",
+    tags: ["business-taxes"]
+  },
+  {
+    title: "Business Tax Modernized e-File Program Inquiries",
+    url: "https://www.nyc.gov/assets/finance/jump/contact-bts.html",
+    tags: ["business-taxes"]
+  },
+  {
+    title: "Collections, Notices, Judgments, and Warrants",
+    url: "https://www.nyc.gov/site/finance/about/contact-by-email/contact-collections-notices-judgments-warrants.page",
+    tags: ["business-taxes"]
+  },
+  {
+    title: "e-Services (Filing, Payment and Extension Inquiries)",
+    url: "https://www.nyc.gov/assets/finance/jump/contact-bts.html",
+    tags: ["business-taxes"]
+  },
+  {
+    title: "Parking Ticket Payment Plans – Lost Plan ID",
+    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-parking-payment-plan-forgot-id.html",
+    tags: ["parking-and-vehicles"]
+  },
+  {
+    title: "Collections",
+    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-parking-collections.html",
+    tags: ["parking-and-vehicles"]
+  },
+  {
+    title: "Commercial Motor Vehicle Tax (CMVT)",
+    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-parking-cmvt.html",
+    tags: ["parking-and-vehicles"]
+  },
+  {
+    title: "Diplomat/Consular Illegal Parking Report",
+    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-parking-diplomat-consular.html",
+    tags: ["parking-and-vehicles"]
+  },
+  {
+    title: "Childcare Center Abatement",
+    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-childcare-center.html",
+    tags: ["property-benefits"]
+  },
+  {
+    title: "Clean Energy Systems Abatement",
+    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-clean-energy.html",
+    tags: ["property-benefits"]
+  },
+  {
+    title: "Clergy",
+    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-clergy-benefit.html",
+    tags: ["property-benefits"]
+  },
+  {
+    title: "Cooperative and Condominium Tax Abatement Program",
+    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-ccop-condo-benefit.html",
+    tags: ["property-benefits"]
+  }
+];
+const sections$1 = [
+  ["property-related-inquiries", "Property-related inquiries"],
+  ["business-taxes", "Business taxes"],
+  ["parking-and-vehicles", "Parking & vehicles"],
+  ["property-benefits", "Property benefits"]
+];
+const sectionEls = (sectionsRef) => {
+  const markup = sectionsRef.map((section, i) => `
+<div data-tag="${section[0]}" ${i !== 0 ? "hidden" : ""}>
+<div class="flow w-full">
+  <h3>${section[1]}</h3>
+<ul role="list" class="grid" data-flow-space="s">
+${listItemEls(links.filter((i2) => i2.tags.includes(section[0])))}
+</ul>
+</div>
+  </div>
+`).join("");
+  return markup;
+};
+const listItemEls = (items) => items.map((item) => `<li>${linkEl(item)}</li>`).join("");
+const linkEl = ({ url, title }) => `
+  <a href="${url}" class="button">
+  <span class="title">
+${title}
+  </span>
+  <i class="i-ri:arrow-right-line"></i>
+  </a>
+`;
+const contactTopicsMarkup = sectionEls(sections$1);
+const sections = [
+  ["property-related-inquiries", "Property-related inquiries"],
+  ["business-taxes", "Business taxes"],
+  ["parking-and-vehicles", "Parking & vehicles"],
+  ["property-benefits", "Property benefits"]
+];
+const contactFiltersRadio = sections.map(
+  (s, i) => `
+<div>
+<input type="radio" name="contact-filter" id="${s[0]}-input" value="${s[0]}" ${i === 0 ? "checked" : ""}>
+<label class="button" for="${s[0]}-input" data-variant="pill">${s[1]}</label>
+</div>
+`
+).join("");
+const contactFiltersOptions = sections.map(
+  (s, i) => `
+<option ${i === 0 ? "selected" : ""} value="${s[0]}">${s[1]}</option>
+`
+).join("");
+const contactFiltersMarkup = `
+<form>
+<div class="select md:hidden">
+<select aria-controls="contact-topics" data-action="filter">${contactFiltersOptions}</select>
+<i class="i-ri:arrow-down-s-line"></i></div>
+<div class="hidden md:flex gap-2" id="contact-filters-radiogroup" role="radiogroup" aria-labelledby="id-topic-select-table" aria-controls="contact-topics">
+${contactFiltersRadio}
+</div>
+</form>`;
 const supportsContainerQueries = "container" in document.documentElement.style;
 if (!supportsContainerQueries) {
   import("https://cdn.skypack.dev/container-query-polyfill");
@@ -1011,16 +1228,37 @@ try {
   if (exemptionsContainer) {
     exemptionsContainer.innerHTML = exemptionsListMarkup;
   }
+  const contactTopicsContainer = document.getElementById("contact-topics");
+  if (contactTopicsContainer) {
+    contactTopicsContainer.innerHTML = contactTopicsMarkup;
+  }
+  const filterChildren = (children, value) => {
+    children.forEach((child) => {
+      const tags = child.dataset.tag.split(",");
+      tags.includes(value) || value === "other" || value === "" ? child.removeAttribute("hidden") : child.setAttribute("hidden", "");
+    });
+  };
+  const contactFiltersContainer = document.getElementById("contact-filters");
+  if (contactFiltersContainer) {
+    contactFiltersContainer.innerHTML = contactFiltersMarkup;
+    const filterInputs = contactFiltersContainer.querySelectorAll("input[type=radio][name=contact-filter]");
+    contactFiltersContainer.addEventListener("change", (evt) => {
+      if (evt.target.matches("input[type=radio][name=contact-filter]")) {
+        const input = evt.target;
+        const { value } = input;
+        filterInputs.forEach((i) => i.removeAttribute("checked"));
+        input.setAttribute("checked", "checked");
+        filterChildren(Array.from(contactTopicsContainer.querySelectorAll("[data-tag]")), value);
+      }
+    });
+  }
   const filterControls = document.querySelectorAll("[aria-controls][data-action=filter]");
   if (filterControls.length > 0) {
     filterControls.forEach((controller) => {
       controller.addEventListener("change", ({ target }) => {
         const { value } = target;
         const controlsParent = document.getElementById(target.getAttribute("aria-controls"));
-        Array.from(controlsParent.children).map((child) => {
-          const tags = child.dataset.tag.split(",");
-          child.style.display = tags.includes(value) || value === "other" || value === "" ? "flex" : "none";
-        });
+        filterChildren(Array.from(controlsParent.children), value);
       });
     });
   }
