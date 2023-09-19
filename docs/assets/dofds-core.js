@@ -1,30 +1,7 @@
-"use strict";
-var __create = Object.create;
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getProtoOf = Object.getPrototypeOf;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __copyProps = (to, from, except, desc) => {
-  if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from))
-      if (!__hasOwnProp.call(to, key) && key !== except)
-        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
-  }
-  return to;
-};
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
-  // If the importer is in node compatibility mode or this is not an ESM
-  // file that has been converted to a CommonJS file using a Babel-
-  // compatible transform (i.e. "__esModule" has not been set), then set
-  // "default" to the CommonJS "module.exports" for node compatibility.
-  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
-  mod
-));
-const __uno = "";
-const main = "";
 (() => {
+  // ../../node_modules/.pnpm/@ungap+custom-elements@1.3.0/node_modules/@ungap/custom-elements/index.js
   (function() {
+    "use strict";
     var attributesObserver = function(whenDefined2, MutationObserver2) {
       var attributeChanged = function attributeChanged2(records) {
         for (var i = 0, length = records.length; i < length; i++)
@@ -257,7 +234,7 @@ const main = "";
         parse: parse2
       };
     };
-    var _self = self, document$1 = _self.document, Map = _self.Map, MutationObserver$1 = _self.MutationObserver, Object$1 = _self.Object, Set$1 = _self.Set, WeakMap = _self.WeakMap, Element = _self.Element, HTMLElement2 = _self.HTMLElement, Node = _self.Node, Error2 = _self.Error, TypeError$1 = _self.TypeError, Reflect2 = _self.Reflect;
+    var _self = self, document$1 = _self.document, Map = _self.Map, MutationObserver$1 = _self.MutationObserver, Object$1 = _self.Object, Set$1 = _self.Set, WeakMap = _self.WeakMap, Element = _self.Element, HTMLElement2 = _self.HTMLElement, Node = _self.Node, Error = _self.Error, TypeError$1 = _self.TypeError, Reflect = _self.Reflect;
     var defineProperty = Object$1.defineProperty, keys = Object$1.keys, getOwnPropertyNames = Object$1.getOwnPropertyNames, setPrototypeOf = Object$1.setPrototypeOf;
     var legacy = !self.customElements;
     var expando = function expando2(element) {
@@ -332,7 +309,7 @@ const main = "";
       self.customElements = {
         define: function define2(is2, Class) {
           if (registry.has(is2))
-            throw new Error2('the name "'.concat(is2, '" has already been used with this registry'));
+            throw new Error('the name "'.concat(is2, '" has already been used with this registry'));
           classes.set(Class, is2);
           prototypes.set(is2, Class.prototype);
           registry.set(is2, Class);
@@ -397,7 +374,7 @@ const main = "";
       var customElements2 = self.customElements;
       var _createElement = document$1.createElement;
       var define = customElements2.define, _get = customElements2.get, upgrade = customElements2.upgrade;
-      var _ref = Reflect2 || {
+      var _ref = Reflect || {
         construct: function construct2(HTMLElement3) {
           return HTMLElement3.call(this);
         }
@@ -519,7 +496,7 @@ const main = "";
       };
       customElements2.define = function(is2, Class, options) {
         if (getCE(is2))
-          throw new Error2("'".concat(is2, "' has already been defined as a custom element"));
+          throw new Error("'".concat(is2, "' has already been defined as a custom element"));
         var selector;
         var tag = options && options["extends"];
         _classes.set(Class, tag ? {
@@ -549,6 +526,8 @@ const main = "";
       };
     }
   })();
+
+  // ../utilities/src/js/toggle.js
   var toggle_default = (controller) => {
     const controls = document.getElementById(controller.getAttribute("aria-controls"));
     const isExpanded = controller.getAttribute("aria-expanded").toLowerCase() === "true";
@@ -556,6 +535,8 @@ const main = "";
     isExpanded ? controls.setAttribute("hidden", "") : controls.removeAttribute("hidden");
     return controller;
   };
+
+  // ../utilities/src/js/chunk-array.js
   var chunk_array_default = (array, chunkSize) => {
     const arr = [];
     for (let i = 0; i < array.length; i += chunkSize) {
@@ -564,9 +545,13 @@ const main = "";
     }
     return arr;
   };
+
+  // ../utilities/src/js/is-alternating.js
   var is_alternating_default = (n) => n.every((el, i) => {
     return n[i & 1].nodeName == el.nodeName;
   });
+
+  // ../utilities/src/js/wrap-element.js
   var wrap_element_default = (el, newTag) => {
     const parent = el.parentNode;
     const elIndex = [...parent.children].indexOf(el);
@@ -574,6 +559,8 @@ const main = "";
     ce.appendChild(el);
     parent.insertBefore(ce, parent.childNodes[elIndex + 1]);
   };
+
+  // ../utilities/src/js/chunk.js
   var chunkr = (arr, cond) => {
     const res = [];
     let chunk = [];
@@ -591,6 +578,8 @@ const main = "";
     })(arr);
     return res;
   };
+
+  // ../components/button/src/js/toggle-button.js
   customElements.define(
     "toggle-button",
     class ToggleButton extends HTMLButtonElement {
@@ -621,6 +610,8 @@ const main = "";
     },
     { extends: "button" }
   );
+
+  // ../components/accordion/src/accordion.js
   var Accordion = class {
     constructor(element) {
       this.headingTagName = null;
@@ -790,6 +781,8 @@ const main = "";
       return null;
     }
   };
+
+  // ../components/accordion/src/nyc-accordion.js
   var NYCAccordion = class extends HTMLElement {
     connectedCallback() {
       if (!this.firstChild)
@@ -798,6 +791,8 @@ const main = "";
     }
   };
   customElements.define("nyc-accordion", NYCAccordion);
+
+  // ../components/accordion/src/index.js
   try {
     Array.from(
       document.querySelectorAll("[data-is=nyc-accordion]")
@@ -805,6 +800,8 @@ const main = "";
   } catch (e) {
     console.error(`Could not initialize Accordions: ${e}`);
   }
+
+  // ../components/tab-group/src/tab-group.js
   var NYCTabGroup = class extends HTMLElement {
     connectedCallback() {
       try {
@@ -861,13 +858,15 @@ const main = "";
       Array.prototype.forEach.call(this.panels, (panel, i) => {
         panel.setAttribute("role", "tabpanel");
         panel.setAttribute("tabindex", "-1");
-        panel.getAttribute("id");
+        let id = panel.getAttribute("id");
         panel.setAttribute("aria-labelledby", this.tabs[i].id);
         panel.hidden = true;
       });
     }
   };
   customElements.define("nyc-tab-group", NYCTabGroup);
+
+  // ../components/tab-group/src/index.js
   try {
     Array.from(
       document.querySelectorAll("[data-is=nyc-tab-group]")
@@ -875,6 +874,8 @@ const main = "";
   } catch (e) {
     console.error(`Could not initialize TabGroup: ${e}`);
   }
+
+  // ../components/tag-filter/src/tag-filter.js
   var NYCTagFilter = class extends HTMLElement {
     connectedCallback() {
       if (this.isConnected) {
@@ -898,6 +899,8 @@ const main = "";
     }
   };
   customElements.define("nyc-tag-filter", NYCTagFilter);
+
+  // ../components/tag-filter/src/index.js
   try {
     Array.from(
       document.querySelectorAll("[data-is=nyc-tag-filter]")
@@ -912,374 +915,3 @@ const main = "";
   (*! (c) Andrea Giammarchi @webreflection ISC *)
   (*! (c) Andrea Giammarchi - ISC *)
 */
-const exemptions = [
-  {
-    title: "Cooperative and Condominium Abatement",
-    description: "For managing agents or boards representing condo or co-op unit owners",
-    url: "./coop-abatement.html",
-    tag: "homeowner"
-  },
-  {
-    title: "Senior Citizen Homeowner's Exemption (SCHE)",
-    description: "For homeowners 65 and older with combined annual income of $58,399 or less",
-    tag: "homeowner"
-  },
-  {
-    title: "Senior Citizen Rent Increase Exemption (SCRIE)",
-    description: "For landlords with tenants 65 and older that qualify for rent freezes",
-    tag: "landlord"
-  },
-  {
-    title: "School Tax Relief Exemption (STAR)",
-    description: "For homeowners currently enrolled in Basic STAR and Enhanced STAR Only available for renewals ",
-    tag: "homeowner"
-  },
-  {
-    title: "Non-profit exemptions",
-    description: "For properties owned by non-profit organizations",
-    tag: "non-profit-property-owner"
-  },
-  {
-    title: "Industrial and Commercial Abatement Program (ICAP)",
-    description: "For commercial and industrial properties in specific abatement zones undergoing significant construction",
-    tag: "commercial-property-owner,builder-developer"
-  },
-  {
-    title: "Veteran exemptions",
-    description: "For veterans, spouses of veterans, and Gold Star parents",
-    tag: "homeowner"
-  },
-  {
-    title: "Disability Rent Increase Exemption (DRIE)",
-    description: "For landlords with disabled tenants that qualify for rent freezes",
-    tag: "landlord"
-  },
-  {
-    title: "Disabled Homeowners Exemption (DHE)",
-    description: "For disabled homeowners with combined annual income of $58,399 or less",
-    tag: "homeowner"
-  },
-  {
-    title: "Payment in Lieu of Taxes Agreements (PILOT)",
-    description: "For manufacturing, industrial, and not-for-profit business properties",
-    tag: "commercial-property-owner,non-profit-property-owner"
-  },
-  {
-    title: "Industrial and Commercial Incentive Program (ICIP) ",
-    description: "For current ICIP benefit recipients Only available for renewals ",
-    tag: "commercial-property-owner,non-profit-property-owner"
-  },
-  {
-    title: "Solar Electric Generating System Abatement (SEGS)",
-    description: "For owners of properties that generate electricity using solar power",
-    tag: "homeowner,landlord,commercial-property-owner,government-property-owner,non-profit-property-owner,builder-developer"
-  },
-  {
-    title: "Clergy exemption",
-    description: "For active and retired clergy members and spouses of deceased clergy members",
-    tag: "homeowner"
-  },
-  {
-    title: "Major Capital Improvement Abatement (MCI)",
-    description: "For owners of rent-regulated properties planning major repairs or other improvement projects",
-    tag: "landlord,builder-developer"
-  },
-  {
-    title: "Green Roof Abatement",
-    description: "For owners of buildings with vegetation-covered roofs",
-    tag: "homeowner,landlord,commercial-property-owner,government-property-owner,non-profit-property-owner,builder-developer"
-  },
-  {
-    title: "Commercial Revitalization Program (CRP)",
-    description: "For commercial buildings in a specific abatement zone built before 1975",
-    tag: "commercial-property-owner,commercial-tenant,builder-developer"
-  },
-  {
-    title: "Childcare Center Abatement",
-    description: "For property owners who have created or expanded a childcare center in their building"
-  },
-  {
-    title: "Commercial Expansion Program (CEP)",
-    description: "For commercial offices and industrial properties in a specific abatement zone built before 1999",
-    tag: "commercial-property-owner,commercial-tenant,builder-developer"
-  },
-  {
-    title: "Clean Energy Systems Exemption",
-    description: "For property owners who have renewable energy technology including solar, wind, and battery systems",
-    tag: "homeowner,landlord,commercial-property-owner,government-property-owner,non-profit-property-owner,builder-developer"
-  },
-  {
-    title: "Domestic and foreign government exemptions",
-    description: "For federal, state, local, and foreign government entities",
-    tag: "government-property-owner"
-  },
-  {
-    title: "Disabled Crime Victim/Good Samaritan Exemption",
-    description: "For people with disabilities resulting from a crime",
-    tag: "homeowner"
-  }
-];
-const buildCardMarkup = ({ title, description, url = "http://google.com", tag = "homeowner" }) => `
-  <article class="card" data-tag="${tag}">
-  <header class="card__header">
-
-  <h2>
-  <a href="${url}" class="card__primary-action">
-<span>${title}</span>
-<span>  <i class="i-ri:arrow-right-line" aria-hidden="true"></i></span>
-</a>
-</h2>
-
-  </header>
-  <div class="card__body">
-${description}
-  </div>
-  </article>
-`;
-const buildCardsMarkup = (data) => data.map(buildCardMarkup).join("");
-const exemptionsListMarkup = buildCardsMarkup(exemptions);
-const suggestedContent = [
-  {
-    title: "Assessment information",
-    url: "https://www.nyc.gov/site/finance/taxes/property-assessments.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Property tax rebates",
-    url: "https://www.nyc.gov/site/finance/taxes/property-tax-rebate.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Property tax rates",
-    url: "https://www.nyc.gov/site/finance/taxes/property-tax-rates.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Calculate property taxes",
-    url: "https://www.nyc.gov/site/finance/taxes/calculating-your-property-taxes.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Property tax forms",
-    url: "https://www.nyc.gov/site/finance/taxes/property-forms/property-forms.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Update property and billing information",
-    url: "https://www.nyc.gov/site/finance/taxes/property-update-property-and-billing-information.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Payment plan information",
-    url: "https://www.nyc.gov/site/finance/taxes/property-payment-plans.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "How to divide and merge lots",
-    url: "https://www.nyc.gov/site/finance/taxes/property-dividing-and-merging-lots.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Real Property Transfer Tax information",
-    url: "https://www.nyc.gov/site/finance/taxes/property-real-property-transfer-tax-rptt.page",
-    tags: ["property-tax"]
-  },
-  {
-    title: "Digital tax maps",
-    url: "https://www.nyc.gov/site/finance/taxes/property-digital-tax-map.page",
-    tags: ["data"]
-  },
-  {
-    title: "Record property-related documents",
-    url: "https://www.nyc.gov/site/finance/taxes/property-recording-property-related-documents.page",
-    tags: ["data"]
-  },
-  {
-    title: "Rolling sales data",
-    url: "https://www.nyc.gov/site/finance/taxes/property-rolling-sales-data.page",
-    tags: ["data"]
-  },
-  {
-    title: "Lien sales",
-    url: "https://www.nyc.gov/site/finance/taxes/property-lien-sales.page",
-    tags: ["sales-and-auctions"]
-  },
-  {
-    title: "Private asset auctions",
-    url: "https://www.nyc.gov/site/finance/taxes/property-private-asset-auctions.page",
-    tags: ["sales-and-auctions"]
-  }
-];
-const sections$2 = {
-  "Property Tax": suggestedContent.filter((i) => i.tags.includes("property-tax")),
-  "Data": suggestedContent.filter((i) => i.tags.includes("data")),
-  "Sales and auctions": suggestedContent.filter((i) => i.tags.includes("sales-and-auctions"))
-};
-const sectionEls$1 = (sectionsRef) => Object.keys(sectionsRef).map((section) => `
-<div class="flow" data-flow-space="m">
-  <h3 class="text-base">${section}</h3>
-<ul role="list" class="grid" data-flow-space="s">
-${listItemEls$1(sectionsRef[section])}
-</ul>
-  </div>
-`).join("");
-const listItemEls$1 = (items) => items.map((item) => `<li>${linkEl$1(item)}</li>`).join("");
-const linkEl$1 = ({ url, title }) => `
-  <a href="${url}" class="button" data-outline>
-  <span class="title">
-${title}
-  </span>
-  <i class="i-ri:arrow-right-line"></i>
-  </a>
-`;
-const suggestedContentListMarkup = sectionEls$1(sections$2);
-const links = [
-  {
-    title: "Assessment/Valuation",
-    url: "https://www.nyc.gov/site/finance/about/contact-by-email/assessment-and-valuation.page",
-    tags: ["property-related-inquiries"]
-  },
-  {
-    title: "Collection Agency Complaints",
-    url: "https://www.nyc.gov/site/finance/about/contact-by-email/contact-collection-agency-complaints.page",
-    tags: ["property-related-inquiries"]
-  },
-  {
-    title: "Condominium Online Apportionment Application Password Reset",
-    url: "https://www.nyc.gov/site/finance/about/contact-by-email/contact-us-online-condo-apportionment-application-password-reset.page",
-    tags: ["property-related-inquiries"]
-  },
-  {
-    title: "EFT Payments",
-    url: "https://www.nyc.gov/site/finance/about/contact-by-email/contact-electronic-tax-filing-and-payments.page",
-    tags: ["property-related-inquiries"]
-  },
-  {
-    title: "Audits & Appeals",
-    url: "https://www.nyc.gov/site/finance/about/contact-by-email/contact-audit-and-appeals.page",
-    tags: ["business-taxes"]
-  },
-  {
-    title: "Business Tax Modernized e-File Program Inquiries",
-    url: "https://www.nyc.gov/assets/finance/jump/contact-bts.html",
-    tags: ["business-taxes"]
-  },
-  {
-    title: "Collections, Notices, Judgments, and Warrants",
-    url: "https://www.nyc.gov/site/finance/about/contact-by-email/contact-collections-notices-judgments-warrants.page",
-    tags: ["business-taxes"]
-  },
-  {
-    title: "e-Services (Filing, Payment and Extension Inquiries)",
-    url: "https://www.nyc.gov/assets/finance/jump/contact-bts.html",
-    tags: ["business-taxes"]
-  },
-  {
-    title: "Parking Ticket Payment Plans – Lost Plan ID",
-    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-parking-payment-plan-forgot-id.html",
-    tags: ["parking-and-vehicles"]
-  },
-  {
-    title: "Collections",
-    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-parking-collections.html",
-    tags: ["parking-and-vehicles"]
-  },
-  {
-    title: "Commercial Motor Vehicle Tax (CMVT)",
-    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-parking-cmvt.html",
-    tags: ["parking-and-vehicles"]
-  },
-  {
-    title: "Diplomat/Consular Illegal Parking Report",
-    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-parking-diplomat-consular.html",
-    tags: ["parking-and-vehicles"]
-  },
-  {
-    title: "Childcare Center Abatement",
-    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-childcare-center.html",
-    tags: ["property-benefits"]
-  },
-  {
-    title: "Clean Energy Systems Abatement",
-    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-clean-energy.html",
-    tags: ["property-benefits"]
-  },
-  {
-    title: "Clergy",
-    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-clergy-benefit.html",
-    tags: ["property-benefits"]
-  },
-  {
-    title: "Cooperative and Condominium Tax Abatement Program",
-    url: "https://www.nyc.gov/assets/finance/jump/crm/contact-ccop-condo-benefit.html",
-    tags: ["property-benefits"]
-  }
-];
-const sections$1 = [
-  ["property-related-inquiries", "Property-related inquiries"],
-  ["business-taxes", "Business taxes"],
-  ["parking-and-vehicles", "Parking & vehicles"],
-  ["property-benefits", "Property benefits"]
-];
-const sectionEls = (sectionsRef) => {
-  const markup = sectionsRef.map((section, i) => `
-<div data-tag="${section[0]}" ${i !== 0 ? "hidden" : ""}>
-<div class="flow w-full">
-  <h3>${section[1]}</h3>
-<ul role="list" class="grid" data-flow-space="s">
-${listItemEls(links.filter((i2) => i2.tags.includes(section[0])))}
-</ul>
-</div>
-  </div>
-`).join("");
-  return markup;
-};
-const listItemEls = (items) => items.map((item) => `<li>${linkEl(item)}</li>`).join("");
-const linkEl = ({ url, title }) => `
-  <a href="${url}" class="button">
-  <span class="title">
-${title}
-  </span>
-  <i class="i-ri:arrow-right-line"></i>
-  </a>
-`;
-const contactTopicsMarkup = sectionEls(sections$1);
-const sections = [
-  ["property-related-inquiries", "Property-related inquiries"],
-  ["business-taxes", "Business taxes"],
-  ["parking-and-vehicles", "Parking & vehicles"],
-  ["property-benefits", "Property benefits"]
-];
-sections.map(
-  (s, i) => `
-<div>
-<input type="radio" name="contact-filter" id="${s[0]}-input" value="${s[0]}" ${i === 0 ? "checked" : ""} data-action="filter" aria-controls="contact-topics">
-<label class="button" for="${s[0]}-input" data-variant="pill">${s[1]}</label>
-</div>
-`
-).join("");
-sections.map(
-  (s, i) => `
-<option ${i === 0 ? "selected" : ""} value="${s[0]}">${s[1]}</option>
-`
-).join("");
-const supportsContainerQueries = "container" in document.documentElement.style;
-if (!supportsContainerQueries) {
-  import("https://cdn.skypack.dev/container-query-polyfill");
-}
-try {
-  const exemptionsContainer = document.getElementById("exemptions");
-  if (exemptionsContainer) {
-    exemptionsContainer.innerHTML = exemptionsListMarkup;
-  }
-  const contactTopicsContainer = document.getElementById("contact-topics");
-  if (contactTopicsContainer) {
-    contactTopicsContainer.innerHTML = contactTopicsMarkup;
-  }
-  const suggestedContentContainer = document.getElementById("suggested-content");
-  if (suggestedContentContainer) {
-    suggestedContentContainer.innerHTML = suggestedContentListMarkup;
-  }
-} catch (e) {
-  console.error(e);
-}

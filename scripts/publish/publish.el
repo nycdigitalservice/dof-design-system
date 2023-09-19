@@ -161,6 +161,12 @@
               :publishing-directory ,(expand-file-name "../../docs/assets" pwd)
               :recursive t
               :publishing-function org-publish-attachment)
+            `("dofdocs:core-js"
+              :base-directory ,(expand-file-name "../../packages/core/dist" pwd)
+              :base-extension "css\\|js\\|woff2\\|ttf"
+              :publishing-directory ,(expand-file-name "../../docs/assets" pwd)
+              :recursive t
+              :publishing-function org-publish-attachment)
             ))
 
 (defun nyc/publish ()

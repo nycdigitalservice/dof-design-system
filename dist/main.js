@@ -544,6 +544,13 @@ const main = "";
   var is_alternating_default = (n) => n.every((el, i) => {
     return n[i & 1].nodeName == el.nodeName;
   });
+  var wrap_element_default = (el, newTag) => {
+    const parent = el.parentNode;
+    const elIndex = [...parent.children].indexOf(el);
+    const ce = document.createElement(newTag);
+    ce.appendChild(el);
+    parent.insertBefore(ce, parent.childNodes[elIndex + 1]);
+  };
   var chunkr = (arr, cond) => {
     const res = [];
     let chunk = [];
@@ -838,19 +845,42 @@ const main = "";
     }
   };
   customElements.define("nyc-tab-group", NYCTabGroup);
-  var wrapElement = (el, newTag) => {
-    const parent = el.parentNode;
-    const elIndex = [...parent.children].indexOf(el);
-    const ce = document.createElement(newTag);
-    ce.appendChild(el);
-    parent.insertBefore(ce, parent.childNodes[elIndex]);
-  };
   try {
     Array.from(
       document.querySelectorAll("[data-is=nyc-tab-group]")
-    ).map((el) => wrapElement(el, "nyc-tab-group"));
+    ).map((el) => wrap_element_default(el, "nyc-tab-group"));
   } catch (e) {
     console.error(`Could not initialize TabGroup: ${e}`);
+  }
+  var NYCTagFilter = class extends HTMLElement {
+    connectedCallback() {
+      if (this.isConnected) {
+        this.controllers = this.querySelectorAll("[aria-controls]");
+        if (this.controllers.length > 0) {
+          this.controllers.forEach((controller) => {
+            controller.addEventListener("change", ({ target }) => {
+              const { value } = target;
+              const controlsParent = document.getElementById(target.getAttribute("aria-controls"));
+              this.filterChildren(Array.from(controlsParent.querySelectorAll("[data-tag]")), value);
+            });
+          });
+        }
+      }
+    }
+    filterChildren(children, value) {
+      children.forEach((child) => {
+        const tags = child.dataset.tag.split(",");
+        tags.includes(value) || value === "other" || value === "" ? child.removeAttribute("hidden") : child.setAttribute("hidden", "");
+      });
+    }
+  };
+  customElements.define("nyc-tag-filter", NYCTagFilter);
+  try {
+    Array.from(
+      document.querySelectorAll("[data-is=nyc-tag-filter]")
+    ).map((el) => wrap_element_default(el, "nyc-tag-filter"));
+  } catch (e) {
+    console.error(`NYCTagFilter: ${e}`);
   }
 })();
 /*! Bundled license information:
@@ -1197,28 +1227,19 @@ const sections = [
   ["parking-and-vehicles", "Parking & vehicles"],
   ["property-benefits", "Property benefits"]
 ];
-const contactFiltersRadio = sections.map(
+sections.map(
   (s, i) => `
 <div>
-<input type="radio" name="contact-filter" id="${s[0]}-input" value="${s[0]}" ${i === 0 ? "checked" : ""}>
+<input type="radio" name="contact-filter" id="${s[0]}-input" value="${s[0]}" ${i === 0 ? "checked" : ""} data-action="filter" aria-controls="contact-topics">
 <label class="button" for="${s[0]}-input" data-variant="pill">${s[1]}</label>
 </div>
 `
 ).join("");
-const contactFiltersOptions = sections.map(
+sections.map(
   (s, i) => `
 <option ${i === 0 ? "selected" : ""} value="${s[0]}">${s[1]}</option>
 `
 ).join("");
-const contactFiltersMarkup = `
-<form>
-<div class="select md:hidden">
-<select aria-controls="contact-topics" data-action="filter">${contactFiltersOptions}</select>
-<i class="i-ri:arrow-down-s-line"></i></div>
-<div class="hidden md:flex gap-2" id="contact-filters-radiogroup" role="radiogroup" aria-labelledby="id-topic-select-table" aria-controls="contact-topics">
-${contactFiltersRadio}
-</div>
-</form>`;
 const supportsContainerQueries = "container" in document.documentElement.style;
 if (!supportsContainerQueries) {
   import("https://cdn.skypack.dev/container-query-polyfill");
@@ -1231,36 +1252,6 @@ try {
   const contactTopicsContainer = document.getElementById("contact-topics");
   if (contactTopicsContainer) {
     contactTopicsContainer.innerHTML = contactTopicsMarkup;
-  }
-  const filterChildren = (children, value) => {
-    children.forEach((child) => {
-      const tags = child.dataset.tag.split(",");
-      tags.includes(value) || value === "other" || value === "" ? child.removeAttribute("hidden") : child.setAttribute("hidden", "");
-    });
-  };
-  const contactFiltersContainer = document.getElementById("contact-filters");
-  if (contactFiltersContainer) {
-    contactFiltersContainer.innerHTML = contactFiltersMarkup;
-    const filterInputs = contactFiltersContainer.querySelectorAll("input[type=radio][name=contact-filter]");
-    contactFiltersContainer.addEventListener("change", (evt) => {
-      if (evt.target.matches("input[type=radio][name=contact-filter]")) {
-        const input = evt.target;
-        const { value } = input;
-        filterInputs.forEach((i) => i.removeAttribute("checked"));
-        input.setAttribute("checked", "checked");
-        filterChildren(Array.from(contactTopicsContainer.querySelectorAll("[data-tag]")), value);
-      }
-    });
-  }
-  const filterControls = document.querySelectorAll("[aria-controls][data-action=filter]");
-  if (filterControls.length > 0) {
-    filterControls.forEach((controller) => {
-      controller.addEventListener("change", ({ target }) => {
-        const { value } = target;
-        const controlsParent = document.getElementById(target.getAttribute("aria-controls"));
-        filterChildren(Array.from(controlsParent.children), value);
-      });
-    });
   }
   const suggestedContentContainer = document.getElementById("suggested-content");
   if (suggestedContentContainer) {
