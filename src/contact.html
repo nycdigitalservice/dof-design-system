@@ -15,9 +15,6 @@
       </header>
       <div class="container region">
         <div data-is="nyc-tab-group">
-        </div>
-        <nyc-tab-group></nyc-tab-group>
-        <div data-is="nyc-tab-group">
           <nav>
             <ul role="list" data-tab-list>
               <li>
@@ -49,9 +46,45 @@
           <section data-tab-panels>
             <div id="online">
               <div id="id-topic-select-label"><i class="i-mi:filter"></i> Select a topic</div>
-              <div id="contact-filters"></div>
-              <p>Click a tag to enable filter</p>
-              <div id="contact-topics"></div>
+              <div id="contact-filters" data-is="nyc-tag-filter">
+                <form>
+                  <div class="select md:hidden">
+                    <select aria-controls="contact-topics">
+                      <option selected="" value="property-related-inquiries">Property-related inquiries</option>
+
+                      <option value="business-taxes">Business taxes</option>
+
+                      <option value="parking-and-vehicles">Parking &amp; vehicles</option>
+
+                      <option value="property-benefits">Property benefits</option>
+                    </select>
+                    <i class="i-ri:arrow-down-s-line"></i></div>
+                  <div class="hidden md:flex gap-2" role="radiogroup" aria-labelledby="id-topic-select-table">
+
+                    <div>
+                      <input type="radio" name="contact-filter" id="property-related-inquiries-input" value="property-related-inquiries" checked="" aria-controls="contact-topics">
+                      <label class="button" for="property-related-inquiries-input" data-variant="pill">Property-related inquiries</label>
+                    </div>
+
+                    <div>
+                      <input type="radio" name="contact-filter" id="business-taxes-input" value="business-taxes" aria-controls="contact-topics">
+                      <label class="button" for="business-taxes-input" data-variant="pill">Business taxes</label>
+                    </div>
+
+                    <div>
+                      <input type="radio" name="contact-filter" id="parking-and-vehicles-input" value="parking-and-vehicles" aria-controls="contact-topics">
+                      <label class="button" for="parking-and-vehicles-input" data-variant="pill">Parking &amp; vehicles</label>
+                    </div>
+
+                    <div>
+                      <input type="radio" name="contact-filter" id="property-benefits-input" value="property-benefits" aria-controls="contact-topics">
+                      <label class="button" for="property-benefits-input" data-variant="pill">Property benefits</label>
+                    </div>
+                  </div>
+                </form>
+            </div>
+            <p>Click a tag to enable filter</p>
+            <div id="contact-topics"></div>
             </div>
             <div id="phone" class="flow">
               <h2>Phone</h2>

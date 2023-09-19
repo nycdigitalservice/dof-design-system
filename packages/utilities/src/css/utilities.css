@@ -37,6 +37,10 @@
   background: var(--nyc-sys-gradient-primary-light);
 }
 
+.text-base {
+  color: var(--nyc-sys-color-text) !important;
+}
+
 .shadow-base {
     box-shadow: var(--nyc-sys-shadow-base);
 }

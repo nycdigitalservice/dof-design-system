@@ -551,6 +551,15 @@
     return n[i & 1].nodeName == el.nodeName;
   });
 
+  // ../utilities/src/js/wrap-element.js
+  var wrap_element_default = (el, newTag) => {
+    const parent = el.parentNode;
+    const elIndex = [...parent.children].indexOf(el);
+    const ce = document.createElement(newTag);
+    ce.appendChild(el);
+    parent.insertBefore(ce, parent.childNodes[elIndex + 1]);
+  };
+
   // ../utilities/src/js/chunk.js
   var chunkr = (arr, cond) => {
     const res = [];
@@ -858,19 +867,46 @@
   customElements.define("nyc-tab-group", NYCTabGroup);
 
   // ../components/tab-group/src/index.js
-  var wrapElement = (el, newTag) => {
-    const parent = el.parentNode;
-    const elIndex = [...parent.children].indexOf(el);
-    const ce = document.createElement(newTag);
-    ce.appendChild(el);
-    parent.insertBefore(ce, parent.childNodes[elIndex]);
-  };
   try {
     Array.from(
       document.querySelectorAll("[data-is=nyc-tab-group]")
-    ).map((el) => wrapElement(el, "nyc-tab-group"));
+    ).map((el) => wrap_element_default(el, "nyc-tab-group"));
   } catch (e) {
     console.error(`Could not initialize TabGroup: ${e}`);
+  }
+
+  // ../components/tag-filter/src/tag-filter.js
+  var NYCTagFilter = class extends HTMLElement {
+    connectedCallback() {
+      if (this.isConnected) {
+        this.controllers = this.querySelectorAll("[aria-controls]");
+        if (this.controllers.length > 0) {
+          this.controllers.forEach((controller) => {
+            controller.addEventListener("change", ({ target }) => {
+              const { value } = target;
+              const controlsParent = document.getElementById(target.getAttribute("aria-controls"));
+              this.filterChildren(Array.from(controlsParent.querySelectorAll("[data-tag]")), value);
+            });
+          });
+        }
+      }
+    }
+    filterChildren(children, value) {
+      children.forEach((child) => {
+        const tags = child.dataset.tag.split(",");
+        tags.includes(value) || value === "other" || value === "" ? child.removeAttribute("hidden") : child.setAttribute("hidden", "");
+      });
+    }
+  };
+  customElements.define("nyc-tag-filter", NYCTagFilter);
+
+  // ../components/tag-filter/src/index.js
+  try {
+    Array.from(
+      document.querySelectorAll("[data-is=nyc-tag-filter]")
+    ).map((el) => wrap_element_default(el, "nyc-tag-filter"));
+  } catch (e) {
+    console.error(`NYCTagFilter: ${e}`);
   }
 })();
 /*! Bundled license information:

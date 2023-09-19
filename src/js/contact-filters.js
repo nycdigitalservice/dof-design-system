@@ -11,7 +11,7 @@ const sections = [
 const contactFiltersRadio = sections.map(
   (s,i) => `
 <div>
-<input type="radio" name="contact-filter" id="${s[0]}-input" value="${s[0]}" ${i === 0 ? 'checked' : ''}>
+<input type="radio" name="contact-filter" id="${s[0]}-input" value="${s[0]}" ${i === 0 ? 'checked' : ''} data-action="filter" aria-controls="contact-topics">
 <label class="button" for="${s[0]}-input" data-variant="pill">${s[1]}</label>
 </div>
 `).join('');
@@ -27,7 +27,7 @@ const contactFiltersMarkup = `
 <div class="select md:hidden">
 <select aria-controls="contact-topics" data-action="filter">${contactFiltersOptions}</select>
 <i class="i-ri:arrow-down-s-line"></i></div>
-<div class="hidden md:flex gap-2" id="contact-filters-radiogroup" role="radiogroup" aria-labelledby="id-topic-select-table" aria-controls="contact-topics">
+<div class="hidden md:flex gap-2" id="contact-filters-radiogroup" role="radiogroup" aria-labelledby="id-topic-select-table">
 ${contactFiltersRadio}
 </div>
 </form>`;

@@ -84,6 +84,12 @@ importers:
         specifier: workspace:^
         version: link:../../utilities
 
+  packages/components/tag-filter:
+    dependencies:
+      '@dofds/utilities':
+        specifier: workspace:^
+        version: link:../../utilities
+
   packages/components/tooltip: {}
 
   packages/composition: {}
@@ -120,6 +126,9 @@ importers:
       '@dofds/tab-group':
         specifier: workspace:^
         version: link:../components/tab-group
+      '@dofds/tag-filter':
+        specifier: workspace:^
+        version: link:../components/tag-filter
       '@dofds/themes':
         specifier: workspace:^
         version: link:../themes

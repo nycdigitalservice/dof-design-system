@@ -10,6 +10,7 @@ i-ri:upload-cloud-2-line
 i-ri:checkbox-circle-fill
 i-ri:road-map-line
 i-ri:arrow-down-s-line
+i-ri:arrow-left-s-line
 i-ri:table-2
 i-ri:mail-line
 i-ri:mail-send-line

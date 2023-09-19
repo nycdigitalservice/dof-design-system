@@ -1,0 +1,7 @@
+{
+  "name": "@dofds/tag-filter",
+  "main": "src/index.js",
+  "dependencies": {
+    "@dofds/utilities": "workspace:^"
+  }
+}

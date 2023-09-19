@@ -15,7 +15,7 @@
     height: 100%;
     padding: 0;
   }
-  & input[checked] + label {
+  & input:checked + label {
     color: var(--nyc-cmp-button-color-hover);
     background: var(--nyc-cmp-button-background-hover);
     border-color: var(--nyc-cmp-button-background-hover);

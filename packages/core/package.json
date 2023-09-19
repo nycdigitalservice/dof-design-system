@@ -19,6 +19,7 @@
     "@dofds/reset": "workspace:^",
     "@dofds/select": "workspace:^",
     "@dofds/tab-group": "workspace:^",
+    "@dofds/tag-filter": "workspace:^",
     "@dofds/themes": "workspace:^",
     "@dofds/tooltip": "workspace:^",
     "@dofds/utilities": "workspace:^",
