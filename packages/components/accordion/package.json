@@ -1,7 +1,11 @@
 {
   "name": "@dofds/accordion",
   "main": "src/index.js",
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --outfile=dist/nyc-accordion.js"
+  },
   "dependencies": {
-    "@dofds/utilities": "workspace:^"
+    "@dofds/utilities": "workspace:^",
+    "esbuild": "^0.19.1"
   }
 }

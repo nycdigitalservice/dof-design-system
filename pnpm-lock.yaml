@@ -63,6 +63,9 @@ importers:
       '@dofds/utilities':
         specifier: workspace:^
         version: link:../../utilities
+      esbuild:
+        specifier: ^0.19.1
+        version: 0.19.1
 
   packages/components/alert: {}
 
@@ -71,6 +74,9 @@ importers:
       '@dofds/utilities':
         specifier: workspace:^
         version: link:../../utilities
+      esbuild:
+        specifier: ^0.19.1
+        version: 0.19.1
 
   packages/components/card: {}
 

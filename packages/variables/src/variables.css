@@ -26,28 +26,28 @@
   );
   /* warning: gradient uses a rotation that is not supported by
      CSS and may not behave as expected */
-  /* Step -2: 11.11px → 11.52px */
+  /* Step -2: 11.11px -> 11.52px */
   --nyc-ref-dimension-size-step--2: clamp(0.69rem, calc(0.68rem + 0.06vw), 0.72rem);
   
-  /* Step -1: 13.33px → 14.40px */
+  /* Step -1: 13.33px -> 14.40px */
   --nyc-ref-dimension-size-step--1: clamp(0.83rem, calc(0.80rem + 0.15vw), 0.90rem);
   
-  /* Step 0: 16.00px → 18.00px */
+  /* Step 0: 16.00px -> 18.00px */
   --nyc-ref-dimension-size-step-0: clamp(1.00rem, calc(0.94rem + 0.28vw), 1.13rem);
   
-  /* Step 1: 19.20px → 22.50px */
+  /* Step 1: 19.20px -> 22.50px */
   --nyc-ref-dimension-size-step-1: clamp(1.20rem, calc(1.11rem + 0.47vw), 1.41rem);
   
-  /* Step 2: 23.04px → 28.13px */
+  /* Step 2: 23.04px -> 28.13px */
   --nyc-ref-dimension-size-step-2: clamp(1.44rem, calc(1.30rem + 0.72vw), 1.76rem);
   
-  /* Step 3: 27.65px → 35.16px */
+  /* Step 3: 27.65px -> 35.16px */
   --nyc-ref-dimension-size-step-3: clamp(1.73rem, calc(1.51rem + 1.07vw), 2.20rem);
   
-  /* Step 4: 33.18px → 43.95px */
+  /* Step 4: 33.18px -> 43.95px */
   --nyc-ref-dimension-size-step-4: clamp(2.07rem, calc(1.77rem + 1.53vw), 2.75rem);
   
-  /* Step 5: 39.81px → 54.93px */
+  /* Step 5: 39.81px -> 54.93px */
   --nyc-ref-dimension-size-step-5: clamp(2.49rem, calc(2.06rem + 2.15vw), 3.43rem);
   --nyc-sys-dimension-space-3xs: clamp(0.25rem, calc(0.22rem + 0.14vw), 0.31rem);
   --nyc-sys-dimension-space-2xs: clamp(0.50rem, calc(0.47rem + 0.14vw), 0.56rem);
